@@ -1,0 +1,59 @@
+
+# Cmake
+**/cmake-build-debug
+**/CMakeCache.txt
+**/cmake_install.cmake
+**/install_manifest.txt
+**/CMakeFiles/
+**/CTestTestfile.cmake
+**/Makefile
+**/*.cbp
+**/CMakeScripts
+**/compile_commands.json
+
+DartConfiguration.tcl
+Testing/
+tests/tests
+tests/vendor/googletest-build/
+tests/vendor/googletest-download/
+tests/vendor/googletest-src/
+
+# Local
+.idea/
+build/**/*
+bin/*
+test/test_runner
+
+## Tomado del repositorio de gitignore
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
