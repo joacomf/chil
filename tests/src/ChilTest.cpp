@@ -1,5 +1,5 @@
 #include "Chil.cpp"
-#include "Dado.cpp"
+#include "modelo/Dado.cpp"
 #include "gtest/gtest.h"
 #include "mocks/MockFramework.hpp"
 

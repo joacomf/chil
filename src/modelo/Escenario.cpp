@@ -1,4 +1,4 @@
-#include "Escenario.h"
+#include "modelo/Escenario.h"
 
 
 Escenario::Escenario(const char *nombre) {

@@ -1,7 +1,7 @@
 #include <string>
 #include "../include/Chil.h"
-#include "Escenario.h"
-#include "Dado.h"
+#include "modelo/Escenario.h"
+#include "modelo/Dado.h"
 
 Chil::Chil(Framework* framework) {
   this->framework = framework;

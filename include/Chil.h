@@ -2,8 +2,8 @@
 #define CHIL_CHIL_H
 
 #include "framework/Framework.h"
-#include "Escenario.h"
-#include "Dado.h"
+#include "modelo/Escenario.h"
+#include "modelo/Dado.h"
 
 #include <list>
 #include <string>
