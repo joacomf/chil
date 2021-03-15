@@ -50,3 +50,21 @@ TEST(ChilTest, deberiaEjecutarLaAccionDelPasoDeUnEscenario) {
 
   delete framework;
 }
+
+TEST(ChilTest, deberiaEjecutarLaAccionDelPasoDeUnEscenarioConMacro) {
+  framework = new MockFramework();
+  Chil *chil = new Chil(framework);
+
+  EXPECT_CALL(*framework, consola(_)).Times(AtLeast(2));
+
+  ESCENARIO(chil, "Primer escenario con dos pasos", [](Chil *chil){
+    PASO(chil, "Imprime por consola el saludo de bienvenida", []() {
+        framework->consola("Hola mundo!");
+    });
+    PASO(chil, "Imprime por consola el saludo de despedida", []() {
+        framework->consola("Adios mundo!");
+    });
+  });
+
+  delete framework;
+}

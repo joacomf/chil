@@ -7,6 +7,7 @@
 
 #include <list>
 #include <string>
+
 using namespace std;
 
 class Chil {
@@ -27,6 +28,9 @@ private:
     Escenario *_escenario;
     list<Escenario> _escenarios;
 };
+
+
+#include "macros.h"
 
 
 #endif //CHIL_CHIL_H

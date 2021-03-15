@@ -1,6 +1,5 @@
 #include "modelo/Escenario.h"
 
-
 Escenario::Escenario(const char *nombre) {
   this->nombre = nombre;
 }

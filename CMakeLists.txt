@@ -12,7 +12,7 @@ add_executable(
         include/modelo/Paso.h
         include/modelo/Dado.h
         src/modelo/Dado.cpp
-)
+        include/macros.h)
 
 target_include_directories (
         chil
