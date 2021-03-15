@@ -8,6 +8,8 @@
 
 class Framework {
 
+public:
+    virtual void consola(const char *string) = 0;
 };
 
 

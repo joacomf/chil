@@ -1,8 +1,9 @@
 #ifndef CHIL_CHIL_H
 #define CHIL_CHIL_H
 
-#include <framework/Framework.h>
+#include "framework/Framework.h"
 #include "Escenario.h"
+#include "Dado.h"
 
 #include <list>
 #include <string>
@@ -19,6 +20,8 @@ public:
     void escenario(const char *nombre);
 
     void finalizarEscenario();
+
+    void paso(Paso *paso);
 
 private:
     Escenario *_escenario;

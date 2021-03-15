@@ -18,7 +18,7 @@ target_include_directories (
         tests
         PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${CMAKE_CURRENT_SOURCE_DIR}/../include
+        ../include
         ${CMAKE_CURRENT_SOURCE_DIR}/../src
 )
 

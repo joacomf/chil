@@ -1,8 +1,12 @@
 #include "Chil.cpp"
+#include "Dado.cpp"
 #include "gtest/gtest.h"
-#include "mocks/MockFramework.h"
+#include "mocks/MockFramework.hpp"
 
-MockFramework *framework;
+MockFramework* framework;
+
+using ::testing::AtLeast;
+using ::testing::_;
 
 TEST(ChilTest, deberiaCrearseExitosamenteConElFrameworkIndicado) {
   framework = new MockFramework();
@@ -24,5 +28,26 @@ TEST(ChilTest, deberiaImprimirElResutladoDeDosEscenarioNuevo) {
   string reporte = chil->imprimir_reporte();
 
   ASSERT_EQ(reporte, "Escenario: Primer escenario sin pasos\n\n\nEscenario: Segundo escenario sin pasos\n\n\n");
+  delete framework;
+}
+
+TEST(ChilTest, deberiaImprimirElResutladoDeUnEscenarioNuevoConSusPasos) {
+  framework = new MockFramework();
+  Chil *chil = new Chil(framework);
+
+  EXPECT_CALL(*framework, consola(_)).Times(AtLeast(1));
+
+  chil->escenario("Primer escenario con dos pasos");
+
+  Paso *imprimePorConsola = new Dado("Imprime hola mundo por consola", []() {
+      framework->consola("Hola mundo!");
+  });
+
+  chil->paso(imprimePorConsola);
+  chil->finalizarEscenario();
+
+  string reporte = chil->imprimir_reporte();
+
+  //ASSERT_EQ(reporte, "Escenario: Primer escenario sin pasos\n\n\nEscenario: Segundo escenario sin pasos\n\n\n");
   delete framework;
 }
