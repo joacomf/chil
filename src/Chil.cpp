@@ -9,6 +9,7 @@ void Chil::escenario(const char *nombre) {
 }
 
 void Chil::finalizarEscenario() {
+  this->_escenario->finalizar(framework);
   this->_escenarios.push_back(*this->_escenario);
 }
 

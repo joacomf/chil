@@ -1,8 +1,11 @@
 #include <modelo/Paso.h>
 #include "gtest/gtest.h"
 
+bool funcionExitosa(){ return true; }
+bool funcionFallida(){ return false; }
+
 TEST(ResultadoTest, seGeneraUnResultadoConNombrePaso) {
-  auto* paso = new Paso("Envia comando a pin 13", [](){});
+  auto* paso = new Paso("Envia comando a pin 13", funcionExitosa);
 
   string nombreDelPaso = paso->obtenerNombre();
 
@@ -10,7 +13,7 @@ TEST(ResultadoTest, seGeneraUnResultadoConNombrePaso) {
 }
 
 TEST(ResultadoTest, seObtieneElTiempoLuegoDeRegistrarInicioYFin) {
-  auto* paso = new Paso("Envia comando a pin 13", [](){});
+  auto* paso = new Paso("Envia comando a pin 13", funcionExitosa);
 
   paso->inicio(102450L);
   paso->fin(103000L);
@@ -21,11 +24,11 @@ TEST(ResultadoTest, seObtieneElTiempoLuegoDeRegistrarInicioYFin) {
 }
 
 TEST(ResultadoTest, alTenerMostrarUnResultadoOKSeExpresaElExitoNombreYTiempoTranscurrido) {
-  auto* paso = new Paso("Envia comando a pin 13", [](){});
+  auto* paso = new Paso("Envia comando a pin 13", funcionFallida);
 
   paso->inicio(103540L);
   paso->fin(103580L);
-  paso->exito(false);
+  paso->ejecutar();
 
   string resultado = paso->mostrar();
 

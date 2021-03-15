@@ -4,6 +4,7 @@
 #include <list>
 #include <string>
 #include <modelo/Paso.h>
+#include <framework/Framework.h>
 
 using namespace std;
 
@@ -16,6 +17,10 @@ public:
     string imprimirResultado();
 
     void nuevo(Paso *paso);
+
+    int obtenerCantidadPasos();
+
+    void finalizar(Framework *framework);
 
 private:
     list<Paso> _pasos;

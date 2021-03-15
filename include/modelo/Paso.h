@@ -8,7 +8,7 @@ using namespace std;
 
 class Paso {
 public:
-    Paso(const char *nombre, void (*funcion)());
+    Paso(const char *nombre, bool (*funcion)());
 
     void inicio(long microsegundos);
     void fin(long microsegundos);
@@ -26,7 +26,7 @@ public:
 
 private:
     const char *nombre;
-    void (*_funcion)();
+    bool (*_funcion)();
 
     bool esExitoso = true;
 

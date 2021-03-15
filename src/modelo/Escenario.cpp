@@ -21,3 +21,17 @@ string Escenario::imprimirResultado() {
   return reporteDeEscenario;
 }
 
+int Escenario::obtenerCantidadPasos() {
+  return this->_pasos.size();
+}
+
+void Escenario::finalizar(Framework *framework) {
+  list<Paso>::iterator paso;
+
+  for (paso = this->_pasos.begin(); paso != this->_pasos.end(); ++paso) {
+    paso->inicio(framework->microsegundos());
+    paso->ejecutar();
+    paso->fin(framework->microsegundos());
+  }
+}
+

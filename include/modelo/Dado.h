@@ -5,7 +5,7 @@
 
 class Dado : public Paso{
 public:
-    Dado(const char *nombre, void (*funcion)());
+    Dado(const char *nombre, bool (*funcion)());
 };
 
 

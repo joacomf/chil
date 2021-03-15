@@ -3,7 +3,7 @@
 #include "gtest/gtest.h"
 #include "mocks/MockFramework.hpp"
 
-MockFramework* framework;
+MockFramework *framework;
 
 using ::testing::AtLeast;
 using ::testing::_;
@@ -44,6 +44,7 @@ TEST(ChilTest, deberiaEjecutarLaAccionDelPasoDeUnEscenario) {
 
   Paso *dadoQueImprime = new Dado("Imprime hola mundo por consola", []() {
       framework->consola("Hola mundo!");
+      return true;
   });
 
   dadoQueImprime->ejecutar();
@@ -53,16 +54,24 @@ TEST(ChilTest, deberiaEjecutarLaAccionDelPasoDeUnEscenario) {
 
 TEST(ChilTest, deberiaEjecutarLaAccionDelPasoDeUnEscenarioConMacro) {
   framework = new MockFramework();
-  Chil *chil = new Chil(framework);
 
   EXPECT_CALL(*framework, consola(_)).Times(AtLeast(2));
+  EXPECT_CALL(*framework, microsegundos())
+          .WillOnce(Return(1L))
+          .WillOnce(Return(50L))
+          .WillOnce(Return(100L))
+          .WillOnce(Return(200L));
+
+  Chil *chil = new Chil(framework);
 
   ESCENARIO(chil, "Primer escenario con dos pasos", [](Chil *chil){
     PASO(chil, "Imprime por consola el saludo de bienvenida", []() {
         framework->consola("Hola mundo!");
+        return true;
     });
     PASO(chil, "Imprime por consola el saludo de despedida", []() {
         framework->consola("Adios mundo!");
+        return true;
     });
   });
 
@@ -85,9 +94,11 @@ TEST(ChilTest, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
   ESCENARIO(chil, "Primer escenario con dos pasos", [](Chil *chil){
       PASO(chil, "Imprime por consola el saludo de bienvenida", []() {
           framework->consola("Hola mundo!");
+          return true;
       });
       PASO(chil, "Imprime por consola el saludo de despedida", []() {
           framework->consola("Adios mundo!");
+          return true;
       });
   });
 

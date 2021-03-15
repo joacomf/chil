@@ -1,5 +1,5 @@
 #include "modelo/Dado.h"
 
-Dado::Dado(const char *nombre, void (*funcion)()) : Paso(nombre, funcion) {
+Dado::Dado(const char *nombre, bool (*funcion)()) : Paso(nombre, funcion) {
 }
 

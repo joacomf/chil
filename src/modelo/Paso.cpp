@@ -1,6 +1,6 @@
 #include <modelo/Paso.h>
 
-Paso::Paso(const char *nombre, void (*funcion)()) {
+Paso::Paso(const char *nombre, bool (*funcion)()) {
   this->nombre = nombre;
   this->_funcion = funcion;
 }
@@ -27,7 +27,7 @@ string Paso::mostrar() {
 }
 
 void Paso::ejecutar() {
-  this->_funcion();
+  this->esExitoso = this->_funcion();
 }
 
 string Paso::obtenerNombre() {
