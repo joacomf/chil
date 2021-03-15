@@ -9,8 +9,8 @@ add_subdirectory(vendor)
 add_executable(
         tests
         src/tests.cpp
-        # src/test_obj.cpp
-)
+        src/ChilTest.cpp)
+
 add_test(NAME check COMMAND tests)
 
 target_include_directories (

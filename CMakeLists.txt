@@ -4,7 +4,16 @@ project(chil)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_library(chil src/Chil.cpp include/Chil.h)
+add_executable(
+        chil
+        src/Chil.cpp
+        src/main.cpp)
+
+target_include_directories (
+        chil
+        PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
 
 # Uncomment for tests
 include(CTest)
