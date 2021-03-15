@@ -31,7 +31,7 @@ TEST(ChilTest, deberiaImprimirElResutladoDeDosEscenarioNuevo) {
   delete framework;
 }
 
-TEST(ChilTest, deberiaImprimirElResutladoDeUnEscenarioNuevoConSusPasos) {
+TEST(ChilTest, deberiaEjecutarLaAccionDelPasoDeUnEscenario) {
   framework = new MockFramework();
   Chil *chil = new Chil(framework);
 
@@ -48,6 +48,5 @@ TEST(ChilTest, deberiaImprimirElResutladoDeUnEscenarioNuevoConSusPasos) {
 
   string reporte = chil->imprimir_reporte();
 
-  //ASSERT_EQ(reporte, "Escenario: Primer escenario sin pasos\n\n\nEscenario: Segundo escenario sin pasos\n\n\n");
   delete framework;
 }
