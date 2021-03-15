@@ -1,7 +1,7 @@
 #ifndef CHIL_DADO_H
 #define CHIL_DADO_H
 
-#include <modelo/Paso.h>
+#include "Paso.h"
 
 class Dado : public Paso{
 public:

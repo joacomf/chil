@@ -1,7 +1,4 @@
-#include <string>
 #include "../include/Chil.h"
-#include "modelo/Escenario.h"
-#include "modelo/Dado.h"
 
 Chil::Chil(Framework* framework) {
   this->framework = framework;
@@ -29,5 +26,5 @@ string Chil::imprimir_reporte() {
 }
 
 void Chil::paso(Paso *paso) {
-
+  _escenario->nuevo(paso);
 }

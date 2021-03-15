@@ -1,20 +1,39 @@
 #ifndef CHIL_PASO_H
 #define CHIL_PASO_H
 
+#include <string>
+#include <utils/stringUtils.h>
+
+using namespace std;
+
 class Paso {
 public:
-    Paso(const char *nombre, void (*funcion)()) {
-      this->nombre = nombre;
-      this->_funcion = funcion;
+    Paso(const char *nombre, void (*funcion)());
 
-      this->_funcion();
-    }
+    void inicio(long microsegundos);
+    void fin(long microsegundos);
 
+    string mostrar();
+
+
+    void ejecutar();
+
+    string obtenerNombre();
+
+    unsigned long tiempo() const;
+
+    void exito(bool esExitoso);
 
 private:
     const char *nombre;
-
     void (*_funcion)();
+
+    bool esExitoso = true;
+
+    unsigned long tiempoFin = 0;
+    unsigned long tiempoInicio = 0;
+
 };
+
 
 #endif

@@ -10,7 +10,9 @@ add_executable(
         tests
         src/tests.cpp
         src/ChilTest.cpp
-        src/modelo/EscenarioTest.cpp)
+        src/modelo/EscenarioTest.cpp
+        ../src/modelo/Paso.cpp
+        ../src/utils/stringUtils.cpp src/modelo/PasoTest.cpp)
 
 add_test(NAME check COMMAND tests)
 
@@ -18,11 +20,9 @@ target_include_directories (
         tests
         PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ../include
+        ${CMAKE_CURRENT_SOURCE_DIR}/../include
         ${CMAKE_CURRENT_SOURCE_DIR}/../src
 )
-
-set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 # Link Libreria Google Test
 target_link_libraries(tests gmock_main)

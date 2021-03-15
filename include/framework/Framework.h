@@ -10,6 +10,8 @@ class Framework {
 
 public:
     virtual void consola(const char *string) = 0;
+
+    virtual long microsegundos() = 0;
 };
 
 

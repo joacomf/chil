@@ -11,6 +11,7 @@ class MockFramework : public Framework{
 
   public:
     MOCK_METHOD(void, consola, (const char *nombre), (override));
+    MOCK_METHOD(long, microsegundos, (), (override));
 };
 
 #endif //CHIL_MOCKFRAMEWORK_HPP

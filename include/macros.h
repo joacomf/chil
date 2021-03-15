@@ -6,6 +6,9 @@
 
 void ejecutarPaso(Chil *chil, const char *nombre, void (*funcion)()) {
   Paso *paso = new Dado(nombre, funcion);
+  paso->inicio(chil->framework->microsegundos());
+  paso->ejecutar();
+  paso->fin(chil->framework->microsegundos());
   chil->paso(paso);
 }
 
