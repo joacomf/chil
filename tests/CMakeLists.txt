@@ -9,7 +9,8 @@ add_subdirectory(vendor)
 add_executable(
         tests
         src/tests.cpp
-        src/ChilTest.cpp)
+        src/ChilTest.cpp
+        src/modelo/EscenarioTest.cpp)
 
 add_test(NAME check COMMAND tests)
 

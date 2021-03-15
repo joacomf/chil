@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(
         chil
         src/Chil.cpp
-        src/main.cpp)
+        src/main.cpp src/Escenario.cpp include/Escenario.h)
 
 target_include_directories (
         chil
