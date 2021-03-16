@@ -4,7 +4,7 @@
 bool funcionExitosa(){ return true; }
 bool funcionFallida(){ return false; }
 
-TEST(ResultadoTest, seGeneraUnResultadoConNombrePaso) {
+TEST(PasoTest, seGeneraUnResultadoConNombrePaso) {
   auto* paso = new Paso("Envia comando a pin 13", funcionExitosa);
 
   string nombreDelPaso = paso->obtenerNombre();
@@ -12,7 +12,7 @@ TEST(ResultadoTest, seGeneraUnResultadoConNombrePaso) {
   ASSERT_EQ(nombreDelPaso, "Envia comando a pin 13");
 }
 
-TEST(ResultadoTest, seObtieneElTiempoLuegoDeRegistrarInicioYFin) {
+TEST(PasoTest, seObtieneElTiempoLuegoDeRegistrarInicioYFin) {
   auto* paso = new Paso("Envia comando a pin 13", funcionExitosa);
 
   paso->inicio(102450L);
@@ -23,7 +23,7 @@ TEST(ResultadoTest, seObtieneElTiempoLuegoDeRegistrarInicioYFin) {
   ASSERT_EQ(tiempo, 550L);
 }
 
-TEST(ResultadoTest, alTenerMostrarUnResultadoOKSeExpresaElExitoNombreYTiempoTranscurrido) {
+TEST(PasoTest, alTenerMostrarUnResultadoOKSeExpresaElExitoNombreYTiempoTranscurrido) {
   auto* paso = new Paso("Envia comando a pin 13", funcionFallida);
 
   paso->inicio(103540L);

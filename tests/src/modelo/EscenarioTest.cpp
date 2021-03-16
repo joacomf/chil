@@ -9,7 +9,7 @@ using ::testing::Return;
 bool pasoExitoso(){ return true;}
 bool pasoFallido(){ return false;}
 
-TEST(Escenario, alGenerarReporteNoTieneNingunResultado) {
+TEST(EscenarioTest, alGenerarReporteNoTieneNingunResultado) {
   auto* escenario = new Escenario("Escenario nulo");
   string resultado = escenario->imprimirResultado();
   int cantidadDePasos = escenario->obtenerCantidadPasos();
@@ -18,7 +18,7 @@ TEST(Escenario, alGenerarReporteNoTieneNingunResultado) {
   ASSERT_EQ(cantidadDePasos, 0);
 }
 
-TEST(Escenario, alMostrarElReporteFinalSeListaEnUnaLineaCadaResultado) {
+TEST(EscenarioTest, alMostrarElReporteFinalSeListaEnUnaLineaCadaResultado) {
 
   auto *framework = new MockFramework();
   auto* escenario = new Escenario("Deja de recibir comando en pin 1 para pasar comando al pin 12");
@@ -32,9 +32,7 @@ TEST(Escenario, alMostrarElReporteFinalSeListaEnUnaLineaCadaResultado) {
           .WillOnce(Return(400L));
 
   auto *paso1 = new Paso("Recibe comando en el pin 1", pasoExitoso);
-
   auto *paso2 = new Paso("Deja de recibir comando en el pin 1", pasoExitoso);
-
   auto *paso3 = new Paso("Recibe comando en el pin 12", pasoFallido);
 
   escenario->nuevo(paso1);
