@@ -1,5 +1,4 @@
 #include "Chil.cpp"
-#include "modelo/Dado.cpp"
 #include "gtest/gtest.h"
 #include "mocks/MockFramework.hpp"
 
@@ -42,7 +41,7 @@ TEST(ChilTest, deberiaEjecutarLaAccionDelPasoDeUnEscenario) {
 
   chil->escenario("Primer escenario con dos pasos");
 
-  Paso *dadoQueImprime = new Dado("Imprime hola mundo por consola", []() {
+  Paso *dadoQueImprime = new Paso("Imprime hola mundo por consola", []() {
       framework->consola("Hola mundo!");
       return true;
   });

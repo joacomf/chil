@@ -9,7 +9,6 @@ add_executable(
         src/Chil.cpp
         src/main.cpp
         src/modelo/Escenario.cpp
-        src/modelo/Dado.cpp
         src/modelo/Paso.cpp
         src/utils/stringUtils.cpp
 )

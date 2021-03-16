@@ -5,7 +5,7 @@
 #include "Chil.h"
 
 void ejecutarPaso(Chil *chil, const char *nombre, bool (*funcion)()) {
-  Paso *paso = new Dado(nombre, funcion);
+  Paso *paso = new Paso(nombre, funcion);
   chil->paso(paso);
 }
 

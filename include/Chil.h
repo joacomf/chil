@@ -3,7 +3,6 @@
 
 #include "framework/Framework.h"
 #include "modelo/Escenario.h"
-#include "modelo/Dado.h"
 
 #include <list>
 #include <string>
