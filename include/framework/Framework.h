@@ -14,6 +14,8 @@ public:
     virtual long microsegundos() = 0;
 
     virtual void escribir(int pin, int valor) = 0;
+
+    virtual int leer(int pin) = 0;
 };
 
 

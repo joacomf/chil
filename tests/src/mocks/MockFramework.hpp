@@ -13,6 +13,8 @@ class MockFramework : public Framework{
     MOCK_METHOD(void, consola, (const char *nombre), (override));
     MOCK_METHOD(long, microsegundos, (), (override));
     MOCK_METHOD(void, escribir, (int pin, int valor), (override));
+    MOCK_METHOD(int, leer, (int pin), (override));
+
 };
 
 #endif //CHIL_MOCKFRAMEWORK_HPP

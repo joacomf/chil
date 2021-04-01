@@ -2,6 +2,10 @@
 
 Acciones::Acciones(Framework *framework) : framework(framework) {}
 
-void Acciones::envioComandoDeAltoAl(int pin) {
+void Acciones::envioBanderaDeAltoAl(int pin) {
   framework->escribir(pin, Acciones::COMANDO_ALTO);
+}
+
+int Acciones::leoValorEn(int pin) {
+  return framework->leer(pin);
 }

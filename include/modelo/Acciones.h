@@ -7,9 +7,11 @@
 class Acciones {
 
 public:
-    Acciones(Framework *framework);
+    explicit Acciones(Framework *framework);
 
-    void envioComandoDeAltoAl(int pin);
+    void envioBanderaDeAltoAl(int pin);
+
+    int leoValorEn(int i);
 
 private:
     Framework* framework;
