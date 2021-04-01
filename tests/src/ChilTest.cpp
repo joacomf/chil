@@ -8,7 +8,6 @@ using ::testing::AtLeast;
 using ::testing::_;
 using ::testing::Return;
 
-
 TEST(ChilTest, deberiaCrearseExitosamenteConElFrameworkIndicado) {
   framework = new MockFramework();
   Chil *chil = new Chil(framework);
@@ -104,6 +103,24 @@ TEST(ChilTest, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
   string reporte = chil->imprimir_reporte();
 
   ASSERT_EQ(reporte, "Escenario: Primer escenario con dos pasos\n\n[OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg\n[OK] Imprime por consola el saludo de despedida - ejecuto en 100 useg\n\n");
+
+  delete framework;
+}
+
+TEST(ChilTest, deberiaEjecutarPasosPredefinidosAlLlamarlosDesdeLasAcciones) {
+  framework = new MockFramework();
+  Chil *chil = new Chil(framework);
+
+  ESCENARIO(chil, "Primer escenario con dos pasos", [](Chil *chil){
+      PASO(chil, "Presiono boton rojo", []() {
+          const int botonRojo = 5;
+          //chil->acciones()->envioComandoDeAltoAl(botonRojo);
+          //chil->acciones()->envioComandoDeAltoAl(botonRojo);
+
+          return false;
+      });
+  });
+
 
   delete framework;
 }

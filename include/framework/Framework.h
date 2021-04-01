@@ -12,6 +12,8 @@ public:
     virtual void consola(const char *string) = 0;
 
     virtual long microsegundos() = 0;
+
+    virtual void escribir(int pin, int valor) = 0;
 };
 
 

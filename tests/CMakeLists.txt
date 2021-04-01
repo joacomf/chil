@@ -8,11 +8,16 @@ add_subdirectory(vendor)
 
 add_executable(
         tests
+
         src/tests.cpp
         src/ChilTest.cpp
         src/modelo/EscenarioTest.cpp
+        src/modelo/PasoTest.cpp
+
         ../src/modelo/Paso.cpp
-        ../src/utils/stringUtils.cpp src/modelo/PasoTest.cpp)
+        ../src/modelo/Acciones.cpp
+        ../src/utils/stringUtils.cpp
+        src/modelo/AccionesTest.cpp)
 
 add_test(NAME check COMMAND tests)
 

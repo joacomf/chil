@@ -11,7 +11,7 @@ add_executable(
         src/modelo/Escenario.cpp
         src/modelo/Paso.cpp
         src/utils/stringUtils.cpp
-)
+        src/modelo/Acciones.cpp include/modelo/Acciones.h)
 
 target_include_directories (
         chil
