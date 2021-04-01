@@ -15,7 +15,6 @@ public:
 
     string mostrar();
 
-
     void ejecutar();
 
     string obtenerNombre();
