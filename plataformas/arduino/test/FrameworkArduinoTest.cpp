@@ -17,6 +17,16 @@ test(deberiaEncenderElLedIndicado) {
   assertEqual(framework->leer(led), HIGH);
 }
 
+test(deberiaObtenerElTiempoEnMicrosegundos) {
+  unsigned long cero = 0;
+
+  unsigned long primeraMedicion = framework->microsegundos();
+  unsigned long segundaMedicion = framework->microsegundos();
+
+  assertMore(primeraMedicion, cero);
+  assertMore(segundaMedicion, primeraMedicion);
+}
+
 void loop() {
   TestRunner::run();
 }
