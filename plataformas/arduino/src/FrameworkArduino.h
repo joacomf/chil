@@ -2,9 +2,8 @@
 #define CHIL_FRAMEWORKARDUINO_H
 
 #include <Arduino.h>
-#include <Framework.h>
 
-class FrameworkArduino: public Framework{
+class FrameworkArduino{
 
 public:
     FrameworkArduino();
@@ -12,6 +11,7 @@ public:
     int leer(int pin);
     void demorar(int milisegundos);
     unsigned long microsegundos();
+    void pinSalida(int pin);
 };
 
 
