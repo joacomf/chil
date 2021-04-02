@@ -3,12 +3,10 @@
 
 using namespace aunit;
 
-FrameworkArduino *framework;
+FrameworkArduino *framework = new FrameworkArduino();;
 int led = 2;
 
-void setup() {
-  Serial.begin(115200);
-}
+void setup() {}
 
 test(deberiaEncenderElLedIndicado) {
   framework->pinSalida(led);
@@ -48,7 +46,7 @@ test(deberiaDemorar100milisegundosEntreLasMediciones) {
 
   long diferenciaDeTiempo = segundaMedicion - primeraMedicion;
 
-  assertEqual(diferenciaDeTiempo, tiempoDeDemora);
+  assertMoreOrEqual(diferenciaDeTiempo, tiempoDeDemora);
 }
 
 void loop() {

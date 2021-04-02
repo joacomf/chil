@@ -1,6 +1,7 @@
 #include "FrameworkArduino.h"
 
 FrameworkArduino::FrameworkArduino(){
+    Serial.begin(FrameworkArduino::velocidadSerial);
 }
 
 void FrameworkArduino::escribir(int pin, int valor){

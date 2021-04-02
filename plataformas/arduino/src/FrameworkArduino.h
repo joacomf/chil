@@ -4,6 +4,8 @@
 #include <Arduino.h>
 
 class FrameworkArduino{
+private:
+    int velocidadSerial = 115200;
 
 public:
     FrameworkArduino();
