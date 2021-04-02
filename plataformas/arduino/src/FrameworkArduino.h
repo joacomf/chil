@@ -10,6 +10,7 @@ public:
     void escribir(int pin, int valor);
     int leer(int pin);
     void demorar(int milisegundos);
+    unsigned long milisegundos();
     unsigned long microsegundos();
     void pinSalida(int pin);
 };

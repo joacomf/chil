@@ -24,6 +24,18 @@ test(deberiaObtenerElTiempoEnMicrosegundos) {
   unsigned long segundaMedicion = framework->microsegundos();
 
   assertMore(primeraMedicion, cero);
+  delay(1);
+  assertMore(segundaMedicion, primeraMedicion);
+}
+
+test(deberiaObtenerElTiempoUtilizandoMilisegundos) {
+  long cero = 0;
+
+  long primeraMedicion = framework->milisegundos();
+  delay(10);
+  long segundaMedicion = framework->milisegundos();
+
+  assertMore(primeraMedicion, cero);
   assertMore(segundaMedicion, primeraMedicion);
 }
 

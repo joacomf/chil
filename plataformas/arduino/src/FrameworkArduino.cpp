@@ -11,6 +11,10 @@ int FrameworkArduino::leer(int pin){
     return digitalRead(pin);
 }
 
+unsigned long FrameworkArduino::milisegundos() {
+  return millis();
+}
+
 unsigned long FrameworkArduino::microsegundos(){
     return micros();
 }
