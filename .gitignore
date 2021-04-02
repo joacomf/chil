@@ -21,6 +21,7 @@ tests/vendor/googletest-src/
 
 # Local
 .idea/
+.pio/
 build/**/*
 bin/*
 test/test_runner
