@@ -39,6 +39,18 @@ test(deberiaObtenerElTiempoUtilizandoMilisegundos) {
   assertMore(segundaMedicion, primeraMedicion);
 }
 
+test(deberiaDemorar100milisegundosEntreLasMediciones) {
+  long tiempoDeDemora = 100;
+
+  long primeraMedicion = framework->milisegundos();
+  framework->demorar(tiempoDeDemora);
+  long segundaMedicion = framework->milisegundos();
+
+  long diferenciaDeTiempo = segundaMedicion - primeraMedicion;
+
+  assertEqual(diferenciaDeTiempo, tiempoDeDemora);
+}
+
 void loop() {
   TestRunner::run();
 }

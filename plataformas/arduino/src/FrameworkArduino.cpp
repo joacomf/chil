@@ -12,7 +12,7 @@ int FrameworkArduino::leer(int pin){
 }
 
 unsigned long FrameworkArduino::milisegundos() {
-  return millis();
+    return millis();
 }
 
 unsigned long FrameworkArduino::microsegundos(){
@@ -20,6 +20,7 @@ unsigned long FrameworkArduino::microsegundos(){
 }
 
 void FrameworkArduino::demorar(int milisegundos){
+    delay(milisegundos);
 }
 
 void FrameworkArduino::pinSalida(int pin) {
