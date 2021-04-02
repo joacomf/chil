@@ -2,8 +2,9 @@
 #define CHIL_FRAMEWORKARDUINO_H
 
 #include <Arduino.h>
+#include <Framework.h>
 
-class FrameworkArduino{
+class FrameworkArduino: public Framework{
 private:
     int velocidadSerial = 115200;
 
