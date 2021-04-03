@@ -2,16 +2,21 @@
 #define CHIL_FRAMEWORKARDUINO_H
 
 #include <Arduino.h>
-#include <Framework.h>
+#include <Plataforma.h>
 
-class FrameworkArduino: public Framework{
+class PlataformaArduino: public Plataforma{
+private:
+    int velocidadSerial = 115200;
 
 public:
-    FrameworkArduino();
+    PlataformaArduino();
+    void consola(const char* text);
     void escribir(int pin, int valor);
     int leer(int pin);
     void demorar(int milisegundos);
+    unsigned long milisegundos();
     unsigned long microsegundos();
+    void pinSalida(int pin);
 };
 
 

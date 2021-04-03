@@ -14,11 +14,14 @@ project(arduino C CXX)
 
 add_executable(arduino
         src/main.cpp
-        )
+        src/PlataformaArduino.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../include/plataforma/Plataforma.h)
 
 include(CMakeListsPrivate.txt)
 
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../../include/framework")
+include_directories(
+        "${CMAKE_CURRENT_SOURCE_DIR}/src"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../include/plataforma")
 
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/CMakeListsUser.txt)
     include(CMakeListsUser.txt)
@@ -27,13 +30,13 @@ endif()
 add_custom_target(
         Production ALL
         COMMAND platformio -c clion run "$<$<NOT:$<CONFIG:All>>:-e${CMAKE_BUILD_TYPE}>"
-        WORKING_DIRECTORY .
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 add_custom_target(
         Debug ALL
         COMMAND platformio -c clion run --target debug "$<$<NOT:$<CONFIG:All>>:-e${CMAKE_BUILD_TYPE}>"
-        WORKING_DIRECTORY .
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 add_executable(Z_DUMMY_TARGET ${SRC_LIST})

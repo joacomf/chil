@@ -25,7 +25,7 @@ int Escenario::obtenerCantidadPasos() {
   return this->_pasos.size();
 }
 
-void Escenario::finalizar(Framework *framework) {
+void Escenario::finalizar(Plataforma *framework) {
   list<Paso>::iterator paso;
 
   for (paso = this->_pasos.begin(); paso != this->_pasos.end(); ++paso) {

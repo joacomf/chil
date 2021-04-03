@@ -1,6 +1,6 @@
 #include "../include/Chil.h"
 
-Chil::Chil(Framework* framework) {
+Chil::Chil(Plataforma* framework) {
   this->framework = framework;
 }
 
