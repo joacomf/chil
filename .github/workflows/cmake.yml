@@ -14,12 +14,12 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{github.workspace}}
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: ./scripts/build.sh
 
     - name: Test
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{github.workspace}}
       shell: bash
       run: ./scripts/test.sh
