@@ -106,21 +106,3 @@ TEST(ChilTest, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
 
   delete framework;
 }
-
-TEST(ChilTest, deberiaEjecutarPasosPredefinidosAlLlamarlosDesdeLasAcciones) {
-  framework = new MockFramework();
-  Chil *chil = new Chil(framework);
-
-  ESCENARIO(chil, "Primer escenario con dos pasos", [](Chil *chil){
-      PASO(chil, "Presiono boton rojo", []() {
-          const int botonRojo = 5;
-          //chil->acciones()->envioComandoDeAltoAl(botonRojo);
-          //chil->acciones()->envioComandoDeAltoAl(botonRojo);
-
-          return false;
-      });
-  });
-
-
-  delete framework;
-}

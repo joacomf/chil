@@ -15,9 +15,8 @@ add_executable(
         src/modelo/PasoTest.cpp
 
         ../src/modelo/Paso.cpp
-        ../src/modelo/Acciones.cpp
         ../src/utils/stringUtils.cpp
-        src/modelo/AccionesTest.cpp)
+)
 
 add_test(NAME check COMMAND tests)
 

@@ -31,7 +31,7 @@ Para compilar y ejecutar las pruebas del proyecto, se necesita tener las siguien
 - cmake
 - build-essentials
 
-Para ello:
+Para ello en un entorno con base Debian (Ubuntu, LinuxMint, etc):
 ```sh
 $ sudo apt install cmake build-essentials
 ```

@@ -10,7 +10,6 @@ add_library(chil
         src/modelo/Escenario.cpp
         src/modelo/Paso.cpp
         src/utils/stringUtils.cpp
-        src/modelo/Acciones.cpp
         )
 
 target_include_directories(chil PRIVATE include)
