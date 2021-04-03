@@ -4,10 +4,10 @@
 #ifndef CHIL_MOCKFRAMEWORK_HPP
 #define CHIL_MOCKFRAMEWORK_HPP
 
-#include "framework/Framework.h"
+#include "plataforma/Plataforma.h"
 #include "gmock/gmock.h"
 
-class MockFramework : public Framework{
+class MockFramework : public Plataforma{
 
   public:
     MOCK_METHOD(void, consola, (const char *nombre), (override));

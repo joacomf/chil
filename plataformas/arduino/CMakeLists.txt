@@ -14,14 +14,14 @@ project(arduino C CXX)
 
 add_executable(arduino
         src/main.cpp
-        src/FrameworkArduino.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/../../include/framework/Framework.h)
+        src/PlataformaArduino.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../include/plataforma/Plataforma.h)
 
 include(CMakeListsPrivate.txt)
 
 include_directories(
         "${CMAKE_CURRENT_SOURCE_DIR}/src"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../../include/framework")
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../include/plataforma")
 
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/CMakeListsUser.txt)
     include(CMakeListsUser.txt)

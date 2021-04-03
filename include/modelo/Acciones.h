@@ -2,19 +2,19 @@
 #define CHIL_ACCIONES_H
 
 
-#include <framework/Framework.h>
+#include <plataforma/Plataforma.h>
 
 class Acciones {
 
 public:
-    explicit Acciones(Framework *framework);
+    explicit Acciones(Plataforma *framework);
 
     void envioBanderaDeAltoAl(int pin);
 
     int leoValorEn(int i);
 
 private:
-    Framework* framework;
+    Plataforma* framework;
     const int COMANDO_ALTO = 1;
 };
 

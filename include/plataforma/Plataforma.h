@@ -1,7 +1,7 @@
-#ifndef CHIL_FRAMEWORK_H
-#define CHIL_FRAMEWORK_H
+#ifndef CHIL_PLATAFORMA_H
+#define CHIL_PLATAFORMA_H
 
-class Framework {
+class Plataforma {
 
 public:
     virtual void consola(const char *nombre) = 0;
@@ -14,4 +14,4 @@ public:
 };
 
 
-#endif //CHIL_FRAMEWORK_H
+#endif //CHIL_PLATAFORMA_H

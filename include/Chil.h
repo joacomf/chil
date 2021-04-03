@@ -1,7 +1,7 @@
 #ifndef CHIL_CHIL_H
 #define CHIL_CHIL_H
 
-#include "framework/Framework.h"
+#include "plataforma/Plataforma.h"
 #include "modelo/Escenario.h"
 
 #include <list>
@@ -12,9 +12,9 @@ using namespace std;
 class Chil {
 
 public:
-    explicit Chil(Framework *framework);
+    explicit Chil(Plataforma *framework);
 
-    Framework *framework;
+    Plataforma *framework;
 
     string imprimir_reporte();
     void escenario(const char *nombre);

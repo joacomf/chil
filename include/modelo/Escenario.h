@@ -4,7 +4,7 @@
 #include <list>
 #include <string>
 #include <modelo/Paso.h>
-#include <framework/Framework.h>
+#include <plataforma/Plataforma.h>
 
 using namespace std;
 
@@ -20,7 +20,7 @@ public:
 
     int obtenerCantidadPasos();
 
-    void finalizar(Framework *framework);
+    void finalizar(Plataforma *framework);
 
 private:
     list<Paso> _pasos;

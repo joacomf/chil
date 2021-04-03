@@ -1,9 +1,9 @@
-#include "../src/FrameworkArduino.cpp"
+#include "../src/PlataformaArduino.cpp"
 #include <AUnit.h>
 
 using namespace aunit;
 
-FrameworkArduino *framework = new FrameworkArduino();;
+PlataformaArduino *framework = new PlataformaArduino();
 int led = 2;
 
 void setup() {}
