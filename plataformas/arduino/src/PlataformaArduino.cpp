@@ -29,5 +29,5 @@ void PlataformaArduino::pinSalida(int pin) {
 }
 
 void PlataformaArduino::consola(const char *texto) {
-
+    Serial.println(texto);
 }

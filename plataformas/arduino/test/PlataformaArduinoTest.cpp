@@ -49,6 +49,10 @@ test(deberiaDemorar100milisegundosEntreLasMediciones) {
   assertMoreOrEqual(diferenciaDeTiempo, tiempoDeDemora);
 }
 
+test(deberiaImprimirPorConsola) {
+  framework->consola("Verificacion manual: Deberia imprimir este texto por consola");
+}
+
 void loop() {
   TestRunner::run();
 }
