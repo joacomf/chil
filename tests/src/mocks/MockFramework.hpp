@@ -18,7 +18,7 @@ class MockFramework : public Plataforma{
     MOCK_METHOD(void, demorar, (int milisegundos), (override));
     MOCK_METHOD(void, pinSalida, (int pin), (override));
     MOCK_METHOD(bool, crearRedWiFi, (const char *nombre, const char *clave), (override));
-    MOCK_METHOD(bool, estaWiFiEncendido, (), (override));
+    MOCK_METHOD(bool, estaAPEncendido, (), (override));
     MOCK_METHOD(bool, apagarWiFi, (), (override));
 };
 

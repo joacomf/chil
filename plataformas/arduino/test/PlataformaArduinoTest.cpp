@@ -55,12 +55,12 @@ test(deberiaImprimirPorConsola) {
 
 test(deberiaEstarEncendidaLaRedWiFiAPLuegoDeCrearla) {
   framework->crearRedWiFi("hola", "mundo12345");
-  assertTrue(framework->estaWiFiEncendido());
+  assertTrue(framework->estaAPEncendido());
   framework->apagarWiFi();
 }
 
 test(deberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
-  assertFalse(framework->estaWiFiEncendido());
+  assertFalse(framework->estaAPEncendido());
 }
 
 void loop() {

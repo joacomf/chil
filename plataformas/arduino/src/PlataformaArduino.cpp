@@ -37,7 +37,7 @@ bool PlataformaArduino::crearRedWiFi(const char *nombre, const char *clave) {
   return WiFi.softAP(nombre, clave);
 }
 
-bool PlataformaArduino::estaWiFiEncendido() {
+bool PlataformaArduino::estaAPEncendido() {
   return !WiFi.softAPIP().toString().equals("0.0.0.0");
 }
 

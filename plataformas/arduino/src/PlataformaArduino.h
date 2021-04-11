@@ -19,7 +19,7 @@ public:
     unsigned long microsegundos();
     void pinSalida(int pin);
     bool crearRedWiFi(const char *nombre, const char *clave);
-    bool estaWiFiEncendido();
+    bool estaAPEncendido();
     bool apagarWiFi();
 };
 
