@@ -23,7 +23,7 @@ test(deberiaObtenerElTiempoEnMicrosegundos) {
 
   assertMore(primeraMedicion, cero);
   framework->demorar(1);
-  assertMore(segundaMedicion, primeraMedicion);
+  assertMoreOrEqual(segundaMedicion, primeraMedicion);
 }
 
 test(deberiaObtenerElTiempoUtilizandoMilisegundos) {
