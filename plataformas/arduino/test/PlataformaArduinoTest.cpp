@@ -53,10 +53,14 @@ test(deberiaImprimirPorConsola) {
   framework->consola("Verificacion manual: Deberia imprimir este texto por consola");
 }
 
-test(deberiaEncenderLaRedWiFi) {
-  bool comenzoRedWiFi = framework->crearRedWiFi("hola", "mundo");
+test(deberiaEstarEncendidaLaRedWiFiAPLuegoDeCrearla) {
+  framework->crearRedWiFi("hola", "mundo12345");
+  assertTrue(framework->estaWiFiEncendido());
+  framework->apagarWiFi();
+}
 
-  assertTrue(comenzoRedWiFi);
+test(deberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
+  assertFalse(framework->estaWiFiEncendido());
 }
 
 void loop() {

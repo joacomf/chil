@@ -12,6 +12,8 @@ public:
     virtual unsigned long microsegundos() = 0;
     virtual void pinSalida(int pin) = 0;
     virtual bool crearRedWiFi(const char *nombre, const char *clave) = 0;
+    virtual bool estaWiFiEncendido() = 0;
+    virtual bool apagarWiFi() = 0;
 };
 
 

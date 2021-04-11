@@ -33,5 +33,14 @@ void PlataformaArduino::consola(const char *texto) {
 }
 
 bool PlataformaArduino::crearRedWiFi(const char *nombre, const char *clave) {
-  return true;
+  WiFi.enableAP(true);
+  return WiFi.softAP(nombre, clave);
+}
+
+bool PlataformaArduino::estaWiFiEncendido() {
+  return !WiFi.softAPIP().toString().equals("0.0.0.0");
+}
+
+bool PlataformaArduino::apagarWiFi() {
+  return WiFi.softAPdisconnect();
 }

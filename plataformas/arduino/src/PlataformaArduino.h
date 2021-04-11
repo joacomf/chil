@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <Plataforma.h>
+#include <WiFi.h>
 
 class PlataformaArduino: public Plataforma{
 private:
@@ -18,6 +19,8 @@ public:
     unsigned long microsegundos();
     void pinSalida(int pin);
     bool crearRedWiFi(const char *nombre, const char *clave);
+    bool estaWiFiEncendido();
+    bool apagarWiFi();
 };
 
 
