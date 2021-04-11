@@ -31,3 +31,7 @@ void PlataformaArduino::pinSalida(int pin) {
 void PlataformaArduino::consola(const char *texto) {
     Serial.println(texto);
 }
+
+bool PlataformaArduino::crearRedWiFi(const char *nombre, const char *clave) {
+  return true;
+}

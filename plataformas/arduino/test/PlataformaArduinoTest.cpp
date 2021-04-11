@@ -53,6 +53,12 @@ test(deberiaImprimirPorConsola) {
   framework->consola("Verificacion manual: Deberia imprimir este texto por consola");
 }
 
+test(deberiaEncenderLaRedWiFi) {
+  bool comenzoRedWiFi = framework->crearRedWiFi("hola", "mundo");
+
+  assertTrue(comenzoRedWiFi);
+}
+
 void loop() {
   TestRunner::run();
 }

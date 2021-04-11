@@ -11,6 +11,7 @@ public:
     virtual unsigned long milisegundos() = 0;
     virtual unsigned long microsegundos() = 0;
     virtual void pinSalida(int pin) = 0;
+    virtual bool crearRedWiFi(const char *nombre, const char *clave) = 0;
 };
 
 

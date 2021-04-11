@@ -17,6 +17,7 @@ public:
     unsigned long milisegundos();
     unsigned long microsegundos();
     void pinSalida(int pin);
+    bool crearRedWiFi(const char *nombre, const char *clave);
 };
 
 
