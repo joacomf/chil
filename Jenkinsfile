@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'cd ./plataformas/arduino/ && ./correr.sh'
+                sh 'cd ./plataformas/arduino/ && chmod +x correr.sh && ./correr.sh'
             }
         }
     }
