@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'jmorenof/platformio:latest'
-            args '-v /dev/bus/usb:/dev/bus/usb -v $HOME/.platformio:/.platformio --device=/dev/ttyUSB0 -u 1000:1000'
+            args '-v /dev/bus/usb:/dev/bus/usb --device=/dev/ttyUSB0 -u 1000:1000'
         }
     }
     stages {
