@@ -60,7 +60,27 @@ test(deberiaEstarEncendidaLaRedWiFiAPLuegoDeCrearla) {
 }
 
 test(deberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
+  framework->apagarWiFi();
+  framework->demorar(100);
+
   assertFalse(framework->estaAPEncendido());
+}
+
+test(deberiaCrearUnHTTPWebServer) {
+  framework->crearRedWiFi("servidor", "http12345");
+  framework->crearServidorWeb();
+  framework->demorar(500);
+
+  HTTPClient cliente;
+  cliente.begin("http://" + WiFi.softAPIP().toString() + "/chil-ping");
+
+  int codigoDeRespuesta = cliente.GET();
+  String respuesta = cliente.getString();
+
+  assertEqual(200, codigoDeRespuesta);
+  assertEqual("chil-pong", respuesta);
+
+  framework->apagarWiFi();
 }
 
 void loop() {

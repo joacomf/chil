@@ -14,6 +14,7 @@ public:
     virtual bool crearRedWiFi(const char *nombre, const char *clave) = 0;
     virtual bool estaAPEncendido() = 0;
     virtual bool apagarWiFi() = 0;
+    virtual void crearServidorWeb() = 0;
 };
 
 

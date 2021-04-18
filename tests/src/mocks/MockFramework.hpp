@@ -20,6 +20,7 @@ class MockFramework : public Plataforma{
     MOCK_METHOD(bool, crearRedWiFi, (const char *nombre, const char *clave), (override));
     MOCK_METHOD(bool, estaAPEncendido, (), (override));
     MOCK_METHOD(bool, apagarWiFi, (), (override));
+    MOCK_METHOD(void, crearServidorWeb, (), (override));
 };
 
 #endif //CHIL_MOCKFRAMEWORK_HPP

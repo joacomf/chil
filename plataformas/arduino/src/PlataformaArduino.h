@@ -5,9 +5,14 @@
 #include <Plataforma.h>
 #include <WiFi.h>
 
-class PlataformaArduino: public Plataforma{
+#include <HTTPClient.h>
+#include <ESPAsyncWebServer.h>
+
+class PlataformaArduino: public Plataforma {
 private:
     int velocidadSerial = 115200;
+    bool apEncendido = false;
+    AsyncWebServer* servidor;
 
 public:
     PlataformaArduino();
@@ -21,6 +26,7 @@ public:
     bool crearRedWiFi(const char *nombre, const char *clave);
     bool estaAPEncendido();
     bool apagarWiFi();
+    void crearServidorWeb();
 };
 
 

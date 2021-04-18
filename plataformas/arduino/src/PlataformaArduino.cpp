@@ -34,13 +34,25 @@ void PlataformaArduino::consola(const char *texto) {
 
 bool PlataformaArduino::crearRedWiFi(const char *nombre, const char *clave) {
   WiFi.enableAP(true);
-  return WiFi.softAP(nombre, clave);
+  this->apEncendido = WiFi.softAP(nombre, clave);
+  return this->apEncendido;
 }
 
 bool PlataformaArduino::estaAPEncendido() {
-  return !WiFi.softAPIP().toString().equals("0.0.0.0");
+  return this->apEncendido;
 }
 
 bool PlataformaArduino::apagarWiFi() {
-  return WiFi.softAPdisconnect();
+    this->apEncendido = WiFi.softAPdisconnect();
+    return this->apEncendido;
+}
+
+void PlataformaArduino::crearServidorWeb() {
+    this->servidor = new AsyncWebServer(80);
+
+    this->servidor->on("/chil-ping", HTTP_GET, [](AsyncWebServerRequest *request){
+        request->send(200, "text/plain", "chil-pong");
+    });
+
+    this->servidor->begin();
 }
