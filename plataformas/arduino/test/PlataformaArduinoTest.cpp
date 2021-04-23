@@ -82,6 +82,27 @@ test(deberiaCrearUnHTTPWebServer) {
 
   framework->apagarWiFi();
 }
+/*
+test(deberiaAgregarPuntoDeEntradaAlServidorCreado) {
+  framework->crearRedWiFi("servidor", "http12345");
+  framework->crearServidorWeb();
+  framework->demorar(500);
+
+  PuntoDeEntrada puntoDeEntrada = new PuntoDeEntrada();
+
+  framework->agregarPuntoDeEntrada(puntoDeEntrada);
+
+  HTTPClient cliente;
+  cliente.begin("http://" + WiFi.softAPIP().toString() + "/numeros");
+
+  int codigoDeRespuesta = cliente.GET();
+  String respuesta = cliente.getString();
+
+  assertEqual(200, codigoDeRespuesta);
+  assertEqual("chil-pong", respuesta);
+
+  framework->apagarWiFi();
+}*/
 
 void loop() {
   TestRunner::run();

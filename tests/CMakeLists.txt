@@ -16,6 +16,9 @@ add_executable(
 
         ../src/modelo/Paso.cpp
         ../src/utils/stringUtils.cpp
+
+
+        plataformas/modelo/PuntoDeEntradaTest.cpp
 )
 
 add_test(NAME check COMMAND tests)
@@ -26,6 +29,7 @@ target_include_directories (
         ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_SOURCE_DIR}/../include
         ${CMAKE_CURRENT_SOURCE_DIR}/../src
+        ${CMAKE_CURRENT_SOURCE_DIR}/../plataformas/modelos
 )
 
 # Link Libreria Google Test
