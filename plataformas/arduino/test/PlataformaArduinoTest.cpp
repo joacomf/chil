@@ -1,5 +1,7 @@
 #include "../src/PlataformaArduino.cpp"
 #include <AUnit.h>
+
+#include <utility>
 #include "../../modelos/PuntoDeEntrada.cpp"
 
 using namespace aunit;
@@ -54,22 +56,30 @@ test(deberiaImprimirPorConsola) {
   framework->consola("Verificacion manual: Deberia imprimir este texto por consola");
 }
 
-test(deberiaEstarEncendidaLaRedWiFiAPLuegoDeCrearla) {
+test(WiFi, deberiaEstarEncendidaLaRedWiFiAPLuegoDeCrearla) {
   framework->crearRedWiFi("hola", "mundo12345");
   assertTrue(framework->estaAPEncendido());
   framework->apagarWiFi();
 }
 
-test(aaDeberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
+test(WiFi, aDeberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
   framework->apagarWiFi();
   framework->demorar(400);
 
   assertFalse(framework->estaAPEncendido());
 }
 
-test(aDeberiaNoTenerServidorWebCreadoPorDefault) {
-    assertFalse(framework->estaServidorCorriendo());
-}
+static String dispositivoBaseUrl = "http://" + IPAddress(192, 168, 4, 1).toString();
+
+class Respuesta {
+public:
+    int codigo;
+    String contenido;
+    Respuesta(int codigo, String contenido) {
+        this->codigo = codigo;
+        this->contenido = std::move(contenido);
+    }
+};
 
 class ServidorWebTest: public TestOnce {
 protected:
@@ -85,9 +95,32 @@ protected:
         framework->eliminarServidorWeb();
         TestOnce::teardown();
     }
+
+    static Respuesta *alHacerPeticionGET(const char* camino) {
+        HTTPClient cliente;
+        cliente.begin(dispositivoBaseUrl + camino);
+
+        int codigoDeRespuesta = cliente.GET();
+        String contenido = cliente.getString();
+        cliente.end();
+
+        return new Respuesta(codigoDeRespuesta, contenido);
+    }
+
+    static Respuesta *alHacerPeticionPOST(const char *camino) {
+        HTTPClient cliente;
+        cliente.begin(dispositivoBaseUrl + camino);
+
+        int codigoDeRespuesta = cliente.POST("");
+        cliente.end();
+
+        return new Respuesta(codigoDeRespuesta, "");
+    }
 };
 
-
+test(aDeberiaNoTenerServidorWebCreadoPorDefault) {
+    assertFalse(framework->estaServidorCorriendo());
+}
 
 testF(ServidorWebTest, aDeberiaCrearUnServidorWeb) {
     assertTrue(framework->estaServidorCorriendo());
@@ -101,15 +134,10 @@ testF(ServidorWebTest, aDeberiaEliminarServidorWebLuegoDeEncenderlo) {
 
 
 testF(ServidorWebTest, deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
-  HTTPClient cliente;
-  cliente.begin("http://" + WiFi.softAPIP().toString() + "/chil-ping");
+  Respuesta* respuesta = alHacerPeticionGET("/chil-ping");
 
-  int codigoDeRespuesta = cliente.GET();
-  String respuesta = cliente.getString();
-  cliente.end();
-
-  assertEqual(200, codigoDeRespuesta);
-  assertEqual("chil-pong", respuesta);
+  assertEqual(200, respuesta->codigo);
+  assertEqual("chil-pong", respuesta->contenido);
 }
 
 testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
@@ -118,32 +146,20 @@ testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
 
   framework->configurarPuntoDeEntrada(puntoDeEntrada);
 
-  HTTPClient cliente;
-  String urlAConsultar = "http://" + WiFi.softAPIP().toString() + "/numeros";
-  cliente.begin(urlAConsultar);
+  Respuesta* respuesta = alHacerPeticionGET("/numeros");
 
-  int codigoDeRespuesta = cliente.GET();
-  String respuesta = cliente.getString();
-  cliente.end();
-
-  assertEqual(200, codigoDeRespuesta);
-  assertEqual("numeros", respuesta);
+  assertEqual(200, respuesta->codigo);
+  assertEqual("numeros", respuesta->contenido);
 }
 
 testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
     auto* puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
 
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
-    framework->demorar(200);
 
-    HTTPClient cliente;
-    String urlAConsultar = "http://" + WiFi.softAPIP().toString() + "/ping";
-    cliente.begin(urlAConsultar);
+    Respuesta* respuesta = alHacerPeticionPOST("/ping");
 
-    int codigoDeRespuesta = cliente.POST("");
-    cliente.end();
-
-    assertEqual(200, codigoDeRespuesta);
+    assertEqual(200, respuesta->codigo);
 }
 
 void loop() {

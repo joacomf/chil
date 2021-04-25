@@ -80,4 +80,6 @@ void PlataformaArduino::configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada)
     this->servidor->on(puntoDeEntrada->obtenerRuta(), metodoAConfigurar, [puntoDeEntrada](AsyncWebServerRequest *request) {
         request->send(200, puntoDeEntrada->obtenerTipo(), puntoDeEntrada->obtenerRespuesta());
     });
+
+    this->demorar(100);
 }
