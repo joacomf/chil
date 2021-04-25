@@ -11,14 +11,14 @@ int led = 2;
 
 void setup() {}
 
-test(deberiaEncenderElLedIndicado) {
+test(EntradaSalidaDigital, deberiaEncenderElLedIndicado) {
   framework->pinSalida(led);
   framework->escribir(led, HIGH);
 
   assertEqual(framework->leer(led), HIGH);
 }
 
-test(deberiaObtenerElTiempoEnMicrosegundos) {
+test(Tiempo, deberiaObtenerElTiempoEnMicrosegundos) {
   unsigned long cero = 0;
 
   unsigned long primeraMedicion = framework->microsegundos();
@@ -29,7 +29,7 @@ test(deberiaObtenerElTiempoEnMicrosegundos) {
   assertMoreOrEqual(segundaMedicion, primeraMedicion);
 }
 
-test(deberiaObtenerElTiempoUtilizandoMilisegundos) {
+test(Tiempo, deberiaObtenerElTiempoUtilizandoMilisegundos) {
   unsigned long cero = 0;
 
   unsigned long primeraMedicion = framework->milisegundos();
@@ -40,7 +40,7 @@ test(deberiaObtenerElTiempoUtilizandoMilisegundos) {
   assertMore(segundaMedicion, primeraMedicion);
 }
 
-test(deberiaDemorar100milisegundosEntreLasMediciones) {
+test(Tiempo, deberiaDemorar100milisegundosEntreLasMediciones) {
   long tiempoDeDemora = 100;
 
   unsigned long primeraMedicion = framework->milisegundos();
@@ -52,7 +52,7 @@ test(deberiaDemorar100milisegundosEntreLasMediciones) {
   assertMoreOrEqual(diferenciaDeTiempo, (unsigned long) tiempoDeDemora);
 }
 
-test(deberiaImprimirPorConsola) {
+test(Consola, deberiaImprimirPorConsola) {
   framework->consola("Verificacion manual: Deberia imprimir este texto por consola");
 }
 
@@ -62,7 +62,7 @@ test(WiFi, deberiaEstarEncendidaLaRedWiFiAPLuegoDeCrearla) {
   framework->apagarWiFi();
 }
 
-test(WiFi, aDeberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
+test(WiFi, deberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
   framework->apagarWiFi();
   framework->demorar(400);
 
@@ -118,20 +118,19 @@ protected:
     }
 };
 
-test(aDeberiaNoTenerServidorWebCreadoPorDefault) {
+test(ServidorWebTest, deberiaNoTenerServidorWebCreadoPorDefault) {
     assertFalse(framework->estaServidorCorriendo());
 }
 
-testF(ServidorWebTest, aDeberiaCrearUnServidorWeb) {
+testF(ServidorWebTest, deberiaCrearUnServidorWeb) {
     assertTrue(framework->estaServidorCorriendo());
 }
 
-testF(ServidorWebTest, aDeberiaEliminarServidorWebLuegoDeEncenderlo) {
+testF(ServidorWebTest, deberiaEliminarServidorWebLuegoDeEncenderlo) {
     framework->eliminarServidorWeb();
 
     assertFalse(framework->estaServidorCorriendo());
 }
-
 
 testF(ServidorWebTest, deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
   Respuesta* respuesta = alHacerPeticionGET("/chil-ping");
