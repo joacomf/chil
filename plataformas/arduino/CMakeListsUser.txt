@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.13)
+
+project(arduino C CXX)
+
+add_executable(arduino
+        src/main.cpp
+        src/PlataformaArduino.cpp
+        test/PlataformaArduinoTest.cpp
+        ../../include/plataforma/Plataforma.h
+        ../modelos/PuntoDeEntrada.cpp
+        ../modelos/PuntoDeEntrada.h
+        )
+
+include(CMakeListsPrivate.txt)
+
+include_directories(
+        "${CMAKE_CURRENT_SOURCE_DIR}/src"
+        "${CMAKE_CURRENT_SOURCE_DIR}/test"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../include/plataforma")

@@ -10,23 +10,9 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_C_COMPILER_WORKS 1)
 set(CMAKE_CXX_COMPILER_WORKS 1)
 
-project(arduino C CXX)
-
-add_executable(arduino
-        src/main.cpp
-        src/PlataformaArduino.cpp
-        test/PlataformaArduinoTest.cpp
-        ../../include/plataforma/Plataforma.h
-        ../modelos/PuntoDeEntrada.cpp
-        ../modelos/PuntoDeEntrada.h
-        )
+project("arduino" C CXX)
 
 include(CMakeListsPrivate.txt)
-
-include_directories(
-        "${CMAKE_CURRENT_SOURCE_DIR}/src"
-        "${CMAKE_CURRENT_SOURCE_DIR}/test"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../../include/plataforma")
 
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/CMakeListsUser.txt)
 include(CMakeListsUser.txt)
