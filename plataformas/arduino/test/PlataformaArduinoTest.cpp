@@ -2,7 +2,6 @@
 #include <AUnit.h>
 #include "../../modelos/PuntoDeEntrada.cpp"
 
-
 using namespace aunit;
 
 PlataformaArduino *framework = new PlataformaArduino();
@@ -29,26 +28,26 @@ test(deberiaObtenerElTiempoEnMicrosegundos) {
 }
 
 test(deberiaObtenerElTiempoUtilizandoMilisegundos) {
-  long cero = 0;
+  unsigned long cero = 0;
 
-  long primeraMedicion = framework->milisegundos();
+  unsigned long primeraMedicion = framework->milisegundos();
   framework->demorar(10);
-  long segundaMedicion = framework->milisegundos();
+  unsigned long segundaMedicion = framework->milisegundos();
 
   assertMore(primeraMedicion, cero);
   assertMore(segundaMedicion, primeraMedicion);
 }
 
 test(deberiaDemorar100milisegundosEntreLasMediciones) {
-  long tiempoDeDemora = 100;
+  int tiempoDeDemora = 100;
 
-  long primeraMedicion = framework->milisegundos();
+  unsigned long primeraMedicion = framework->milisegundos();
   framework->demorar(tiempoDeDemora);
-  long segundaMedicion = framework->milisegundos();
+  unsigned long segundaMedicion = framework->milisegundos();
 
-  long diferenciaDeTiempo = segundaMedicion - primeraMedicion;
+  unsigned long diferenciaDeTiempo = segundaMedicion - primeraMedicion;
 
-  assertMoreOrEqual(diferenciaDeTiempo, tiempoDeDemora);
+  assertMoreOrEqual(diferenciaDeTiempo, (unsigned long) tiempoDeDemora);
 }
 
 test(deberiaImprimirPorConsola) {
