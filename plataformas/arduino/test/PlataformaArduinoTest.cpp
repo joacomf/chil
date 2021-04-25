@@ -71,28 +71,36 @@ test(aDeberiaNoTenerServidorWebCreadoPorDefault) {
     assertFalse(framework->estaServidorCorriendo());
 }
 
-test(aDeberiaCrearUnServidorWeb) {
-    framework->crearRedWiFi("servidor", "http12345");
-    framework->crearServidorWeb();
+class ServidorWebTest: public TestOnce {
+protected:
+    void setup() override {
+        TestOnce::setup();
+        framework->crearRedWiFi("servidor", "http12345");
+        framework->crearServidorWeb();
+        framework->demorar(100);
+    }
 
+    void teardown() override {
+        framework->apagarWiFi();
+        framework->eliminarServidorWeb();
+        TestOnce::teardown();
+    }
+};
+
+
+
+testF(ServidorWebTest, aDeberiaCrearUnServidorWeb) {
     assertTrue(framework->estaServidorCorriendo());
-
-    framework->eliminarServidorWeb();
 }
 
-test(aDeberiaEliminarServidorWebLuegoDeEncenderlo) {
-    framework->crearRedWiFi("servidor", "http12345");
-    framework->crearServidorWeb();
+testF(ServidorWebTest, aDeberiaEliminarServidorWebLuegoDeEncenderlo) {
     framework->eliminarServidorWeb();
 
     assertFalse(framework->estaServidorCorriendo());
 }
 
 
-test(deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
-  framework->crearRedWiFi("servidor", "http12345");
-  framework->crearServidorWeb();
-
+testF(ServidorWebTest, deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
   HTTPClient cliente;
   cliente.begin("http://" + WiFi.softAPIP().toString() + "/chil-ping");
 
@@ -102,18 +110,12 @@ test(deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
 
   assertEqual(200, codigoDeRespuesta);
   assertEqual("chil-pong", respuesta);
-
-  framework->apagarWiFi();
-  framework->eliminarServidorWeb();
 }
 
-test(deberiaAgregarPuntoDeEntradaAlServidorCreado) {
-
+testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
   auto* puntoDeEntrada = new PuntoDeEntrada("/numeros");
   puntoDeEntrada->configurarRespuesta("numeros", "text/plain");
 
-  framework->crearRedWiFi("servidor", "http12345");
-  framework->crearServidorWeb();
   framework->configurarPuntoDeEntrada(puntoDeEntrada);
 
   HTTPClient cliente;
@@ -126,16 +128,11 @@ test(deberiaAgregarPuntoDeEntradaAlServidorCreado) {
 
   assertEqual(200, codigoDeRespuesta);
   assertEqual("numeros", respuesta);
-
-  framework->apagarWiFi();
-  framework->eliminarServidorWeb();
 }
 
-test(deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
+testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
     auto* puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
 
-    framework->crearRedWiFi("servidor", "http12345");
-    framework->crearServidorWeb();
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
     framework->demorar(200);
 
@@ -147,9 +144,6 @@ test(deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
     cliente.end();
 
     assertEqual(200, codigoDeRespuesta);
-
-    framework->apagarWiFi();
-    framework->eliminarServidorWeb();
 }
 
 void loop() {
