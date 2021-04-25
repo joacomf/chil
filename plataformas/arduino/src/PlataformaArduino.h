@@ -14,8 +14,9 @@ class PlataformaArduino: public Plataforma {
 private:
     int velocidadSerial = 115200;
     bool apEncendido = false;
-    AsyncWebServer* servidor;
+    bool servidorCorriendo = false;
 
+    AsyncWebServer* servidor;
 public:
     PlataformaArduino();
     void consola(const char* text);

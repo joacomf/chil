@@ -39,7 +39,7 @@ test(deberiaObtenerElTiempoUtilizandoMilisegundos) {
 }
 
 test(deberiaDemorar100milisegundosEntreLasMediciones) {
-  int tiempoDeDemora = 100;
+  long tiempoDeDemora = 100;
 
   unsigned long primeraMedicion = framework->milisegundos();
   framework->demorar(tiempoDeDemora);
@@ -60,7 +60,7 @@ test(deberiaEstarEncendidaLaRedWiFiAPLuegoDeCrearla) {
   framework->apagarWiFi();
 }
 
-test(deberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
+test(aDeberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
   framework->apagarWiFi();
   framework->demorar(100);
 
@@ -76,6 +76,7 @@ test(deberiaCrearUnHTTPWebServer) {
 
   int codigoDeRespuesta = cliente.GET();
   String respuesta = cliente.getString();
+  cliente.end();
 
   assertEqual(200, codigoDeRespuesta);
   assertEqual("chil-pong", respuesta);
@@ -86,6 +87,7 @@ test(deberiaCrearUnHTTPWebServer) {
 test(deberiaAgregarPuntoDeEntradaAlServidorCreado) {
 
   auto* puntoDeEntrada = new PuntoDeEntrada("/numeros");
+  puntoDeEntrada->configurarRespuesta("numeros", "text/plain");
 
   framework->crearRedWiFi("servidor", "http12345");
   framework->crearServidorWeb();
@@ -97,11 +99,32 @@ test(deberiaAgregarPuntoDeEntradaAlServidorCreado) {
 
   int codigoDeRespuesta = cliente.GET();
   String respuesta = cliente.getString();
+  cliente.end();
 
   assertEqual(200, codigoDeRespuesta);
   assertEqual("numeros", respuesta);
 
   framework->apagarWiFi();
+}
+
+test(deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
+    auto* puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
+
+    framework->crearRedWiFi("servidor", "http12345");
+    framework->crearServidorWeb();
+    framework->configurarPuntoDeEntrada(puntoDeEntrada);
+    framework->demorar(200);
+
+    HTTPClient cliente;
+    String urlAConsultar = "http://" + WiFi.softAPIP().toString() + "/ping";
+    cliente.begin(urlAConsultar);
+
+    int codigoDeRespuesta = cliente.POST("");
+    cliente.end();
+
+    assertEqual(200, codigoDeRespuesta);
+
+    framework->apagarWiFi();
 }
 
 void loop() {

@@ -48,20 +48,25 @@ bool PlataformaArduino::apagarWiFi() {
 }
 
 void PlataformaArduino::crearServidorWeb() {
-    if (this->servidor != nullptr) {
+    if (!this->servidorCorriendo) {
         this->servidor = new AsyncWebServer(80);
-
-
         this->servidor->on("/chil-ping", HTTP_GET, [](AsyncWebServerRequest *request) {
             request->send(200, "text/plain", "chil-pong");
         });
 
         this->servidor->begin();
+        this->servidorCorriendo = true;
     }
 }
 
 void PlataformaArduino::configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada) {
-    this->servidor->on(puntoDeEntrada->obtenerRuta(), HTTP_GET, [](AsyncWebServerRequest *request) {
-        request->send(200, "text/plain", "numeros");
+    WebRequestMethod metodoAConfigurar = HTTP_GET;
+
+    if (puntoDeEntrada->obtenerMetodo() == POST) {
+        metodoAConfigurar = HTTP_POST;
+    }
+
+    this->servidor->on(puntoDeEntrada->obtenerRuta(), metodoAConfigurar, [puntoDeEntrada](AsyncWebServerRequest *request) {
+        request->send(200, puntoDeEntrada->obtenerTipo(), puntoDeEntrada->obtenerRespuesta());
     });
 }
