@@ -14,3 +14,12 @@ TEST(PuntoDeEntrada, deberiaCrearPuntoDeEntradaConRutaEspecificadaYMetodoEspecif
     ASSERT_EQ(puntoDeEntrada->obtenerRuta(), "numero-primo");
     ASSERT_EQ(puntoDeEntrada->obtenerMetodo(), POST);
 }
+
+TEST(PuntoDeEntrada, deberiaConfigurarRespuestaConTipo) {
+    auto* puntoDeEntrada = new PuntoDeEntrada("ping");
+
+    puntoDeEntrada->configurarRespuesta("Hola mundo!", "application/json");
+
+    ASSERT_EQ(puntoDeEntrada->obtenerRespuesta(), "Hola mundo!");
+    ASSERT_EQ(puntoDeEntrada->obtenerTipo(), "application/json");
+}

@@ -17,3 +17,16 @@ const char* PuntoDeEntrada::obtenerRuta() {
 Metodo PuntoDeEntrada::obtenerMetodo() {
     return this->metodo;
 }
+
+void PuntoDeEntrada::configurarRespuesta(const char *valor, const char *tipoDeclarado) {
+    this->respuesta = valor;
+    this->tipo = tipoDeclarado;
+}
+
+const char* PuntoDeEntrada::obtenerRespuesta() {
+    return this->respuesta;
+}
+
+const char* PuntoDeEntrada::obtenerTipo() {
+    return this->tipo;
+}
