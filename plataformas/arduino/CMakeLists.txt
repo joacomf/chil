@@ -16,7 +16,10 @@ add_executable(arduino
         src/main.cpp
         src/PlataformaArduino.cpp
         test/PlataformaArduinoTest.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/../../include/plataforma/Plataforma.h ../modelos/PuntoDeEntrada.cpp ../modelos/PuntoDeEntrada.h ../../tests/plataformas/modelo/PuntoDeEntradaTest.cpp)
+        ../../include/plataforma/Plataforma.h
+        ../modelos/PuntoDeEntrada.cpp
+        ../modelos/PuntoDeEntrada.h
+        )
 
 include(CMakeListsPrivate.txt)
 

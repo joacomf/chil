@@ -20,11 +20,11 @@ public:
 
     explicit PuntoDeEntrada(const char *ruta, Metodo metodo);
 
+    explicit PuntoDeEntrada(const char *ruta);
+
     const char *obtenerRuta();
 
     Metodo obtenerMetodo();
-
-    PuntoDeEntrada(const char *ruta);
 };
 
 

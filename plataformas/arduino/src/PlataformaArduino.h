@@ -2,11 +2,13 @@
 #define CHIL_FRAMEWORKARDUINO_H
 
 #include <Arduino.h>
-#include <Plataforma.h>
 #include <WiFi.h>
-
 #include <HTTPClient.h>
 #include <ESPAsyncWebServer.h>
+
+#include <Plataforma.h>
+#include "../../modelos/PuntoDeEntrada.h"
+
 
 class PlataformaArduino: public Plataforma {
 private:
@@ -27,6 +29,8 @@ public:
     bool estaAPEncendido();
     bool apagarWiFi();
     void crearServidorWeb();
+
+    void configurarPuntoDeEntrada(PuntoDeEntrada *puntoDeEntrada);
 };
 
 
