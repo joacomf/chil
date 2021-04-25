@@ -59,6 +59,10 @@ void PlataformaArduino::crearServidorWeb() {
     }
 }
 
+bool PlataformaArduino::estaServidorCorriendo() {
+    return this->servidorCorriendo;
+}
+
 void PlataformaArduino::configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada) {
     WebRequestMethod metodoAConfigurar = HTTP_GET;
 

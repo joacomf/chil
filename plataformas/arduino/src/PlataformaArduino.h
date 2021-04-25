@@ -32,6 +32,8 @@ public:
     void crearServidorWeb();
 
     void configurarPuntoDeEntrada(PuntoDeEntrada *puntoDeEntrada);
+
+    bool estaServidorCorriendo();
 };
 
 

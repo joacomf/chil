@@ -127,6 +127,10 @@ test(deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
     framework->apagarWiFi();
 }
 
+test(aDeberiaNoTenerServidorWebCreadoPorDefault) {
+    assertFalse(framework->estaServidorCorriendo());
+}
+
 void loop() {
   TestRunner::run();
 }
