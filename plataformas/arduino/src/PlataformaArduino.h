@@ -29,11 +29,11 @@ public:
     bool crearRedWiFi(const char *nombre, const char *clave);
     bool estaAPEncendido();
     bool apagarWiFi();
+
     void crearServidorWeb();
-
     void configurarPuntoDeEntrada(PuntoDeEntrada *puntoDeEntrada);
-
-    bool estaServidorCorriendo();
+    bool estaServidorCorriendo() const;
+    void eliminarServidorWeb();
 };
 
 

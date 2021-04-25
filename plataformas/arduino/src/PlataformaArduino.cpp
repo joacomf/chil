@@ -47,6 +47,13 @@ bool PlataformaArduino::apagarWiFi() {
     return this->apEncendido;
 }
 
+void PlataformaArduino::eliminarServidorWeb() {
+    if (this->servidorCorriendo) {
+        this->servidor->end();
+        this->servidorCorriendo = false;
+    }
+}
+
 void PlataformaArduino::crearServidorWeb() {
     if (!this->servidorCorriendo) {
         this->servidor = new AsyncWebServer(80);
@@ -59,7 +66,7 @@ void PlataformaArduino::crearServidorWeb() {
     }
 }
 
-bool PlataformaArduino::estaServidorCorriendo() {
+bool PlataformaArduino::estaServidorCorriendo() const {
     return this->servidorCorriendo;
 }
 

@@ -60,14 +60,36 @@ test(deberiaEstarEncendidaLaRedWiFiAPLuegoDeCrearla) {
   framework->apagarWiFi();
 }
 
-test(aDeberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
+test(aaDeberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
   framework->apagarWiFi();
-  framework->demorar(100);
+  framework->demorar(400);
 
   assertFalse(framework->estaAPEncendido());
 }
 
-test(deberiaCrearUnHTTPWebServer) {
+test(aDeberiaNoTenerServidorWebCreadoPorDefault) {
+    assertFalse(framework->estaServidorCorriendo());
+}
+
+test(aDeberiaCrearUnServidorWeb) {
+    framework->crearRedWiFi("servidor", "http12345");
+    framework->crearServidorWeb();
+
+    assertTrue(framework->estaServidorCorriendo());
+
+    framework->eliminarServidorWeb();
+}
+
+test(aDeberiaEliminarServidorWebLuegoDeEncenderlo) {
+    framework->crearRedWiFi("servidor", "http12345");
+    framework->crearServidorWeb();
+    framework->eliminarServidorWeb();
+
+    assertFalse(framework->estaServidorCorriendo());
+}
+
+
+test(deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
   framework->crearRedWiFi("servidor", "http12345");
   framework->crearServidorWeb();
 
@@ -82,6 +104,7 @@ test(deberiaCrearUnHTTPWebServer) {
   assertEqual("chil-pong", respuesta);
 
   framework->apagarWiFi();
+  framework->eliminarServidorWeb();
 }
 
 test(deberiaAgregarPuntoDeEntradaAlServidorCreado) {
@@ -105,6 +128,7 @@ test(deberiaAgregarPuntoDeEntradaAlServidorCreado) {
   assertEqual("numeros", respuesta);
 
   framework->apagarWiFi();
+  framework->eliminarServidorWeb();
 }
 
 test(deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
@@ -125,10 +149,7 @@ test(deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
     assertEqual(200, codigoDeRespuesta);
 
     framework->apagarWiFi();
-}
-
-test(aDeberiaNoTenerServidorWebCreadoPorDefault) {
-    assertFalse(framework->estaServidorCorriendo());
+    framework->eliminarServidorWeb();
 }
 
 void loop() {
