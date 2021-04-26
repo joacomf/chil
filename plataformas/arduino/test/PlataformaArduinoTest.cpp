@@ -87,7 +87,7 @@ protected:
         TestOnce::setup();
         framework->crearRedWiFi("servidor", "http12345");
         framework->crearServidorWeb();
-        framework->demorar(100);
+        framework->demorar(10);
     }
 
     void teardown() override {
