@@ -81,6 +81,4 @@ void PlataformaArduino::configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada)
         delay(10);
         request->send(200, puntoDeEntrada->obtenerTipo(), puntoDeEntrada->obtenerRespuesta());
     });
-
-    this->demorar(100);
 }
