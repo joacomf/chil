@@ -1,8 +1,7 @@
 #include "../src/PlataformaArduino.cpp"
-#include <AUnit.h>
-
-#include <utility>
 #include "../../modelos/PuntoDeEntrada.cpp"
+#include <AUnit.h>
+#include <utility>
 
 using namespace aunit;
 
@@ -15,61 +14,61 @@ void setup() {
 }
 
 test(EntradaSalidaDigital, deberiaEncenderElLedIndicado) {
-  framework->pinSalida(led);
-  framework->escribir(led, HIGH);
+    framework->pinSalida(led);
+    framework->escribir(led, HIGH);
 
-  assertEqual(framework->leer(led), HIGH);
+    assertEqual(framework->leer(led), HIGH);
 }
 
 test(Tiempo, deberiaObtenerElTiempoEnMicrosegundos) {
-  unsigned long cero = 0;
+    unsigned long cero = 0;
 
-  unsigned long primeraMedicion = framework->microsegundos();
-  unsigned long segundaMedicion = framework->microsegundos();
+    unsigned long primeraMedicion = framework->microsegundos();
+    unsigned long segundaMedicion = framework->microsegundos();
 
-  assertMore(primeraMedicion, cero);
-  framework->demorar(1);
-  assertMoreOrEqual(segundaMedicion, primeraMedicion);
+    assertMore(primeraMedicion, cero);
+    framework->demorar(1);
+    assertMoreOrEqual(segundaMedicion, primeraMedicion);
 }
 
 test(Tiempo, deberiaObtenerElTiempoUtilizandoMilisegundos) {
-  unsigned long cero = 0;
+    unsigned long cero = 0;
 
-  unsigned long primeraMedicion = framework->milisegundos();
-  framework->demorar(10);
-  unsigned long segundaMedicion = framework->milisegundos();
+    unsigned long primeraMedicion = framework->milisegundos();
+    framework->demorar(10);
+    unsigned long segundaMedicion = framework->milisegundos();
 
-  assertMore(primeraMedicion, cero);
-  assertMore(segundaMedicion, primeraMedicion);
+    assertMore(primeraMedicion, cero);
+    assertMore(segundaMedicion, primeraMedicion);
 }
 
 test(Tiempo, deberiaDemorar100milisegundosEntreLasMediciones) {
-  long tiempoDeDemora = 100;
+    long tiempoDeDemora = 100;
 
-  unsigned long primeraMedicion = framework->milisegundos();
-  framework->demorar(tiempoDeDemora);
-  unsigned long segundaMedicion = framework->milisegundos();
+    unsigned long primeraMedicion = framework->milisegundos();
+    framework->demorar(tiempoDeDemora);
+    unsigned long segundaMedicion = framework->milisegundos();
 
-  unsigned long diferenciaDeTiempo = segundaMedicion - primeraMedicion;
+    unsigned long diferenciaDeTiempo = segundaMedicion - primeraMedicion;
 
-  assertMoreOrEqual(diferenciaDeTiempo, (unsigned long) tiempoDeDemora);
+    assertMoreOrEqual(diferenciaDeTiempo, (unsigned long) tiempoDeDemora);
 }
 
 test(Consola, deberiaImprimirPorConsola) {
-  framework->consola("Verificacion manual: Deberia imprimir este texto por consola");
+    framework->consola("Verificacion manual: Deberia imprimir este texto por consola");
 }
 
 test(WiFi, deberiaEstarEncendidaLaRedWiFiAPLuegoDeCrearla) {
-  framework->crearRedWiFi("hola", "mundo12345");
-  assertTrue(framework->estaAPEncendido());
-  framework->apagarWiFi();
+    framework->crearRedWiFi("hola", "mundo12345");
+    assertTrue(framework->estaAPEncendido());
+    framework->apagarWiFi();
 }
 
 test(WiFi, deberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
-  framework->apagarWiFi();
-  framework->demorar(400);
+    framework->apagarWiFi();
+    framework->demorar(400);
 
-  assertFalse(framework->estaAPEncendido());
+    assertFalse(framework->estaAPEncendido());
 }
 
 static String dispositivoBaseUrl = "http://" + IPAddress(192, 168, 4, 1).toString();
@@ -78,13 +77,14 @@ class Respuesta {
 public:
     int codigo;
     String contenido;
+
     Respuesta(int codigo, String contenido) {
         this->codigo = codigo;
         this->contenido = std::move(contenido);
     }
 };
 
-class ServidorWebTest: public TestOnce {
+class ServidorWebTest : public TestOnce {
 protected:
     void setup() override {
         TestOnce::setup();
@@ -99,7 +99,7 @@ protected:
         TestOnce::teardown();
     }
 
-    static Respuesta *alHacerPeticionGET(const char* camino) {
+    static Respuesta *alHacerPeticionGET(const char *camino) {
         HTTPClient cliente;
         cliente.begin(dispositivoBaseUrl + camino);
 
@@ -136,34 +136,34 @@ testF(ServidorWebTest, deberiaEliminarServidorWebLuegoDeEncenderlo) {
 }
 
 testF(ServidorWebTest, deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
-  Respuesta* respuesta = alHacerPeticionGET("/chil-ping");
+    Respuesta *respuesta = alHacerPeticionGET("/chil-ping");
 
-  assertEqual(200, respuesta->codigo);
-  assertEqual("chil-pong", respuesta->contenido);
+    assertEqual(200, respuesta->codigo);
+    assertEqual("chil-pong", respuesta->contenido);
 }
 
 testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
-  auto* puntoDeEntrada = new PuntoDeEntrada("/numeros");
-  puntoDeEntrada->configurarRespuesta("numeros", "text/plain");
-
-  framework->configurarPuntoDeEntrada(puntoDeEntrada);
-
-  Respuesta* respuesta = alHacerPeticionGET("/numeros");
-
-  assertEqual(200, respuesta->codigo);
-  assertEqual("numeros", respuesta->contenido);
-}
-
-testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
-    auto* puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
+    auto *puntoDeEntrada = new PuntoDeEntrada("/numeros");
+    puntoDeEntrada->configurarRespuesta("numeros", "text/plain");
 
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
 
-    Respuesta* respuesta = alHacerPeticionPOST("/ping");
+    Respuesta *respuesta = alHacerPeticionGET("/numeros");
+
+    assertEqual(200, respuesta->codigo);
+    assertEqual("numeros", respuesta->contenido);
+}
+
+testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
+    auto *puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
+
+    framework->configurarPuntoDeEntrada(puntoDeEntrada);
+
+    Respuesta *respuesta = alHacerPeticionPOST("/ping");
 
     assertEqual(200, respuesta->codigo);
 }
 
 void loop() {
-  TestRunner::run();
+    TestRunner::run();
 }
