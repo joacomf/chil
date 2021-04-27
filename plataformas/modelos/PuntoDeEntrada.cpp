@@ -19,8 +19,8 @@ Metodo PuntoDeEntrada::obtenerMetodo() {
 }
 
 void PuntoDeEntrada::configurarRespuesta(const char *valor, const char *tipoDeclarado) {
-    this->respuesta = valor;
-    this->tipo = tipoDeclarado;
+    respuesta = valor;
+    tipo = tipoDeclarado;
 }
 
 const char* PuntoDeEntrada::obtenerRespuesta() {

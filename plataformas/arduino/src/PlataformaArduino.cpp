@@ -35,6 +35,11 @@ void PlataformaArduino::consola(const char *texto) {
 bool PlataformaArduino::crearRedWiFi(const char *nombre, const char *clave) {
     WiFi.enableAP(true);
     this->apEncendido = WiFi.softAP(nombre, clave);
+
+    if (!WiFi.config(this->ipLocal, this->sinIPDeclarada, this->sinIPDeclarada, this->ipLocal, INADDR_NONE)) {
+        this->consola("Fallo en configurar WiFi");
+    }
+
     return this->apEncendido;
 }
 
@@ -82,4 +87,31 @@ void PlataformaArduino::configurarPuntoDeEntrada(PuntoDeEntrada *puntoDeEntrada)
                            delay(10);
                            request->send(200, puntoDeEntrada->obtenerTipo(), puntoDeEntrada->obtenerRespuesta());
                        });
+}
+
+void PlataformaArduino::configurarMockUrls() {
+    xTaskCreate(
+            PlataformaArduino::configurarServidorDNS,
+            "configuraDNS",
+            10000,
+            nullptr,
+            1,
+            &manejadorTareaDeConfiguracionServidorDNS);
+}
+
+[[noreturn]] void PlataformaArduino::configurarServidorDNS(void *parametros) {
+    DNSServer dnsServer;
+    dnsServer.setErrorReplyCode(DNSReplyCode::NoError);
+    dnsServer.start(PlataformaArduino::DNS_PORT, "*", WiFi.softAPIP());
+
+    while (true) {
+        delay(10);
+        dnsServer.processNextRequest();
+    }
+}
+
+void PlataformaArduino::eliminarMocksUrls() {
+    if(manejadorTareaDeConfiguracionServidorDNS != nullptr) {
+        vTaskDelete(manejadorTareaDeConfiguracionServidorDNS);
+    }
 }

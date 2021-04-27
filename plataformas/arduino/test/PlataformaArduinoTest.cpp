@@ -119,6 +119,17 @@ protected:
 
         return new Respuesta(codigoDeRespuesta, "");
     }
+
+    static Respuesta *alHacerPeticionGETAUrl(const char *url) {
+        HTTPClient cliente;
+        cliente.begin(url);
+
+        int codigoDeRespuesta = cliente.GET();
+        String contenido = cliente.getString();
+        cliente.end();
+
+        return new Respuesta(codigoDeRespuesta, contenido);
+    }
 };
 
 test(ServidorWebTest, deberiaNoTenerServidorWebCreadoPorDefault) {
@@ -143,7 +154,7 @@ testF(ServidorWebTest, deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
 }
 
 testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
-    auto *puntoDeEntrada = new PuntoDeEntrada("/numeros");
+    PuntoDeEntrada *puntoDeEntrada = new PuntoDeEntrada("/numeros");
     puntoDeEntrada->configurarRespuesta("numeros", "text/plain");
 
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
@@ -155,13 +166,28 @@ testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
 }
 
 testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
-    auto *puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
+    PuntoDeEntrada *puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
 
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
 
     Respuesta *respuesta = alHacerPeticionPOST("/ping");
 
     assertEqual(200, respuesta->codigo);
+}
+
+testF(ServidorWebTest, deberiaResponderElServidorLocalSiSeMockeaLaUrl) {
+    framework->configurarMockUrls();
+    framework->demorar(100);
+
+    PuntoDeEntrada *puntoDeEntrada = new PuntoDeEntrada("/", GET);
+    puntoDeEntrada->configurarRespuesta("Esto no es Google", "text/plain");
+    framework->configurarPuntoDeEntrada(puntoDeEntrada);
+
+    Respuesta *respuesta = alHacerPeticionGETAUrl("http://www.google.com/");
+
+    framework->eliminarMocksUrls();
+    assertEqual(200, respuesta->codigo);
+    assertEqual("Esto no es Google", respuesta->contenido);
 }
 
 void loop() {

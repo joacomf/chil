@@ -5,6 +5,7 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <ESPAsyncWebServer.h>
+#include <DNSServer.h>
 
 #include <Plataforma.h>
 #include "../../modelos/PuntoDeEntrada.h"
@@ -17,6 +18,11 @@ private:
     bool servidorCorriendo = false;
 
     AsyncWebServer* servidor;
+
+    IPAddress ipLocal = IPAddress(192, 168, 4, 1);
+    IPAddress sinIPDeclarada = INADDR_NONE;
+    IPAddress dns = IPAddress(192, 168, 4, 254);
+
 public:
     PlataformaArduino();
     void consola(const char* text);
@@ -31,10 +37,21 @@ public:
     bool apagarWiFi();
 
     void crearServidorWeb();
-    void configurarPuntoDeEntrada(PuntoDeEntrada *puntoDeEntrada);
+    void configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada);
     bool estaServidorCorriendo() const;
     void eliminarServidorWeb();
+
+    static void configurarMockUrls();
+
+    [[noreturn]] static void configurarServidorDNS(void *parametros);
+
+    static const byte DNS_PORT = 53;
+
+    static void eliminarMocksUrls();
+
+    static const IPAddress &dnsIP();
 };
 
+TaskHandle_t manejadorTareaDeConfiguracionServidorDNS = nullptr;
 
 #endif //CHIL_FRAMEWORKARDUINO_H
