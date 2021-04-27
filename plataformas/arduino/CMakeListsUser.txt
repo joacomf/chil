@@ -5,9 +5,8 @@ project(arduino C CXX)
 add_executable(arduino
         src/main.cpp
         src/PlataformaArduino.cpp
-
-        test/ServidorWebTest.cpp
         test/PlataformaArduinoTest.cpp
+
         ${CMAKE_CURRENT_SOURCE_DIR}/../../include/plataforma/Plataforma.h
         ${CMAKE_CURRENT_SOURCE_DIR}/../modelos/PuntoDeEntrada.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/../modelos/PuntoDeEntrada.h
