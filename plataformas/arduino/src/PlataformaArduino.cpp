@@ -70,15 +70,16 @@ bool PlataformaArduino::estaServidorCorriendo() const {
     return this->servidorCorriendo;
 }
 
-void PlataformaArduino::configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada) {
+void PlataformaArduino::configurarPuntoDeEntrada(PuntoDeEntrada *puntoDeEntrada) {
     WebRequestMethod metodoAConfigurar = HTTP_GET;
 
     if (puntoDeEntrada->obtenerMetodo() == POST) {
         metodoAConfigurar = HTTP_POST;
     }
 
-    this->servidor->on(puntoDeEntrada->obtenerRuta(), metodoAConfigurar, [puntoDeEntrada](AsyncWebServerRequest *request) {
-        delay(10);
-        request->send(200, puntoDeEntrada->obtenerTipo(), puntoDeEntrada->obtenerRespuesta());
-    });
+    this->servidor->on(puntoDeEntrada->obtenerRuta(), metodoAConfigurar,
+                       [puntoDeEntrada](AsyncWebServerRequest *request) {
+                           delay(10);
+                           request->send(200, puntoDeEntrada->obtenerTipo(), puntoDeEntrada->obtenerRespuesta());
+                       });
 }
