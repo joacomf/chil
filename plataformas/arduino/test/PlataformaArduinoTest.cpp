@@ -6,10 +6,13 @@
 
 using namespace aunit;
 
-PlataformaArduino *framework = new PlataformaArduino();
+PlataformaArduino *framework;
 int led = 2;
 
-void setup() {}
+void setup() {
+    delay(1000);
+    framework = new PlataformaArduino();
+}
 
 test(EntradaSalidaDigital, deberiaEncenderElLedIndicado) {
   framework->pinSalida(led);
