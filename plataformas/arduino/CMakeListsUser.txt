@@ -17,4 +17,4 @@ include(CMakeListsPrivate.txt)
 include_directories(
         "${CMAKE_CURRENT_SOURCE_DIR}/test"
         "${CMAKE_CURRENT_SOURCE_DIR}/test/caracteristicas"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../../include/plataforma")
+        "${CMAKE_CURRENT_SOURCE_DIR}/../modelos")

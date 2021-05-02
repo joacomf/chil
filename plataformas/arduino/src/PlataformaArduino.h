@@ -8,7 +8,7 @@
 #include <DNSServer.h>
 
 #include <Plataforma.h>
-#include "../../modelos/PuntoDeEntrada.h"
+#include <PuntoDeEntrada.h>
 
 
 class PlataformaArduino: public Plataforma {
