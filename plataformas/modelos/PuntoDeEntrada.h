@@ -14,8 +14,9 @@ enum Metodo {
 class PuntoDeEntrada {
 private:
     const char *ruta;
-    const char *respuesta;
-    const char *tipo;
+    const char *respuesta{};
+    const char *tipo{};
+    int codigoDeRespuesta{};
 
     Metodo metodo;
 
@@ -29,11 +30,13 @@ public:
 
     Metodo obtenerMetodo();
 
-    void configurarRespuesta(const char *valor, const char *tipo);
+    void configurarRespuesta(const char *valor, const char *tipoDeContenido, int codigo);
 
     const char *obtenerRespuesta();
 
     const char *obtenerTipo();
+
+    int obtenerCodigoDeRespuesta() const;
 };
 
 

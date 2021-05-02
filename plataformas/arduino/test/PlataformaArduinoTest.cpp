@@ -155,7 +155,7 @@ testF(ServidorWebTest, deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
 
 testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
     PuntoDeEntrada *puntoDeEntrada = new PuntoDeEntrada("/numeros");
-    puntoDeEntrada->configurarRespuesta("numeros", "text/plain");
+    puntoDeEntrada->configurarRespuesta("numeros", "text/plain", 200);
 
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
 
@@ -167,6 +167,7 @@ testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
 
 testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
     PuntoDeEntrada *puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
+    puntoDeEntrada->configurarRespuesta("", "application/json", 200);
 
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
 
@@ -180,13 +181,13 @@ testF(ServidorWebTest, deberiaResponderElServidorLocalSiSeMockeaLaUrl) {
     framework->demorar(100);
 
     PuntoDeEntrada *puntoDeEntrada = new PuntoDeEntrada("/", GET);
-    puntoDeEntrada->configurarRespuesta("Esto no es Google", "text/plain");
+    puntoDeEntrada->configurarRespuesta("Esto no es Google", "text/plain", 202);
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
 
     Respuesta *respuesta = alHacerPeticionGETAUrl("http://www.google.com/");
 
     framework->eliminarMocksUrls();
-    assertEqual(200, respuesta->codigo);
+    assertEqual(202, respuesta->codigo);
     assertEqual("Esto no es Google", respuesta->contenido);
 }
 

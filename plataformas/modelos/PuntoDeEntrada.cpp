@@ -18,9 +18,10 @@ Metodo PuntoDeEntrada::obtenerMetodo() {
     return this->metodo;
 }
 
-void PuntoDeEntrada::configurarRespuesta(const char *valor, const char *tipoDeclarado) {
-    respuesta = valor;
-    tipo = tipoDeclarado;
+void PuntoDeEntrada::configurarRespuesta(const char *valor, const char *tipoDeContenido, int codigo) {
+    this->respuesta = valor;
+    this->tipo = tipoDeContenido;
+    this->codigoDeRespuesta = codigo;
 }
 
 const char* PuntoDeEntrada::obtenerRespuesta() {
@@ -29,4 +30,8 @@ const char* PuntoDeEntrada::obtenerRespuesta() {
 
 const char* PuntoDeEntrada::obtenerTipo() {
     return this->tipo;
+}
+
+int PuntoDeEntrada::obtenerCodigoDeRespuesta() const {
+    return this->codigoDeRespuesta;
 }
