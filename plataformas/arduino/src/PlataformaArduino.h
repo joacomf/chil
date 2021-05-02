@@ -24,6 +24,8 @@ private:
     IPAddress sinIPDeclarada = INADDR_NONE;
     IPAddress dns = IPAddress(192, 168, 4, 254);
 
+    [[noreturn]] static void configurarServidorDNS(void *parametros);
+
 public:
     PlataformaArduino();
     void consola(const char* text) override;
@@ -45,8 +47,6 @@ public:
 
     static void configurarMockUrls();
     static void eliminarMocksUrls();
-
-    [[noreturn]] static void configurarServidorDNS(void *parametros);
 };
 
 TaskHandle_t manejadorTareaDeConfiguracionServidorDNS = nullptr;
