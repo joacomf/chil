@@ -41,12 +41,12 @@ public:
 
     void crearServidorWeb() override;
 
-    void configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada);
-    bool estaServidorCorriendo() const;
-    void eliminarServidorWeb();
+    void configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada) override;
+    bool estaServidorCorriendo() override;
+    void eliminarServidorWeb() override;
 
-    static void configurarMockUrls();
-    static void eliminarMocksUrls();
+    void configurarMockUrls() override;
+    void eliminarMocksUrls() override;
 };
 
 TaskHandle_t manejadorTareaDeConfiguracionServidorDNS = nullptr;

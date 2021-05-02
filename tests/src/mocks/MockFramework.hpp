@@ -21,6 +21,12 @@ class MockFramework : public Plataforma{
     MOCK_METHOD(bool, estaAPEncendido, (), (override));
     MOCK_METHOD(bool, apagarWiFi, (), (override));
     MOCK_METHOD(void, crearServidorWeb, (), (override));
+    MOCK_METHOD(void, configurarPuntoDeEntrada, (PuntoDeEntrada* puntoDeEntrada), (override));
+    MOCK_METHOD(bool, estaServidorCorriendo, (), (override));
+    MOCK_METHOD(void, eliminarServidorWeb, (), (override));
+
+    MOCK_METHOD(void, configurarMockUrls, (), (override));
+    MOCK_METHOD(void, eliminarMocksUrls, (), (override));
 };
 
 #endif //CHIL_MOCKFRAMEWORK_HPP

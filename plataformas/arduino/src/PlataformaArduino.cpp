@@ -71,7 +71,7 @@ void PlataformaArduino::crearServidorWeb() {
     }
 }
 
-bool PlataformaArduino::estaServidorCorriendo() const {
+bool PlataformaArduino::estaServidorCorriendo() {
     return this->servidorCorriendo;
 }
 
