@@ -71,7 +71,7 @@ test(WiFi, deberiaEstarApagadoLaRedWiFIAPSiNuncaSeEncendio) {
     assertFalse(framework->estaAPEncendido());
 }
 
-static String dispositivoBaseUrl = "http://" + IPAddress(192, 168, 4, 1).toString();
+static String dispositivoBaseUrl = "http://192.168.4.1";
 
 class Respuesta {
 public:
@@ -154,7 +154,7 @@ testF(ServidorWebTest, deberiaCrearUnPuntoDeEntradaDePingAlCrearElServidorWeb) {
 }
 
 testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
-    PuntoDeEntrada *puntoDeEntrada = new PuntoDeEntrada("/numeros");
+    auto *puntoDeEntrada = new PuntoDeEntrada("/numeros");
     puntoDeEntrada->configurarRespuesta("numeros", "text/plain", 200);
 
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
@@ -166,7 +166,7 @@ testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaAlServidorCreado) {
 }
 
 testF(ServidorWebTest, deberiaAgregarPuntoDeEntradaParaMetodoPostAlServidorCreado) {
-    PuntoDeEntrada *puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
+    auto *puntoDeEntrada = new PuntoDeEntrada("/ping", POST);
     puntoDeEntrada->configurarRespuesta("", "application/json", 200);
 
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
@@ -180,7 +180,7 @@ testF(ServidorWebTest, deberiaResponderElServidorLocalSiSeMockeaLaUrl) {
     framework->configurarMockUrls();
     framework->demorar(100);
 
-    PuntoDeEntrada *puntoDeEntrada = new PuntoDeEntrada("/", GET);
+    auto *puntoDeEntrada = new PuntoDeEntrada("/", GET);
     puntoDeEntrada->configurarRespuesta("Esto no es Google", "text/plain", 202);
     framework->configurarPuntoDeEntrada(puntoDeEntrada);
 
