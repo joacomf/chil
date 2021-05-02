@@ -16,8 +16,9 @@ private:
     int velocidadSerial = 115200;
     bool apEncendido = false;
     bool servidorCorriendo = false;
+    static const byte DNS_PORT = 53;
 
-    AsyncWebServer* servidor;
+    AsyncWebServer* servidor{};
 
     IPAddress ipLocal = IPAddress(192, 168, 4, 1);
     IPAddress sinIPDeclarada = INADDR_NONE;
@@ -25,31 +26,27 @@ private:
 
 public:
     PlataformaArduino();
-    void consola(const char* text);
-    void escribir(int pin, int valor);
-    int leer(int pin);
-    void demorar(int milisegundos);
-    unsigned long milisegundos();
-    unsigned long microsegundos();
-    void pinSalida(int pin);
-    bool crearRedWiFi(const char *nombre, const char *clave);
-    bool estaAPEncendido();
-    bool apagarWiFi();
+    void consola(const char* text) override;
+    void escribir(int pin, int valor) override;
+    int leer(int pin) override;
+    void demorar(int milisegundos) override;
+    unsigned long milisegundos() override;
+    unsigned long microsegundos() override;
+    void pinSalida(int pin) override;
+    bool crearRedWiFi(const char *nombre, const char *clave) override;
+    bool estaAPEncendido() override;
+    bool apagarWiFi() override;
 
-    void crearServidorWeb();
+    void crearServidorWeb() override;
+
     void configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada);
     bool estaServidorCorriendo() const;
     void eliminarServidorWeb();
 
     static void configurarMockUrls();
-
-    [[noreturn]] static void configurarServidorDNS(void *parametros);
-
-    static const byte DNS_PORT = 53;
-
     static void eliminarMocksUrls();
 
-    static const IPAddress &dnsIP();
+    [[noreturn]] static void configurarServidorDNS(void *parametros);
 };
 
 TaskHandle_t manejadorTareaDeConfiguracionServidorDNS = nullptr;
