@@ -1,7 +1,7 @@
 #ifndef CHIL_CHIL_H
 #define CHIL_CHIL_H
 
-#include "plataforma/Plataforma.h"
+#include "Plataforma.h"
 #include "modelo/Escenario.h"
 
 #include <list>

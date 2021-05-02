@@ -1,6 +1,8 @@
 #ifndef CHIL_PLATAFORMA_H
 #define CHIL_PLATAFORMA_H
 
+#include "PuntoDeEntrada.h"
+
 class Plataforma {
 
 public:
@@ -14,6 +16,14 @@ public:
     virtual bool crearRedWiFi(const char *nombre, const char *clave) = 0;
     virtual bool estaAPEncendido() = 0;
     virtual bool apagarWiFi() = 0;
+    virtual void crearServidorWeb() = 0;
+
+    virtual void configurarPuntoDeEntrada(PuntoDeEntrada* puntoDeEntrada) = 0;
+    virtual bool estaServidorCorriendo() = 0;
+    virtual void eliminarServidorWeb() = 0;
+
+    virtual void configurarMockUrls() = 0;
+    virtual void eliminarMocksUrls() = 0;
 };
 
 

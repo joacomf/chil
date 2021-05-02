@@ -10,10 +10,13 @@ add_library(chil
         src/modelo/Escenario.cpp
         src/modelo/Paso.cpp
         src/utils/stringUtils.cpp
+        plataformas/modelos/PuntoDeEntrada.cpp
         )
 
 target_include_directories(chil PRIVATE include)
 target_include_directories(chil PRIVATE src)
+target_include_directories(chil PRIVATE plataformas/modelos)
+
 set_target_properties(chil PROPERTIES PUBLIC_HEADER include/Chil.h)
 
 # Uncomment for tests

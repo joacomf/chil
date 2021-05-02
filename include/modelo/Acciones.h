@@ -2,7 +2,7 @@
 #define CHIL_ACCIONES_H
 
 
-#include <plataforma/Plataforma.h>
+#include <Plataforma.h>
 
 class Acciones {
 

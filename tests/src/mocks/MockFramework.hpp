@@ -4,7 +4,7 @@
 #ifndef CHIL_MOCKFRAMEWORK_HPP
 #define CHIL_MOCKFRAMEWORK_HPP
 
-#include "plataforma/Plataforma.h"
+#include "Plataforma.h"
 #include "gmock/gmock.h"
 
 class MockFramework : public Plataforma{
@@ -20,6 +20,13 @@ class MockFramework : public Plataforma{
     MOCK_METHOD(bool, crearRedWiFi, (const char *nombre, const char *clave), (override));
     MOCK_METHOD(bool, estaAPEncendido, (), (override));
     MOCK_METHOD(bool, apagarWiFi, (), (override));
+    MOCK_METHOD(void, crearServidorWeb, (), (override));
+    MOCK_METHOD(void, configurarPuntoDeEntrada, (PuntoDeEntrada* puntoDeEntrada), (override));
+    MOCK_METHOD(bool, estaServidorCorriendo, (), (override));
+    MOCK_METHOD(void, eliminarServidorWeb, (), (override));
+
+    MOCK_METHOD(void, configurarMockUrls, (), (override));
+    MOCK_METHOD(void, eliminarMocksUrls, (), (override));
 };
 
 #endif //CHIL_MOCKFRAMEWORK_HPP
