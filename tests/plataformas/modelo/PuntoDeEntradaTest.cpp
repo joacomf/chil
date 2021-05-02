@@ -1,4 +1,4 @@
-#include <PuntoDeEntrada.cpp>tipo
+#include <PuntoDeEntrada.cpp>
 #include "gtest/gtest.h"
 
 TEST(PuntoDeEntrada, deberiaCrearPuntoDeEntradaConRutaEspecificadaYMetodoGETPorDefault) {
