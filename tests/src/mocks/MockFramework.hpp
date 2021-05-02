@@ -4,7 +4,7 @@
 #ifndef CHIL_MOCKFRAMEWORK_HPP
 #define CHIL_MOCKFRAMEWORK_HPP
 
-#include "plataforma/Plataforma.h"
+#include "Plataforma.h"
 #include "gmock/gmock.h"
 
 class MockFramework : public Plataforma{

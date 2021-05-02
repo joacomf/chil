@@ -4,7 +4,7 @@
 #include <list>
 #include <string>
 #include <modelo/Paso.h>
-#include <plataforma/Plataforma.h>
+#include <Plataforma.h>
 
 using namespace std;
 

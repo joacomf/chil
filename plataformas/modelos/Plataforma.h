@@ -1,7 +1,7 @@
 #ifndef CHIL_PLATAFORMA_H
 #define CHIL_PLATAFORMA_H
 
-#include "../../plataformas/modelos/PuntoDeEntrada.h"
+#include "PuntoDeEntrada.h"
 
 class Plataforma {
 
