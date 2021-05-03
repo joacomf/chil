@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo apt-get update && sudo apt-get install -y doxygen=1.9.2
+sudo apt-get update && sudo apt-get install -y doxygen
 echo "Instalando Doxygen"
 
 echo 'Generando documentación con Doxygen'
