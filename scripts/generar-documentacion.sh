@@ -1,15 +1,4 @@
 #!/bin/sh
-echo 'Configurando el proyecto'
+echo 'Generando documentación con Doxygen'
 set -e
-
-echo 'Generando documentación con Doxygen'
-doxygen ./configuracion/documentacion 2>&1 | tee doxygen.log
-
-mkdir documentacion
-cd documentacion
-
-
-echo "" > .nojekyll
-
-echo 'Generando documentación con Doxygen'
-doxygen ../../configuracion/documentacion 2>&1 | tee doxygen.log
+doxygen ./configuracion/documentacion
