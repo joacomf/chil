@@ -1,5 +1,5 @@
 #!/bin/sh
 echo 'Generando documentación con Doxygen'
 set -e
-sudo apt-get install -y doxygen
-doxygen ./configuracion/documentacion
+doxygen ./documentacion/configuracion
+cp documentacion/.nojekyll documentacion/html
