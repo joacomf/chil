@@ -23,7 +23,10 @@ jobs:
 
   publicar-documentacion:
     runs-on: ubuntu-latest
+    needs: construccion
     steps:
+    - uses: actions/checkout@v2
+
     - name: Generar configuracion
       working-directory: ${{github.workspace}}
       shell: bash
