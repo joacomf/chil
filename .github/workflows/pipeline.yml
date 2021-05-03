@@ -25,7 +25,9 @@ jobs:
     - name: Generar configuracion
       working-directory: ${{github.workspace}}
       shell: bash
-      run: ./scripts/instalar-doxygen.sh && ./scripts/generar-configuracion.sh
+      run: |
+        chmod +x ./scripts/generar-configuracion.sh
+        ./scripts/generar-configuracion.sh
 
     - name: Push changes
       uses: peaceiris/actions-gh-pages@v3
