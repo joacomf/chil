@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo apt-get update && sudo apt-get install -y doxygen doxygen-doc doxygen-gui graphviz xapian-tools
+sudo apt-get update && sudo apt-get install -y doxygen=1.9.2
 echo "Instalando Doxygen"
 
 echo 'Generando documentación con Doxygen'
