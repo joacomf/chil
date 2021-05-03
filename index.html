@@ -1,0 +1,143 @@
+<!-- HTML header for doxygen 1.8.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- For Mobile Devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+        <meta name="generator" content="Doxygen 1.8.17"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <title>Chil: CHIL - C++ hardware-in-the-loop testing &lt;a href=&quot;https://github.com/joacomf/chil/actions/workflows/cmake.yml&quot;&gt;&lt;img src=&quot;https://github.com/joacomf/chil/actions/workflows/pipeline.yml/badge.svg?branch=master&quot; alt=&quot;CMake&quot;/&gt;&lt;/a&gt;</title>
+        <script type="text/javascript" src="dynsections.js"></script>
+        <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+        <link href="doxygen.css" rel="stylesheet" type="text/css" />
+        <link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="jquery.smartmenus.bootstrap.css" rel="stylesheet">
+        <script type="text/javascript" src="jquery.smartmenus.js"></script>
+        <!-- SmartMenus jQuery Bootstrap Addon -->
+        <script type="text/javascript" src="jquery.smartmenus.bootstrap.js"></script>
+        <!-- SmartMenus jQuery plugin -->
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Chil 1.0.0</a>
+                </div>
+            </div>
+        </nav>
+        <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+            <div class="content" id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 panel " style="padding-bottom: 15px;position: initial;">
+                            <div style="margin-bottom: 15px;">
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">CHIL - C++ hardware-in-the-loop testing <a href="https://github.com/joacomf/chil/actions/workflows/cmake.yml"><object type="image/svg+xml" data="https://github.com/joacomf/chil/actions/workflows/pipeline.yml/badge.svg?branch=master" style="pointer-events: none;">CMake</object></a> </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Framework para escribir pruebas utilizando un dispositivo físico como ejecutor.</p>
+<p>La motivación original detrás de todo el proyecto fue la necesidad de crear una herramienta que sea habilitante para realizar prácticas con pruebas automatizadas (TDD, BDD, Integración Continua) al mundo de microcontroladores que está creciendo.</p>
+<p>Desde hace varios años, el mercado de microcontroladores fue mutando y por ende emergieron nuevas generaciones de procesadores con mayor espacio y mayor capacidad de cómputo que permite poner software de tamaño considerable (hasta MBs) lo que genera un crecimiento en la complejidad del mismo.</p>
+<p>Antes se programaban dispositivos con una cantidad limitada de condiciones lo que permitía verificar rápidamente de manera manual si cumplía con el funcionamiento adecuado.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Usos</h1>
+<p>Varios usos pueden ser interpretados de esta herramienta. Algunos ejemplos:</p><ol type="1">
+<li>Usarlo como herramienta para guiar el desarrollo. Se puede usar en la práctica de BDD/ATDD para definir el comportamiento del producto y a partir realizar el desarrollo para que cumpla con esas especificaciones/comportamiento.</li>
+<li>Se puede utilizar como herramienta para probar el desarrollo luego de haberlo realizado, de manera de dejar un arnés de seguridad para el código escrito</li>
+<li>Otro uso puede ser armar una red de contención previo a una refactorización de código heredado. A partir de cómo se debería comportar el dispositivo, se escriben las pruebas y una vez que las mismas otorguen feedback adecuado se puede proceder a refactorizar el código.</li>
+<li>Un uso menos común pero igual de válido es para explorar un producto a partir de lo que uno piensa que debería hacer, un ejemplo de este caso es la aplicación de ingeniería inversa si es que no se tiene el código del dispositivo aún o si el mismo es difícil de entender.</li>
+<li>Cualquier otro propósito que ayude al procesos de construir algún producto</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Entorno</h1>
+<h2><a class="anchor" id="autotoc_md3"></a>
+IDE</h2>
+<p>Un IDE recomendado para el desarollo es <a href="https://code.visualstudio.com/">VSCode</a>. También puede utilizarse <a href="https://www.jetbrains.com/es-es/clion/">CLion</a> (No libre).</p>
+<p>Al importarlo utilizando la herramienta de <a href="https://platformio.org/">PlatformIO</a>, la misma se encargará de descargar las líbrerias necesarias.</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Herramientas</h2>
+<p>El proyecto fue desarrollado en un ambiente con sistema operativo con base linux. Para compilar y ejecutar las pruebas del proyecto, se necesita tener las siguientes librerías:</p><ul>
+<li>cmake</li>
+<li>build-essentials</li>
+</ul>
+<p>Para ello en un entorno con base Debian (Ubuntu, LinuxMint, etc): </p><div class="fragment"><div class="line">$ sudo apt install cmake build-essentials</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+Construcción</h2>
+<p>Para construir el proyecto, se podrá ejecutar el script </p><div class="fragment"><div class="line">./scripts/build.sh</div>
+</div><!-- fragment --><p>El mismo se encarga de limpiar el entorno y ejecutar los pasos necesarios para que la construcción sea exitosa. Este script se encargará de instalar las librerías necesarias para ejecutar las pruebas de:</p><ul>
+<li><a href="https://github.com/google/googletest">GTEST</a> - GoogleTest, librería de pruebas para C++ de Google</li>
+</ul>
+<p>Para correr los tests es necesario ejecutar el script </p><div class="fragment"><div class="line">./scripts/test.sh</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+Modo de uso</h1>
+<p>Al momento de escribir pruebas tenemos disponible la macro <code>ESCENARIO</code> y la macro <code>PASO</code> para que las pruebas queden definidas de manera más clara. Por lo tanto podremos escribir:</p>
+<div class="fragment"><div class="line"> {c++}</div>
+<div class="line">Plataforma arduino = new PlataformaArduino();</div>
+<div class="line">Chil *chil = new Chil(arduino);</div>
+<div class="line"> </div>
+<div class="line">ESCENARIO(chil, &quot;Primer escenario con un paso&quot;, [](Chil *chil){</div>
+<div class="line">    PASO(chil, &quot;Imprime por consola el saludo de bienvenida&quot;, []() {</div>
+<div class="line">        arduino-&gt;consola(&quot;Hola mundo!&quot;);</div>
+<div class="line">        return true;</div>
+<div class="line">    });</div>
+<div class="line">});</div>
+</div><!-- fragment --><p>Al ejecutarse los test saldrá por consola un reporte como el siguiente:</p>
+<div class="fragment"><div class="line">Escenario: Primer escenario con un paso</div>
+<div class="line">  [OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+        <script type="text/javascript" src="doxy-boot.js"></script>
+</html>
