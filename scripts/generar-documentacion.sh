@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "Instalando Doxygen"
-sudo apt-get install -y doxygen
+sudo apt-get update && sudo apt-get install -y doxygen
 
 echo 'Generando documentación con Doxygen'
 set -e
