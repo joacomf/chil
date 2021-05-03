@@ -26,8 +26,8 @@ jobs:
       working-directory: ${{github.workspace}}
       shell: bash
       run: |
-        chmod +x ./scripts/generar-configuracion.sh
-        ./scripts/generar-configuracion.sh
+        chmod +x ./scripts/generar-documentacion.sh
+        ./scripts/generar-documentacion.sh
 
     - name: Push changes
       uses: peaceiris/actions-gh-pages@v3
