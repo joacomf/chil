@@ -6,22 +6,24 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  build:
+  construccion:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build
+    - name: Construir
       working-directory: ${{github.workspace}}
       shell: bash
       run: ./scripts/build.sh
 
-    - name: Test
+    - name: Pruebas
       working-directory: ${{github.workspace}}
       shell: bash
       run: ./scripts/test.sh
 
+  publicar-documentacion:
+    runs-on: ubuntu-latest
+    steps:
     - name: Generar configuracion
       working-directory: ${{github.workspace}}
       shell: bash
@@ -29,7 +31,7 @@ jobs:
         chmod +x ./scripts/generar-documentacion.sh
         ./scripts/generar-documentacion.sh
 
-    - name: Push changes
+    - name: Publica en Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
