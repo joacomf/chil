@@ -1,4 +1,4 @@
-# CHIL - C++ hardware-in-the-loop testing [![CMake](https://github.com/joacomf/chil/actions/workflows/cmake.yml/badge.svg?branch=master)](https://github.com/joacomf/chil/actions/workflows/cmake.yml)
+# CHIL - C++ hardware-in-the-loop testing [![CMake](https://github.com/joacomf/chil/actions/workflows/pipeline.yml/badge.svg?branch=master)](https://github.com/joacomf/chil/actions/workflows/cmake.yml)
 
 Framework para escribir pruebas utilizando un dispositivo físico como ejecutor.
 
