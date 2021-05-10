@@ -7,6 +7,8 @@
 #include <list>
 #include <string>
 
+#define NUEVO_CHIL_CON(framework) Chil::crear(framework)
+
 using namespace std;
 
 class Chil {

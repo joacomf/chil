@@ -13,7 +13,7 @@ class PruebasDeChil : public Test {
 protected:
     void SetUp() override {
         framework = new MockFramework();
-        Chil::crear(framework);
+        NUEVO_CHIL_CON(framework);
     }
 
     void TearDown() override {
