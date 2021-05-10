@@ -16,21 +16,16 @@ void ejecutarPaso(Chil *chil, const char *nombre, bool (*funcion)()) {
   chil->paso(paso);
 }
 
+
+#define ESCENARIO(nombre) for(EscenarioEjecutable e(#nombre); e.haIniciado; e.haIniciado = false)
+
 /**
- * Metodo que utiliza la macro de ESCENARIO para registrar un escenario
+ * @class EscenarioEjecutable
  *
- * @param Chil* chil - instancia de Chil para generar las acciones
- * @param const char* nombre - nombre a asignar al escenario
- * @param bool (*funcion)() - Referencia al metodo donde se registran los pasos del escenario
+ * Esta clase se utiliza para utilizar en la macro ESCENARIO y así aprovechar el poder del constructor para iniciar un
+ * escenario nuevo en chil, luego se ejecuta el cuerpo del macro y al final se llama al destructor debido a que la
+ * instancia queda sin utilizar y la limpia el garbage collector
  */
-void ejecutarEscenario(Chil *chil, const char *nombre, void (*funcion)(Chil *chil)){
-  chil->escenario(nombre);
-  funcion(chil);
-  chil->finalizarEscenario();
-}
-
-#define ESCENARIO_GLOBAL(nombre) for(EscenarioEjecutable e(#nombre); e.haIniciado; e.haIniciado = false)
-
 class EscenarioEjecutable {
 public:
     bool haIniciado;
@@ -44,7 +39,6 @@ public:
 };
 
 
-#define ESCENARIO(chil, nombre, block) ejecutarEscenario(chil, nombre, block)
 #define PASO(chil, nombre, codigo) ejecutarPaso(chil, nombre, codigo)
 
 #endif //CHIL_MACROS_H

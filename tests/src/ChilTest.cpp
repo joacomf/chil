@@ -57,7 +57,7 @@ TEST_F(PruebasDeChil, deberiaEjecutarLaAccionDelPasoDeUnEscenarioConMacro) {
           .WillOnce(Return(100L))
           .WillOnce(Return(200L));
 
-  ESCENARIO_GLOBAL(Primer escenario con dos pasos) {
+  ESCENARIO(Primer escenario con dos pasos) {
     PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
         PLATAFORMA->consola("Hola mundo!");
         return true;
@@ -78,7 +78,7 @@ TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
 
   EXPECT_CALL(*plataforma, consola(_)).Times(AtLeast(2));
 
-  ESCENARIO_GLOBAL(Primer escenario con dos pasos){
+  ESCENARIO(Primer escenario con dos pasos){
       PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
           PLATAFORMA->consola("Hola mundo!");
           return true;
