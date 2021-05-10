@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tiempo_38',['tiempo',['../classPaso.html#aca539a1ace28b9ee29d0ab8e51b0c1b8',1,'Paso']]]
+  ['stringutils_2ecpp_37',['stringUtils.cpp',['../stringUtils_8cpp.html',1,'']]],
+  ['stringutils_2eh_38',['stringUtils.h',['../stringUtils_8h.html',1,'']]]
 ];

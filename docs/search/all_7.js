@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['obtener_27',['obtener',['../classChil.html#a90734a43436f88d2e3fa1f242c2530ef',1,'Chil']]],
-  ['obtenercantidadpasos_28',['obtenerCantidadPasos',['../classEscenario.html#a29b3a57ff1921cabb274efa0b29a0504',1,'Escenario']]],
-  ['obtenernombre_29',['obtenerNombre',['../classPaso.html#a9f19e6899e8059f3c49f4ed89ea2e040',1,'Paso']]],
-  ['operator_3d_30',['operator=',['../classChil.html#ae21b1db2330b50f62ea9c1ff2964fbbb',1,'Chil']]]
+  ['nombre_24',['nombre',['../classEscenario.html#aa0af8ed51b0acc78d8c1f25d4f7ac964',1,'Escenario']]],
+  ['nuevo_25',['nuevo',['../classEscenario.html#a55027d28b6cb85c23e40dd9b934a3f35',1,'Escenario']]],
+  ['nuevo_5fchil_5fcon_26',['NUEVO_CHIL_CON',['../Chil_8h.html#a2bef85f281d541ab43cee92301d2639c',1,'Chil.h']]]
 ];

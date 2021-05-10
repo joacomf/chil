@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7echil_39',['~Chil',['../classChil.html#a449ea90ab4220f5a623a8114af3d7c27',1,'Chil']]]
+  ['tiempo_39',['tiempo',['../classPaso.html#aca539a1ace28b9ee29d0ab8e51b0c1b8',1,'Paso']]]
 ];

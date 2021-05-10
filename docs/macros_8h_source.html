@@ -83,33 +83,48 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CHIL_MACROS_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Paso_8h.html">modelo/Paso.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Chil_8h.html">Chil.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="macros_8h.html#a6ba8a228c606a6087f57ff781b9c2d9f">   14</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="macros_8h.html#a6ba8a228c606a6087f57ff781b9c2d9f">ejecutarPaso</a>(<a class="code" href="classChil.html">Chil</a> *chil, <span class="keyword">const</span> <span class="keywordtype">char</span> *nombre, <span class="keywordtype">bool</span> (*funcion)()) {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <a class="code" href="classPaso.html">Paso</a> *paso = <span class="keyword">new</span> <a class="code" href="classPaso.html">Paso</a>(nombre, funcion);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  chil-&gt;<a class="code" href="classChil.html#aad9d33663436091f7e4aafbd42fe4e93">paso</a>(paso);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="macros_8h.html#a3b4d5fd5058b391b00cf007bad43be6e">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="macros_8h.html#a3b4d5fd5058b391b00cf007bad43be6e">ejecutarEscenario</a>(<a class="code" href="classChil.html">Chil</a> *chil, <span class="keyword">const</span> <span class="keywordtype">char</span> *nombre, <span class="keywordtype">void</span> (*funcion)(<a class="code" href="classChil.html">Chil</a> *chil)){</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  chil-&gt;<a class="code" href="classChil.html#a0bd23652a4689548edf88ba8b8d00468">escenario</a>(nombre);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  funcion(chil);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  chil-&gt;<a class="code" href="classChil.html#a991678d5f453e0a29e14f75379eede57">finalizarEscenario</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="macros_8h.html#a627ad9b2deb413b6ea20d5809ff39e12">   32</a></span>&#160;<span class="preprocessor">#define ESCENARIO(chil, nombre, block) ejecutarEscenario(chil, nombre, block)</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="macros_8h.html#af29825c50b7d430c46fa5366664d7dab">   33</a></span>&#160;<span class="preprocessor">#define PASO(chil, nombre, codigo) ejecutarPaso(chil, nombre, codigo)</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif //CHIL_MACROS_H</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="macros_8h.html#a1e52795296e49d76c806269e7fcfc4f3">    6</a></span>&#160;<span class="preprocessor">#define ESCENARIO(nombre) for(EscenarioEjecutable e(#nombre); e.haIniciado; e.haIniciado = false)</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classEscenarioEjecutable.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEscenarioEjecutable.html">EscenarioEjecutable</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classEscenarioEjecutable.html#a65a72099dba52f312e50c26f25c22f88">   17</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classEscenarioEjecutable.html#a65a72099dba52f312e50c26f25c22f88">haIniciado</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classEscenarioEjecutable.html#a2d2737a83b95c5f1bf9201f2ec3f871e">   18</a></span>&#160;    <a class="code" href="classEscenarioEjecutable.html#a2d2737a83b95c5f1bf9201f2ec3f871e">EscenarioEjecutable</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* nombre) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="Chil_8h.html#a7f464db8131918d6dca8237b34af1c9e">CHIL</a>-&gt;escenario(nombre);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="classEscenarioEjecutable.html#a65a72099dba52f312e50c26f25c22f88">haIniciado</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classEscenarioEjecutable.html#aca3a4582b48b0c37749872b331737ef3">   22</a></span>&#160;    <a class="code" href="classEscenarioEjecutable.html#aca3a4582b48b0c37749872b331737ef3">~EscenarioEjecutable</a>() {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="Chil_8h.html#a7f464db8131918d6dca8237b34af1c9e">CHIL</a>-&gt;finalizarEscenario();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="macros_8h.html#a99d43b4b18b3de10da3d0e54890e4dd3">   28</a></span>&#160;<span class="preprocessor">#define PASO(nombre, funcion) for(PasoEjecutable p(#nombre, funcion); p.haIniciado; p.haIniciado = false)</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classPasoEjecutable.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPasoEjecutable.html">PasoEjecutable</a> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classPasoEjecutable.html#a41e15a7fe479024889e5e64769ffc0b0">   39</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classPasoEjecutable.html#a41e15a7fe479024889e5e64769ffc0b0">haIniciado</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classPasoEjecutable.html#a82331d62a1280d0e5ef8de2ed18cd4ce">   40</a></span>&#160;    <a class="code" href="classPasoEjecutable.html#a82331d62a1280d0e5ef8de2ed18cd4ce">PasoEjecutable</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* nombre, <span class="keywordtype">bool</span> (*funcion)()) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classPaso.html">Paso</a> *paso = <span class="keyword">new</span> <a class="code" href="classPaso.html">Paso</a>(nombre, funcion);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="Chil_8h.html#a7f464db8131918d6dca8237b34af1c9e">CHIL</a>-&gt;paso(paso);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classPasoEjecutable.html#a41e15a7fe479024889e5e64769ffc0b0">haIniciado</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classPasoEjecutable.html#a603ec19326d4d138a9a5bcb9a99a359e">   45</a></span>&#160;    <a class="code" href="classPasoEjecutable.html#a603ec19326d4d138a9a5bcb9a99a359e">~PasoEjecutable</a>() {}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif //CHIL_MACROS_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassEscenarioEjecutable_html_a65a72099dba52f312e50c26f25c22f88"><div class="ttname"><a href="classEscenarioEjecutable.html#a65a72099dba52f312e50c26f25c22f88">EscenarioEjecutable::haIniciado</a></div><div class="ttdeci">bool haIniciado</div><div class="ttdef"><b>Definition:</b> macros.h:17</div></div>
+<div class="ttc" id="aclassEscenarioEjecutable_html_a2d2737a83b95c5f1bf9201f2ec3f871e"><div class="ttname"><a href="classEscenarioEjecutable.html#a2d2737a83b95c5f1bf9201f2ec3f871e">EscenarioEjecutable::EscenarioEjecutable</a></div><div class="ttdeci">EscenarioEjecutable(const char *nombre)</div><div class="ttdef"><b>Definition:</b> macros.h:18</div></div>
 <div class="ttc" id="aPaso_8h_html"><div class="ttname"><a href="Paso_8h.html">Paso.h</a></div></div>
-<div class="ttc" id="amacros_8h_html_a6ba8a228c606a6087f57ff781b9c2d9f"><div class="ttname"><a href="macros_8h.html#a6ba8a228c606a6087f57ff781b9c2d9f">ejecutarPaso</a></div><div class="ttdeci">void ejecutarPaso(Chil *chil, const char *nombre, bool(*funcion)())</div><div class="ttdef"><b>Definition:</b> macros.h:14</div></div>
-<div class="ttc" id="aclassChil_html_a0bd23652a4689548edf88ba8b8d00468"><div class="ttname"><a href="classChil.html#a0bd23652a4689548edf88ba8b8d00468">Chil::escenario</a></div><div class="ttdeci">void escenario(const char *nombre)</div><div class="ttdef"><b>Definition:</b> Chil.cpp:49</div></div>
-<div class="ttc" id="amacros_8h_html_a3b4d5fd5058b391b00cf007bad43be6e"><div class="ttname"><a href="macros_8h.html#a3b4d5fd5058b391b00cf007bad43be6e">ejecutarEscenario</a></div><div class="ttdeci">void ejecutarEscenario(Chil *chil, const char *nombre, void(*funcion)(Chil *chil))</div><div class="ttdef"><b>Definition:</b> macros.h:26</div></div>
-<div class="ttc" id="aclassChil_html"><div class="ttname"><a href="classChil.html">Chil</a></div><div class="ttdef"><b>Definition:</b> Chil.h:16</div></div>
+<div class="ttc" id="aclassPasoEjecutable_html_a603ec19326d4d138a9a5bcb9a99a359e"><div class="ttname"><a href="classPasoEjecutable.html#a603ec19326d4d138a9a5bcb9a99a359e">PasoEjecutable::~PasoEjecutable</a></div><div class="ttdeci">~PasoEjecutable()</div><div class="ttdef"><b>Definition:</b> macros.h:45</div></div>
+<div class="ttc" id="aclassPasoEjecutable_html_a41e15a7fe479024889e5e64769ffc0b0"><div class="ttname"><a href="classPasoEjecutable.html#a41e15a7fe479024889e5e64769ffc0b0">PasoEjecutable::haIniciado</a></div><div class="ttdeci">bool haIniciado</div><div class="ttdef"><b>Definition:</b> macros.h:39</div></div>
+<div class="ttc" id="aclassEscenarioEjecutable_html"><div class="ttname"><a href="classEscenarioEjecutable.html">EscenarioEjecutable</a></div><div class="ttdef"><b>Definition:</b> macros.h:15</div></div>
+<div class="ttc" id="aclassPasoEjecutable_html"><div class="ttname"><a href="classPasoEjecutable.html">PasoEjecutable</a></div><div class="ttdef"><b>Definition:</b> macros.h:37</div></div>
+<div class="ttc" id="aclassPasoEjecutable_html_a82331d62a1280d0e5ef8de2ed18cd4ce"><div class="ttname"><a href="classPasoEjecutable.html#a82331d62a1280d0e5ef8de2ed18cd4ce">PasoEjecutable::PasoEjecutable</a></div><div class="ttdeci">PasoEjecutable(const char *nombre, bool(*funcion)())</div><div class="ttdef"><b>Definition:</b> macros.h:40</div></div>
 <div class="ttc" id="aclassPaso_html"><div class="ttname"><a href="classPaso.html">Paso</a></div><div class="ttdef"><b>Definition:</b> Paso.h:9</div></div>
-<div class="ttc" id="aChil_8h_html"><div class="ttname"><a href="Chil_8h.html">Chil.h</a></div></div>
-<div class="ttc" id="aclassChil_html_a991678d5f453e0a29e14f75379eede57"><div class="ttname"><a href="classChil.html#a991678d5f453e0a29e14f75379eede57">Chil::finalizarEscenario</a></div><div class="ttdeci">void finalizarEscenario()</div><div class="ttdef"><b>Definition:</b> Chil.cpp:58</div></div>
-<div class="ttc" id="aclassChil_html_aad9d33663436091f7e4aafbd42fe4e93"><div class="ttname"><a href="classChil.html#aad9d33663436091f7e4aafbd42fe4e93">Chil::paso</a></div><div class="ttdeci">void paso(Paso *paso)</div><div class="ttdef"><b>Definition:</b> Chil.cpp:86</div></div>
+<div class="ttc" id="aclassEscenarioEjecutable_html_aca3a4582b48b0c37749872b331737ef3"><div class="ttname"><a href="classEscenarioEjecutable.html#aca3a4582b48b0c37749872b331737ef3">EscenarioEjecutable::~EscenarioEjecutable</a></div><div class="ttdeci">~EscenarioEjecutable()</div><div class="ttdef"><b>Definition:</b> macros.h:22</div></div>
+<div class="ttc" id="aChil_8h_html_a7f464db8131918d6dca8237b34af1c9e"><div class="ttname"><a href="Chil_8h.html#a7f464db8131918d6dca8237b34af1c9e">CHIL</a></div><div class="ttdeci">#define CHIL</div><div class="ttdef"><b>Definition:</b> Chil.h:11</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>
