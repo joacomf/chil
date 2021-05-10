@@ -11,10 +11,18 @@ using namespace std;
 
 class Chil {
 
-public:
-    explicit Chil(Plataforma *framework);
+protected:
+    explicit Chil(Plataforma *framework1);
+    ~Chil() = default;
 
-    Plataforma *framework;
+public:
+    Chil(Chil &other) = delete;
+    void operator=(const Chil &) = delete;
+
+    static Chil* crear(Plataforma *plataforma);
+    static Chil *obtener();
+
+    Plataforma* framework;
 
     string imprimir_reporte();
     void escenario(const char *nombre);

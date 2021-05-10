@@ -1,5 +1,7 @@
 #include "../include/Chil.h"
 
+Chil *instance_;
+
 /**
  * Clase principal del framework para escribir pruebas
  *
@@ -10,6 +12,33 @@
  */
 Chil::Chil(Plataforma* framework) {
   this->framework = framework;
+}
+
+/**
+ * Crea instancia única de chil utilizando la plataforma indicado
+ *
+ * @class Chil
+ *
+ * @param Plataforma* framework - Instancia del framework de desarrollo soportado por la placa para comunicarse.
+ * Por el momento solo existe la implementacion de PlataformaArduino @see PlataformaArduino
+ * @return [out][Chil] instancia de chil creada.
+ */
+Chil *Chil::crear(Plataforma *plataforma) {
+    instance_ = new Chil(plataforma);
+    return instance_;
+}
+
+/**
+* Obitene la instancia única de Chil ya configurada
+*
+* @class Chil
+*
+* @param Plataforma* framework - Instancia del framework de desarrollo soportado por la placa para comunicarse.
+* Por el momento solo existe la implementacion de PlataformaArduino @see PlataformaArduino
+* @return [out][Chil] instancia de chil creada.
+*/
+Chil *Chil::obtener(){
+    return instance_;
 }
 
 /**
