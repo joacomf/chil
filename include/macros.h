@@ -25,7 +25,7 @@ public:
 };
 
 
-#define PASO_GLOBAL(nombre, funcion) for(PasoEjecutable p(#nombre, funcion); p.haIniciado; p.haIniciado = false)
+#define PASO(nombre, funcion) for(PasoEjecutable p(#nombre, funcion); p.haIniciado; p.haIniciado = false)
 
 /**
  * @class PasoEjecutable
