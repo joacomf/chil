@@ -22,24 +22,24 @@ protected:
 };
 
 TEST_F(PruebasDeChil, deberiaCrearseExitosamenteConElFrameworkIndicado) {
-  ASSERT_EQ(framework, Chil::obtener()->framework);
+  ASSERT_EQ(framework, CHIL->framework);
 }
 
 TEST_F(PruebasDeChil, deberiaImprimirElResutladoDeDosEscenarioNuevo) {
 
-  Chil::obtener()->escenario("Primer escenario sin pasos");
-  Chil::obtener()->finalizarEscenario();
-  Chil::obtener()->escenario("Segundo escenario sin pasos");
-  Chil::obtener()->finalizarEscenario();
+  CHIL->escenario("Primer escenario sin pasos");
+  CHIL->finalizarEscenario();
+  CHIL->escenario("Segundo escenario sin pasos");
+  CHIL->finalizarEscenario();
 
-  string reporte = Chil::obtener()->imprimir_reporte();
+  string reporte = CHIL->imprimir_reporte();
 
   ASSERT_EQ(reporte, "Escenario: Primer escenario sin pasos\n\n\nEscenario: Segundo escenario sin pasos\n\n\n");
 }
 
 TEST_F(PruebasDeChil, deberiaEjecutarLaAccionDelPasoDeUnEscenario) {
   EXPECT_CALL(*framework, consola(_)).Times(AtLeast(1));
-  Chil::obtener()->escenario("Primer escenario con dos pasos");
+  CHIL->escenario("Primer escenario con dos pasos");
 
   Paso *dadoQueImprime = new Paso("Imprime hola mundo por consola", []() {
       framework->consola("Hola mundo!");
@@ -57,8 +57,8 @@ TEST_F(PruebasDeChil, deberiaEjecutarLaAccionDelPasoDeUnEscenarioConMacro) {
           .WillOnce(Return(100L))
           .WillOnce(Return(200L));
 
-  ESCENARIO(Chil::obtener(), "Primer escenario con dos pasos", [](Chil *chil){
-    PASO(Chil::obtener(), "Imprime por consola el saludo de bienvenida", []() {
+  ESCENARIO(CHIL, "Primer escenario con dos pasos", [](Chil *chil){
+    PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
         framework->consola("Hola mundo!");
         return true;
     });
@@ -78,8 +78,8 @@ TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
 
   EXPECT_CALL(*framework, consola(_)).Times(AtLeast(2));
 
-  ESCENARIO(Chil::obtener(), "Primer escenario con dos pasos", [](Chil *chil){
-      PASO(Chil::obtener(), "Imprime por consola el saludo de bienvenida", []() {
+  ESCENARIO(CHIL, "Primer escenario con dos pasos", [](Chil *chil){
+      PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
           framework->consola("Hola mundo!");
           return true;
       });
@@ -89,7 +89,7 @@ TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
       });
   });
 
-  string reporte = Chil::obtener()->imprimir_reporte();
+  string reporte = CHIL->imprimir_reporte();
 
   ASSERT_EQ(reporte, "Escenario: Primer escenario con dos pasos\n\n[OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg\n[OK] Imprime por consola el saludo de despedida - ejecuto en 100 useg\n\n");
 }

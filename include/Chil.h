@@ -8,6 +8,7 @@
 #include <string>
 
 #define NUEVO_CHIL_CON(framework) Chil::crear(framework)
+#define CHIL Chil::obtener()
 
 using namespace std;
 
