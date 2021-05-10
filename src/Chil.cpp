@@ -10,8 +10,8 @@ Chil *instance_;
  * @param Plataforma* framework - Instancia del framework de desarrollo soportado por la placa para comunicarse.
  * Por el momento solo existe la implementacion de PlataformaArduino @see FrameworkArduino
  */
-Chil::Chil(Plataforma* framework) {
-  this->framework = framework;
+Chil::Chil(Plataforma* pPlataforma) {
+  this->plataforma = pPlataforma;
 }
 
 /**
@@ -56,7 +56,7 @@ void Chil::escenario(const char *nombre) {
  *
  */
 void Chil::finalizarEscenario() {
-  this->_escenario->finalizar(framework);
+  this->_escenario->finalizar(plataforma);
   this->_escenarios.push_back(*this->_escenario);
 }
 

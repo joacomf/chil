@@ -22,7 +22,7 @@ protected:
 };
 
 TEST_F(PruebasDeChil, deberiaCrearseExitosamenteConElFrameworkIndicado) {
-  ASSERT_EQ(plataforma, CHIL->framework);
+  ASSERT_EQ(plataforma, CHIL->plataforma);
 }
 
 TEST_F(PruebasDeChil, deberiaImprimirElResutladoDeDosEscenarioNuevo) {
@@ -42,7 +42,7 @@ TEST_F(PruebasDeChil, deberiaEjecutarLaAccionDelPasoDeUnEscenario) {
   CHIL->escenario("Primer escenario con dos pasos");
 
   Paso *dadoQueImprime = new Paso("Imprime hola mundo por consola", []() {
-      plataforma->consola("Hola mundo!");
+      PLATAFORMA->consola("Hola mundo!");
       return true;
   });
 
@@ -59,11 +59,11 @@ TEST_F(PruebasDeChil, deberiaEjecutarLaAccionDelPasoDeUnEscenarioConMacro) {
 
   ESCENARIO(CHIL, "Primer escenario con dos pasos", [](Chil *chil){
     PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
-        plataforma->consola("Hola mundo!");
+        PLATAFORMA->consola("Hola mundo!");
         return true;
     });
     PASO(chil, "Imprime por consola el saludo de despedida", []() {
-        plataforma->consola("Adios mundo!");
+        PLATAFORMA->consola("Adios mundo!");
         return true;
     });
   });
@@ -80,11 +80,11 @@ TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
 
   ESCENARIO(CHIL, "Primer escenario con dos pasos", [](Chil *chil){
       PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
-          plataforma->consola("Hola mundo!");
+          PLATAFORMA->consola("Hola mundo!");
           return true;
       });
       PASO(chil, "Imprime por consola el saludo de despedida", []() {
-          plataforma->consola("Adios mundo!");
+          PLATAFORMA->consola("Adios mundo!");
           return true;
       });
   });

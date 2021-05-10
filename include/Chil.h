@@ -7,15 +7,16 @@
 #include <list>
 #include <string>
 
-#define NUEVO_CHIL_CON(framework) Chil::crear(framework)
+#define NUEVO_CHIL_CON(framework) Chil::crear(plataforma)
 #define CHIL Chil::obtener()
+#define PLATAFORMA Chil::obtener()->plataforma
 
 using namespace std;
 
 class Chil {
 
 protected:
-    explicit Chil(Plataforma *framework1);
+    explicit Chil(Plataforma *pPlataforma);
     ~Chil() = default;
 
 public:
@@ -25,7 +26,7 @@ public:
     static Chil* crear(Plataforma *plataforma);
     static Chil *obtener();
 
-    Plataforma* framework;
+    Plataforma* plataforma;
 
     string imprimir_reporte();
     void escenario(const char *nombre);
