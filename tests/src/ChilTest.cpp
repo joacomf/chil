@@ -78,16 +78,16 @@ TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
 
   EXPECT_CALL(*plataforma, consola(_)).Times(AtLeast(2));
 
-  ESCENARIO(CHIL, "Primer escenario con dos pasos", [](Chil *chil){
+  ESCENARIO_GLOBAL(Primer escenario con dos pasos){
       PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
           PLATAFORMA->consola("Hola mundo!");
           return true;
       });
-      PASO(chil, "Imprime por consola el saludo de despedida", []() {
+      PASO(CHIL, "Imprime por consola el saludo de despedida", []() {
           PLATAFORMA->consola("Adios mundo!");
           return true;
       });
-  });
+  };
 
   string reporte = CHIL->imprimirReporte();
 
