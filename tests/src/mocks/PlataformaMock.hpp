@@ -1,13 +1,13 @@
 //
 // Created by jmorenof on 12/3/21.
 //
-#ifndef CHIL_MOCKFRAMEWORK_HPP
-#define CHIL_MOCKFRAMEWORK_HPP
+#ifndef CHIL_PLATAFORMAMOCK_HPP
+#define CHIL_PLATAFORMAMOCK_HPP
 
 #include "Plataforma.h"
 #include "gmock/gmock.h"
 
-class MockFramework : public Plataforma{
+class PlataformaMock : public Plataforma{
 
   public:
     MOCK_METHOD(void, consola, (const char *nombre), (override));
@@ -29,4 +29,4 @@ class MockFramework : public Plataforma{
     MOCK_METHOD(void, eliminarMocksUrls, (), (override));
 };
 
-#endif //CHIL_MOCKFRAMEWORK_HPP
+#endif //CHIL_PLATAFORMAMOCK_HPP

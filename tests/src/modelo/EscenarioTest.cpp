@@ -1,4 +1,4 @@
-#include <mocks/MockFramework.hpp>
+#include <mocks/PlataformaMock.hpp>
 #include "gtest/gtest.h"
 #include "modelo/Escenario.cpp"
 
@@ -20,7 +20,7 @@ TEST(EscenarioTest, alGenerarReporteNoTieneNingunResultado) {
 
 TEST(EscenarioTest, alMostrarElReporteFinalSeListaEnUnaLineaCadaResultado) {
 
-  auto *framework = new MockFramework();
+  auto *framework = new PlataformaMock();
   auto* escenario = new Escenario("Deja de recibir comando en pin 1 para pasar comando al pin 12");
 
   EXPECT_CALL(*framework, microsegundos())

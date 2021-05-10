@@ -1,18 +1,18 @@
 #include "Chil.cpp"
 #include "gtest/gtest.h"
-#include "mocks/MockFramework.hpp"
+#include "mocks/PlataformaMock.hpp"
 
 using ::testing::AtLeast;
 using ::testing::_;
 using ::testing::Return;
 using ::testing::Test;
 
-MockFramework *plataforma;
+PlataformaMock *plataforma;
 
 class PruebasDeChil : public Test {
 protected:
     void SetUp() override {
-        plataforma = new MockFramework();
+        plataforma = new PlataformaMock();
         NUEVO_CHIL_CON(plataforma);
     }
 
