@@ -2,34 +2,47 @@
 #define CHIL_MACROS_H
 
 #include "modelo/Paso.h"
-#include "Chil.h"
+
+#define ESCENARIO(nombre) for(EscenarioEjecutable e(#nombre); e.haIniciado; e.haIniciado = false)
 
 /**
- * Metodo que utiliza la macro de PASO para generar el paso y registrarlo
+ * @class EscenarioEjecutable
  *
- * @param Chil* chil - instancia de Chil para generar las acciones
- * @param const char* nombre - nombre a asignar al paso
- * @param bool (*funcion)() - Referencia al metodo que contiene la logica del paso
+ * Esta clase se utiliza para utilizar en la macro ESCENARIO y así aprovechar el poder del constructor para iniciar un
+ * escenario nuevo en chil, luego se ejecuta el cuerpo del macro y al final se llama al destructor, que se encarga de
+ * finalizar el escenario, debido a que la instancia queda sin utilizar y la limpia el garbage collector
  */
-void ejecutarPaso(Chil *chil, const char *nombre, bool (*funcion)()) {
-  Paso *paso = new Paso(nombre, funcion);
-  chil->paso(paso);
-}
+class EscenarioEjecutable {
+public:
+    bool haIniciado;
+    EscenarioEjecutable(const char* nombre) {
+        CHIL->escenario(nombre);
+        haIniciado = true;
+    }
+    ~EscenarioEjecutable() {
+        CHIL->finalizarEscenario();
+    }
+};
+
+
+#define PASO(nombre, funcion) for(PasoEjecutable p(#nombre, funcion); p.haIniciado; p.haIniciado = false)
 
 /**
- * Metodo que utiliza la macro de ESCENARIO para registrar un escenario
+ * @class PasoEjecutable
  *
- * @param Chil* chil - instancia de Chil para generar las acciones
- * @param const char* nombre - nombre a asignar al escenario
- * @param bool (*funcion)() - Referencia al metodo donde se registran los pasos del escenario
+ * Esta clase se utiliza para utilizar en la macro PASO y así aprovechar el poder del constructor para iniciar un
+ * escenario nuevo en chil, luego se ejecuta el cuerpo del macro y al final se llama al destructor debido a que la
+ * instancia queda sin utilizar
  */
-void ejecutarEscenario(Chil *chil, const char *nombre, void (*funcion)(Chil *chil)){
-  chil->escenario(nombre);
-  funcion(chil);
-  chil->finalizarEscenario();
-}
-
-#define ESCENARIO(chil, nombre, block) ejecutarEscenario(chil, nombre, block)
-#define PASO(chil, nombre, codigo) ejecutarPaso(chil, nombre, codigo)
+class PasoEjecutable {
+public:
+    bool haIniciado;
+    PasoEjecutable(const char* nombre, bool (*funcion)()) {
+        Paso *paso = new Paso(nombre, funcion);
+        CHIL->paso(paso);
+        haIniciado = true;
+    }
+    ~PasoEjecutable() {}
+};
 
 #endif //CHIL_MACROS_H

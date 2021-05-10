@@ -57,19 +57,19 @@ TEST_F(PruebasDeChil, deberiaEjecutarLaAccionDelPasoDeUnEscenarioConMacro) {
           .WillOnce(Return(100L))
           .WillOnce(Return(200L));
 
-  ESCENARIO(CHIL, "Primer escenario con dos pasos", [](Chil *chil){
-    PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
+  ESCENARIO(Primer escenario con dos pasos) {
+    PASO(Imprime por consola el saludo de bienvenida, []() {
         PLATAFORMA->consola("Hola mundo!");
         return true;
     });
-    PASO(chil, "Imprime por consola el saludo de despedida", []() {
+    PASO(Imprime por consola el saludo de despedida, []() {
         PLATAFORMA->consola("Adios mundo!");
         return true;
     });
-  });
+  };
 }
 
-TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
+TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosUtilizandoLambdasConSuResultado) {
   EXPECT_CALL(*plataforma, microsegundos())
           .WillOnce(Return(1L))
           .WillOnce(Return(50L))
@@ -78,18 +78,42 @@ TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
 
   EXPECT_CALL(*plataforma, consola(_)).Times(AtLeast(2));
 
-  ESCENARIO(CHIL, "Primer escenario con dos pasos", [](Chil *chil){
-      PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
+  ESCENARIO(Primer escenario con dos pasos){
+      PASO(Imprime por consola el saludo de bienvenida, []() {
           PLATAFORMA->consola("Hola mundo!");
           return true;
       });
-      PASO(chil, "Imprime por consola el saludo de despedida", []() {
+      PASO(Imprime por consola el saludo de despedida, []() {
           PLATAFORMA->consola("Adios mundo!");
           return true;
       });
-  });
+  };
 
   string reporte = CHIL->imprimirReporte();
 
   ASSERT_EQ(reporte, "Escenario: Primer escenario con dos pasos\n\n[OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg\n[OK] Imprime por consola el saludo de despedida - ejecuto en 100 useg\n\n");
+}
+
+bool saludoDeComienzo() {
+    PLATAFORMA->consola("Hola mundo!");
+    return true;
+}
+
+bool saludoDeDespedida() {
+    PLATAFORMA->consola("Hola mundo!");
+    return true;
+}
+
+TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosUtilizandoFuncionesNombradasConSuResultado) {
+    EXPECT_CALL(*plataforma, microsegundos()).WillOnce(Return(1L)).WillOnce(Return(50L)).WillOnce(Return(100L)).WillOnce(Return(200L));
+    EXPECT_CALL(*plataforma, consola(_)).Times(AtLeast(2));
+
+    ESCENARIO(Primer escenario con dos pasos){
+        PASO(Imprime por consola el saludo de bienvenida, saludoDeComienzo);
+        PASO(Imprime por consola el saludo de despedida, saludoDeDespedida);
+    };
+
+    string reporte = CHIL->imprimirReporte();
+
+    ASSERT_EQ(reporte, "Escenario: Primer escenario con dos pasos\n\n[OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg\n[OK] Imprime por consola el saludo de despedida - ejecuto en 100 useg\n\n");
 }
