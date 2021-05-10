@@ -1,7 +1,3 @@
-//
-// Created by jmorenof on 18/4/21.
-//
-
 #ifndef ARDUINO_PUNTODEENTRADA_H
 #define ARDUINO_PUNTODEENTRADA_H
 enum Metodo {

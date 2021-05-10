@@ -1,108 +1,95 @@
 #include "Chil.cpp"
 #include "gtest/gtest.h"
-#include "mocks/MockFramework.hpp"
-
-MockFramework *framework;
+#include "mocks/PlataformaMock.hpp"
 
 using ::testing::AtLeast;
 using ::testing::_;
 using ::testing::Return;
+using ::testing::Test;
 
-TEST(ChilTest, deberiaCrearseExitosamenteConElFrameworkIndicado) {
-  framework = new MockFramework();
-  Chil *chil = new Chil(framework);
+PlataformaMock *plataforma;
 
-  ASSERT_EQ(framework, chil->framework);
-  delete framework;
+class PruebasDeChil : public Test {
+protected:
+    void SetUp() override {
+        plataforma = new PlataformaMock();
+        NUEVO_CHIL_CON(plataforma);
+    }
+
+    void TearDown() override {
+        delete plataforma;
+    }
+};
+
+TEST_F(PruebasDeChil, deberiaCrearseExitosamenteConElFrameworkIndicado) {
+  ASSERT_EQ(plataforma, CHIL->plataforma);
 }
 
-TEST(ChilTest, deberiaImprimirElResutladoDeDosEscenarioNuevo) {
-  framework = new MockFramework();
-  Chil *chil = new Chil(framework);
+TEST_F(PruebasDeChil, deberiaImprimirElResutladoDeDosEscenarioNuevo) {
 
-  chil->escenario("Primer escenario sin pasos");
-  chil->finalizarEscenario();
-  chil->escenario("Segundo escenario sin pasos");
-  chil->finalizarEscenario();
+  CHIL->escenario("Primer escenario sin pasos");
+  CHIL->finalizarEscenario();
+  CHIL->escenario("Segundo escenario sin pasos");
+  CHIL->finalizarEscenario();
 
-  string reporte = chil->imprimir_reporte();
+  string reporte = CHIL->imprimirReporte();
 
   ASSERT_EQ(reporte, "Escenario: Primer escenario sin pasos\n\n\nEscenario: Segundo escenario sin pasos\n\n\n");
-  delete framework;
 }
 
-TEST(ChilTest, deberiaEjecutarLaAccionDelPasoDeUnEscenario) {
-  framework = new MockFramework();
-
-  EXPECT_CALL(*framework, consola(_)).Times(AtLeast(1));
-
-  Chil *chil = new Chil(framework);
-
-  chil->escenario("Primer escenario con dos pasos");
+TEST_F(PruebasDeChil, deberiaEjecutarLaAccionDelPasoDeUnEscenario) {
+  EXPECT_CALL(*plataforma, consola(_)).Times(AtLeast(1));
+  CHIL->escenario("Primer escenario con dos pasos");
 
   Paso *dadoQueImprime = new Paso("Imprime hola mundo por consola", []() {
-      framework->consola("Hola mundo!");
+      PLATAFORMA->consola("Hola mundo!");
       return true;
   });
 
   dadoQueImprime->ejecutar();
-
-  delete framework;
 }
 
-TEST(ChilTest, deberiaEjecutarLaAccionDelPasoDeUnEscenarioConMacro) {
-  framework = new MockFramework();
-
-  EXPECT_CALL(*framework, consola(_)).Times(AtLeast(2));
-  EXPECT_CALL(*framework, microsegundos())
+TEST_F(PruebasDeChil, deberiaEjecutarLaAccionDelPasoDeUnEscenarioConMacro) {
+  EXPECT_CALL(*plataforma, consola(_)).Times(AtLeast(2));
+  EXPECT_CALL(*plataforma, microsegundos())
           .WillOnce(Return(1L))
           .WillOnce(Return(50L))
           .WillOnce(Return(100L))
           .WillOnce(Return(200L));
 
-  Chil *chil = new Chil(framework);
-
-  ESCENARIO(chil, "Primer escenario con dos pasos", [](Chil *chil){
-    PASO(chil, "Imprime por consola el saludo de bienvenida", []() {
-        framework->consola("Hola mundo!");
+  ESCENARIO(CHIL, "Primer escenario con dos pasos", [](Chil *chil){
+    PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
+        PLATAFORMA->consola("Hola mundo!");
         return true;
     });
     PASO(chil, "Imprime por consola el saludo de despedida", []() {
-        framework->consola("Adios mundo!");
+        PLATAFORMA->consola("Adios mundo!");
         return true;
     });
   });
-
-  delete framework;
 }
 
-TEST(ChilTest, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
-  framework = new MockFramework();
-
-  EXPECT_CALL(*framework, microsegundos())
+TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
+  EXPECT_CALL(*plataforma, microsegundos())
           .WillOnce(Return(1L))
           .WillOnce(Return(50L))
           .WillOnce(Return(100L))
           .WillOnce(Return(200L));
 
-  Chil *chil = new Chil(framework);
+  EXPECT_CALL(*plataforma, consola(_)).Times(AtLeast(2));
 
-  EXPECT_CALL(*framework, consola(_)).Times(AtLeast(2));
-
-  ESCENARIO(chil, "Primer escenario con dos pasos", [](Chil *chil){
-      PASO(chil, "Imprime por consola el saludo de bienvenida", []() {
-          framework->consola("Hola mundo!");
+  ESCENARIO(CHIL, "Primer escenario con dos pasos", [](Chil *chil){
+      PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
+          PLATAFORMA->consola("Hola mundo!");
           return true;
       });
       PASO(chil, "Imprime por consola el saludo de despedida", []() {
-          framework->consola("Adios mundo!");
+          PLATAFORMA->consola("Adios mundo!");
           return true;
       });
   });
 
-  string reporte = chil->imprimir_reporte();
+  string reporte = CHIL->imprimirReporte();
 
   ASSERT_EQ(reporte, "Escenario: Primer escenario con dos pasos\n\n[OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg\n[OK] Imprime por consola el saludo de despedida - ejecuto en 100 useg\n\n");
-
-  delete framework;
 }

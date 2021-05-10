@@ -1,5 +1,7 @@
 #include "../include/Chil.h"
 
+Chil *instance_;
+
 /**
  * Clase principal del framework para escribir pruebas
  *
@@ -8,8 +10,35 @@
  * @param Plataforma* framework - Instancia del framework de desarrollo soportado por la placa para comunicarse.
  * Por el momento solo existe la implementacion de PlataformaArduino @see FrameworkArduino
  */
-Chil::Chil(Plataforma* framework) {
-  this->framework = framework;
+Chil::Chil(Plataforma* pPlataforma) {
+  this->plataforma = pPlataforma;
+}
+
+/**
+ * Crea instancia única de chil utilizando la plataforma indicado
+ *
+ * @class Chil
+ *
+ * @param Plataforma* framework - Instancia del framework de desarrollo soportado por la placa para comunicarse.
+ * Por el momento solo existe la implementacion de PlataformaArduino @see PlataformaArduino
+ * @return [out][Chil] instancia de chil creada.
+ */
+Chil *Chil::crear(Plataforma *plataforma) {
+    instance_ = new Chil(plataforma);
+    return instance_;
+}
+
+/**
+* Obitene la instancia única de Chil ya configurada
+*
+* @class Chil
+*
+* @param Plataforma* framework - Instancia del framework de desarrollo soportado por la placa para comunicarse.
+* Por el momento solo existe la implementacion de PlataformaArduino @see PlataformaArduino
+* @return [out][Chil] instancia de chil creada.
+*/
+Chil *Chil::obtener(){
+    return instance_;
 }
 
 /**
@@ -27,7 +56,7 @@ void Chil::escenario(const char *nombre) {
  *
  */
 void Chil::finalizarEscenario() {
-  this->_escenario->finalizar(framework);
+  this->_escenario->finalizar(plataforma);
   this->_escenarios.push_back(*this->_escenario);
 }
 
@@ -36,7 +65,7 @@ void Chil::finalizarEscenario() {
  *
  * @return [out][string] resultado final formateado para mostrar por consola.
  */
-string Chil::imprimir_reporte() {
+string Chil::imprimirReporte() {
   string reporteFinal = string();
 
   list<Escenario>::iterator escenario;
