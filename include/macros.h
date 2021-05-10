@@ -29,6 +29,21 @@ void ejecutarEscenario(Chil *chil, const char *nombre, void (*funcion)(Chil *chi
   chil->finalizarEscenario();
 }
 
+#define ESCENARIO_GLOBAL(nombre) for(EscenarioEjecutable e(#nombre); e.haIniciado; e.haIniciado = false)
+
+class EscenarioEjecutable {
+public:
+    bool haIniciado;
+    EscenarioEjecutable(const char* nombre) {
+        CHIL->escenario(nombre);
+        haIniciado = true;
+    }
+    ~EscenarioEjecutable() {
+        CHIL->finalizarEscenario();
+    }
+};
+
+
 #define ESCENARIO(chil, nombre, block) ejecutarEscenario(chil, nombre, block)
 #define PASO(chil, nombre, codigo) ejecutarPaso(chil, nombre, codigo)
 
