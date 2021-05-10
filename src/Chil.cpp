@@ -65,7 +65,7 @@ void Chil::finalizarEscenario() {
  *
  * @return [out][string] resultado final formateado para mostrar por consola.
  */
-string Chil::imprimir_reporte() {
+string Chil::imprimirReporte() {
   string reporteFinal = string();
 
   list<Escenario>::iterator escenario;

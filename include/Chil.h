@@ -28,7 +28,7 @@ public:
 
     Plataforma* plataforma;
 
-    string imprimir_reporte();
+    string imprimirReporte();
     void escenario(const char *nombre);
 
     void finalizarEscenario();

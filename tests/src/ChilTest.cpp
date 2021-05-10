@@ -32,7 +32,7 @@ TEST_F(PruebasDeChil, deberiaImprimirElResutladoDeDosEscenarioNuevo) {
   CHIL->escenario("Segundo escenario sin pasos");
   CHIL->finalizarEscenario();
 
-  string reporte = CHIL->imprimir_reporte();
+  string reporte = CHIL->imprimirReporte();
 
   ASSERT_EQ(reporte, "Escenario: Primer escenario sin pasos\n\n\nEscenario: Segundo escenario sin pasos\n\n\n");
 }
@@ -89,7 +89,7 @@ TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
       });
   });
 
-  string reporte = CHIL->imprimir_reporte();
+  string reporte = CHIL->imprimirReporte();
 
   ASSERT_EQ(reporte, "Escenario: Primer escenario con dos pasos\n\n[OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg\n[OK] Imprime por consola el saludo de despedida - ejecuto en 100 useg\n\n");
 }
