@@ -58,11 +58,11 @@ TEST_F(PruebasDeChil, deberiaEjecutarLaAccionDelPasoDeUnEscenarioConMacro) {
           .WillOnce(Return(200L));
 
   ESCENARIO(Primer escenario con dos pasos) {
-    PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
+    PASO_GLOBAL(Imprime por consola el saludo de bienvenida, []() {
         PLATAFORMA->consola("Hola mundo!");
         return true;
     });
-    PASO(CHIL, "Imprime por consola el saludo de despedida", []() {
+    PASO_GLOBAL(Imprime por consola el saludo de despedida, []() {
         PLATAFORMA->consola("Adios mundo!");
         return true;
     });
@@ -79,11 +79,11 @@ TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosConSuResultado) {
   EXPECT_CALL(*plataforma, consola(_)).Times(AtLeast(2));
 
   ESCENARIO(Primer escenario con dos pasos){
-      PASO(CHIL, "Imprime por consola el saludo de bienvenida", []() {
+      PASO_GLOBAL(Imprime por consola el saludo de bienvenida, []() {
           PLATAFORMA->consola("Hola mundo!");
           return true;
       });
-      PASO(CHIL, "Imprime por consola el saludo de despedida", []() {
+      PASO_GLOBAL(Imprime por consola el saludo de despedida, []() {
           PLATAFORMA->consola("Adios mundo!");
           return true;
       });
