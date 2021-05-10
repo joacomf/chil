@@ -1,6 +1,3 @@
-//
-// Created by jmorenof on 12/3/21.
-//
 #ifndef CHIL_PLATAFORMAMOCK_HPP
 #define CHIL_PLATAFORMAMOCK_HPP
 
