@@ -57,14 +57,14 @@ definidas de manera más clara. Por lo tanto podremos escribir:
 
 ```c++
 Plataforma arduino = new PlataformaArduino();
-Chil *chil = new Chil(arduino);
+NUEVO_CHIL_CON(arduino)
 
-ESCENARIO(chil, "Primer escenario con un paso", [](Chil *chil){
-    PASO(chil, "Imprime por consola el saludo de bienvenida", []() {
+ESCENARIO(Primer escenario con un paso){
+    PASO(Imprime por consola el saludo de bienvenida, []() {
         arduino->consola("Hola mundo!");
         return true;
     });
-});
+};
 ```
 
 Al ejecutarse los test saldrá por consola un reporte como el siguiente:
