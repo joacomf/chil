@@ -113,14 +113,14 @@ Modo de uso</h1>
 <p>Al momento de escribir pruebas tenemos disponible la macro <code>ESCENARIO</code> y la macro <code>PASO</code> para que las pruebas queden definidas de manera más clara. Por lo tanto podremos escribir:</p>
 <div class="fragment"><div class="line"> {c++}</div>
 <div class="line">Plataforma arduino = new PlataformaArduino();</div>
-<div class="line">Chil *chil = new Chil(arduino);</div>
+<div class="line">NUEVO_CHIL_CON(arduino)</div>
 <div class="line"> </div>
-<div class="line">ESCENARIO(chil, &quot;Primer escenario con un paso&quot;, [](Chil *chil){</div>
-<div class="line">    PASO(chil, &quot;Imprime por consola el saludo de bienvenida&quot;, []() {</div>
+<div class="line">ESCENARIO(Primer escenario con un paso){</div>
+<div class="line">    PASO(Imprime por consola el saludo de bienvenida, []() {</div>
 <div class="line">        arduino-&gt;consola(&quot;Hola mundo!&quot;);</div>
 <div class="line">        return true;</div>
 <div class="line">    });</div>
-<div class="line">});</div>
+<div class="line">};</div>
 </div><!-- fragment --><p>Al ejecutarse los test saldrá por consola un reporte como el siguiente:</p>
 <div class="fragment"><div class="line">Escenario: Primer escenario con un paso</div>
 <div class="line">  [OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg</div>
