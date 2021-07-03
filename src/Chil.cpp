@@ -12,6 +12,7 @@ Chil *instance_;
  */
 Chil::Chil(Plataforma* pPlataforma) {
   this->plataforma = pPlataforma;
+  this->plataforma->consola(this->mensajeComienzo);
 }
 
 /**

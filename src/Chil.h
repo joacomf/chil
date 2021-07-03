@@ -38,6 +38,7 @@ public:
 private:
     Escenario *_escenario;
     list<Escenario> _escenarios;
+    const char *mensajeComienzo = "\nPruebas con CHIL:\n";
 };
 
 

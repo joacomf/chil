@@ -3,9 +3,18 @@
 #include "mocks/PlataformaMock.hpp"
 
 using ::testing::AtLeast;
+using ::testing::Exactly;
 using ::testing::_;
 using ::testing::Return;
 using ::testing::Test;
+
+TEST(PruebasDeChilInicilizacion, alCrearChilDeberiaImprimirElMensajeDeComienzo) {
+    auto *plataforma = new PlataformaMock();
+    EXPECT_CALL(*plataforma, consola("\nPruebas con CHIL:\n")).Times(AtLeast(1));
+    NUEVO_CHIL_CON(plataforma);
+
+    delete plataforma;
+}
 
 PlataformaMock *plataforma;
 
