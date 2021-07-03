@@ -24,6 +24,10 @@ void PlataformaArduino::demorar(int milisegundos) {
     delay(milisegundos);
 }
 
+void PlataformaArduino::pinEntrada(int pin) {
+    pinMode(pin, INPUT);
+}
+
 void PlataformaArduino::pinSalida(int pin) {
     pinMode(pin, OUTPUT);
 }
@@ -89,6 +93,7 @@ void PlataformaArduino::configurarPuntoDeEntrada(PuntoDeEntrada *puntoDeEntrada)
                        });
 }
 
+TaskHandle_t manejadorTareaDeConfiguracionServidorDNS = nullptr;
 void PlataformaArduino::configurarMockUrls() {
     xTaskCreate(
             PlataformaArduino::configurarServidorDNS,
