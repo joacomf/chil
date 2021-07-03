@@ -17,7 +17,7 @@ target_include_directories(chil PRIVATE include)
 target_include_directories(chil PRIVATE src)
 target_include_directories(chil PRIVATE plataformas/modelos)
 
-set_target_properties(chil PROPERTIES PUBLIC_HEADER include/Chil.h)
+set_target_properties(chil PROPERTIES PUBLIC_HEADER src/Chil.h)
 
 # Uncomment for tests
 include(CTest)
