@@ -1,42 +1,7 @@
-#include <Arduino.h>
-#include <Chil.h>
 #include <Plataforma.h>
 #include <PlataformaArduino.h>
-
-#define BOTON_ROJO 4
-#define LED_AZUL 2
-
-bool presionoElBoton() {
-    PLATAFORMA->escribir(BOTON_ROJO, 1);
-    return true;
-}
-
-bool sueltoElBoton() {
-    PLATAFORMA->escribir(BOTON_ROJO, 0);
-    return true;
-}
-
-bool elLedEstaEncendido() {
-    int estadoLed = PLATAFORMA->leer(LED_AZUL);
-
-    return estadoLed == 1;
-}
-
-bool elLedEstaApagado() {
-    int estadoLed = PLATAFORMA->leer(LED_AZUL);
-
-    return estadoLed == 0;
-}
-
-bool espero25Milis() {
-    PLATAFORMA->demorar(25);
-    return true;
-}
-
-void configurarIO() {
-    PLATAFORMA->pinSalida(BOTON_ROJO);
-    PLATAFORMA->pinEntrada(LED_AZUL);
-}
+#include <Chil.h>
+#include <pasos.h>
 
 void setup() {
     NUEVO_CHIL_CON(new PlataformaArduino());
@@ -62,5 +27,4 @@ void setup() {
     PLATAFORMA->consola(CHIL->imprimirReporte().c_str());
 }
 
-void loop() {
-}
+void loop() {}
