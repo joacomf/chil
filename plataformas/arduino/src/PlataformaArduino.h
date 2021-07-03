@@ -34,6 +34,7 @@ public:
     void demorar(int milisegundos) override;
     unsigned long milisegundos() override;
     unsigned long microsegundos() override;
+    void pinEntrada(int pin) override;
     void pinSalida(int pin) override;
     bool crearRedWiFi(const char *nombre, const char *clave) override;
     bool estaAPEncendido() override;
@@ -48,7 +49,4 @@ public:
     void configurarMockUrls() override;
     void eliminarMocksUrls() override;
 };
-
-TaskHandle_t manejadorTareaDeConfiguracionServidorDNS = nullptr;
-
 #endif //CHIL_FRAMEWORKARDUINO_H

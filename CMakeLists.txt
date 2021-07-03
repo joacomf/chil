@@ -1,23 +1,19 @@
 cmake_minimum_required (VERSION 3.10)
-project(chil)
+project(Chil)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-add_library(chil
-        src/Chil.cpp
-        src/main.cpp
-        src/modelo/Escenario.cpp
-        src/modelo/Paso.cpp
-        src/utils/stringUtils.cpp
-        plataformas/modelos/PuntoDeEntrada.cpp
-        )
+file(GLOB Chil_FILES src/*.cpp src/*.h src/*.hpp)
 
-target_include_directories(chil PRIVATE include)
-target_include_directories(chil PRIVATE src)
-target_include_directories(chil PRIVATE plataformas/modelos)
+# add component
+add_library(Chil ${Chil_FILES})
 
-set_target_properties(chil PROPERTIES PUBLIC_HEADER include/Chil.h)
+target_include_directories(Chil PRIVATE include)
+target_include_directories(Chil PRIVATE src)
+target_include_directories(Chil PRIVATE plataformas/modelos)
+
+set_target_properties(Chil PROPERTIES PUBLIC_HEADER src/Chil.h)
 
 # Uncomment for tests
 include(CTest)

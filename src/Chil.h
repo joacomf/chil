@@ -7,7 +7,7 @@
 #include <list>
 #include <string>
 
-#define NUEVO_CHIL_CON(framework) Chil::crear(plataforma)
+#define NUEVO_CHIL_CON(plataforma) Chil::crear(plataforma)
 #define CHIL Chil::obtener()
 #define PLATAFORMA Chil::obtener()->plataforma
 
