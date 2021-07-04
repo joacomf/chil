@@ -8,6 +8,7 @@
 #include <string>
 
 #define NUEVO_CHIL_CON(plataforma) Chil::crear(plataforma)
+#define FIN_DE_PRUEBAS Chil::obtener()->finalizarPruebas()
 #define CHIL Chil::obtener()
 #define PLATAFORMA Chil::obtener()->plataforma
 
@@ -32,6 +33,7 @@ public:
     void escenario(const char *nombre);
 
     void finalizarEscenario();
+    void finalizarPruebas();
 
     void paso(Paso *paso);
 
@@ -39,6 +41,7 @@ private:
     Escenario *_escenario;
     list<Escenario> _escenarios;
     const char *mensajeComienzo = "\nPruebas con CHIL:\n";
+    const char *mensajeFinDePruebas = "Fin de pruebas con CHIL";
 };
 
 
