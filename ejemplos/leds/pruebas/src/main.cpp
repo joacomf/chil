@@ -4,7 +4,7 @@
 #include <pasos.h>
 
 void setup() {
-    NUEVO_CHIL_CON(new PlataformaArduino());
+    NUEVO_CHIL_CON(PLATAFORMA_ARDUINO);
     PLATAFORMA->demorar(1000);
 
     configurarIO();
@@ -24,7 +24,7 @@ void setup() {
         PASO(Verifico que el led se apaga, elLedEstaApagado);
     };
 
-    PLATAFORMA->consola(CHIL->imprimirReporte().c_str());
+    FIN_DE_PRUEBAS;
 }
 
 void loop() {}

@@ -12,6 +12,7 @@ Chil *instance_;
  */
 Chil::Chil(Plataforma* pPlataforma) {
   this->plataforma = pPlataforma;
+  this->plataforma->consola(this->mensajeComienzo);
 }
 
 /**
@@ -85,4 +86,13 @@ string Chil::imprimirReporte() {
  */
 void Chil::paso(Paso *paso) {
   _escenario->nuevo(paso);
+}
+
+/**
+ * Muestra el resultado de finalizacion de todas pruebas
+ *
+ */
+void Chil::finalizarPruebas() {
+    this->plataforma->consola(this->imprimirReporte().c_str());
+    this->plataforma->consola(this->mensajeFinDePruebas);
 }
