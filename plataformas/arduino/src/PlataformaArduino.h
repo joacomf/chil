@@ -10,6 +10,8 @@
 #include <Plataforma.h>
 #include <PuntoDeEntrada.h>
 
+#define PLATAFORMA_ARDUINO new PlataformaArduino()
+
 
 class PlataformaArduino: public Plataforma {
 private:
