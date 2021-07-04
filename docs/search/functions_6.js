@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nuevo_74',['nuevo',['../classEscenario.html#a55027d28b6cb85c23e40dd9b934a3f35',1,'Escenario']]]
+  ['nuevo_77',['nuevo',['../classEscenario.html#a55027d28b6cb85c23e40dd9b934a3f35',1,'Escenario']]]
 ];
