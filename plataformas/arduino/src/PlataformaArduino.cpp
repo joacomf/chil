@@ -37,7 +37,6 @@ void PlataformaArduino::consola(const char *texto) {
 }
 
 bool PlataformaArduino::crearRedWiFi(const char *nombre, const char *clave) {
-    WiFi.enableAP(true);
     this->apEncendido = WiFi.softAP(nombre, clave);
 
     if (!WiFi.config(this->ipLocal, this->sinIPDeclarada, this->sinIPDeclarada, this->ipLocal, INADDR_NONE)) {
@@ -52,7 +51,7 @@ bool PlataformaArduino::estaAPEncendido() {
 }
 
 bool PlataformaArduino::apagarWiFi() {
-    this->apEncendido = WiFi.softAPdisconnect();
+    this->apEncendido = WiFi.softAPdisconnect(true);
     return this->apEncendido;
 }
 
@@ -86,6 +85,7 @@ void PlataformaArduino::configurarPuntoDeEntrada(PuntoDeEntrada *puntoDeEntrada)
         metodoAConfigurar = HTTP_POST;
     }
 
+    this->servidor->reset();
     this->servidor->on(puntoDeEntrada->obtenerRuta(), metodoAConfigurar,
                        [puntoDeEntrada](AsyncWebServerRequest *request) {
                            delay(10);
