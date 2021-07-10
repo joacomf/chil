@@ -10,16 +10,15 @@ configurarIO();
 
     ESCENARIO(Prende indicador de exito al tener una respuesta de build exitoso) {
         PASO(Me conecto a la red WiFi, conectarseARedWifi);
-        PASO(Espero a la conexion, esperoALaConexion);
         PASO(El pipeline esta en estado exitoso, elPipelineEstaEnEstadoExitoso);
+        PASO(Espero a la conexion, esperoALaConexion);
         PASO(Verifico que se encienda el indicador de exito, indicadorDeExitoEncendido);
     }
 
     ESCENARIO(Prende indicador de error al tener una respuesta de build fallido) {
-        PASO(Me conecto a la red WiFi, sinDefinir);
-        PASO(Espero a la conexion, sinDefinir);
-        PASO(El pipeline esta en estado fallido, sinDefinir);
-        PASO(Verifico que se encienda el indicador de fallo, sinDefinir);
+        PASO(El pipeline esta en estado fallido, elPipelineEstaEnEstadoFallido);
+        PASO(Espero a la conexion, esperoALaConexion);
+        PASO(Verifico que se encienda el indicador de fallo, indicadorDeFalloEncendido);
     }
 
     ESCENARIO(Prende indicador de advertencia al tener un fallo con la conexión a la red) {
