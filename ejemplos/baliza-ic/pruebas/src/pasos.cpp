@@ -9,7 +9,7 @@ bool sinDefinir() {
 }
 
 bool conectarseARedWifi() {
-    return PLATAFORMA->crearRedWiFi("redWifiESP", "400010001");
+    return PLATAFORMA->crearRedWiFi("aceptacion", "clave1234");
 }
 
 bool esperoALaConexion() {
@@ -63,6 +63,29 @@ bool indicadorDeFalloEncendido() {
 
     while(PLATAFORMA->milisegundos() - tiempoInicial < TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS){
         if (PLATAFORMA->leer(PIN_LED_FALLO) == ESTA_ENCENDIDO) {
+            return true;
+        }
+        PLATAFORMA->demorar(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR);
+    }
+
+    return false;
+}
+
+bool laRedWifiNoExiste() {
+    PLATAFORMA->apagarWiFi();
+    return true;
+}
+
+bool esperoElMaximoDeIntentosDeConexion() {
+    PLATAFORMA->demorar(6000);
+    return true;
+}
+
+bool indicadorDeDesconexionEncendido() {
+    unsigned long tiempoInicial = PLATAFORMA->milisegundos();
+
+    while(PLATAFORMA->milisegundos() - tiempoInicial < TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS){
+        if (PLATAFORMA->leer(PIN_LED_DESCONEXION) == ESTA_ENCENDIDO) {
             return true;
         }
         PLATAFORMA->demorar(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR);
