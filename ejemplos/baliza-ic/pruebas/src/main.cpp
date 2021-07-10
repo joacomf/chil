@@ -9,10 +9,10 @@ PLATAFORMA->demorar(2000);
 configurarIO();
 
     ESCENARIO(Prende indicador de exito al tener una respuesta de build exitoso) {
-        PASO(Me conecto a la red WiFi, sinDefinir);
-        PASO(Espero a la conexion, sinDefinir);
-        PASO(El pipeline esta en estado exitoso, sinDefinir);
-        PASO(Verifico que se encienda el indicador de exito, sinDefinir);
+        PASO(Me conecto a la red WiFi, conectarseARedWifi);
+        PASO(Espero a la conexion, esperoALaConexion);
+        PASO(El pipeline esta en estado exitoso, elPipelineEstaEnEstadoExitoso);
+        PASO(Verifico que se encienda el indicador de exito, indicadorDeExitoEncendido);
     }
 
     ESCENARIO(Prende indicador de error al tener una respuesta de build fallido) {
