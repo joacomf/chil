@@ -9,8 +9,9 @@ PLATAFORMA->demorar(2000);
 configurarIO();
 
     ESCENARIO(Prende indicador de advertencia al tener un fallo con la conexión a la red) {
+        PASO(La red wifi no existe, laRedWifiNoExiste);
         PASO(Reiniciar dispositivo, reiniciarSUT);
-        PASO(Espero a la conexion, esperoElMaximoDeIntentosDeConexion);
+        PASO(Espero al maximo de intentos de conexion, esperoElMaximoDeIntentosDeConexion);
         PASO(Verifico que se encienda el indicador de advertencia, indicadorDeDesconexionEncendido);
     }
 
@@ -30,10 +31,10 @@ configurarIO();
     }
 
     ESCENARIO(Prende indicador de advertencia al tener un fallo con la conexión al servidor) {
-        PASO(Me conecto a la red WiFi, sinDefinir);
-        PASO(Espero a la conexion, sinDefinir);
-        PASO(Hay problemas de comunicacion con el servicio, sinDefinir);
-        PASO(Verifico que se encienda el indicador de fallo, sinDefinir);
+        PASO(Reiniciar dispositivo, reiniciarSUT);
+        PASO(Hay problemas de comunicacion con el servicio, hayProblemasDeComunicacionConElServicio);
+        PASO(Espero a la conexion, esperoALaConexion);
+        PASO(Verifico que se encienda el indicador de advertencia, indicadorDeDesconexionEncendido);
     }
 
 FIN_DE_PRUEBAS;

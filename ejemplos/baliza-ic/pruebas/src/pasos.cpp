@@ -72,12 +72,11 @@ bool indicadorDeFalloEncendido() {
 }
 
 bool laRedWifiNoExiste() {
-    PLATAFORMA->apagarWiFi();
     return true;
 }
 
 bool esperoElMaximoDeIntentosDeConexion() {
-    PLATAFORMA->demorar(6000);
+    PLATAFORMA->demorar(4000);
     return true;
 }
 
@@ -92,4 +91,13 @@ bool indicadorDeDesconexionEncendido() {
     }
 
     return false;
+}
+
+bool hayProblemasDeComunicacionConElServicio() {
+    auto* estadoDePipeline = new PuntoDeEntrada(RUTA_ESTADO_PIPELINE);
+    estadoDePipeline->configurarRespuesta(RESPUESTA_VACIA, "application/json", 500);
+
+    PLATAFORMA->configurarPuntoDeEntrada(estadoDePipeline);
+
+    return true;
 }

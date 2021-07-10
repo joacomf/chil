@@ -1,6 +1,8 @@
 #ifndef PRUEBAS_RESPUESTAS_H
 #define PRUEBAS_RESPUESTAS_H
 
+static const char *const RESPUESTA_VACIA = "";
+
 static const char *const RESPUESTA_EXITOSA = R"({
    "@type":"branch",
    "@href":"/repo/6350830/branch/master",
@@ -22,7 +24,7 @@ static const char *const RESPUESTA_EXITOSA = R"({
       "@representation":"minimal",
       "id":88533221,
       "number":"59",
-      "state":"passed",
+      "state": "passed",
       "duration":51,
       "event_type":"push",
       "previous_state":"passed",
@@ -56,7 +58,7 @@ static const char *const RESPUESTA_FALLIDA = R"({
             "@representation":"minimal",
             "id":88533221,
             "number":"59",
-            "state":"failed",
+            "state": "failed",
             "duration":51,
             "event_type":"push",
             "previous_state":"passed",
