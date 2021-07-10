@@ -13,7 +13,7 @@ bool conectarseARedWifi() {
 }
 
 bool esperoALaConexion() {
-    PLATAFORMA->demorar(2000);
+    PLATAFORMA->demorar(1500);
     return true;
 }
 

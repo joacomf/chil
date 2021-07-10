@@ -13,9 +13,9 @@
 #define ESTA_ENCENDIDO 1
 
 #define RUTA_ESTADO_PIPELINE "/repo/20183492/branch/master"
-#define TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS 4000
-
+#define TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS 3000
 #define TIEMPO_ENTRE_VERIFICACIONES_INDICADOR 200
+
 static const char *const RESPUESTA_EXITOSA = R"({
    "@type":"branch",
    "@href":"/repo/6350830/branch/master",
