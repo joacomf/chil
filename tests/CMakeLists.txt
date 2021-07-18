@@ -13,8 +13,11 @@ add_executable(
         src/ChilTest.cpp
         src/modelo/EscenarioTest.cpp
         src/modelo/PasoTest.cpp
+        src/modelo/ResumenTest.cpp
 
         ../src/modelo/Paso.cpp
+        ../src/modelo/Escenario.cpp
+        ../src/modelo/Resumen.cpp
         ../src/utils/stringUtils.cpp
 
 

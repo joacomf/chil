@@ -24,6 +24,7 @@ public:
 
 private:
     list<Paso> _pasos;
+    bool esExitoso = true;
 };
 
 

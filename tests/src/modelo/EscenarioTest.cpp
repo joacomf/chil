@@ -1,6 +1,6 @@
 #include <mocks/PlataformaMock.hpp>
 #include "gtest/gtest.h"
-#include "modelo/Escenario.cpp"
+#include "modelo/Escenario.h"
 
 using ::testing::AtLeast;
 using ::testing::_;
