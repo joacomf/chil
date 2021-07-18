@@ -9,3 +9,19 @@ TEST(ResumenTest, seRegistranLosEscenariosCompletados) {
 
     ASSERT_EQ(resumen->escenarioCompletados(), 1);
 }
+
+TEST(ResumenTest, seRegistraUnEscenarioFallido) {
+    auto* resumen = new Resumen();
+    resumen->registrarEscenarioConResultado(false);
+
+    ASSERT_EQ(resumen->escenarioFallidos(), 1);
+    ASSERT_EQ(resumen->escenarioCompletados(), 1);
+}
+
+TEST(ResumenTest, seRegistraDosEscenariosExitosos) {
+    auto* resumen = new Resumen();
+    resumen->registrarEscenarioConResultado(true);
+
+    ASSERT_EQ(resumen->escenarioFallidos(), 2);
+    ASSERT_EQ(resumen->escenarioCompletados(), 2);
+}
