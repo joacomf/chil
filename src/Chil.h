@@ -3,6 +3,7 @@
 
 #include "Plataforma.h"
 #include "modelo/Escenario.h"
+#include "modelo/Resumen.h"
 
 #include <list>
 #include <string>
@@ -11,6 +12,9 @@
 #define FIN_DE_PRUEBAS Chil::obtener()->finalizarPruebas()
 #define CHIL Chil::obtener()
 #define PLATAFORMA Chil::obtener()->plataforma
+
+#define PRUEBAS void setup() {
+#define FIN } void loop() {}
 
 using namespace std;
 
@@ -37,11 +41,14 @@ public:
 
     void paso(Paso *paso);
 
+    string imprimirResumen();
+
 private:
     Escenario *_escenario;
     list<Escenario> _escenarios;
     const char *mensajeComienzo = "\nPruebas con CHIL:\n";
     const char *mensajeFinDePruebas = "Fin de pruebas con CHIL";
+    Resumen *resumen;
 };
 
 
