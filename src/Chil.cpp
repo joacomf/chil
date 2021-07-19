@@ -13,6 +13,7 @@ Chil *instance_;
 Chil::Chil(Plataforma* pPlataforma) {
   this->plataforma = pPlataforma;
   this->plataforma->consola(this->mensajeComienzo);
+  this->resumen = new Resumen();
 }
 
 /**
@@ -58,6 +59,7 @@ void Chil::escenario(const char *nombre) {
  */
 void Chil::finalizarEscenario() {
   this->_escenario->finalizar(plataforma);
+  this->resumen->registrarEscenarioConResultado(this->_escenario->esExitoso());
   this->_escenarios.push_back(*this->_escenario);
 }
 
@@ -94,5 +96,10 @@ void Chil::paso(Paso *paso) {
  */
 void Chil::finalizarPruebas() {
     this->plataforma->consola(this->imprimirReporte().c_str());
+    this->plataforma->consola(this->imprimirResumen().c_str());
     this->plataforma->consola(this->mensajeFinDePruebas);
+}
+
+string Chil::imprimirResumen() {
+    return resumen->imprimible();
 }
