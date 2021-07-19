@@ -25,6 +25,11 @@ public:
     bool esExitoso();
 
 private:
+    constexpr static const char *const INDICADOR_ESCENARIO_EXITOSO = "[OK] ";
+    constexpr static const char *const INDICADOR_ESCENARIO_FALLIDO = "[FALLO] ";
+    constexpr static const char *const INDICADOR_TIEMPO_EJECUCION = " - ejecuto en ";
+    constexpr static const char *const UNIDAD_MICROSEGUNDOS = " useg";
+
     const char *nombre;
     bool (*_funcion)();
 

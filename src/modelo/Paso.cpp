@@ -46,12 +46,12 @@ void Paso::fin(long microsegundos) {
  * @return [out][string] Reporte del paso con el tiempo y el resultado del mismo.
  */
 string Paso::mostrar() {
-  string mensajeExito = this->exitoso ? string("[OK] ") : string("[FALLO] ");
+  string mensajeExito = this->exitoso ? INDICADOR_ESCENARIO_EXITOSO : INDICADOR_ESCENARIO_FALLIDO;
   string mensajeTiempo = literal(this->tiempo());
 
   return mensajeExito.append(this->nombre)
-          .append(" - ejecuto en ")
-          .append(mensajeTiempo).append(" useg");
+          .append(INDICADOR_TIEMPO_EJECUCION)
+          .append(mensajeTiempo).append(UNIDAD_MICROSEGUNDOS);
 }
 
 /**
