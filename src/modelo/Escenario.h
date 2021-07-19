@@ -22,9 +22,11 @@ public:
 
     void finalizar(Plataforma *framework);
 
+    bool esExitoso();
+
 private:
     list<Paso> _pasos;
-    bool esExitoso = true;
+    bool exitoso = true;
 };
 
 

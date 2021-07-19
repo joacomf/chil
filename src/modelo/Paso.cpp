@@ -46,7 +46,7 @@ void Paso::fin(long microsegundos) {
  * @return [out][string] Reporte del paso con el tiempo y el resultado del mismo.
  */
 string Paso::mostrar() {
-  string mensajeExito = this->esExitoso ? string("[OK] ") : string("[FALLO] ");
+  string mensajeExito = this->exitoso ? string("[OK] ") : string("[FALLO] ");
   string mensajeTiempo = literal(this->tiempo());
 
   return mensajeExito.append(this->nombre)
@@ -58,7 +58,7 @@ string Paso::mostrar() {
  * Ejecuta el metodo que contiene la logica del paso y establece el resultado como informacion del paso
  */
 void Paso::ejecutar() {
-  this->esExitoso = this->_funcion();
+  this->exitoso = this->_funcion();
 }
 
 /**
@@ -69,8 +69,8 @@ string Paso::obtenerNombre() {
 }
 
 /**
- * Establece si el paso fue exitoso o no
+ * Devuelve si el paso fue exitoso o no
  */
-void Paso::exito(bool esExitoso) {
-  this->esExitoso = esExitoso;
+bool Paso::esExitoso() {
+    return this->exitoso;
 }

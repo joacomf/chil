@@ -35,6 +35,10 @@ string Escenario::imprimirResultado() {
     reporteDeEscenario.append("\n");
   }
 
+  if (!this->exitoso) {
+    reporteDeEscenario.append("*** ESCENARIO FALLIDO ***");
+  }
+
   return reporteDeEscenario;
 }
 
@@ -59,6 +63,12 @@ void Escenario::finalizar(Plataforma *framework) {
     paso->inicio(framework->microsegundos());
     paso->ejecutar();
     paso->fin(framework->microsegundos());
+
+    this->exitoso = this->exitoso && paso->esExitoso();
   }
+}
+
+bool Escenario::esExitoso() {
+    return this->exitoso;
 }
 

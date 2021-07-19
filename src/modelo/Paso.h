@@ -22,12 +22,13 @@ public:
     unsigned long tiempo() const;
 
     void exito(bool esExitoso);
+    bool esExitoso();
 
 private:
     const char *nombre;
     bool (*_funcion)();
 
-    bool esExitoso = true;
+    bool exitoso = true;
 
     unsigned long tiempoFin = 0;
     unsigned long tiempoInicio = 0;
