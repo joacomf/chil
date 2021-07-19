@@ -96,6 +96,7 @@ void Chil::paso(Paso *paso) {
  */
 void Chil::finalizarPruebas() {
     this->plataforma->consola(this->imprimirReporte().c_str());
+    this->plataforma->consola(this->imprimirResumen().c_str());
     this->plataforma->consola(this->mensajeFinDePruebas);
 }
 

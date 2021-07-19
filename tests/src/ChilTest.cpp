@@ -33,7 +33,7 @@ class PruebasDeChil : public Test {
 protected:
     void SetUp() override {
         plataforma = new PlataformaMock();
-        EXPECT_CALL(*plataforma, consola(_)).WillOnce(Return());
+        EXPECT_CALL(*plataforma, consola(_)).WillRepeatedly(Return());
         NUEVO_CHIL_CON(plataforma);
     }
 
@@ -152,7 +152,7 @@ TEST_F(PruebasDeChil, deberiaMostrarElResumenDeLaEjecucion) {
         PASO(Imprime por consola el saludo de despedida, saludoDeDespedida);
     }
 
-    ESCENARIO(Primer escenario con dos pasos){
+    ESCENARIO(Segundo escenario con dos pasos){
         PASO(FallaElPasoPorConfiguracion, pasoFallidoPorConfiguracion);
         PASO(Imprime por consola el saludo de despedida, saludoDeDespedida);
     }
@@ -160,4 +160,38 @@ TEST_F(PruebasDeChil, deberiaMostrarElResumenDeLaEjecucion) {
     string reporte = CHIL->imprimirResumen();
 
     ASSERT_EQ(reporte, "Completados: 2, Exitosos: 1, Fallidos: 1");
+}
+
+TEST_F(PruebasDeChil, deberiaMostrarTodosLosEscenariosYElResumenAlFinalizarLasPruebas) {
+    EXPECT_CALL(*plataforma, microsegundos())
+                                    .WillOnce(Return(1L))
+                                    .WillOnce(Return(50L))
+                                    .WillOnce(Return(100L))
+                                    .WillOnce(Return(200L))
+                                    .WillOnce(Return(300L))
+                                    .WillOnce(Return(410L))
+                                    .WillRepeatedly(Return(500L));
+
+    ESCENARIO(Primer escenario con dos pasos){
+        PASO(Imprime por consola el saludo de bienvenida, saludoDeComienzo);
+        PASO(Imprime por consola el saludo de despedida, saludoDeDespedida);
+    }
+
+    ESCENARIO(Segundo escenario con dos pasos){
+        PASO(FallaElPasoPorConfiguracion, pasoFallidoPorConfiguracion);
+        PASO(Imprime por consola el saludo de despedida, saludoDeDespedida);
+    }
+
+    EXPECT_CALL(*plataforma, consola(testing::ContainsRegex(
+            "Escenario: Primer escenario con dos pasos\n\n"
+            "\\[OK\\] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg\n"
+            "\\[OK\\] Imprime por consola el saludo de despedida - ejecuto en 100 useg\n\n"
+            "Escenario: Segundo escenario con dos pasos\n\n"
+            "\\[FALLO\\] FallaElPasoPorConfiguracion - ejecuto en 110 useg\n"
+            "\\[OK\\] Imprime por consola el saludo de despedida - ejecuto en 0 useg\n"
+            "\\*\\*\\* ESCENARIO FALLIDO \\*\\*\\*\n"))).Times(AtLeast(1));
+    EXPECT_CALL(*plataforma, consola(testing::ContainsRegex("Completados: 2, Exitosos: 1, Fallidos: 1")));
+    EXPECT_CALL(*plataforma, consola(testing::ContainsRegex("Fin de pruebas con CHIL")));
+
+    FIN_DE_PRUEBAS;
 }
