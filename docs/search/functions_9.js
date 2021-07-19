@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tiempo_84',['tiempo',['../classPaso.html#aca539a1ace28b9ee29d0ab8e51b0c1b8',1,'Paso']]]
+  ['registrarescenarioconresultado_102',['registrarEscenarioConResultado',['../classResumen.html#aa658af67d90ed057969de6bb1881d8c2',1,'Resumen']]]
 ];

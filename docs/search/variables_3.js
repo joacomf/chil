@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['plataforma_91',['plataforma',['../classChil.html#ae4e19f2729732b5751ccfce9d17e0d4e',1,'Chil']]]
+  ['plataforma_110',['plataforma',['../classChil.html#ae4e19f2729732b5751ccfce9d17e0d4e',1,'Chil']]]
 ];

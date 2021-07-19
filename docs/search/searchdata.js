@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
   0: "cefhilmnoprst~",
-  1: "cep",
+  1: "cepr",
   2: "cemprs",
-  3: "cefilmnopt~",
+  3: "cefilmnoprt~",
   4: "hinp",
   5: "cefnp",
   6: "c"
