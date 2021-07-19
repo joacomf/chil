@@ -32,3 +32,14 @@ TEST(ResumenTest, seRegistraDosEscenariosExitosos) {
     ASSERT_EQ(resumen->escenariosExitosos(), 1);
     ASSERT_EQ(resumen->escenarioCompletados(), 1);
 }
+
+TEST(ResumenTest, seObtieneElResumenImprimibleDeLosResultados) {
+    auto* resumen = new Resumen();
+
+    resumen->registrarEscenarioConResultado(true);
+    resumen->registrarEscenarioConResultado(true);
+    resumen->registrarEscenarioConResultado(false);
+    resumen->registrarEscenarioConResultado(true);
+
+    ASSERT_EQ(resumen->imprimible(), "Completados: 4, Exitosos: 3, Fallidos: 1");
+}
