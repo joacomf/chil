@@ -13,15 +13,10 @@ public:
     void inicio(long microsegundos);
     void fin(long microsegundos);
 
-    string mostrar();
-
-    void ejecutar();
-
     string obtenerNombre();
-
+    string mostrar();
+    void ejecutar();
     unsigned long tiempo() const;
-
-    void exito(bool esExitoso);
     bool esExitoso();
 
 private:
