@@ -27,16 +27,16 @@ void Escenario::nuevo(Paso *paso) {
  */
 string Escenario::imprimirResultado() {
   list<Paso>::iterator paso;
-  string reporteDeEscenario = string("Escenario: " + string(this->nombre));
-  reporteDeEscenario.append("\n\n");
+  string reporteDeEscenario = string(COMIENZO_DE_ESCENARIO + string(this->nombre));
+  reporteDeEscenario.append(SALTO_DE_LINEA_DOBLE);
 
   for (paso = this->_pasos.begin(); paso != this->_pasos.end(); ++paso) {
     reporteDeEscenario.append(paso->mostrar());
-    reporteDeEscenario.append("\n");
+    reporteDeEscenario.append(SALTO_DE_LINEA);
   }
 
   if (!this->exitoso) {
-    reporteDeEscenario.append("*** ESCENARIO FALLIDO ***");
+    reporteDeEscenario.append(INDICADOR_ESCENARIO_FALLIDO);
   }
 
   return reporteDeEscenario;
