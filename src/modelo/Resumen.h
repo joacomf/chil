@@ -8,8 +8,10 @@ class Resumen {
 public:
     void registrarEscenarioConResultado(bool esExitoso);
 
-    int escenarioCompletados();
-    int escenarioFallidos();
+    int escenarioCompletados() const;
+    int escenarioFallidos() const;
+
+    int escenariosExitosos() const;
 
 private:
     int cantidadEscenariosCompletados = 0;

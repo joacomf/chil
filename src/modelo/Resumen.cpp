@@ -10,10 +10,14 @@ void Resumen::registrarEscenarioConResultado(bool esExitoso) {
     }
 }
 
-int Resumen::escenarioCompletados() {
+int Resumen::escenarioCompletados() const {
     return this->cantidadEscenariosCompletados;
 }
 
-int Resumen::escenarioFallidos() {
+int Resumen::escenarioFallidos() const {
     return this->cantidadEscenariosFallidos;
+}
+
+int Resumen::escenariosExitosos() const {
+    return this->cantidadEscenariosExitosos;
 }

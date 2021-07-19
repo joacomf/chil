@@ -5,9 +5,16 @@
 
 TEST(ResumenTest, seRegistranLosEscenariosCompletados) {
     auto* resumen = new Resumen();
+
+    resumen->registrarEscenarioConResultado(true);
+    resumen->registrarEscenarioConResultado(false);
+    resumen->registrarEscenarioConResultado(false);
     resumen->registrarEscenarioConResultado(true);
 
-    ASSERT_EQ(resumen->escenarioCompletados(), 1);
+
+    ASSERT_EQ(resumen->escenarioFallidos(), 2);
+    ASSERT_EQ(resumen->escenariosExitosos(), 2);
+    ASSERT_EQ(resumen->escenarioCompletados(), 4);
 }
 
 TEST(ResumenTest, seRegistraUnEscenarioFallido) {
@@ -22,6 +29,6 @@ TEST(ResumenTest, seRegistraDosEscenariosExitosos) {
     auto* resumen = new Resumen();
     resumen->registrarEscenarioConResultado(true);
 
-    ASSERT_EQ(resumen->escenarioFallidos(), 2);
-    ASSERT_EQ(resumen->escenarioCompletados(), 2);
+    ASSERT_EQ(resumen->escenariosExitosos(), 1);
+    ASSERT_EQ(resumen->escenarioCompletados(), 1);
 }
