@@ -46,7 +46,10 @@ TEST(EscenarioTest, alMostrarElReporteFinalSeListaEnUnaLineaCadaResultado) {
   string reporteFinal = escenario->imprimirResultado();
 
   ASSERT_EQ(cantidadDeResultados, 3);
-  ASSERT_EQ("Escenario: Deja de recibir comando en pin 1 para pasar comando al pin 12\n\n[OK] Recibe comando en el pin 1 - ejecuto en 100 useg\n[OK] Deja de recibir comando en el pin 1 - ejecuto en 40 useg\n[OK] Recibe comando en el pin 12 - ejecuto en 170 useg\n", reporteFinal);
+  ASSERT_EQ("Escenario: Deja de recibir comando en pin 1 para pasar comando al pin 12\n\n"
+            "[OK] Recibe comando en el pin 1 - ejecuto en 100 useg\n"
+            "[OK] Deja de recibir comando en el pin 1 - ejecuto en 40 useg\n"
+            "[OK] Recibe comando en el pin 12 - ejecuto en 170 useg\n", reporteFinal);
 
   delete framework;
 }
