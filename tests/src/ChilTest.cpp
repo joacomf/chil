@@ -189,7 +189,7 @@ TEST_F(PruebasDeChil, deberiaMostrarTodosLosEscenariosYElResumenAlFinalizarLasPr
             "Escenario: Segundo escenario con dos pasos\n\n"
             "\\[FALLO\\] FallaElPasoPorConfiguracion - ejecuto en 110 useg\n"
             "\\[OK\\] Imprime por consola el saludo de despedida - ejecuto en 0 useg\n"
-            "\\*\\*\\* ESCENARIO FALLIDO \\*\\*\\*\n"))).Times(AtLeast(1));
+            "\\*\\*\\* ESCENARIO FALLIDO \\*\\*\\*\n\n"))).Times(AtLeast(1));
     EXPECT_CALL(*plataforma, consola(testing::ContainsRegex("Completados: 2, Exitosos: 1, Fallidos: 1")));
     EXPECT_CALL(*plataforma, consola(testing::ContainsRegex("Fin de pruebas con CHIL")));
 

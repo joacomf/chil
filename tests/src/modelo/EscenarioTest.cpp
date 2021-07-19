@@ -84,7 +84,7 @@ TEST(EscenarioTest, resaltaElIndicadorDeEscenarioFallidoSiFallaAlgunoDeLosPasos)
               "[OK] Recibe comando en el pin 1 - ejecuto en 100 useg\n"
               "[FALLO] Deja de recibir comando en el pin 1 - ejecuto en 40 useg\n"
               "[FALLO] Recibe comando en el pin 12 - ejecuto en 170 useg\n"
-              "*** ESCENARIO FALLIDO ***", reporteFinal);
+              "*** ESCENARIO FALLIDO ***\n", reporteFinal);
 
     delete framework;
 }
