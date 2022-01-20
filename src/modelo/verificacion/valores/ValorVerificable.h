@@ -1,6 +1,8 @@
 #ifndef CHIL_VALORVERIFICABLE_H
 #define CHIL_VALORVERIFICABLE_H
 
+#include <modelo/verificacion/excepciones/ValoresDistintosExcepcion.h>
+
 template <typename Tipo>
 class ValorVerificable {
 

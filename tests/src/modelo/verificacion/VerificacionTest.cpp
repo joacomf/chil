@@ -9,3 +9,7 @@ TEST(VerificacionTest, verificaUnValorEnteroCorrectamente) {
 TEST(VerificacionTest, verificaUnValorDobleCorrectamente) {
     ASSERT_NO_THROW(verificar<double>(5.2).esIgualA(5.2));
 }
+
+TEST(VerificacionTest, lanzaExcepcionSiLosValoresAComparaNoSonIguales) {
+    ASSERT_THROW(verificar<int>(2).esIgualA(5), ValoresDistintosExcepcion);
+}
