@@ -14,11 +14,14 @@ add_executable(
         src/modelo/EscenarioTest.cpp
         src/modelo/PasoTest.cpp
         src/modelo/ResumenTest.cpp
+        src/modelo/verificacion/VerificacionTest.cpp
 
         ../src/modelo/Paso.cpp
         ../src/modelo/Escenario.cpp
         ../src/modelo/Resumen.cpp
         ../src/utils/stringUtils.cpp
+
+        ../src/modelo/verificacion/valores/ValorVerificable.cpp
 
 
         plataformas/modelo/PuntoDeEntradaTest.cpp
