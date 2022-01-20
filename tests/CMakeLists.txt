@@ -21,7 +21,9 @@ add_executable(
         ../src/modelo/Resumen.cpp
         ../src/utils/stringUtils.cpp
 
-        ../src/modelo/verificacion/valores/ValorVerificable.cpp
+        ../src/modelo/verificacion/valores/ValorVerificable.h
+        ../src/modelo/verificacion/valores/ValorVerificable.tpp
+        ../src/modelo/verificacion/Verificacion.h
 
 
         plataformas/modelo/PuntoDeEntradaTest.cpp

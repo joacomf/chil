@@ -4,9 +4,8 @@ project(Chil)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-file(GLOB Chil_FILES src/*.cpp src/*.h src/*.hpp)
+file(GLOB Chil_FILES src/*.cpp src/*.h src/*.hpp src/*.tpp)
 
-# add component
 add_library(Chil ${Chil_FILES})
 
 target_include_directories(Chil PRIVATE include)

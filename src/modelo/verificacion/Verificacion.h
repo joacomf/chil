@@ -1,10 +1,11 @@
 #ifndef CHIL_VERIFICACION_H
 #define CHIL_VERIFICACION_H
 
-#include <modelo/verificacion/valores/ValorVerificable.h>
+#include "modelo/verificacion/valores/ValorVerificable.h"
 
-inline ValorVerificable verificar(int entero) {
-    return ValorVerificable(entero);
+template <typename Tipo>
+ValorVerificable<Tipo> verificar(Tipo valor) {
+    return ValorVerificable<Tipo>(valor);
 }
 
 
