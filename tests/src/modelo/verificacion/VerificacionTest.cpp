@@ -5,14 +5,17 @@
 
 TEST(VerificacionTest, verificaUnValorEnteroCorrectamente) {
     ASSERT_NO_THROW(verificar<int>(5).esIgualA(5));
+    ASSERT_THROW(verificar<int>(2).esIgualA(5), ValoresDistintosExcepcion<int>);
 }
 
 TEST(VerificacionTest, verificaUnValorConComaFlotanteCorrectamente) {
     ASSERT_NO_THROW(verificar<float>(123125.12322f).esIgualA(123125.12322f));
+    ASSERT_THROW(verificar<float>(123125.12322f).esIgualA(12312.12322f), ValoresDistintosExcepcion<float>);
 }
 
 TEST(VerificacionTest, verificaUnValorDobleCorrectamente) {
-    ASSERT_NO_THROW(verificar<double>(5.2).esIgualA(5.2));
+    ASSERT_NO_THROW(verificar<double>(5.22322e+200).esIgualA(5.22322e+200));
+    ASSERT_THROW(verificar<double>(5.22322e+200).esIgualA(5.22322e+199), ValoresDistintosExcepcion<double>);
 }
 
 TEST(VerificacionTest, verificaUnValorDobleConDistintaPrecisionCorrectamente) {
@@ -21,10 +24,12 @@ TEST(VerificacionTest, verificaUnValorDobleConDistintaPrecisionCorrectamente) {
 
 TEST(VerificacionTest, verificaUnValorLongCorrectamente) {
     ASSERT_NO_THROW(verificar<long>(1239292399123).esIgualA(1239292399123));
+    ASSERT_THROW(verificar<long>(1239292399123).esIgualA(3339292399123), ValoresDistintosExcepcion<long>);
 }
 
 TEST(VerificacionTest, verificaUnValorShortCorrectamente) {
     ASSERT_NO_THROW(verificar<short>(-12).esIgualA(-12));
+    ASSERT_THROW(verificar<short>(-122).esIgualA(312), ValoresDistintosExcepcion<short>);
 }
 
 TEST(VerificacionTest, verificaLosValoresExtremosDeTodosLosTiposNumericosEnteros) {
@@ -60,10 +65,6 @@ TEST(VerificacionTest, verificaLosValoresNumericosDeTodosLosTiposEnterosConComaF
 
     ASSERT_NO_THROW(verificar<long double>(2.22507e-308).esIgualA(2.22507e-308));
     ASSERT_NO_THROW(verificar<long double>(1.79769e+308).esIgualA(1.79769e+308));
-}
-
-TEST(VerificacionTest, lanzaExcepcionSiLosValoresAComparaNoSonIguales) {
-    ASSERT_THROW(verificar<int>(2).esIgualA(5), ValoresDistintosExcepcion<int>);
 }
 
 TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosValoresAComparaNoSonIguales) {
