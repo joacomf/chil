@@ -11,5 +11,13 @@ TEST(VerificacionTest, verificaUnValorDobleCorrectamente) {
 }
 
 TEST(VerificacionTest, lanzaExcepcionSiLosValoresAComparaNoSonIguales) {
-    ASSERT_THROW(verificar<int>(2).esIgualA(5), ValoresDistintosExcepcion);
+    ASSERT_THROW(verificar<int>(2).esIgualA(5), ValoresDistintosExcepcion<int>);
+}
+
+TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosValoresAComparaNoSonIguales) {
+    try {
+        verificar<double>(2.23).esIgualA(5.21);
+    } catch (ValoresDistintosExcepcion<double>& e) {
+        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el valor: \n5.210000\nPero se recibio el valor: \n2.230000\n");
+    }
 }
