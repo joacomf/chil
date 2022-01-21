@@ -15,14 +15,17 @@ template <typename T>
 class ValoresDistintosExcepcion : public exception {
 
 private:
+    constexpr static const char *const TEXTO_ESPERADO = "Se esperaba el valor: ";
+    constexpr static const char *const TEXTO_RECIBIDO = "Pero se recibio el valor: ";
+
     string mensaje{};
 
 public:
     explicit ValoresDistintosExcepcion(T recibido, T esperado) {
-        mensaje.append("Se esperaba el valor: ").append(SALTO_DE_LINEA);
+        mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA);
         mensaje.append(std::to_string(esperado));
         mensaje.append(SALTO_DE_LINEA);
-        mensaje.append("Pero se recibio el valor: ").append(SALTO_DE_LINEA);
+        mensaje.append(TEXTO_RECIBIDO).append(SALTO_DE_LINEA);
         mensaje.append(std::to_string(recibido));
         mensaje.append(SALTO_DE_LINEA);
     }
