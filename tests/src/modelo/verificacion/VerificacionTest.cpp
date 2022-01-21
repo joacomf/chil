@@ -27,7 +27,7 @@ TEST(VerificacionTest, verificaUnValorShortCorrectamente) {
     ASSERT_NO_THROW(verificar<short>(-12).esIgualA(-12));
 }
 
-TEST(VerificacionTest, verificaLosValoresExtremosDeTodosLosTiposNumericos) {
+TEST(VerificacionTest, verificaLosValoresExtremosDeTodosLosTiposNumericosEnteros) {
     ASSERT_NO_THROW(verificar<signed char>(SCHAR_MIN).esIgualA(-128));
     ASSERT_NO_THROW(verificar<signed char>(SCHAR_MAX).esIgualA(127));
     ASSERT_NO_THROW(verificar<unsigned char>(UCHAR_MAX).esIgualA(255));
@@ -49,6 +49,17 @@ TEST(VerificacionTest, verificaLosValoresExtremosDeTodosLosTiposNumericos) {
     ASSERT_NO_THROW(verificar<long long>(LONG_LONG_MIN).esIgualA(-9223372036854775808U));
     ASSERT_NO_THROW(verificar<long long>(LONG_LONG_MAX).esIgualA(9223372036854775807L));
     ASSERT_NO_THROW(verificar<unsigned long long>(ULONG_LONG_MAX).esIgualA(18446744073709551615U));
+}
+
+TEST(VerificacionTest, verificaLosValoresNumericosDeTodosLosTiposEnterosConComaFlotante){
+    ASSERT_NO_THROW(verificar<float>(1.17549e-038).esIgualA(1.17549e-038));
+    ASSERT_NO_THROW(verificar<float>(3.40282e+038f).esIgualA(3.40282e+038f));
+
+    ASSERT_NO_THROW(verificar<double>(2.22507e-308).esIgualA(2.22507e-308));
+    ASSERT_NO_THROW(verificar<double>(1.79769e+308).esIgualA(1.79769e+308));
+
+    ASSERT_NO_THROW(verificar<long double>(2.22507e-308).esIgualA(2.22507e-308));
+    ASSERT_NO_THROW(verificar<long double>(1.79769e+308).esIgualA(1.79769e+308));
 }
 
 TEST(VerificacionTest, lanzaExcepcionSiLosValoresAComparaNoSonIguales) {
