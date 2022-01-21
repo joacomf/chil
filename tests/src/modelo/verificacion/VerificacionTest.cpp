@@ -67,10 +67,23 @@ TEST(VerificacionTest, verificaLosValoresNumericosDeTodosLosTiposEnterosConComaF
     ASSERT_NO_THROW(verificar<long double>(1.79769e+308).esIgualA(1.79769e+308));
 }
 
+TEST(VerificacionTest, verificaUnValorConstCharAst) {
+    ASSERT_NO_THROW(verificarLiteral("texto").esIgualA("texto"));
+    ASSERT_THROW(verificarLiteral("texto").esIgualA("notexto"), LiteralesDistintosExcepcion);
+}
+
 TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosValoresAComparaNoSonIguales) {
     try {
         verificar<double>(2.23).esIgualA(5.21);
     } catch (ValoresDistintosExcepcion<double>& e) {
         ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el valor: \n5.210000\nPero se recibio el valor: \n2.230000\n");
+    }
+}
+
+TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosLiteralesAComparaNoSonIguales) {
+    try {
+        verificarLiteral("valores").esIgualA("muy distintos");
+    } catch (LiteralesDistintosExcepcion& e) {
+        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el texto: \nmuy distintos\nPero se recibio el texto: \nvalores\n");
     }
 }

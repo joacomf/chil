@@ -2,6 +2,8 @@
 #define CHIL_VALORVERIFICABLE_H
 
 #include <modelo/verificacion/excepciones/ValoresDistintosExcepcion.h>
+#include <modelo/verificacion/excepciones/LiteralesDistintosExcepcion.h>
+
 
 template <typename Tipo>
 struct ValorVerificable {
@@ -26,11 +28,24 @@ ValorVerificable<Tipo>::ValorVerificable(Tipo elValorAVerificar) {
     this->valorAVerificar = elValorAVerificar;
 }
 
+template<>
+ValorVerificable<const char*>::ValorVerificable(const char* elValorAVerificar) {
+    this->valorAVerificar = elValorAVerificar;
+}
+
 template <typename Tipo>
 void ValorVerificable<Tipo>::esIgualA(Tipo elValorEsperado) {
     this->valorEsperado = elValorEsperado;
     if (this->valorAVerificar != this->valorEsperado){
         throw ValoresDistintosExcepcion<Tipo>(this->valorAVerificar, this->valorEsperado);
+    }
+}
+
+template <>
+void ValorVerificable<const char*>::esIgualA(const char* elValorEsperado) {
+    this->valorEsperado = elValorEsperado;
+    if (this->valorAVerificar != this->valorEsperado){
+        throw LiteralesDistintosExcepcion(this->valorAVerificar, this->valorEsperado);
     }
 }
 
