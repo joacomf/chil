@@ -7,8 +7,16 @@ TEST(VerificacionTest, verificaUnValorEnteroCorrectamente) {
     ASSERT_NO_THROW(verificar<int>(5).esIgualA(5));
 }
 
+TEST(VerificacionTest, verificaUnValorConComaFlotanteCorrectamente) {
+    ASSERT_NO_THROW(verificar<float>(123125.12322f).esIgualA(123125.12322f));
+}
+
 TEST(VerificacionTest, verificaUnValorDobleCorrectamente) {
     ASSERT_NO_THROW(verificar<double>(5.2).esIgualA(5.2));
+}
+
+TEST(VerificacionTest, verificaUnValorDobleConDistintaPrecisionCorrectamente) {
+    ASSERT_NO_THROW(verificar<double>(5.2000).esIgualA(5.2));
 }
 
 TEST(VerificacionTest, verificaUnValorLongCorrectamente) {
