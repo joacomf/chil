@@ -4,8 +4,8 @@
 #include "modelo/verificacion/valores/ValorVerificable.h"
 
 template <typename Tipo>
-ValorVerificable<Tipo> verificar(Tipo valor) {
-    return ValorVerificable<Tipo>(valor);
+ValorVerificable<Tipo>* verificar(Tipo valor) {
+    return new ValorVerificable<Tipo>(valor);
 }
 
 #endif //CHIL_VERIFICACION_H

@@ -10,7 +10,7 @@
 using std::exception;
 using std::string;
 
-namespace literales{
+namespace literales {
     template<typename T>
     string toString(const T& t) {
         return std::to_string(t);
@@ -26,7 +26,6 @@ namespace literales{
 }
 
 using literales::toString;
-
 
 template <typename T>
 class ValoresDistintosExcepcion : public exception {
