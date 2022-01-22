@@ -1,6 +1,16 @@
-#include <climits>
 #include "gtest/gtest.h"
+#include "gmock/gmock.h"
+
 #include "modelo/verificacion/Verificacion.h"
+#include <mocks/PlataformaMock.hpp>
+
+#include <climits>
+
+using ::testing::_;
+using ::testing::Return;
+using ::testing::AtLeast;
+
+const int PIN_BOTON = 5;
 
 TEST(VerificacionTest, verificaUnValorEnteroCorrectamente) {
     ASSERT_NO_THROW(verificar<int>(5)->esIgualA(5));
@@ -85,4 +95,31 @@ TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosLit
     } catch (ValoresDistintosExcepcion<const char*>& e) {
         ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el valor: \nmuy distintos\nPero se recibio el valor: \nvalores\n");
     }
+}
+
+TEST(VerificacionEnBucleTest, verificaEnModoSondeoUnValorDurante1seg) {
+    auto *plataformaMock = new PlataformaMock();
+    NUEVO_CHIL_CON(plataformaMock);
+
+    EXPECT_CALL(*plataformaMock, milisegundos())
+            .WillOnce(Return(1L))
+            .WillOnce(Return(50L))
+            .WillOnce(Return(100L))
+            .WillOnce(Return(150L))
+            .WillOnce(Return(199L))
+            .WillOnce(Return(220L));
+
+    EXPECT_CALL(*plataformaMock, leer(_))
+            .WillOnce(Return(0))
+            .WillOnce(Return(0))
+            .WillOnce(Return(0))
+            .WillOnce(Return(1));
+
+    ASSERT_NO_THROW(
+            comprobar([]() {
+                return PLATAFORMA->leer(PIN_BOTON) == 1;
+            })
+            ->durante(200)
+            ->seHayaEjecutado();
+    );
 }

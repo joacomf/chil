@@ -2,8 +2,6 @@
 #ifndef CHIL_VALORESDISTINTOSEXCEPCION_H
 #define CHIL_VALORESDISTINTOSEXCEPCION_H
 
-#define SALTO_DE_LINEA "\n"
-
 #include <exception>
 #include <string>
 
@@ -33,6 +31,8 @@ class ValoresDistintosExcepcion : public exception {
 private:
     constexpr static const char *const TEXTO_ESPERADO = "Se esperaba el valor: ";
     constexpr static const char *const TEXTO_RECIBIDO = "Pero se recibio el valor: ";
+    constexpr static const char *const SALTO_DE_LINEA = "\n";
+
 
     string mensaje{};
 

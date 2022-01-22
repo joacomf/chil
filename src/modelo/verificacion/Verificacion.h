@@ -2,6 +2,11 @@
 #define CHIL_VERIFICACION_H
 
 #include "modelo/verificacion/valores/ValorVerificable.h"
+#include "modelo/verificacion/valores/AccionVerificable.h"
+
+AccionVerificable* comprobar(bool (*funcion)()) {
+    return new AccionVerificable(funcion);
+}
 
 template <typename Tipo>
 ValorVerificable<Tipo>* verificar(Tipo valor) {

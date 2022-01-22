@@ -15,12 +15,15 @@ add_executable(
         src/modelo/PasoTest.cpp
         src/modelo/ResumenTest.cpp
         src/modelo/verificacion/VerificacionTest.cpp
+        src/modelo/verificacion/VerificacionEnBucleTest.cpp
 
         ../src/modelo/Paso.cpp
         ../src/modelo/Escenario.cpp
         ../src/modelo/Resumen.cpp
         ../src/utils/stringUtils.cpp
 
+        ../src/modelo/verificacion/valores/AccionVerificable.h
+        ../src/modelo/verificacion/valores/AccionVerificable.cpp
         ../src/modelo/verificacion/valores/ValorVerificable.h
         ../src/modelo/verificacion/valores/ValorVerificable.tpp
         ../src/modelo/verificacion/Verificacion.h
