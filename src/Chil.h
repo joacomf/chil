@@ -44,7 +44,7 @@ public:
     string imprimirResumen();
 
 private:
-    Escenario *_escenario;
+    Escenario *_escenario{};
     list<Escenario> _escenarios;
     const char *mensajeComienzo = "\nPruebas con CHIL:\n";
     const char *mensajeFinDePruebas = "Fin de pruebas con CHIL";
