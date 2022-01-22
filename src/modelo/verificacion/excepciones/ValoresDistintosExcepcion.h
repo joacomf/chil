@@ -6,10 +6,27 @@
 
 #include <exception>
 #include <string>
-#include "modelo/verificacion/valores/ValorVerificable.h"
 
 using std::exception;
 using std::string;
+
+namespace literales{
+    template<typename T>
+    string toString(const T& t) {
+        return std::to_string(t);
+    }
+
+    string toString(const char* t) {
+        return t;
+    }
+
+    string toString(const string& t) {
+        return t;
+    }
+}
+
+using literales::toString;
+
 
 template <typename T>
 class ValoresDistintosExcepcion : public exception {
@@ -23,10 +40,10 @@ private:
 public:
     explicit ValoresDistintosExcepcion(T recibido, T esperado) {
         mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA);
-        mensaje.append(std::to_string(esperado));
+        mensaje.append(toString(esperado));
         mensaje.append(SALTO_DE_LINEA);
         mensaje.append(TEXTO_RECIBIDO).append(SALTO_DE_LINEA);
-        mensaje.append(std::to_string(recibido));
+        mensaje.append(toString(recibido));
         mensaje.append(SALTO_DE_LINEA);
     }
 

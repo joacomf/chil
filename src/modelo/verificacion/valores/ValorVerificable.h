@@ -2,14 +2,13 @@
 #define CHIL_VALORVERIFICABLE_H
 
 #include <modelo/verificacion/excepciones/ValoresDistintosExcepcion.h>
-#include <modelo/verificacion/excepciones/LiteralesDistintosExcepcion.h>
-
+#include <modelo/verificacion/estrategias/EstrategiaDirectaConValores.h>
 
 template <typename Tipo>
-struct ValorVerificable {
+class ValorVerificable {
 
 public:
-    explicit ValorVerificable() {}
+    explicit ValorVerificable() = default;
 
     explicit ValorVerificable(Tipo elValorAVerificar);
     void esIgualA(Tipo valorEsperado);
@@ -20,33 +19,20 @@ public:
 private:
     Tipo valorAVerificar{};
     Tipo valorEsperado{};
-};
 
+    Estrategia<Tipo>* estrategia{};
+};
 
 template<typename Tipo>
 ValorVerificable<Tipo>::ValorVerificable(Tipo elValorAVerificar) {
     this->valorAVerificar = elValorAVerificar;
-}
-
-template<>
-ValorVerificable<const char*>::ValorVerificable(const char* elValorAVerificar) {
-    this->valorAVerificar = elValorAVerificar;
+    this->estrategia = new EstrategiaDirectaConValores<Tipo>();
 }
 
 template <typename Tipo>
 void ValorVerificable<Tipo>::esIgualA(Tipo elValorEsperado) {
     this->valorEsperado = elValorEsperado;
-    if (this->valorAVerificar != this->valorEsperado){
-        throw ValoresDistintosExcepcion<Tipo>(this->valorAVerificar, this->valorEsperado);
-    }
-}
-
-template <>
-void ValorVerificable<const char*>::esIgualA(const char* elValorEsperado) {
-    this->valorEsperado = elValorEsperado;
-    if (this->valorAVerificar != this->valorEsperado){
-        throw LiteralesDistintosExcepcion(this->valorAVerificar, this->valorEsperado);
-    }
+    this->estrategia->verificar(this);
 }
 
 template <typename Tipo>
@@ -58,7 +44,6 @@ template <typename Tipo>
 Tipo ValorVerificable<Tipo>::obtenerValorAVerificar() {
     return this->valorAVerificar;
 }
-
 
 #endif //CHIL_VALORVERIFICABLE_H
 

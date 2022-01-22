@@ -68,8 +68,8 @@ TEST(VerificacionTest, verificaLosValoresNumericosDeTodosLosTiposEnterosConComaF
 }
 
 TEST(VerificacionTest, verificaUnValorConstCharAst) {
-    ASSERT_NO_THROW(verificarLiteral("texto").esIgualA("texto"));
-    ASSERT_THROW(verificarLiteral("texto").esIgualA("notexto"), LiteralesDistintosExcepcion);
+    ASSERT_NO_THROW(verificar("texto").esIgualA("texto"));
+    ASSERT_THROW(verificar("texto").esIgualA("notexto"), ValoresDistintosExcepcion<const char*>);
 }
 
 TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosValoresAComparaNoSonIguales) {
@@ -82,8 +82,8 @@ TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosVal
 
 TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosLiteralesAComparaNoSonIguales) {
     try {
-        verificarLiteral("valores").esIgualA("muy distintos");
-    } catch (LiteralesDistintosExcepcion& e) {
-        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el texto: \nmuy distintos\nPero se recibio el texto: \nvalores\n");
+        verificar("valores").esIgualA("muy distintos");
+    } catch (ValoresDistintosExcepcion<const char*>& e) {
+        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el valor: \nmuy distintos\nPero se recibio el valor: \nvalores\n");
     }
 }

@@ -8,9 +8,4 @@ ValorVerificable<Tipo> verificar(Tipo valor) {
     return ValorVerificable<Tipo>(valor);
 }
 
-ValorVerificable<const char*> verificarLiteral(const char* texto) {
-    return ValorVerificable<const char*>(texto);
-}
-
-
 #endif //CHIL_VERIFICACION_H
