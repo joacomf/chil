@@ -12,6 +12,7 @@
 
 using ::testing::AtLeast;
 using ::testing::Exactly;
+using ::testing::AnyNumber;
 using ::testing::_; // NOLINT(bugprone-reserved-identifier)
 using ::testing::StrEq;
 using ::testing::Return;

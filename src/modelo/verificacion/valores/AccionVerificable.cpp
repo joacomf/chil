@@ -5,8 +5,13 @@ AccionVerificable::AccionVerificable(bool (*laAccion)()) {
     this->accionAVerificar = laAccion;
 }
 
-AccionVerificable * AccionVerificable::durante(int milisegundos) {
+AccionVerificable* AccionVerificable::durante(int milisegundos) {
     this->tiempoLimite = milisegundos;
+    return this;
+}
+
+AccionVerificable* AccionVerificable::conIntervaloDe(int elIntervaloEnMilisegundos) {
+    this->intervaloEnMilisegundos = elIntervaloEnMilisegundos;
     return this;
 }
 
@@ -17,6 +22,7 @@ void AccionVerificable::seHayaEjecutado() {
         if(this->accionAVerificar()) {
             return;
         }
+        PLATAFORMA->demorar(this->intervaloEnMilisegundos);
     }
 
     throw AccionNoEjecutadaExcepcion();
