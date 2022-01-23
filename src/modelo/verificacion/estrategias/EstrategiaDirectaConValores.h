@@ -4,9 +4,6 @@
 
 #include "Estrategia.h"
 
-template<typename T>
-class ValorVerificable;
-
 template <typename Tipo>
 class EstrategiaDirectaConValores: public Estrategia<Tipo>{
     void verificar(ValorVerificable<Tipo>* valor) override {

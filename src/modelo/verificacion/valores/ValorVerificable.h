@@ -11,11 +11,11 @@ public:
     explicit ValorVerificable() = default;
 
     explicit ValorVerificable(Tipo elValorAVerificar);
-    void esIgualA(Tipo valorEsperado);
 
     Tipo obtenerValorEsperado();
     Tipo obtenerValorAVerificar();
 
+    void esIgualA(Tipo valorEsperado);
     void esVerdadero();
     void esFalso();
 
