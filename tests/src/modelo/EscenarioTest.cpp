@@ -1,10 +1,4 @@
-#include <mocks/PlataformaMock.hpp>
-#include "gtest/gtest.h"
-#include "modelo/Escenario.h"
-
-using ::testing::AtLeast;
-using ::testing::_;
-using ::testing::Return;
+#include "compartido-tests.h"
 
 bool pasoExitoso(){ return true;}
 bool pasoFallido(){ return false;}

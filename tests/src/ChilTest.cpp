@@ -1,13 +1,4 @@
-#include "gtest/gtest.h"
-#include "mocks/PlataformaMock.hpp"
-#include "Chil.h"
-
-using ::testing::AtLeast;
-using ::testing::Exactly;
-using ::testing::_;
-using ::testing::StrEq;
-using ::testing::Return;
-using ::testing::Test;
+#include "compartido-tests.h"
 
 TEST(PruebasDeChilInicilizacion, alCrearChilDeberiaImprimirElMensajeDeComienzo) {
     auto *plataforma = new PlataformaMock();

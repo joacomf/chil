@@ -8,13 +8,12 @@
 #include "mocks/PlataformaMock.hpp"
 
 #include "Chil.h"
-
-#include "modelo/verificacion/excepciones/AccionNoEjecutadaExcepcion.h"
 #include "modelo/verificacion/Verificacion.h"
 
 using ::testing::AtLeast;
 using ::testing::Exactly;
-using ::testing::_;
+using ::testing::_; // NOLINT(bugprone-reserved-identifier)
+using ::testing::StrEq;
 using ::testing::Return;
 using ::testing::Test;
 

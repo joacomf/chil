@@ -1,5 +1,4 @@
-#include <modelo/Paso.h>
-#include "gtest/gtest.h"
+#include "compartido-tests.h"
 
 bool funcionExitosa(){ return true; }
 bool funcionFallida(){ return false; }
