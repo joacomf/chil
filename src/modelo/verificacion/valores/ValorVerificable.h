@@ -16,6 +16,9 @@ public:
     Tipo obtenerValorEsperado();
     Tipo obtenerValorAVerificar();
 
+    void esVerdadero();
+    void esFalso();
+
 private:
     Tipo valorAVerificar{};
     Tipo valorEsperado{};
@@ -44,7 +47,6 @@ template <typename Tipo>
 Tipo ValorVerificable<Tipo>::obtenerValorAVerificar() {
     return this->valorAVerificar;
 }
-
 #endif //CHIL_VALORVERIFICABLE_H
 
 

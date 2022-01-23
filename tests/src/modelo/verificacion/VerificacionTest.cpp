@@ -69,6 +69,16 @@ TEST(VerificacionTest, verificaUnValorConstCharAst) {
     ASSERT_THROW(verificar("texto")->esIgualA("notexto"), ValoresDistintosExcepcion<const char*>);
 }
 
+TEST(VerificacionTest, verificaUnValorBooleanoVerdaderoCorrectamente) {
+    ASSERT_NO_THROW(verificar(true)->esVerdadero());
+    ASSERT_THROW(verificar(true)->esFalso(), ValoresDistintosExcepcion<bool>);
+}
+
+TEST(VerificacionTest, verificaUnValorBooleanoFalsoCorrectamente) {
+    ASSERT_NO_THROW(verificar(false)->esFalso());
+    ASSERT_THROW(verificar(false)->esVerdadero(), ValoresDistintosExcepcion<bool>);
+}
+
 TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosValoresAComparaNoSonIguales) {
     try {
         verificar<double>(2.23)->esIgualA(5.21);

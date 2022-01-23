@@ -39,7 +39,7 @@ add_executable(
         ../src/modelo/verificacion/valores/AccionVerificable.h
         ../src/modelo/verificacion/valores/AccionVerificable.cpp
         ../src/modelo/verificacion/valores/ValorVerificable.h
-)
+        ../src/modelo/verificacion/valores/ValorVerificable.cpp)
 
 add_test(NAME check COMMAND tests)
 
