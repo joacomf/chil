@@ -6,4 +6,3 @@ template<> void ValorVerificable<bool>::esVerdadero() {
 template<> void ValorVerificable<bool>::esFalso() {
     this->esIgualA(false);
 }
-

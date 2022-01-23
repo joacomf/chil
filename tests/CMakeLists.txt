@@ -14,7 +14,7 @@ add_executable(
         src/modelo/EscenarioTest.cpp
         src/modelo/PasoTest.cpp
         src/modelo/ResumenTest.cpp
-        src/modelo/verificacion/VerificacionTest.cpp
+        src/modelo/verificacion/VerificacionIgualesTest.cpp
         src/modelo/verificacion/VerificacionEnBucleTest.cpp
 
         plataformas/modelo/PuntoDeEntradaTest.cpp
@@ -39,7 +39,7 @@ add_executable(
         ../src/modelo/verificacion/valores/AccionVerificable.h
         ../src/modelo/verificacion/valores/AccionVerificable.cpp
         ../src/modelo/verificacion/valores/ValorVerificable.h
-        ../src/modelo/verificacion/valores/ValorVerificable.cpp)
+        ../src/modelo/verificacion/valores/ValorVerificable.cpp src/modelo/verificacion/VerificacionMayorYMenorTest.cpp ../src/modelo/verificacion/excepciones/ValorEsMenorExcepcion.h)
 
 add_test(NAME check COMMAND tests)
 

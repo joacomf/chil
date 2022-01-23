@@ -3,6 +3,9 @@
 
 #include <modelo/verificacion/excepciones/ValoresDistintosExcepcion.h>
 #include <modelo/verificacion/estrategias/EstrategiaComparacionExacta.h>
+#include <modelo/verificacion/excepciones/ValorEsMenorExcepcion.h>
+
+#include <type_traits>
 
 template <typename Tipo>
 class ValorVerificable {
@@ -19,23 +22,22 @@ public:
     void esVerdadero();
     void esFalso();
 
+    void esMayorA(Tipo valorConElCualComparar);
+
 private:
     Tipo valorAVerificar{};
     Tipo valorEsperado{};
-
-    Estrategia<Tipo>* estrategia{};
 };
 
 template<typename Tipo>
 ValorVerificable<Tipo>::ValorVerificable(Tipo elValorAVerificar) {
     this->valorAVerificar = elValorAVerificar;
-    this->estrategia = new EstrategiaComparacionExacta<Tipo>();
 }
 
 template <typename Tipo>
 void ValorVerificable<Tipo>::esIgualA(Tipo elValorEsperado) {
     this->valorEsperado = elValorEsperado;
-    this->estrategia->verificar(this);
+    EstrategiaComparacionExacta<Tipo>().verificar(this);
 }
 
 template <typename Tipo>
@@ -47,6 +49,17 @@ template <typename Tipo>
 Tipo ValorVerificable<Tipo>::obtenerValorAVerificar() {
     return this->valorAVerificar;
 }
+
+template<typename Tipo>
+void ValorVerificable<Tipo>::esMayorA(Tipo valorConElCualComparar) {
+    this->valorEsperado = valorConElCualComparar;
+
+    if (this->valorAVerificar <= this->valorEsperado){
+        throw ValorEsMenorExcepcion<Tipo>(this->valorAVerificar, this->valorEsperado);
+    }
+}
+
+
 #endif //CHIL_VALORVERIFICABLE_H
 
 
