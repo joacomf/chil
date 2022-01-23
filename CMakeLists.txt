@@ -4,9 +4,9 @@ project(Chil)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-file(GLOB Chil_FILES src/*.cpp src/*.h src/*.hpp src/*.tpp)
+file(GLOB Chil_FILES src/*.cpp src/*.h src/*.hpp)
 
-add_library(Chil ${Chil_FILES} src/modelo/verificacion/valores/AccionVerificable.cpp src/modelo/verificacion/valores/AccionVerificable.h src/modelo/verificacion/excepciones/AccionNoEjecutadaExcepcion.h)
+add_library(Chil ${Chil_FILES})
 
 target_include_directories(Chil PRIVATE include)
 target_include_directories(Chil PRIVATE src)
