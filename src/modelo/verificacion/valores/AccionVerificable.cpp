@@ -25,5 +25,5 @@ void AccionVerificable::seHayaEjecutado() {
         PLATAFORMA->demorar(this->intervaloEnMilisegundos);
     }
 
-    throw AccionNoEjecutadaExcepcion();
+    throw AccionNoEjecutadaExcepcion(this->tiempoLimite, this->intervaloEnMilisegundos);
 }

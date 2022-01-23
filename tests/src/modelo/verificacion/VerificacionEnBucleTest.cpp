@@ -64,6 +64,29 @@ TEST(VerificacionEnBucleTest, lanzaExcepcionSiLaAccionNuncaSeComprueba)
     delete plataformaMock;
 }
 
+TEST(VerificacionEnBucleTest, elMensajeDeLaExcepcionLanzadaIndicaLasCaracteristicasDeLaVerificacionNoCumplida)
+{
+    dadoQueChilEstaActivo();
+    dadoQueElTiempoAvanzaEnMilisegundos();
+    dadoQueLaLecturaSiempreRetorna0();
+    dadoQueSePuedeLlamarADemorar();
+
+
+    try {
+        comprobar([]() {
+            return PLATAFORMA->leer(PIN_BOTON) == 1;
+        })
+        ->durante(201)
+        ->conIntervaloDe(5)
+        ->seHayaEjecutado();
+
+    } catch (AccionNoEjecutadaExcepcion& excepcion) {
+        ASSERT_EQ(excepcion.obtenerMensaje(), "La accion indicada no se corroboro en el periodo de 201ms con un intervalo de 5ms entre cada verificacion");
+    }
+
+    delete plataformaMock;
+}
+
 
 void dadoQueChilEstaActivo() {
     plataformaMock = new PlataformaMock();
