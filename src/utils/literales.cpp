@@ -1,10 +1,9 @@
 #include "literales.h"
 
-
-string literales::toString(const char *t) {
+string literales::aTexto(const char *t) {
     return t;
 }
 
-string literales::toString(const string &t) {
+string literales::aTexto(const string &t) {
     return t;
 }

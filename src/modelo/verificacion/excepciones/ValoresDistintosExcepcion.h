@@ -8,7 +8,7 @@
 
 using std::exception;
 using std::string;
-using literales::toString;
+using literales::aTexto;
 
 template <typename T>
 class ValoresDistintosExcepcion : public exception {
@@ -23,10 +23,10 @@ private:
 public:
     explicit ValoresDistintosExcepcion(T recibido, T esperado) {
         mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA);
-        mensaje.append(toString(esperado));
+        mensaje.append(aTexto(esperado));
         mensaje.append(SALTO_DE_LINEA);
         mensaje.append(TEXTO_RECIBIDO).append(SALTO_DE_LINEA);
-        mensaje.append(toString(recibido));
+        mensaje.append(aTexto(recibido));
         mensaje.append(SALTO_DE_LINEA);
     }
 

@@ -31,8 +31,6 @@ add_executable(
         ../src/modelo/Resumen.h
         ../src/modelo/Resumen.cpp
 
-        ../src/utils/stringUtils.h
-        ../src/utils/stringUtils.cpp
         ../src/utils/literales.h
         ../src/utils/literales.cpp
 

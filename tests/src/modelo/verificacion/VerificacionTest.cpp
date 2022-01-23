@@ -73,7 +73,7 @@ TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosVal
     try {
         verificar<double>(2.23)->esIgualA(5.21);
     } catch (ValoresDistintosExcepcion<double>& e) {
-        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el valor: \n5.210000\nPero se recibio el valor: \n2.230000\n");
+        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el valor: \n5.21\nPero se recibio el valor: \n2.23\n");
     }
 }
 

@@ -2,9 +2,10 @@
 #define CHIL_PASO_H
 
 #include <string>
-#include <utils/stringUtils.h>
+#include <utils/literales.h>
 
 using namespace std;
+using literales::aTexto;
 
 class Paso {
 public:

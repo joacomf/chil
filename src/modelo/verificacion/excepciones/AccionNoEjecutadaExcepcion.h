@@ -4,7 +4,10 @@
 #include <exception>
 #include <string>
 
+#include "utils/literales.h"
+
 using std::exception;
+using literales::aTexto;
 
 class AccionNoEjecutadaExcepcion : public exception {
 private:
@@ -17,9 +20,9 @@ private:
 public:
     AccionNoEjecutadaExcepcion(int duracion, int intervalo) {
         mensaje = string(PRINCIPIO_MENSAJE);
-        mensaje.append(to_string(duracion)).append(UNIDAD_TIEMPO);
+        mensaje.append(aTexto(duracion)).append(UNIDAD_TIEMPO);
         mensaje.append(INTERVALOR);
-        mensaje.append(to_string(intervalo)).append(UNIDAD_TIEMPO);
+        mensaje.append(aTexto(intervalo)).append(UNIDAD_TIEMPO);
         mensaje.append(FINAL_MENSAJE);
     }
 
