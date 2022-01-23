@@ -4,25 +4,10 @@
 
 #include <exception>
 #include <string>
+#include "utils/literales.h"
 
 using std::exception;
 using std::string;
-
-namespace literales {
-    template<typename T>
-    string toString(const T& t) {
-        return std::to_string(t);
-    }
-
-    string toString(const char* t) {
-        return t;
-    }
-
-    string toString(const string& t) {
-        return t;
-    }
-}
-
 using literales::toString;
 
 template <typename T>
@@ -32,7 +17,6 @@ private:
     constexpr static const char *const TEXTO_ESPERADO = "Se esperaba el valor: ";
     constexpr static const char *const TEXTO_RECIBIDO = "Pero se recibio el valor: ";
     constexpr static const char *const SALTO_DE_LINEA = "\n";
-
 
     string mensaje{};
 

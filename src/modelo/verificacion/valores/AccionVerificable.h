@@ -2,6 +2,7 @@
 #define CHIL_ACCIONVERIFICABLE_H
 
 #include <Chil.h>
+#include <modelo/verificacion/excepciones/AccionNoEjecutadaExcepcion.h>
 
 class AccionVerificable {
 

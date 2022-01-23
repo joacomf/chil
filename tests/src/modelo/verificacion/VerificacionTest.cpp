@@ -1,11 +1,10 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
+#include <climits>
 
-#include "modelo/verificacion/Verificacion.h"
 #include <mocks/PlataformaMock.hpp>
 
-#include <climits>
-#include <modelo/verificacion/excepciones/AccionNoEjecutadaExcepcion.h>
+#include <modelo/verificacion/Verificacion.h>
 
 using ::testing::_;
 using ::testing::Return;
@@ -153,9 +152,7 @@ TEST(VerificacionEnBucleTest, lanzaExcepcionSiLaAccionNuncaSeComprueba)
                 return PLATAFORMA->leer(PIN_BOTON) == 1;
             })
             ->durante(200)
-            ->seHayaEjecutado(),
-
-            AccionNoEjecutadaExcepcion);
+            ->seHayaEjecutado(), AccionNoEjecutadaExcepcion);
 
     delete plataformaMock;
 }

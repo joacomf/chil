@@ -4,6 +4,7 @@
 #include "Plataforma.h"
 #include "modelo/Escenario.h"
 #include "modelo/Resumen.h"
+#include "macros.h"
 
 #include <list>
 #include <string>
@@ -50,9 +51,5 @@ private:
     const char *mensajeFinDePruebas = "Fin de pruebas con CHIL";
     Resumen *resumen;
 };
-
-
-#include "macros.h"
-
 
 #endif //CHIL_CHIL_H

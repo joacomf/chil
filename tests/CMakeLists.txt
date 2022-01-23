@@ -17,16 +17,29 @@ add_executable(
         src/modelo/verificacion/VerificacionTest.cpp
         src/modelo/verificacion/VerificacionEnBucleTest.cpp
 
+        ../src/Chil.h
+        ../src/Chil.cpp
+
+        ../src/macros.h
+        ../src/macros.cpp
+
+        ../src/modelo/Paso.h
+        ../src/modelo/Escenario.h
+        ../src/modelo/Resumen.h
+        ../src/utils/stringUtils.h
+        ../src/utils/literales.h
+
         ../src/modelo/Paso.cpp
         ../src/modelo/Escenario.cpp
         ../src/modelo/Resumen.cpp
         ../src/utils/stringUtils.cpp
+        ../src/utils/literales.cpp
 
+        ../src/modelo/verificacion/Verificacion.h
+        ../src/modelo/verificacion/Verificacion.cpp
         ../src/modelo/verificacion/valores/AccionVerificable.h
         ../src/modelo/verificacion/valores/AccionVerificable.cpp
         ../src/modelo/verificacion/valores/ValorVerificable.h
-        ../src/modelo/verificacion/valores/ValorVerificable.tpp
-        ../src/modelo/verificacion/Verificacion.h
 
 
         plataformas/modelo/PuntoDeEntradaTest.cpp
