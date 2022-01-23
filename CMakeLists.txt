@@ -14,10 +14,9 @@ target_include_directories(Chil PRIVATE plataformas/modelos)
 
 set_target_properties(Chil PROPERTIES PUBLIC_HEADER src/Chil.h)
 
-# Uncomment for tests
-include(CTest)
-enable_testing()
 
 if(BUILD_TESTING)
+    include(CTest)
+    enable_testing()
     add_subdirectory (tests)
 endif()
