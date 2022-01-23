@@ -3,7 +3,7 @@
 
 #include <string>
 #include <modelo/Escenario.h>
-#include "utils/literales.h"
+#include <utilidades/literales.h>
 
 using literales::aTexto;
 

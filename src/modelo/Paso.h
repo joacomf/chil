@@ -2,7 +2,7 @@
 #define CHIL_PASO_H
 
 #include <string>
-#include <utils/literales.h>
+#include <utilidades/literales.h>
 
 using namespace std;
 using literales::aTexto;

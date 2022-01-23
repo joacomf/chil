@@ -31,8 +31,8 @@ add_executable(
         ../src/modelo/Resumen.h
         ../src/modelo/Resumen.cpp
 
-        ../src/utils/literales.h
-        ../src/utils/literales.cpp
+        ../src/utilidades/literales.h
+        ../src/utilidades/literales.cpp
 
         ../src/modelo/verificacion/Verificacion.h
         ../src/modelo/verificacion/Verificacion.cpp
