@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['imprimible_20',['imprimible',['../classResumen.html#a4accfdff8226a5a00db79b6896ab4e92',1,'Resumen']]],
-  ['imprimirreporte_21',['imprimirReporte',['../classChil.html#a2ec78a80ac9c31325930e6dc17509507',1,'Chil']]],
-  ['imprimirresultado_22',['imprimirResultado',['../classEscenario.html#aeee7f8b7a31520e768e8a3725ef28e7f',1,'Escenario']]],
-  ['imprimirresumen_23',['imprimirResumen',['../classChil.html#a9481ce2dbbdae4882c1eb49372920543',1,'Chil']]],
-  ['inicio_24',['inicio',['../classPaso.html#aa2ef4a4b8ddc727d0779ed768ac279e9',1,'Paso']]],
-  ['instance_5f_25',['instance_',['../Chil_8cpp.html#ae9e6046e88d44cd2c46113d2810b4cab',1,'Chil.cpp']]]
+  ['fin_30',['fin',['../classPaso.html#af382cbc8dec9db920876265c009cbe90',1,'Paso::fin()'],['../Chil_8h.html#a1ce3da0d4a8e4638874faeae3b66fbcc',1,'FIN():&#160;Chil.h']]],
+  ['fin_5fde_5fpruebas_31',['FIN_DE_PRUEBAS',['../Chil_8h.html#a02f2ad72f76058f28d80994921e4a6aa',1,'Chil.h']]],
+  ['finalizar_32',['finalizar',['../classEscenario.html#af9a7005419209091e8a6529411006d1c',1,'Escenario']]],
+  ['finalizarescenario_33',['finalizarEscenario',['../classChil.html#a991678d5f453e0a29e14f75379eede57',1,'Chil']]],
+  ['finalizarpruebas_34',['finalizarPruebas',['../classChil.html#a19944b2721a96835bc70f92e59f862f5',1,'Chil']]]
 ];

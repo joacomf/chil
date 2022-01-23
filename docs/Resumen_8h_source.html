@@ -82,30 +82,30 @@ $(function() {
 <a href="Resumen_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CHIL_RESUMEN_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CHIL_RESUMEN_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> INDICADOR_COMPLETADOS = <span class="stringliteral">&quot;Completados: &quot;</span>;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> INDICADOR_EXITOSOS = <span class="stringliteral">&quot;Exitosos: &quot;</span>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Escenario_8h.html">modelo/Escenario.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="literales_8h.html">utilidades/literales.h</a>&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> INDICADOR_FALLIDOS = <span class="stringliteral">&quot;Fallidos: &quot;</span>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> SEPARADOR_RESULTADOS = <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classResumen.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classResumen.html">Resumen</a> {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Escenario_8h.html">modelo/Escenario.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResumen.html#aa658af67d90ed057969de6bb1881d8c2">registrarEscenarioConResultado</a>(<span class="keywordtype">bool</span> esExitoso);</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classResumen.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classResumen.html">Resumen</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResumen.html#aa658af67d90ed057969de6bb1881d8c2">registrarEscenarioConResultado</a>(<span class="keywordtype">bool</span> esExitoso);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classResumen.html#ad1720eb3561556e0075eb2317d64ddf6">escenarioCompletados</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classResumen.html#a57f4379b8f237080413b63ddfc4a1683">escenarioFallidos</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classResumen.html#a141acee27580d3419648dac559c60184">escenariosExitosos</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classResumen.html#ad1720eb3561556e0075eb2317d64ddf6">escenarioCompletados</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classResumen.html#a57f4379b8f237080413b63ddfc4a1683">escenarioFallidos</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classResumen.html#a141acee27580d3419648dac559c60184">escenariosExitosos</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classResumen.html#a4accfdff8226a5a00db79b6896ab4e92">imprimible</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classResumen.html#a4accfdff8226a5a00db79b6896ab4e92">imprimible</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> INDICADOR_COMPLETADOS = <span class="stringliteral">&quot;Completados: &quot;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> INDICADOR_EXITOSOS = <span class="stringliteral">&quot;Exitosos: &quot;</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> INDICADOR_FALLIDOS = <span class="stringliteral">&quot;Fallidos: &quot;</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> SEPARADOR_RESULTADOS = <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> cantidadEscenariosCompletados = 0;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> cantidadEscenariosFallidos = 0;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> cantidadEscenariosExitosos = 0;</div>
@@ -115,8 +115,10 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif //CHIL_RESUMEN_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassResumen_html_a4accfdff8226a5a00db79b6896ab4e92"><div class="ttname"><a href="classResumen.html#a4accfdff8226a5a00db79b6896ab4e92">Resumen::imprimible</a></div><div class="ttdeci">string imprimible() const</div><div class="ttdef"><b>Definition:</b> Resumen.cpp:25</div></div>
+<div class="ttc" id="aliterales_8h_html"><div class="ttname"><a href="literales_8h.html">literales.h</a></div></div>
+<div class="ttc" id="anamespaceliterales_html_a552342a967addb854f230fff46d3dada"><div class="ttname"><a href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a></div><div class="ttdeci">string aTexto(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> literales.h:31</div></div>
 <div class="ttc" id="aEscenario_8h_html"><div class="ttname"><a href="Escenario_8h.html">Escenario.h</a></div></div>
-<div class="ttc" id="aclassResumen_html"><div class="ttname"><a href="classResumen.html">Resumen</a></div><div class="ttdef"><b>Definition:</b> Resumen.h:15</div></div>
+<div class="ttc" id="aclassResumen_html"><div class="ttname"><a href="classResumen.html">Resumen</a></div><div class="ttdef"><b>Definition:</b> Resumen.h:10</div></div>
 <div class="ttc" id="aclassResumen_html_a141acee27580d3419648dac559c60184"><div class="ttname"><a href="classResumen.html#a141acee27580d3419648dac559c60184">Resumen::escenariosExitosos</a></div><div class="ttdeci">int escenariosExitosos() const</div><div class="ttdef"><b>Definition:</b> Resumen.cpp:21</div></div>
 <div class="ttc" id="aclassResumen_html_a57f4379b8f237080413b63ddfc4a1683"><div class="ttname"><a href="classResumen.html#a57f4379b8f237080413b63ddfc4a1683">Resumen::escenarioFallidos</a></div><div class="ttdeci">int escenarioFallidos() const</div><div class="ttdef"><b>Definition:</b> Resumen.cpp:17</div></div>
 <div class="ttc" id="aclassResumen_html_ad1720eb3561556e0075eb2317d64ddf6"><div class="ttname"><a href="classResumen.html#ad1720eb3561556e0075eb2317d64ddf6">Resumen::escenarioCompletados</a></div><div class="ttdeci">int escenarioCompletados() const</div><div class="ttdef"><b>Definition:</b> Resumen.cpp:13</div></div>

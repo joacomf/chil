@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.17"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>Chil: Referencia del Archivo src/utils/stringUtils.h</title>
+        <title>Chil: Referencia del Archivo src/modelo/verificacion/excepciones/ValoresDistintosExcepcion.h</title>
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -71,81 +71,27 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_313caf1132e152dd9b58bea13a4052ca.html">utils</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_80f0f503abfb39369235c25d2f6a7bf4.html">modelo</a></li><li class="navelem"><a class="el" href="dir_758cd3e19ebe84ecf486544d0bef5d6f.html">verificacion</a></li><li class="navelem"><a class="el" href="dir_a3d9562814ed823a194cd46bf74d90b0.html">excepciones</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Funciones</a>  </div>
+<a href="#nested-classes">Estructuras de datos</a>  </div>
   <div class="headertitle">
-<div class="title">Referencia del Archivo stringUtils.h</div>  </div>
+<div class="title">Referencia del Archivo ValoresDistintosExcepcion.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstdio&gt;</code><br />
+<div class="textblock"><code>#include &lt;exception&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;<a class="el" href="literales_8h_source.html">utilidades/literales.h</a>&gt;</code><br />
 </div>
-<p><a href="stringUtils_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<p><a href="ValoresDistintosExcepcion_8h_source.html">Ir al código fuente de este archivo.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Funciones</h2></td></tr>
-<tr class="memitem:a1e1bc1b26999ba71074f35b6b4567893"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stringUtils_8h.html#a1e1bc1b26999ba71074f35b6b4567893">literal</a> (int valor)</td></tr>
-<tr class="separator:a1e1bc1b26999ba71074f35b6b4567893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57d0e76e20200317d2d4e943e2e37877"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stringUtils_8h.html#a57d0e76e20200317d2d4e943e2e37877">literal</a> (unsigned long valor)</td></tr>
-<tr class="separator:a57d0e76e20200317d2d4e943e2e37877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValoresDistintosExcepcion.html">ValoresDistintosExcepcion&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentación de las funciones</h2>
-<a id="a1e1bc1b26999ba71074f35b6b4567893"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e1bc1b26999ba71074f35b6b4567893">&#9670;&nbsp;</a></span>literal() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">string literal </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>valor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Metodo para generar un literal (string) de un valor int soportado por los compiladores de los microcontroladores</p>
-<dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">int</td><td>valor - valor a convertir </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Devuelve</dt><dd>[out][string] valor convertido a string. </dd></dl>
-
-</div>
-</div>
-<a id="a57d0e76e20200317d2d4e943e2e37877"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57d0e76e20200317d2d4e943e2e37877">&#9670;&nbsp;</a></span>literal() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">string literal </td>
-          <td>(</td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>valor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Metodo para generar un literal (string) de un valor unsiged long soportado por los compiladores de los microcontroladores</p>
-<dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">unsigned</td><td>long valor - valor a convertir </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Devuelve</dt><dd>[out][string] valor convertido a string. </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->

@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.17"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>Chil: Referencia del Archivo src/utils/stringUtils.cpp</title>
+        <title>Chil: Referencia del Archivo src/modelo/verificacion/Verificacion.h</title>
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -71,75 +71,65 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_313caf1132e152dd9b58bea13a4052ca.html">utils</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_80f0f503abfb39369235c25d2f6a7bf4.html">modelo</a></li><li class="navelem"><a class="el" href="dir_758cd3e19ebe84ecf486544d0bef5d6f.html">verificacion</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Funciones</a>  </div>
   <div class="headertitle">
-<div class="title">Referencia del Archivo stringUtils.cpp</div>  </div>
+<div class="title">Referencia del Archivo Verificacion.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="stringUtils_8h_source.html">utils/stringUtils.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+<div class="textblock"><code>#include &quot;<a class="el" href="ValorVerificable_8h_source.html">modelo/verificacion/valores/ValorVerificable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AccionVerificable_8h_source.html">modelo/verificacion/valores/AccionVerificable.h</a>&quot;</code><br />
+</div>
+<p><a href="Verificacion_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funciones</h2></td></tr>
-<tr class="memitem:a1e1bc1b26999ba71074f35b6b4567893"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stringUtils_8cpp.html#a1e1bc1b26999ba71074f35b6b4567893">literal</a> (int valor)</td></tr>
-<tr class="separator:a1e1bc1b26999ba71074f35b6b4567893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57d0e76e20200317d2d4e943e2e37877"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stringUtils_8cpp.html#a57d0e76e20200317d2d4e943e2e37877">literal</a> (unsigned long valor)</td></tr>
-<tr class="separator:a57d0e76e20200317d2d4e943e2e37877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae817ce86b0c4bf6dd5ec68a1cf5af9ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAccionVerificable.html">AccionVerificable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Verificacion_8h.html#ae817ce86b0c4bf6dd5ec68a1cf5af9ff">comprobar</a> (bool(*funcion)())</td></tr>
+<tr class="separator:ae817ce86b0c4bf6dd5ec68a1cf5af9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0943eb848d44030dec7b19a004743fc"><td class="memTemplParams" colspan="2">template&lt;typename Tipo &gt; </td></tr>
+<tr class="memitem:af0943eb848d44030dec7b19a004743fc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classValorVerificable.html">ValorVerificable</a>&lt; Tipo &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Verificacion_8h.html#af0943eb848d44030dec7b19a004743fc">verificar</a> (Tipo valor)</td></tr>
+<tr class="separator:af0943eb848d44030dec7b19a004743fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación de las funciones</h2>
-<a id="a1e1bc1b26999ba71074f35b6b4567893"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e1bc1b26999ba71074f35b6b4567893">&#9670;&nbsp;</a></span>literal() <span class="overload">[1/2]</span></h2>
+<a id="ae817ce86b0c4bf6dd5ec68a1cf5af9ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae817ce86b0c4bf6dd5ec68a1cf5af9ff">&#9670;&nbsp;</a></span>comprobar()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string literal </td>
+          <td class="memname"><a class="el" href="classAccionVerificable.html">AccionVerificable</a>* comprobar </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>valor</em></td><td>)</td>
+          <td class="paramtype">bool(*)()&#160;</td>
+          <td class="paramname"><em>funcion</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Metodo para generar un literal (string) de un valor int soportado por los compiladores de los microcontroladores</p>
-<dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">int</td><td>valor - valor a convertir </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Devuelve</dt><dd>[out][string] valor convertido a string. </dd></dl>
 
 </div>
 </div>
-<a id="a57d0e76e20200317d2d4e943e2e37877"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57d0e76e20200317d2d4e943e2e37877">&#9670;&nbsp;</a></span>literal() <span class="overload">[2/2]</span></h2>
+<a id="af0943eb848d44030dec7b19a004743fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0943eb848d44030dec7b19a004743fc">&#9670;&nbsp;</a></span>verificar()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tipo &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">string literal </td>
+          <td class="memname"><a class="el" href="classValorVerificable.html">ValorVerificable</a>&lt;Tipo&gt;* verificar </td>
           <td>(</td>
-          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramtype">Tipo&#160;</td>
           <td class="paramname"><em>valor</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Metodo para generar un literal (string) de un valor unsiged long soportado por los compiladores de los microcontroladores</p>
-<dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">unsigned</td><td>long valor - valor a convertir </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Devuelve</dt><dd>[out][string] valor convertido a string. </dd></dl>
 
 </div>
 </div>

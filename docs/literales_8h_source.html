@@ -1,0 +1,130 @@
+<!-- HTML header for doxygen 1.8.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- For Mobile Devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+        <meta name="generator" content="Doxygen 1.8.17"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <title>Chil: Fichero Fuente src/utilidades/literales.h</title>
+        <script type="text/javascript" src="dynsections.js"></script>
+        <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+        <link href="doxygen.css" rel="stylesheet" type="text/css" />
+        <link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="jquery.smartmenus.bootstrap.css" rel="stylesheet">
+        <script type="text/javascript" src="jquery.smartmenus.js"></script>
+        <!-- SmartMenus jQuery Bootstrap Addon -->
+        <script type="text/javascript" src="jquery.smartmenus.bootstrap.js"></script>
+        <!-- SmartMenus jQuery plugin -->
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Chil 1.0.0</a>
+                </div>
+            </div>
+        </nav>
+        <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+            <div class="content" id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 panel " style="padding-bottom: 15px;position: initial;">
+                            <div style="margin-bottom: 15px;">
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8bf344ce5b9f932bcb0e6735926b6c8e.html">utilidades</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">literales.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="literales_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CHIL_LITERALES_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CHIL_LITERALES_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> std::string;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacepatch.html">   12</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacepatch.html">patch</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacepatch.html#a8ec1460056d0f47b2177699ffdd32f58">   22</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="namespacepatch.html#a8ec1460056d0f47b2177699ffdd32f58">to_string</a>( <span class="keyword">const</span> T&amp; texto ){</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        std::ostringstream stream;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        stream &lt;&lt; texto;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> stream.str();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespaceliterales.html">   29</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceliterales.html">literales</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">   31</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(<span class="keyword">const</span> T &amp;t) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacepatch.html#a8ec1460056d0f47b2177699ffdd32f58">patch::to_string</a>(t);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* t);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; t);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif //CHIL_LITERALES_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacepatch_html_a8ec1460056d0f47b2177699ffdd32f58"><div class="ttname"><a href="namespacepatch.html#a8ec1460056d0f47b2177699ffdd32f58">patch::to_string</a></div><div class="ttdeci">string to_string(const T &amp;texto)</div><div class="ttdef"><b>Definition:</b> literales.h:22</div></div>
+<div class="ttc" id="anamespaceliterales_html_a552342a967addb854f230fff46d3dada"><div class="ttname"><a href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a></div><div class="ttdeci">string aTexto(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> literales.h:31</div></div>
+<div class="ttc" id="anamespaceliterales_html"><div class="ttname"><a href="namespaceliterales.html">literales</a></div><div class="ttdef"><b>Definition:</b> literales.h:29</div></div>
+<div class="ttc" id="anamespacepatch_html"><div class="ttname"><a href="namespacepatch.html">patch</a></div><div class="ttdef"><b>Definition:</b> literales.h:12</div></div>
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+        <script type="text/javascript" src="doxy-boot.js"></script>
+</html>

@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['ejecutar_76',['ejecutar',['../classPaso.html#a41e120992daa45f2513dc4f8e2af3c3b',1,'Paso']]],
-  ['escenario_77',['Escenario',['../classEscenario.html#aaa0f13bb01dc78ca9c455d71cbc01811',1,'Escenario::Escenario()'],['../classChil.html#a0bd23652a4689548edf88ba8b8d00468',1,'Chil::escenario()']]],
-  ['escenariocompletados_78',['escenarioCompletados',['../classResumen.html#ad1720eb3561556e0075eb2317d64ddf6',1,'Resumen']]],
-  ['escenarioejecutable_79',['EscenarioEjecutable',['../classEscenarioEjecutable.html#a2d2737a83b95c5f1bf9201f2ec3f871e',1,'EscenarioEjecutable']]],
-  ['escenariofallidos_80',['escenarioFallidos',['../classResumen.html#a57f4379b8f237080413b63ddfc4a1683',1,'Resumen']]],
-  ['escenariosexitosos_81',['escenariosExitosos',['../classResumen.html#a141acee27580d3419648dac559c60184',1,'Resumen']]],
-  ['esexitoso_82',['esExitoso',['../classEscenario.html#ac7a4744a8d959b6d313b3bae61512bd6',1,'Escenario::esExitoso()'],['../classPaso.html#a8af616d9b16b058f75d4ba4e30fb878e',1,'Paso::esExitoso()']]]
+  ['chil_127',['Chil',['../classChil.html#ace11ca8e95bb11304209f4a0fbb3c5b4',1,'Chil::Chil(Plataforma *pPlataforma)'],['../classChil.html#a8d7cd6c6c3978f151493cdbb148dbf67',1,'Chil::Chil(Chil &amp;other)=delete']]],
+  ['comprobar_128',['comprobar',['../Verificacion_8cpp.html#ae817ce86b0c4bf6dd5ec68a1cf5af9ff',1,'comprobar(bool(*funcion)()):&#160;Verificacion.cpp'],['../Verificacion_8h.html#ae817ce86b0c4bf6dd5ec68a1cf5af9ff',1,'comprobar(bool(*funcion)()):&#160;Verificacion.cpp']]],
+  ['conintervalode_129',['conIntervaloDe',['../classAccionVerificable.html#a9ab3bb0c11e4a475b3d48cba6ea5e338',1,'AccionVerificable']]],
+  ['crear_130',['crear',['../classChil.html#acec621fc7b10de9177c81e0f5e06fb47',1,'Chil']]]
 ];

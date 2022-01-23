@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['macros_2eh_27',['macros.h',['../macros_8h.html',1,'']]],
-  ['main_28',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
-  ['main_2ecpp_29',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['mostrar_30',['mostrar',['../classPaso.html#ad7cb9d5c9ee99c6e6f268b72751e6d1e',1,'Paso']]]
+  ['imprimible_36',['imprimible',['../classResumen.html#a4accfdff8226a5a00db79b6896ab4e92',1,'Resumen']]],
+  ['imprimirreporte_37',['imprimirReporte',['../classChil.html#a2ec78a80ac9c31325930e6dc17509507',1,'Chil']]],
+  ['imprimirresultado_38',['imprimirResultado',['../classEscenario.html#aeee7f8b7a31520e768e8a3725ef28e7f',1,'Escenario']]],
+  ['imprimirresumen_39',['imprimirResumen',['../classChil.html#a9481ce2dbbdae4882c1eb49372920543',1,'Chil']]],
+  ['inicio_40',['inicio',['../classPaso.html#aa2ef4a4b8ddc727d0779ed768ac279e9',1,'Paso']]],
+  ['instance_5f_41',['instance_',['../Chil_8cpp.html#ae9e6046e88d44cd2c46113d2810b4cab',1,'Chil.cpp']]]
 ];

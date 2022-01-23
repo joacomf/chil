@@ -22,12 +22,20 @@ for the JavaScript code in this file
 */
 var menudata={children:[
 {text:"Página principal",url:"index.html"},
+{text:"Namespaces",url:"namespaces.html",children:[
+{text:"Lista de 'namespaces'",url:"namespaces.html"},
+{text:"Miembros del Namespace ",url:"namespacemembers.html",children:[
+{text:"Todo",url:"namespacemembers.html"},
+{text:"Funciones",url:"namespacemembers_func.html"}]}]},
 {text:"Estructuras de Datos",url:"annotated.html",children:[
 {text:"Estructura de datos",url:"annotated.html"},
 {text:"Índice de estructura de datos",url:"classes.html"},
+{text:"Jerarquía de la clase",url:"hierarchy.html"},
 {text:"Campos de datos",url:"functions.html",children:[
 {text:"Todo",url:"functions.html",children:[
+{text:"a",url:"functions.html#index_a"},
 {text:"c",url:"functions.html#index_c"},
+{text:"d",url:"functions.html#index_d"},
 {text:"e",url:"functions.html#index_e"},
 {text:"f",url:"functions.html#index_f"},
 {text:"h",url:"functions.html#index_h"},
@@ -37,10 +45,14 @@ var menudata={children:[
 {text:"o",url:"functions.html#index_o"},
 {text:"p",url:"functions.html#index_p"},
 {text:"r",url:"functions.html#index_r"},
+{text:"s",url:"functions.html#index_s"},
 {text:"t",url:"functions.html#index_t"},
+{text:"v",url:"functions.html#index_v"},
 {text:"~",url:"functions.html#index__7E"}]},
 {text:"Funciones",url:"functions_func.html",children:[
+{text:"a",url:"functions_func.html#index_a"},
 {text:"c",url:"functions_func.html#index_c"},
+{text:"d",url:"functions_func.html#index_d"},
 {text:"e",url:"functions_func.html#index_e"},
 {text:"f",url:"functions_func.html#index_f"},
 {text:"i",url:"functions_func.html#index_i"},
@@ -49,7 +61,9 @@ var menudata={children:[
 {text:"o",url:"functions_func.html#index_o"},
 {text:"p",url:"functions_func.html#index_p"},
 {text:"r",url:"functions_func.html#index_r"},
+{text:"s",url:"functions_func.html#index_s"},
 {text:"t",url:"functions_func.html#index_t"},
+{text:"v",url:"functions_func.html#index_v"},
 {text:"~",url:"functions_func.html#index__7E"}]},
 {text:"Variables",url:"functions_vars.html"}]}]},
 {text:"Archivos",url:"files.html",children:[
