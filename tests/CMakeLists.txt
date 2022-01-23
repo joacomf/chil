@@ -17,22 +17,23 @@ add_executable(
         src/modelo/verificacion/VerificacionTest.cpp
         src/modelo/verificacion/VerificacionEnBucleTest.cpp
 
+        plataformas/modelo/PuntoDeEntradaTest.cpp
+
         ../src/Chil.h
         ../src/Chil.cpp
-
         ../src/macros.h
         ../src/macros.cpp
 
         ../src/modelo/Paso.h
-        ../src/modelo/Escenario.h
-        ../src/modelo/Resumen.h
-        ../src/utils/stringUtils.h
-        ../src/utils/literales.h
-
         ../src/modelo/Paso.cpp
+        ../src/modelo/Escenario.h
         ../src/modelo/Escenario.cpp
+        ../src/modelo/Resumen.h
         ../src/modelo/Resumen.cpp
+
+        ../src/utils/stringUtils.h
         ../src/utils/stringUtils.cpp
+        ../src/utils/literales.h
         ../src/utils/literales.cpp
 
         ../src/modelo/verificacion/Verificacion.h
@@ -40,9 +41,6 @@ add_executable(
         ../src/modelo/verificacion/valores/AccionVerificable.h
         ../src/modelo/verificacion/valores/AccionVerificable.cpp
         ../src/modelo/verificacion/valores/ValorVerificable.h
-
-
-        plataformas/modelo/PuntoDeEntradaTest.cpp
 )
 
 add_test(NAME check COMMAND tests)
