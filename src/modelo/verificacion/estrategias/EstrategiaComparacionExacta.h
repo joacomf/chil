@@ -1,11 +1,11 @@
 
-#ifndef CHIL_ESTRATEGIADIRECTACONVALORES_H
-#define CHIL_ESTRATEGIADIRECTACONVALORES_H
+#ifndef CHIL_ESTRATEGIACOMPARACIONEXACTA_H
+#define CHIL_ESTRATEGIACOMPARACIONEXACTA_H
 
 #include "Estrategia.h"
 
 template <typename Tipo>
-class EstrategiaDirectaConValores: public Estrategia<Tipo>{
+class EstrategiaComparacionExacta: public Estrategia<Tipo>{
     void verificar(ValorVerificable<Tipo>* valor) override {
         if (valor->obtenerValorAVerificar() != valor->obtenerValorEsperado()){
             throw ValoresDistintosExcepcion<Tipo>(valor->obtenerValorAVerificar(), valor->obtenerValorEsperado());
@@ -15,4 +15,4 @@ class EstrategiaDirectaConValores: public Estrategia<Tipo>{
 
 
 
-#endif //CHIL_ESTRATEGIADIRECTACONVALORES_H
+#endif //CHIL_ESTRATEGIACOMPARACIONEXACTA_H

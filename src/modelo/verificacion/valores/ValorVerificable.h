@@ -2,7 +2,7 @@
 #define CHIL_VALORVERIFICABLE_H
 
 #include <modelo/verificacion/excepciones/ValoresDistintosExcepcion.h>
-#include <modelo/verificacion/estrategias/EstrategiaDirectaConValores.h>
+#include <modelo/verificacion/estrategias/EstrategiaComparacionExacta.h>
 
 template <typename Tipo>
 class ValorVerificable {
@@ -29,7 +29,7 @@ private:
 template<typename Tipo>
 ValorVerificable<Tipo>::ValorVerificable(Tipo elValorAVerificar) {
     this->valorAVerificar = elValorAVerificar;
-    this->estrategia = new EstrategiaDirectaConValores<Tipo>();
+    this->estrategia = new EstrategiaComparacionExacta<Tipo>();
 }
 
 template <typename Tipo>
