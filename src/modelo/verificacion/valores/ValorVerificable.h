@@ -3,8 +3,9 @@
 
 #include <modelo/verificacion/excepciones/ValoresDistintosExcepcion.h>
 #include <modelo/verificacion/estrategias/EstrategiaComparacionExacta.h>
-#include <modelo/verificacion/excepciones/ValorEsMenorExcepcion.h>
-#include <modelo/verificacion/excepciones/ValorEsMayorException.h>
+#include <modelo/verificacion/excepciones/ValorNoEsMenorExcepcion.h>
+#include <modelo/verificacion/excepciones/ValorNoEsMayorExcepcion.h>
+#include <modelo/verificacion/excepciones/ValorNoEsMayorOIgualExcepcion.h>
 
 template <typename Tipo>
 class ValorVerificable {
@@ -23,6 +24,8 @@ public:
 
     void esMayorA(Tipo valorConElCualComparar);
     void esMenorA(Tipo valorConElCualComparar);
+
+    void esMayorOIgualA(Tipo valorConElCualComparar);
 
 private:
     Tipo valorAVerificar{};
@@ -55,7 +58,7 @@ void ValorVerificable<Tipo>::esMayorA(Tipo valorConElCualComparar) {
     this->valorEsperado = valorConElCualComparar;
 
     if (this->valorAVerificar <= this->valorEsperado){
-        throw ValorEsMenorExcepcion<Tipo>(this->valorAVerificar, this->valorEsperado);
+        throw ValorNoEsMayorExcepcion<Tipo>(this->valorAVerificar, this->valorEsperado);
     }
 }
 
@@ -64,9 +67,19 @@ void ValorVerificable<Tipo>::esMenorA(Tipo valorConElCualComparar) {
     this->valorEsperado = valorConElCualComparar;
 
     if (this->valorAVerificar >= this->valorEsperado){
-        throw ValorEsMayorExcepcion<Tipo>(this->valorAVerificar, this->valorEsperado);
+        throw ValorNoEsMenorExcepcion<Tipo>(this->valorAVerificar, this->valorEsperado);
     }
 }
+
+template<typename Tipo>
+void ValorVerificable<Tipo>::esMayorOIgualA(Tipo valorConElCualComparar) {
+    this->valorEsperado = valorConElCualComparar;
+
+    if (this->valorAVerificar < this->valorEsperado){
+        throw ValorNoEsMayorOIgualExcepcion<Tipo>(this->valorAVerificar, this->valorEsperado);
+    }
+}
+
 
 
 #endif //CHIL_VALORVERIFICABLE_H

@@ -6,7 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 file(GLOB Chil_FILES src/*.cpp src/*.h src/*.hpp)
 
-add_library(Chil ${Chil_FILES})
+add_library(Chil ${Chil_FILES} src/modelo/verificacion/excepciones/ValorNoEsMayorOIgualExcepcion.h)
 
 target_include_directories(Chil PRIVATE include)
 target_include_directories(Chil PRIVATE src)
