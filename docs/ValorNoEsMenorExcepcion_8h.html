@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.17"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>Chil: Fichero Fuente src/modelo/verificacion/estrategias/Estrategia.h</title>
+        <title>Chil: Referencia del Archivo src/modelo/verificacion/excepciones/ValorNoEsMenorExcepcion.h</title>
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -71,31 +71,28 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_80f0f503abfb39369235c25d2f6a7bf4.html">modelo</a></li><li class="navelem"><a class="el" href="dir_758cd3e19ebe84ecf486544d0bef5d6f.html">verificacion</a></li><li class="navelem"><a class="el" href="dir_5ec2b6bbfb8890ad7b11b933de3cf3e5.html">estrategias</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_80f0f503abfb39369235c25d2f6a7bf4.html">modelo</a></li><li class="navelem"><a class="el" href="dir_758cd3e19ebe84ecf486544d0bef5d6f.html">verificacion</a></li><li class="navelem"><a class="el" href="dir_a3d9562814ed823a194cd46bf74d90b0.html">excepciones</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estructuras de datos</a>  </div>
   <div class="headertitle">
-<div class="title">Estrategia.h</div>  </div>
+<div class="title">Referencia del Archivo ValorNoEsMenorExcepcion.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="Estrategia_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CHIL_ESTRATEGIA_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CHIL_ESTRATEGIA_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classValorVerificable.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="classValorVerificable.html">ValorVerificable</a>;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classEstrategia.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEstrategia.html">Estrategia</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classEstrategia.html#a60871dd6fcaee561767650b4db63cd61">verificar</a>(<a class="code" href="classValorVerificable.html">ValorVerificable&lt;T&gt;</a>* valor) = 0;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif //CHIL_ESTRATEGIA_H</span></div>
-</div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassValorVerificable_html"><div class="ttname"><a href="classValorVerificable.html">ValorVerificable</a></div><div class="ttdef"><b>Definition:</b> Estrategia.h:5</div></div>
-<div class="ttc" id="aclassEstrategia_html"><div class="ttname"><a href="classEstrategia.html">Estrategia</a></div><div class="ttdef"><b>Definition:</b> Estrategia.h:8</div></div>
-<div class="ttc" id="aclassEstrategia_html_a60871dd6fcaee561767650b4db63cd61"><div class="ttname"><a href="classEstrategia.html#a60871dd6fcaee561767650b4db63cd61">Estrategia::verificar</a></div><div class="ttdeci">virtual void verificar(ValorVerificable&lt; T &gt; *valor)=0</div></div>
+<div class="textblock"><code>#include &lt;exception&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;<a class="el" href="literales_8h_source.html">utilidades/literales.h</a>&gt;</code><br />
+</div>
+<p><a href="ValorNoEsMenorExcepcion_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValorNoEsMenorExcepcion.html">ValorNoEsMenorExcepcion&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

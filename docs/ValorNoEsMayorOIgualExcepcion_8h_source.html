@@ -1,0 +1,115 @@
+<!-- HTML header for doxygen 1.8.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- For Mobile Devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+        <meta name="generator" content="Doxygen 1.8.17"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <title>Chil: Fichero Fuente src/modelo/verificacion/excepciones/ValorNoEsMayorOIgualExcepcion.h</title>
+        <script type="text/javascript" src="dynsections.js"></script>
+        <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+        <link href="doxygen.css" rel="stylesheet" type="text/css" />
+        <link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="jquery.smartmenus.bootstrap.css" rel="stylesheet">
+        <script type="text/javascript" src="jquery.smartmenus.js"></script>
+        <!-- SmartMenus jQuery Bootstrap Addon -->
+        <script type="text/javascript" src="jquery.smartmenus.bootstrap.js"></script>
+        <!-- SmartMenus jQuery plugin -->
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Chil 1.0.0</a>
+                </div>
+            </div>
+        </nav>
+        <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+            <div class="content" id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 panel " style="padding-bottom: 15px;position: initial;">
+                            <div style="margin-bottom: 15px;">
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_80f0f503abfb39369235c25d2f6a7bf4.html">modelo</a></li><li class="navelem"><a class="el" href="dir_758cd3e19ebe84ecf486544d0bef5d6f.html">verificacion</a></li><li class="navelem"><a class="el" href="dir_a3d9562814ed823a194cd46bf74d90b0.html">excepciones</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ValorNoEsMayorOIgualExcepcion.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="ValorNoEsMayorOIgualExcepcion_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef CHIL_VALORNOESMAYOROIGUALEXCEPCION_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define CHIL_VALORNOESMAYOROIGUALEXCEPCION_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classValorNoEsMayorOIgualExcepcion.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classValorNoEsMayorOIgualExcepcion.html">ValorNoEsMayorOIgualExcepcion</a> : <span class="keyword">public</span> <a class="code" href="classComparacionExcepcion.html">ComparacionExcepcion</a>&lt;T&gt; {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> ESPERADO_TEXTO = <span class="stringliteral">&quot;mayor o igual&quot;</span>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classValorNoEsMayorOIgualExcepcion.html#a4d03a7e40600da747432170f3a965e8c">   11</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classValorNoEsMayorOIgualExcepcion.html#a4d03a7e40600da747432170f3a965e8c">ValorNoEsMayorOIgualExcepcion</a>(T recibido, T esperado):</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            <a class="code" href="classComparacionExcepcion.html">ComparacionExcepcion</a>&lt;T&gt;(recibido, esperado, ESPERADO_TEXTO){}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif //CHIL_VALORNOESMAYOROIGUALEXCEPCION_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassComparacionExcepcion_html"><div class="ttname"><a href="classComparacionExcepcion.html">ComparacionExcepcion</a></div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:14</div></div>
+<div class="ttc" id="aclassValorNoEsMayorOIgualExcepcion_html"><div class="ttname"><a href="classValorNoEsMayorOIgualExcepcion.html">ValorNoEsMayorOIgualExcepcion</a></div><div class="ttdef"><b>Definition:</b> ValorNoEsMayorOIgualExcepcion.h:6</div></div>
+<div class="ttc" id="aclassValorNoEsMayorOIgualExcepcion_html_a4d03a7e40600da747432170f3a965e8c"><div class="ttname"><a href="classValorNoEsMayorOIgualExcepcion.html#a4d03a7e40600da747432170f3a965e8c">ValorNoEsMayorOIgualExcepcion::ValorNoEsMayorOIgualExcepcion</a></div><div class="ttdeci">ValorNoEsMayorOIgualExcepcion(T recibido, T esperado)</div><div class="ttdef"><b>Definition:</b> ValorNoEsMayorOIgualExcepcion.h:11</div></div>
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+        <script type="text/javascript" src="doxy-boot.js"></script>
+</html>

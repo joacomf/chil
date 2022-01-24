@@ -83,46 +83,25 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef CHIL_VALORESDISTINTOSEXCEPCION_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define CHIL_VALORESDISTINTOSEXCEPCION_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="literales_8h.html">utilidades/literales.h</a>&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using</span> std::exception;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> std::string;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classValoresDistintosExcepcion.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classValoresDistintosExcepcion.html">ValoresDistintosExcepcion</a> : <span class="keyword">public</span> exception {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ComparacionExcepcion_8h.html">ComparacionExcepcion.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classValoresDistintosExcepcion.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classValoresDistintosExcepcion.html">ValoresDistintosExcepcion</a>: <span class="keyword">public</span> <a class="code" href="classComparacionExcepcion.html">ComparacionExcepcion</a>&lt;T&gt; {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> ESPERADO_TEXTO = <span class="stringliteral">&quot;igual&quot;</span>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classValoresDistintosExcepcion.html#a0eab50e91bf509730d921c8b12c6b25e">   13</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classValoresDistintosExcepcion.html#a0eab50e91bf509730d921c8b12c6b25e">ValoresDistintosExcepcion</a>(T recibido, T esperado):</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;             <a class="code" href="classComparacionExcepcion.html">ComparacionExcepcion</a>&lt;T&gt;(recibido, esperado, ESPERADO_TEXTO){}</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_ESPERADO = <span class="stringliteral">&quot;Se esperaba el valor: &quot;</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_RECIBIDO = <span class="stringliteral">&quot;Pero se recibio el valor: &quot;</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> SALTO_DE_LINEA = <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">string</span> mensaje{};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classValoresDistintosExcepcion.html#a0eab50e91bf509730d921c8b12c6b25e">   24</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classValoresDistintosExcepcion.html#a0eab50e91bf509730d921c8b12c6b25e">ValoresDistintosExcepcion</a>(T recibido, T esperado) {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        mensaje.append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(esperado));</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        mensaje.append(SALTO_DE_LINEA);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        mensaje.append(TEXTO_RECIBIDO).append(SALTO_DE_LINEA);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        mensaje.append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(recibido));</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        mensaje.append(SALTO_DE_LINEA);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classValoresDistintosExcepcion.html#abd092a276f8234005f43844351884951">   33</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classValoresDistintosExcepcion.html#abd092a276f8234005f43844351884951">obtenerMensaje</a>() {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> mensaje;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif //CHIL_VALORESDISTINTOSEXCEPCION_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif //CHIL_VALORESDISTINTOSEXCEPCION_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassValoresDistintosExcepcion_html_a0eab50e91bf509730d921c8b12c6b25e"><div class="ttname"><a href="classValoresDistintosExcepcion.html#a0eab50e91bf509730d921c8b12c6b25e">ValoresDistintosExcepcion::ValoresDistintosExcepcion</a></div><div class="ttdeci">ValoresDistintosExcepcion(T recibido, T esperado)</div><div class="ttdef"><b>Definition:</b> ValoresDistintosExcepcion.h:24</div></div>
-<div class="ttc" id="aclassValoresDistintosExcepcion_html_abd092a276f8234005f43844351884951"><div class="ttname"><a href="classValoresDistintosExcepcion.html#abd092a276f8234005f43844351884951">ValoresDistintosExcepcion::obtenerMensaje</a></div><div class="ttdeci">string obtenerMensaje()</div><div class="ttdef"><b>Definition:</b> ValoresDistintosExcepcion.h:33</div></div>
-<div class="ttc" id="aliterales_8h_html"><div class="ttname"><a href="literales_8h.html">literales.h</a></div></div>
-<div class="ttc" id="anamespaceliterales_html_a552342a967addb854f230fff46d3dada"><div class="ttname"><a href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a></div><div class="ttdeci">string aTexto(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> literales.h:31</div></div>
-<div class="ttc" id="aclassValoresDistintosExcepcion_html"><div class="ttname"><a href="classValoresDistintosExcepcion.html">ValoresDistintosExcepcion</a></div><div class="ttdef"><b>Definition:</b> ValoresDistintosExcepcion.h:14</div></div>
+<div class="ttc" id="aclassComparacionExcepcion_html"><div class="ttname"><a href="classComparacionExcepcion.html">ComparacionExcepcion</a></div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:14</div></div>
+<div class="ttc" id="aclassValoresDistintosExcepcion_html_a0eab50e91bf509730d921c8b12c6b25e"><div class="ttname"><a href="classValoresDistintosExcepcion.html#a0eab50e91bf509730d921c8b12c6b25e">ValoresDistintosExcepcion::ValoresDistintosExcepcion</a></div><div class="ttdeci">ValoresDistintosExcepcion(T recibido, T esperado)</div><div class="ttdef"><b>Definition:</b> ValoresDistintosExcepcion.h:13</div></div>
+<div class="ttc" id="aComparacionExcepcion_8h_html"><div class="ttname"><a href="ComparacionExcepcion_8h.html">ComparacionExcepcion.h</a></div></div>
+<div class="ttc" id="aclassValoresDistintosExcepcion_html"><div class="ttname"><a href="classValoresDistintosExcepcion.html">ValoresDistintosExcepcion</a></div><div class="ttdef"><b>Definition:</b> ValoresDistintosExcepcion.h:8</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

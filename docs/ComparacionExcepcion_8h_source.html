@@ -1,0 +1,146 @@
+<!-- HTML header for doxygen 1.8.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- For Mobile Devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+        <meta name="generator" content="Doxygen 1.8.17"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <title>Chil: Fichero Fuente src/modelo/verificacion/excepciones/ComparacionExcepcion.h</title>
+        <script type="text/javascript" src="dynsections.js"></script>
+        <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+        <link href="doxygen.css" rel="stylesheet" type="text/css" />
+        <link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="jquery.smartmenus.bootstrap.css" rel="stylesheet">
+        <script type="text/javascript" src="jquery.smartmenus.js"></script>
+        <!-- SmartMenus jQuery Bootstrap Addon -->
+        <script type="text/javascript" src="jquery.smartmenus.bootstrap.js"></script>
+        <!-- SmartMenus jQuery plugin -->
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Chil 1.0.0</a>
+                </div>
+            </div>
+        </nav>
+        <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+            <div class="content" id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 panel " style="padding-bottom: 15px;position: initial;">
+                            <div style="margin-bottom: 15px;">
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_80f0f503abfb39369235c25d2f6a7bf4.html">modelo</a></li><li class="navelem"><a class="el" href="dir_758cd3e19ebe84ecf486544d0bef5d6f.html">verificacion</a></li><li class="navelem"><a class="el" href="dir_a3d9562814ed823a194cd46bf74d90b0.html">excepciones</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ComparacionExcepcion.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="ComparacionExcepcion_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef CHIL_COMPARACIONEXCEPCION_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define CHIL_COMPARACIONEXCEPCION_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="literales_8h.html">utilidades/literales.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classComparacionExcepcion.html">ComparacionExcepcion</a> : <span class="keyword">public</span> exception {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> SALTO_DE_LINEA = <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_ESPERADO = <span class="stringliteral">&quot;Se esperaba el valor: &quot;</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_SEA = <span class="stringliteral">&quot;Sea &quot;</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_A = <span class="stringliteral">&quot; a: &quot;</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_FINAL = <span class="stringliteral">&quot;Pero no lo fue&quot;</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">string</span> mensaje{};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html#a4a8742c20e10c54ee8772ea175cce28a">   25</a></span>&#160;    <a class="code" href="classComparacionExcepcion.html#a4a8742c20e10c54ee8772ea175cce28a">ComparacionExcepcion</a>(T recibido, T esperado, <span class="keyword">const</span> <span class="keywordtype">char</span>* textoEsperado) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;               .append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(recibido)).append(SALTO_DE_LINEA)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;               .append(TEXTO_SEA).append(textoEsperado).append(TEXTO_A).append(SALTO_DE_LINEA)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;               .append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(esperado)).append(SALTO_DE_LINEA)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;               .append(TEXTO_FINAL).append(SALTO_DE_LINEA);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08">   33</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08">obtenerMensaje</a>() {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> mensaje;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a">   37</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a">what</a>() const noexcept<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> mensaje.c_str();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif //CHIL_COMPARACIONEXCEPCION_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassComparacionExcepcion_html"><div class="ttname"><a href="classComparacionExcepcion.html">ComparacionExcepcion</a></div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:14</div></div>
+<div class="ttc" id="aliterales_8h_html"><div class="ttname"><a href="literales_8h.html">literales.h</a></div></div>
+<div class="ttc" id="anamespaceliterales_html_a552342a967addb854f230fff46d3dada"><div class="ttname"><a href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a></div><div class="ttdeci">string aTexto(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> literales.h:31</div></div>
+<div class="ttc" id="aclassComparacionExcepcion_html_ac811976bf2b7ca9245f0a6e26bca1a08"><div class="ttname"><a href="classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08">ComparacionExcepcion::obtenerMensaje</a></div><div class="ttdeci">string obtenerMensaje()</div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:33</div></div>
+<div class="ttc" id="aclassComparacionExcepcion_html_a4a8742c20e10c54ee8772ea175cce28a"><div class="ttname"><a href="classComparacionExcepcion.html#a4a8742c20e10c54ee8772ea175cce28a">ComparacionExcepcion::ComparacionExcepcion</a></div><div class="ttdeci">ComparacionExcepcion(T recibido, T esperado, const char *textoEsperado)</div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:25</div></div>
+<div class="ttc" id="aclassComparacionExcepcion_html_ad6a8c1956aca27d0dc54f6a800af5c4a"><div class="ttname"><a href="classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a">ComparacionExcepcion::what</a></div><div class="ttdeci">const char * what() const noexcept override</div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:37</div></div>
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+        <script type="text/javascript" src="doxy-boot.js"></script>
+</html>

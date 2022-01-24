@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['chil_87',['Chil',['../classChil.html',1,'']]]
+  ['chil_97',['Chil',['../classChil.html',1,'']]],
+  ['comparacionexcepcion_98',['ComparacionExcepcion',['../classComparacionExcepcion.html',1,'']]]
 ];
