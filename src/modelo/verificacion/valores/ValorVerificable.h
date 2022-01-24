@@ -2,7 +2,6 @@
 #define CHIL_VALORVERIFICABLE_H
 
 #include <modelo/verificacion/excepciones/ValoresDistintosExcepcion.h>
-#include <modelo/verificacion/estrategias/EstrategiaComparacionExacta.h>
 #include <modelo/verificacion/excepciones/ValorNoEsMenorExcepcion.h>
 #include <modelo/verificacion/excepciones/ValorNoEsMayorExcepcion.h>
 #include <modelo/verificacion/excepciones/ValorNoEsMayorOIgualExcepcion.h>
@@ -15,9 +14,6 @@ public:
     explicit ValorVerificable() = default;
 
     explicit ValorVerificable(Tipo elValorAVerificar);
-
-    Tipo obtenerValorEsperado();
-    Tipo obtenerValorAVerificar();
 
     void esVerdadero();
     void esFalso();
@@ -41,17 +37,10 @@ ValorVerificable<Tipo>::ValorVerificable(Tipo elValorAVerificar) {
 template <typename Tipo>
 void ValorVerificable<Tipo>::esIgualA(Tipo elValorEsperado) {
     this->valorEsperado = elValorEsperado;
-    EstrategiaComparacionExacta<Tipo>().verificar(this);
-}
 
-template <typename Tipo>
-Tipo ValorVerificable<Tipo>::obtenerValorEsperado() {
-    return this->valorEsperado;
-}
-
-template <typename Tipo>
-Tipo ValorVerificable<Tipo>::obtenerValorAVerificar() {
-    return this->valorAVerificar;
+    if (this->valorAVerificar != this->valorEsperado){
+        throw ValoresDistintosExcepcion<Tipo>(this->valorAVerificar, this->valorEsperado);
+    }
 }
 
 template<typename Tipo>
