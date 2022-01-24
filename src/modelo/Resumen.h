@@ -1,16 +1,11 @@
 #ifndef CHIL_RESUMEN_H
 #define CHIL_RESUMEN_H
 
-static const char *const INDICADOR_COMPLETADOS = "Completados: ";
-
-static const char *const INDICADOR_EXITOSOS = "Exitosos: ";
-
-static const char *const INDICADOR_FALLIDOS = "Fallidos: ";
-
-static const char *const SEPARADOR_RESULTADOS = ", ";
-
 #include <string>
 #include <modelo/Escenario.h>
+#include <utilidades/literales.h>
+
+using literales::aTexto;
 
 class Resumen {
 
@@ -25,6 +20,11 @@ public:
     string imprimible() const;
 
 private:
+    constexpr static const char *const INDICADOR_COMPLETADOS = "Completados: ";
+    constexpr static const char *const INDICADOR_EXITOSOS = "Exitosos: ";
+    constexpr static const char *const INDICADOR_FALLIDOS = "Fallidos: ";
+    constexpr static const char *const SEPARADOR_RESULTADOS = ", ";
+
     int cantidadEscenariosCompletados = 0;
     int cantidadEscenariosFallidos = 0;
     int cantidadEscenariosExitosos = 0;

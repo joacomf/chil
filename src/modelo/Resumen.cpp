@@ -25,9 +25,9 @@ int Resumen::escenariosExitosos() const {
 string Resumen::imprimible() const {
     string impresion = string();
 
-    impresion.append(INDICADOR_COMPLETADOS + literal(this->cantidadEscenariosCompletados) + SEPARADOR_RESULTADOS);
-    impresion.append(INDICADOR_EXITOSOS + literal(this->cantidadEscenariosExitosos) + SEPARADOR_RESULTADOS);
-    impresion.append(INDICADOR_FALLIDOS + literal(this->cantidadEscenariosFallidos) );
+    impresion.append(INDICADOR_COMPLETADOS + aTexto(this->cantidadEscenariosCompletados) + SEPARADOR_RESULTADOS);
+    impresion.append(INDICADOR_EXITOSOS + aTexto(this->cantidadEscenariosExitosos) + SEPARADOR_RESULTADOS);
+    impresion.append(INDICADOR_FALLIDOS + aTexto(this->cantidadEscenariosFallidos) );
 
     return impresion;
 }

@@ -1,6 +1,7 @@
 #ifndef CHIL_MACROS_H
 #define CHIL_MACROS_H
 
+#include "Chil.h"
 #include "modelo/Paso.h"
 
 #define ESCENARIO(nombre) for(EscenarioEjecutable e(#nombre); e.haIniciado; e.haIniciado = false)
@@ -15,13 +16,8 @@
 class EscenarioEjecutable {
 public:
     bool haIniciado;
-    EscenarioEjecutable(const char* nombre) {
-        CHIL->escenario(nombre);
-        haIniciado = true;
-    }
-    ~EscenarioEjecutable() {
-        CHIL->finalizarEscenario();
-    }
+    explicit EscenarioEjecutable(const char* nombre);
+    ~EscenarioEjecutable();
 };
 
 
@@ -37,12 +33,8 @@ public:
 class PasoEjecutable {
 public:
     bool haIniciado;
-    PasoEjecutable(const char* nombre, bool (*funcion)()) {
-        Paso *paso = new Paso(nombre, funcion);
-        CHIL->paso(paso);
-        haIniciado = true;
-    }
-    ~PasoEjecutable() {}
+    PasoEjecutable(const char* nombre, bool (*funcion)());
+    ~PasoEjecutable() = default;
 };
 
 #endif //CHIL_MACROS_H

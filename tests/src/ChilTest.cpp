@@ -1,16 +1,8 @@
-#include "Chil.cpp"
-#include "gtest/gtest.h"
-#include "mocks/PlataformaMock.hpp"
-
-using ::testing::AtLeast;
-using ::testing::Exactly;
-using ::testing::_;
-using ::testing::Return;
-using ::testing::Test;
+#include "compartido-tests.h"
 
 TEST(PruebasDeChilInicilizacion, alCrearChilDeberiaImprimirElMensajeDeComienzo) {
     auto *plataforma = new PlataformaMock();
-    EXPECT_CALL(*plataforma, consola("\nPruebas con CHIL:\n")).Times(Exactly(1));
+    EXPECT_CALL(*plataforma, consola(StrEq("\nPruebas con CHIL:\n"))).Times(Exactly(1));
     NUEVO_CHIL_CON(plataforma);
 
     delete plataforma;
@@ -22,7 +14,7 @@ TEST(PruebasDeChilFinalizacion, alFinalizarChilDeberiaImprimirElMensajeDeFinaliz
     NUEVO_CHIL_CON(plataforma);
 
     EXPECT_CALL(*plataforma, consola(_)).Times(AtLeast(1));
-    EXPECT_CALL(*plataforma, consola("Fin de pruebas con CHIL")).Times(AtLeast(1));
+    EXPECT_CALL(*plataforma, consola(StrEq("Fin de pruebas con CHIL"))).Times(AtLeast(1));
     FIN_DE_PRUEBAS;
 
     delete plataforma;

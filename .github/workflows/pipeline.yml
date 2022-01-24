@@ -19,7 +19,7 @@ jobs:
     - name: Pruebas
       working-directory: ${{github.workspace}}
       shell: bash
-      run: ./scripts/test.sh
+      run: ./scripts/test.sh -nb
 
   publicar-documentacion:
     runs-on: ubuntu-latest

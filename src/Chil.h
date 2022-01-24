@@ -4,6 +4,7 @@
 #include "Plataforma.h"
 #include "modelo/Escenario.h"
 #include "modelo/Resumen.h"
+#include "macros.h"
 
 #include <list>
 #include <string>
@@ -44,15 +45,11 @@ public:
     string imprimirResumen();
 
 private:
-    Escenario *_escenario;
+    Escenario *_escenario{};
     list<Escenario> _escenarios;
     const char *mensajeComienzo = "\nPruebas con CHIL:\n";
     const char *mensajeFinDePruebas = "Fin de pruebas con CHIL";
     Resumen *resumen;
 };
-
-
-#include "macros.h"
-
 
 #endif //CHIL_CHIL_H

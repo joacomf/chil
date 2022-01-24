@@ -14,15 +14,32 @@ add_executable(
         src/modelo/EscenarioTest.cpp
         src/modelo/PasoTest.cpp
         src/modelo/ResumenTest.cpp
-
-        ../src/modelo/Paso.cpp
-        ../src/modelo/Escenario.cpp
-        ../src/modelo/Resumen.cpp
-        ../src/utils/stringUtils.cpp
-
+        src/modelo/verificacion/VerificacionIgualesTest.cpp
+        src/modelo/verificacion/VerificacionEnBucleTest.cpp
 
         plataformas/modelo/PuntoDeEntradaTest.cpp
-)
+
+        ../src/Chil.h
+        ../src/Chil.cpp
+        ../src/macros.h
+        ../src/macros.cpp
+
+        ../src/modelo/Paso.h
+        ../src/modelo/Paso.cpp
+        ../src/modelo/Escenario.h
+        ../src/modelo/Escenario.cpp
+        ../src/modelo/Resumen.h
+        ../src/modelo/Resumen.cpp
+
+        ../src/utilidades/literales.h
+        ../src/utilidades/literales.cpp
+
+        ../src/modelo/verificacion/Verificacion.h
+        ../src/modelo/verificacion/Verificacion.cpp
+        ../src/modelo/verificacion/valores/AccionVerificable.h
+        ../src/modelo/verificacion/valores/AccionVerificable.cpp
+        ../src/modelo/verificacion/valores/ValorVerificable.h
+        ../src/modelo/verificacion/valores/ValorVerificable.cpp src/modelo/verificacion/VerificacionMayorYMenorTest.cpp ../src/modelo/verificacion/excepciones/ValorNoEsMenorExcepcion.h ../src/modelo/verificacion/excepciones/ValorNoEsMayorExcepcion.h)
 
 add_test(NAME check COMMAND tests)
 

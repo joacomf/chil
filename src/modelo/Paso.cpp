@@ -47,7 +47,7 @@ void Paso::fin(long microsegundos) {
  */
 string Paso::mostrar() {
   string mensajeExito = this->exitoso ? INDICADOR_PASO_EXITOSO : INDICADOR_PASO_FALLIDO;
-  string mensajeTiempo = literal(this->tiempo());
+  string mensajeTiempo = aTexto(this->tiempo());
 
   return mensajeExito.append(this->nombre)
           .append(INDICADOR_TIEMPO_EJECUCION)
