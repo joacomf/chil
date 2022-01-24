@@ -39,7 +39,7 @@ add_executable(
         ../src/modelo/verificacion/valores/AccionVerificable.h
         ../src/modelo/verificacion/valores/AccionVerificable.cpp
         ../src/modelo/verificacion/valores/ValorVerificable.h
-        ../src/modelo/verificacion/valores/ValorVerificable.cpp src/modelo/verificacion/VerificacionMayorYMenorTest.cpp ../src/modelo/verificacion/excepciones/ValorNoEsMenorExcepcion.h ../src/modelo/verificacion/excepciones/ValorNoEsMayorExcepcion.h)
+        ../src/modelo/verificacion/valores/ValorVerificable.cpp src/modelo/verificacion/VerificacionMayorYMenorTest.cpp ../src/modelo/verificacion/excepciones/ValorNoEsMenorExcepcion.h ../src/modelo/verificacion/excepciones/ValorNoEsMayorExcepcion.h src/modelo/verificacion/VerificacionEntreTest.cpp)
 
 add_test(NAME check COMMAND tests)
 

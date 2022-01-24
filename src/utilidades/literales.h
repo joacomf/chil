@@ -34,6 +34,15 @@ namespace literales {
 
     string aTexto(const char* t);
     string aTexto(const string& t);
+
+    template <typename ...Args>
+    std::string formato(const std::string& textoPlantilla, Args && ...argumentos)
+    {
+        int espacio = std::snprintf(nullptr, 0, textoPlantilla.c_str(), std::forward<Args>(argumentos)...);
+        std::string salida(espacio, '\0');
+        std::sprintf(&salida[0], textoPlantilla.c_str(), std::forward<Args>(argumentos)...);
+        return salida;
+    }
 }
 
 #endif //CHIL_LITERALES_H

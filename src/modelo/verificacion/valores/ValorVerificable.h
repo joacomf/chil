@@ -6,6 +6,7 @@
 #include <modelo/verificacion/excepciones/ValorNoEsMayorExcepcion.h>
 #include <modelo/verificacion/excepciones/ValorNoEsMayorOIgualExcepcion.h>
 #include <modelo/verificacion/excepciones/ValorNoEsMenorOIgualExcepcion.h>
+#include <modelo/verificacion/excepciones/ValorNoEstaEntreExcepcion.h>
 
 template <typename Tipo>
 class ValorVerificable {
@@ -23,6 +24,8 @@ public:
     void esMenorA(Tipo valorConElCualComparar);
     void esMayorOIgualA(Tipo valorConElCualComparar);
     void esMenorOIgualA(Tipo valorConElCualComparar);
+
+    void entre(Tipo valorInferior, Tipo valorSuperior);
 
 private:
     Tipo valorAVerificar{};
@@ -79,7 +82,12 @@ void ValorVerificable<Tipo>::esMenorOIgualA(Tipo valorConElCualComparar) {
     }
 }
 
-
+template<typename Tipo>
+void ValorVerificable<Tipo>::entre(Tipo valorInferior, Tipo valorSuperior) {
+    if (this->valorAVerificar < valorInferior || this->valorAVerificar > valorSuperior){
+        throw ValorNoEstaEntreExcepcion<Tipo>(this->valorAVerificar, valorInferior, valorSuperior);
+    }
+}
 
 
 #endif //CHIL_VALORVERIFICABLE_H
