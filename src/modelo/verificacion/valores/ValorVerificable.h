@@ -32,11 +32,33 @@ private:
     Tipo valorEsperado{};
 };
 
+/**
+ * @brief
+ * Constructor de Valor verificable
+ *
+ * @details
+ * Declara las acciones a realizar al crear un nuevo valor verificable.
+ * La acción realizada es inicializar el campo ValorVerificable::valorAVerificar
+ *
+ * @tparam Tipo - valor a verificar
+ * @return [out][ValorVerificable<Tipo>*] objeto para realizar las comparaciones.
+ */
 template<typename Tipo>
 ValorVerificable<Tipo>::ValorVerificable(Tipo elValorAVerificar) {
     this->valorAVerificar = elValorAVerificar;
 }
 
+/**
+ * @brief
+ * Corrobora si el valor a verificar es igual al dado
+ *
+ * @details
+ * Compara si el valor a verificar es igual al valor esperado pasado por parametro,
+ * en caso de que no se cumpla la condición se lanza una ValoresDistintosExcepcion
+ *
+ * @throw ValoresDistintosExcepcion<Tipo>
+ * @tparam Tipo - valor con el cual comparar
+ */
 template <typename Tipo>
 void ValorVerificable<Tipo>::esIgualA(Tipo elValorEsperado) {
     this->valorEsperado = elValorEsperado;
@@ -46,6 +68,17 @@ void ValorVerificable<Tipo>::esIgualA(Tipo elValorEsperado) {
     }
 }
 
+/**
+ * @brief
+ * Corrobora si el valor a verificar es mayor al dado
+ *
+ * @details
+ * Compara si el valor a verificar es mayor al valor pasado por parametro,
+ * en caso de que no se cumpla la condición se lanza una ValorNoEsMayorExcepcion
+ *
+ * @throw ValorNoEsMayorExcepcion<Tipo>
+ * @tparam Tipo - valor con el cual comparar
+ */
 template<typename Tipo>
 void ValorVerificable<Tipo>::esMayorA(Tipo valorConElCualComparar) {
     this->valorEsperado = valorConElCualComparar;
@@ -55,6 +88,17 @@ void ValorVerificable<Tipo>::esMayorA(Tipo valorConElCualComparar) {
     }
 }
 
+/**
+ * @brief
+ * Corrobora si el valor a verificar es menor al dado
+ *
+ * @details
+ * Compara si el valor a verificar es menor al valor pasado por parametro,
+ * en caso de que no se cumpla la condición se lanza una ValorNoEsMenorExcepcion
+ *
+ * @throw ValorNoEsMenorExcepcion<Tipo>
+ * @tparam Tipo - valor con el cual comparar
+ */
 template<typename Tipo>
 void ValorVerificable<Tipo>::esMenorA(Tipo valorConElCualComparar) {
     this->valorEsperado = valorConElCualComparar;
@@ -64,6 +108,17 @@ void ValorVerificable<Tipo>::esMenorA(Tipo valorConElCualComparar) {
     }
 }
 
+/**
+ * @brief
+ * Corrobora si el valor a verificar es mayor o igual al dado
+ *
+ * @details
+ * Compara si el valor a verificar es mayor o igual al valor pasado por parametro,
+ * en caso de que no se cumpla la condición se lanza una ValorNoEsMayorOIgualExcepcion
+ *
+ * @throw ValorNoEsMayorOIgualExcepcion<Tipo>
+ * @tparam Tipo - valor con el cual comparar
+ */
 template<typename Tipo>
 void ValorVerificable<Tipo>::esMayorOIgualA(Tipo valorConElCualComparar) {
     this->valorEsperado = valorConElCualComparar;
@@ -73,6 +128,17 @@ void ValorVerificable<Tipo>::esMayorOIgualA(Tipo valorConElCualComparar) {
     }
 }
 
+/**
+ * @brief
+ * Corrobora si el valor a verificar es mayor o igual al dado
+ *
+ * @details
+ * Compara si el valor a verificar es menor o igual al valor pasado por parametro,
+ * en caso de que no se cumpla la condición se lanza una ValorNoEsMenorOIgualExcepcion
+ *
+ * @throw ValorNoEsMenorOIgualExcepcion<Tipo>
+ * @tparam Tipo - valor con el cual comparar
+ */
 template<typename Tipo>
 void ValorVerificable<Tipo>::esMenorOIgualA(Tipo valorConElCualComparar) {
     this->valorEsperado = valorConElCualComparar;
@@ -82,6 +148,18 @@ void ValorVerificable<Tipo>::esMenorOIgualA(Tipo valorConElCualComparar) {
     }
 }
 
+/**
+ * @brief
+ * Corrobora si el valor a verificar esta entre dos valores dados [incluidos]
+ *
+ * @details
+ * Compara si el valor a verificar es mayor o igual al primer paramatro y menor o igual al segundo parámetro,
+ * en caso de que no se cumpla alguna de las dos condiciones
+ * condición se lanza una ValorNoEstaEntreExcepcion
+ *
+ * @throw ValorNoEsMenorOIgualExcepcion<Tipo>
+ * @tparam Tipo - valor con el cual comparar
+ */
 template<typename Tipo>
 void ValorVerificable<Tipo>::entre(Tipo valorInferior, Tipo valorSuperior) {
     if (this->valorAVerificar < valorInferior || this->valorAVerificar > valorSuperior){
