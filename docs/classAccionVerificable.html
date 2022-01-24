@@ -83,12 +83,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
 <tr class="memitem:a423584af7b765db887c98b93a7eda422"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccionVerificable.html#a423584af7b765db887c98b93a7eda422">AccionVerificable</a> (bool(*accionAVerificar)())</td></tr>
+<tr class="memdesc:a423584af7b765db887c98b93a7eda422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de <a class="el" href="classAccionVerificable.html">AccionVerificable</a>.  <a href="classAccionVerificable.html#a423584af7b765db887c98b93a7eda422">Más...</a><br /></td></tr>
 <tr class="separator:a423584af7b765db887c98b93a7eda422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5606c0ec85703ee37bc695908d87ded"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAccionVerificable.html">AccionVerificable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccionVerificable.html#ab5606c0ec85703ee37bc695908d87ded">durante</a> (int milisegundos)</td></tr>
+<tr class="memdesc:ab5606c0ec85703ee37bc695908d87ded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura el tiempo total del sondeo en milisegundos (ms)  <a href="classAccionVerificable.html#ab5606c0ec85703ee37bc695908d87ded">Más...</a><br /></td></tr>
 <tr class="separator:ab5606c0ec85703ee37bc695908d87ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ab3bb0c11e4a475b3d48cba6ea5e338"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAccionVerificable.html">AccionVerificable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccionVerificable.html#a9ab3bb0c11e4a475b3d48cba6ea5e338">conIntervaloDe</a> (int intervaloEnMilisegundos)</td></tr>
+<tr class="memdesc:a9ab3bb0c11e4a475b3d48cba6ea5e338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura el intervalo entre verificación y verificación del sondeo en milisegundos (ms)  <a href="classAccionVerificable.html#a9ab3bb0c11e4a475b3d48cba6ea5e338">Más...</a><br /></td></tr>
 <tr class="separator:a9ab3bb0c11e4a475b3d48cba6ea5e338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0426d7429c1c30374ee7cb9487149322"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccionVerificable.html#a0426d7429c1c30374ee7cb9487149322">seHayaEjecutado</a> ()</td></tr>
+<tr class="memdesc:a0426d7429c1c30374ee7cb9487149322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corrobora si la acción dada se cumple dentro de un periodo dado en forma de sondeo con intervalos (por defaul de 1ms + el tiempo que tarde la acción en ejecutarse)  <a href="classAccionVerificable.html#a0426d7429c1c30374ee7cb9487149322">Más...</a><br /></td></tr>
 <tr class="separator:a0426d7429c1c30374ee7cb9487149322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación del constructor y destructor</h2>
@@ -105,7 +109,7 @@ Métodos públicos</h2></td></tr>
           <td class="memname">AccionVerificable::AccionVerificable </td>
           <td>(</td>
           <td class="paramtype">bool(*)()&#160;</td>
-          <td class="paramname"><em>accionAVerificar</em></td><td>)</td>
+          <td class="paramname"><em>laAccion</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -115,6 +119,16 @@ Métodos públicos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructor de <a class="el" href="classAccionVerificable.html">AccionVerificable</a>. </p>
+<p>Declara las acciones a realizar al crear un nuevo <a class="el" href="classAccionVerificable.html">AccionVerificable</a>. La acción realizada es inicializar el campo AccionVerificable::accionAVerificar recibida por parámetro para su ejecución en el sondeo</p>
+<dl class="tparams"><dt>Parámetros del template</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bool</td><td>(*laAccion)() - acción a verificar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>[out][ValorVerificable&lt;Tipo&gt;*] objeto para realizar las comparaciones. </dd></dl>
 
 </div>
 </div>
@@ -129,11 +143,21 @@ Métodos públicos</h2></td></tr>
           <td class="memname"><a class="el" href="classAccionVerificable.html">AccionVerificable</a> * AccionVerificable::conIntervaloDe </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>intervaloEnMilisegundos</em></td><td>)</td>
+          <td class="paramname"><em>elIntervaloEnMilisegundos</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Configura el intervalo entre verificación y verificación del sondeo en milisegundos (ms) </p>
+<p>Configura el intervalo entre verificación y verificación del sondeo en milisegundos (ms) guardandolo en AccionVerificable::intervaloEnMilisegundos</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>intervalo en milisegundos </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>[out] AccionVerificable* - referencia al mismo objeto </dd></dl>
 
 </div>
 </div>
@@ -153,6 +177,16 @@ Métodos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configura el tiempo total del sondeo en milisegundos (ms) </p>
+<p>Configura el tiempo total como tiempoLimite del sondeo en milisegundos (ms) guardandolo en AccionVerificable::tiempoLimite</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>tiempoLimite en milisegundos </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>[out] AccionVerificable* - referencia al mismo objeto </dd></dl>
+
 </div>
 </div>
 <a id="a0426d7429c1c30374ee7cb9487149322"></a>
@@ -169,6 +203,17 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Corrobora si la acción dada se cumple dentro de un periodo dado en forma de sondeo con intervalos (por defaul de 1ms + el tiempo que tarde la acción en ejecutarse) </p>
+<p>Corrobora si el retorno de la función a verificar es verdadero durante un tiempo dado por la AccionVerificable::tiempoLimite. La verificación se realiza en forma de sondeo, por defecto el tiempo entre cada verificación es de 1ms, la cantidad de verificaciones va a estar condicionado al tiempo que tarde la acción en ejecutarse. Ej: Si la duración se configura en 200ms, el intervalo en 1ms y la acción demora 19ms en ejecutarse, la verificación se realizará un máximo de 10 veces.</p>
+<p>Para obtener el tiempo se utiliza Chil::milisegundos() por ende debe estar inicializado para poder usar este método.</p>
+<p>Si la acción no se corrobora se lanza <a class="el" href="classAccionNoEjecutadaExcepcion.html">AccionNoEjecutadaExcepcion</a></p>
+<dl class="exception"><dt>Excepciones</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classAccionNoEjecutadaExcepcion.html">AccionNoEjecutadaExcepcion</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

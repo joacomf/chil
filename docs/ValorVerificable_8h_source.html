@@ -113,67 +113,67 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    Tipo valorEsperado{};</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a182d7ea288cde9e30f01c564834c7cad">   36</a></span>&#160;<a class="code" href="classValorVerificable.html#aa60d4107021dbb3bd481e128c0217f77">ValorVerificable&lt;Tipo&gt;::ValorVerificable</a>(Tipo elValorAVerificar) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    this-&gt;valorAVerificar = elValorAVerificar;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tipo&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a0306ec0ecad13192ec5de9f3934ccdc2">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#a0306ec0ecad13192ec5de9f3934ccdc2">ValorVerificable&lt;Tipo&gt;::esIgualA</a>(Tipo elValorEsperado) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    this-&gt;valorEsperado = elValorEsperado;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar != this-&gt;valorEsperado){</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValoresDistintosExcepcion.html">ValoresDistintosExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classValorVerificable.html#ab8cee424a2391176ad8cdf90eeb62be2">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#ab8cee424a2391176ad8cdf90eeb62be2">ValorVerificable&lt;Tipo&gt;::esMayorA</a>(Tipo valorConElCualComparar) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    this-&gt;valorEsperado = valorConElCualComparar;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &lt;= this-&gt;valorEsperado){</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEsMayorExcepcion.html">ValorNoEsMayorExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a8e914e0815a0c1b9cfe0cc3febcc33b5">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#a8e914e0815a0c1b9cfe0cc3febcc33b5">ValorVerificable&lt;Tipo&gt;::esMenorA</a>(Tipo valorConElCualComparar) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    this-&gt;valorEsperado = valorConElCualComparar;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &gt;= this-&gt;valorEsperado){</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEsMenorExcepcion.html">ValorNoEsMenorExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a5544fab318ac0d75ad39a7a90b269ac2">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#a5544fab318ac0d75ad39a7a90b269ac2">ValorVerificable&lt;Tipo&gt;::esMayorOIgualA</a>(Tipo valorConElCualComparar) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    this-&gt;valorEsperado = valorConElCualComparar;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a182d7ea288cde9e30f01c564834c7cad">   47</a></span>&#160;<a class="code" href="classValorVerificable.html#aa60d4107021dbb3bd481e128c0217f77">ValorVerificable&lt;Tipo&gt;::ValorVerificable</a>(Tipo elValorAVerificar) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    this-&gt;valorAVerificar = elValorAVerificar;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tipo&gt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a0306ec0ecad13192ec5de9f3934ccdc2">   63</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#a0306ec0ecad13192ec5de9f3934ccdc2">ValorVerificable&lt;Tipo&gt;::esIgualA</a>(Tipo elValorEsperado) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    this-&gt;valorEsperado = elValorEsperado;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar != this-&gt;valorEsperado){</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValoresDistintosExcepcion.html">ValoresDistintosExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &lt; this-&gt;valorEsperado){</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEsMayorOIgualExcepcion.html">ValorNoEsMayorOIgualExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classValorVerificable.html#ac3bce06b181c3cb89f5d039ba902bb30">   77</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#ac3bce06b181c3cb89f5d039ba902bb30">ValorVerificable&lt;Tipo&gt;::esMenorOIgualA</a>(Tipo valorConElCualComparar) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    this-&gt;valorEsperado = valorConElCualComparar;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &gt; this-&gt;valorEsperado){</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEsMenorOIgualExcepcion.html">ValorNoEsMenorOIgualExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a782eb90e047194656d08960f341ff80e">   86</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#a782eb90e047194656d08960f341ff80e">ValorVerificable&lt;Tipo&gt;::entre</a>(Tipo valorInferior, Tipo valorSuperior) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &lt; valorInferior || this-&gt;valorAVerificar &gt; valorSuperior){</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEstaEntreExcepcion.html">ValorNoEstaEntreExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, valorInferior, valorSuperior);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif //CHIL_VALORVERIFICABLE_H</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classValorVerificable.html#ab8cee424a2391176ad8cdf90eeb62be2">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#ab8cee424a2391176ad8cdf90eeb62be2">ValorVerificable&lt;Tipo&gt;::esMayorA</a>(Tipo valorConElCualComparar) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    this-&gt;valorEsperado = valorConElCualComparar;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &lt;= this-&gt;valorEsperado){</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEsMayorExcepcion.html">ValorNoEsMayorExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a8e914e0815a0c1b9cfe0cc3febcc33b5">  103</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#a8e914e0815a0c1b9cfe0cc3febcc33b5">ValorVerificable&lt;Tipo&gt;::esMenorA</a>(Tipo valorConElCualComparar) {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    this-&gt;valorEsperado = valorConElCualComparar;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &gt;= this-&gt;valorEsperado){</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEsMenorExcepcion.html">ValorNoEsMenorExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a5544fab318ac0d75ad39a7a90b269ac2">  123</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#a5544fab318ac0d75ad39a7a90b269ac2">ValorVerificable&lt;Tipo&gt;::esMayorOIgualA</a>(Tipo valorConElCualComparar) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    this-&gt;valorEsperado = valorConElCualComparar;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &lt; this-&gt;valorEsperado){</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEsMayorOIgualExcepcion.html">ValorNoEsMayorOIgualExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classValorVerificable.html#ac3bce06b181c3cb89f5d039ba902bb30">  143</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#ac3bce06b181c3cb89f5d039ba902bb30">ValorVerificable&lt;Tipo&gt;::esMenorOIgualA</a>(Tipo valorConElCualComparar) {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    this-&gt;valorEsperado = valorConElCualComparar;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &gt; this-&gt;valorEsperado){</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEsMenorOIgualExcepcion.html">ValorNoEsMenorOIgualExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, this-&gt;valorEsperado);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tipo&gt;</div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classValorVerificable.html#a782eb90e047194656d08960f341ff80e">  164</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classValorVerificable.html#a782eb90e047194656d08960f341ff80e">ValorVerificable&lt;Tipo&gt;::entre</a>(Tipo valorInferior, Tipo valorSuperior) {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">if</span> (this-&gt;valorAVerificar &lt; valorInferior || this-&gt;valorAVerificar &gt; valorSuperior){</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classValorNoEstaEntreExcepcion.html">ValorNoEstaEntreExcepcion&lt;Tipo&gt;</a>(this-&gt;valorAVerificar, valorInferior, valorSuperior);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#endif //CHIL_VALORVERIFICABLE_H</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassValorNoEsMayorExcepcion_html"><div class="ttname"><a href="classValorNoEsMayorExcepcion.html">ValorNoEsMayorExcepcion</a></div><div class="ttdef"><b>Definition:</b> ValorNoEsMayorExcepcion.h:7</div></div>
 <div class="ttc" id="aclassValorVerificable_html_aa60d4107021dbb3bd481e128c0217f77"><div class="ttname"><a href="classValorVerificable.html#aa60d4107021dbb3bd481e128c0217f77">ValorVerificable::ValorVerificable</a></div><div class="ttdeci">ValorVerificable()=default</div></div>
@@ -181,21 +181,21 @@ $(function() {
 <div class="ttc" id="aclassValorNoEsMenorExcepcion_html"><div class="ttname"><a href="classValorNoEsMenorExcepcion.html">ValorNoEsMenorExcepcion</a></div><div class="ttdef"><b>Definition:</b> ValorNoEsMenorExcepcion.h:14</div></div>
 <div class="ttc" id="aValorNoEsMayorOIgualExcepcion_8h_html"><div class="ttname"><a href="ValorNoEsMayorOIgualExcepcion_8h.html">ValorNoEsMayorOIgualExcepcion.h</a></div></div>
 <div class="ttc" id="aclassValorNoEsMayorOIgualExcepcion_html"><div class="ttname"><a href="classValorNoEsMayorOIgualExcepcion.html">ValorNoEsMayorOIgualExcepcion</a></div><div class="ttdef"><b>Definition:</b> ValorNoEsMayorOIgualExcepcion.h:6</div></div>
-<div class="ttc" id="aclassValorVerificable_html_ac3bce06b181c3cb89f5d039ba902bb30"><div class="ttname"><a href="classValorVerificable.html#ac3bce06b181c3cb89f5d039ba902bb30">ValorVerificable::esMenorOIgualA</a></div><div class="ttdeci">void esMenorOIgualA(Tipo valorConElCualComparar)</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:77</div></div>
+<div class="ttc" id="aclassValorVerificable_html_ac3bce06b181c3cb89f5d039ba902bb30"><div class="ttname"><a href="classValorVerificable.html#ac3bce06b181c3cb89f5d039ba902bb30">ValorVerificable::esMenorOIgualA</a></div><div class="ttdeci">void esMenorOIgualA(Tipo valorConElCualComparar)</div><div class="ttdoc">Corrobora si el valor a verificar es mayor o igual al dado.</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:143</div></div>
 <div class="ttc" id="aValorNoEsMenorExcepcion_8h_html"><div class="ttname"><a href="ValorNoEsMenorExcepcion_8h.html">ValorNoEsMenorExcepcion.h</a></div></div>
-<div class="ttc" id="aclassValorVerificable_html_a782eb90e047194656d08960f341ff80e"><div class="ttname"><a href="classValorVerificable.html#a782eb90e047194656d08960f341ff80e">ValorVerificable::entre</a></div><div class="ttdeci">void entre(Tipo valorInferior, Tipo valorSuperior)</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:86</div></div>
+<div class="ttc" id="aclassValorVerificable_html_a782eb90e047194656d08960f341ff80e"><div class="ttname"><a href="classValorVerificable.html#a782eb90e047194656d08960f341ff80e">ValorVerificable::entre</a></div><div class="ttdeci">void entre(Tipo valorInferior, Tipo valorSuperior)</div><div class="ttdoc">Corrobora si el valor a verificar esta entre dos valores dados [incluidos].</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:164</div></div>
 <div class="ttc" id="aclassValorVerificable_html"><div class="ttname"><a href="classValorVerificable.html">ValorVerificable</a></div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:12</div></div>
 <div class="ttc" id="aValorNoEsMayorExcepcion_8h_html"><div class="ttname"><a href="ValorNoEsMayorExcepcion_8h.html">ValorNoEsMayorExcepcion.h</a></div></div>
 <div class="ttc" id="aclassValorVerificable_html_a01e8be784ffa8a738952790c48d4f5d5"><div class="ttname"><a href="classValorVerificable.html#a01e8be784ffa8a738952790c48d4f5d5">ValorVerificable::esFalso</a></div><div class="ttdeci">void esFalso()</div></div>
-<div class="ttc" id="aclassValorVerificable_html_a0306ec0ecad13192ec5de9f3934ccdc2"><div class="ttname"><a href="classValorVerificable.html#a0306ec0ecad13192ec5de9f3934ccdc2">ValorVerificable::esIgualA</a></div><div class="ttdeci">void esIgualA(Tipo valorEsperado)</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:41</div></div>
+<div class="ttc" id="aclassValorVerificable_html_a0306ec0ecad13192ec5de9f3934ccdc2"><div class="ttname"><a href="classValorVerificable.html#a0306ec0ecad13192ec5de9f3934ccdc2">ValorVerificable::esIgualA</a></div><div class="ttdeci">void esIgualA(Tipo valorEsperado)</div><div class="ttdoc">Corrobora si el valor a verificar es igual al dado.</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:63</div></div>
 <div class="ttc" id="aValoresDistintosExcepcion_8h_html"><div class="ttname"><a href="ValoresDistintosExcepcion_8h.html">ValoresDistintosExcepcion.h</a></div></div>
 <div class="ttc" id="aclassValoresDistintosExcepcion_html"><div class="ttname"><a href="classValoresDistintosExcepcion.html">ValoresDistintosExcepcion</a></div><div class="ttdef"><b>Definition:</b> ValoresDistintosExcepcion.h:8</div></div>
 <div class="ttc" id="aclassValorNoEstaEntreExcepcion_html"><div class="ttname"><a href="classValorNoEstaEntreExcepcion.html">ValorNoEstaEntreExcepcion</a></div><div class="ttdef"><b>Definition:</b> ValorNoEstaEntreExcepcion.h:12</div></div>
 <div class="ttc" id="aValorNoEstaEntreExcepcion_8h_html"><div class="ttname"><a href="ValorNoEstaEntreExcepcion_8h.html">ValorNoEstaEntreExcepcion.h</a></div></div>
-<div class="ttc" id="aclassValorVerificable_html_ab8cee424a2391176ad8cdf90eeb62be2"><div class="ttname"><a href="classValorVerificable.html#ab8cee424a2391176ad8cdf90eeb62be2">ValorVerificable::esMayorA</a></div><div class="ttdeci">void esMayorA(Tipo valorConElCualComparar)</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:50</div></div>
-<div class="ttc" id="aclassValorVerificable_html_a5544fab318ac0d75ad39a7a90b269ac2"><div class="ttname"><a href="classValorVerificable.html#a5544fab318ac0d75ad39a7a90b269ac2">ValorVerificable::esMayorOIgualA</a></div><div class="ttdeci">void esMayorOIgualA(Tipo valorConElCualComparar)</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:68</div></div>
+<div class="ttc" id="aclassValorVerificable_html_ab8cee424a2391176ad8cdf90eeb62be2"><div class="ttname"><a href="classValorVerificable.html#ab8cee424a2391176ad8cdf90eeb62be2">ValorVerificable::esMayorA</a></div><div class="ttdeci">void esMayorA(Tipo valorConElCualComparar)</div><div class="ttdoc">Corrobora si el valor a verificar es mayor al dado.</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:83</div></div>
+<div class="ttc" id="aclassValorVerificable_html_a5544fab318ac0d75ad39a7a90b269ac2"><div class="ttname"><a href="classValorVerificable.html#a5544fab318ac0d75ad39a7a90b269ac2">ValorVerificable::esMayorOIgualA</a></div><div class="ttdeci">void esMayorOIgualA(Tipo valorConElCualComparar)</div><div class="ttdoc">Corrobora si el valor a verificar es mayor o igual al dado.</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:123</div></div>
 <div class="ttc" id="aValorNoEsMenorOIgualExcepcion_8h_html"><div class="ttname"><a href="ValorNoEsMenorOIgualExcepcion_8h.html">ValorNoEsMenorOIgualExcepcion.h</a></div></div>
-<div class="ttc" id="aclassValorVerificable_html_a8e914e0815a0c1b9cfe0cc3febcc33b5"><div class="ttname"><a href="classValorVerificable.html#a8e914e0815a0c1b9cfe0cc3febcc33b5">ValorVerificable::esMenorA</a></div><div class="ttdeci">void esMenorA(Tipo valorConElCualComparar)</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:59</div></div>
+<div class="ttc" id="aclassValorVerificable_html_a8e914e0815a0c1b9cfe0cc3febcc33b5"><div class="ttname"><a href="classValorVerificable.html#a8e914e0815a0c1b9cfe0cc3febcc33b5">ValorVerificable::esMenorA</a></div><div class="ttdeci">void esMenorA(Tipo valorConElCualComparar)</div><div class="ttdoc">Corrobora si el valor a verificar es menor al dado.</div><div class="ttdef"><b>Definition:</b> ValorVerificable.h:103</div></div>
 <div class="ttc" id="aclassValorVerificable_html_a96b0911a72dfef39e1be03dc1ef2fb31"><div class="ttname"><a href="classValorVerificable.html#a96b0911a72dfef39e1be03dc1ef2fb31">ValorVerificable::esVerdadero</a></div><div class="ttdeci">void esVerdadero()</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->

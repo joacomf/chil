@@ -89,9 +89,11 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funciones</h2></td></tr>
 <tr class="memitem:ae817ce86b0c4bf6dd5ec68a1cf5af9ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAccionVerificable.html">AccionVerificable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Verificacion_8h.html#ae817ce86b0c4bf6dd5ec68a1cf5af9ff">comprobar</a> (bool(*funcion)())</td></tr>
+<tr class="memdesc:ae817ce86b0c4bf6dd5ec68a1cf5af9ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un <a class="el" href="classAccionVerificable.html">AccionVerificable</a> para comparar.  <a href="Verificacion_8h.html#ae817ce86b0c4bf6dd5ec68a1cf5af9ff">Más...</a><br /></td></tr>
 <tr class="separator:ae817ce86b0c4bf6dd5ec68a1cf5af9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0943eb848d44030dec7b19a004743fc"><td class="memTemplParams" colspan="2">template&lt;typename Tipo &gt; </td></tr>
 <tr class="memitem:af0943eb848d44030dec7b19a004743fc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classValorVerificable.html">ValorVerificable</a>&lt; Tipo &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Verificacion_8h.html#af0943eb848d44030dec7b19a004743fc">verificar</a> (Tipo valor)</td></tr>
+<tr class="memdesc:af0943eb848d44030dec7b19a004743fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un <a class="el" href="classValorVerificable.html">ValorVerificable</a> para comparar.  <a href="Verificacion_8h.html#af0943eb848d44030dec7b19a004743fc">Más...</a><br /></td></tr>
 <tr class="separator:af0943eb848d44030dec7b19a004743fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación de las funciones</h2>
@@ -110,6 +112,17 @@ Funciones</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Crea un <a class="el" href="classAccionVerificable.html">AccionVerificable</a> para comparar. </p>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="classAccionVerificable.html">AccionVerificable</a></dd></dl>
+<p>Método para crear una nueva <a class="el" href="classAccionVerificable.html">AccionVerificable</a> lo que permite pasar una función que retorne un bool para hacer sondeo sobre un bloque de código y corroborar si el mismo se cumple o no.</p>
+<dl class="tparams"><dt>Parámetros del template</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bool</td><td>(*funcion)() - función a verificar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>[out][<a class="el" href="classAccionVerificable.html">AccionVerificable</a>] objeto para configurar los detalles de la comprobación y realizarla. </dd></dl>
 
 </div>
 </div>
@@ -130,6 +143,17 @@ template&lt;typename Tipo &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Crea un <a class="el" href="classValorVerificable.html">ValorVerificable</a> para comparar. </p>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="classValorVerificable.html">ValorVerificable</a></dd></dl>
+<p>Método para crear un nuevo ValorVerificable&lt;Tipo&gt; siendo Tipo cualquier tipo permitido del lenguaje para poder hacerle comparaciones con otro valor del mismo tipo (ej: ValorVerificable::igualA)</p>
+<dl class="tparams"><dt>Parámetros del template</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tipo</td><td>- valor a verificar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>[out][ValorVerificable&lt;Tipo&gt;*] objeto para realizar las comparaciones. </dd></dl>
 
 </div>
 </div>
