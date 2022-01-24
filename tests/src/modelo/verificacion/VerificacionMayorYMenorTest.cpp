@@ -53,3 +53,21 @@ TEST(VerificacionTest, alNoSerMenorSeLanzaExepcionInformandoElProblema) {
         ASSERT_EQ(excepcion.obtenerMensaje(), "Se esperaba el valor: \n5123.5\nSea menor a: \n5123.42\nPero no lo fue\n");
     }
 }
+
+TEST(VerificacionTest, verificaUnValorMenorOIgualAOtroCorrectamente) {
+    ASSERT_NO_THROW(verificar<int>(4)->esMenorOIgualA(5));
+    ASSERT_NO_THROW(verificar<long>(1)->esMenorOIgualA(123123));
+    ASSERT_NO_THROW(verificar<double>(5.2)->esMenorOIgualA(5.21));
+
+    ASSERT_THROW(verificar<int>(21)->esMenorOIgualA(5), ValorNoEsMenorOIgualExcepcion<int>);
+    ASSERT_THROW(verificar<long>(42236)->esMenorOIgualA(42235), ValorNoEsMenorOIgualExcepcion<long>);
+    ASSERT_THROW(verificar<double>(5123.2)->esMenorOIgualA(3.4232), ValorNoEsMenorOIgualExcepcion<double>);
+}
+
+TEST(VerificacionTest, alNoSerMenorOIgualSeLanzaExepcionInformandoElProblema) {
+    try {
+        verificar<double>(5123.4)->esMenorOIgualA(5123.4232);
+    } catch (ValorNoEsMenorOIgualExcepcion<double>& excepcion) {
+        ASSERT_EQ(excepcion.obtenerMensaje(), "Se esperaba el valor: \n5123.5\nSea menor o igual a: \n5123.42\nPero no lo fue\n");
+    }
+}
