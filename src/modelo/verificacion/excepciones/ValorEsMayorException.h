@@ -1,28 +1,24 @@
 
-#ifndef CHIL_VALORESMENOREXCEPCION_H
-#define CHIL_VALORESMENOREXCEPCION_H
-
-#include <exception>
-#include <string>
-#include <utilidades/literales.h>
+#ifndef CHIL_VALORESMAYOREXCEPTION_H
+#define CHIL_VALORESMAYOREXCEPTION_H
 
 using std::exception;
 using std::string;
 using literales::aTexto;
 
 template <typename T>
-class ValorEsMenorExcepcion : public exception {
+class ValorEsMayorExcepcion : public exception {
 
 private:
     constexpr static const char *const TEXTO_ESPERADO = "Se esperaba el valor: ";
-    constexpr static const char *const TEXTO_RECIBIDO = "Sea mayor a: ";
+    constexpr static const char *const TEXTO_RECIBIDO = "Sea menor a: ";
     constexpr static const char *const TEXTO_FINAL = "Pero no lo es";
     constexpr static const char *const SALTO_DE_LINEA = "\n";
 
     string mensaje{};
 
 public:
-    explicit ValorEsMenorExcepcion(T recibido, T esperado) {
+    explicit ValorEsMayorExcepcion(T recibido, T esperado) {
         mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA);
         mensaje.append(aTexto(esperado)).append(SALTO_DE_LINEA);
         mensaje.append(TEXTO_RECIBIDO).append(SALTO_DE_LINEA);
@@ -34,4 +30,4 @@ public:
         return mensaje;
     }
 };
-#endif //CHIL_VALORESMENOREXCEPCION_H
+#endif //CHIL_VALORESMAYOREXCEPTION_H
