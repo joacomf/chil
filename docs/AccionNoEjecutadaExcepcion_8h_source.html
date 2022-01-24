@@ -89,36 +89,31 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using</span> std::exception;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classAccionNoEjecutadaExcepcion.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAccionNoEjecutadaExcepcion.html">AccionNoEjecutadaExcepcion</a> : <span class="keyword">public</span> exception {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> PRINCIPIO_MENSAJE = <span class="stringliteral">&quot;La accion indicada no se corroboro en el periodo de &quot;</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> INTERVALOR = <span class="stringliteral">&quot; con un intervalo de &quot;</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> FINAL_MENSAJE = <span class="stringliteral">&quot; entre cada verificacion&quot;</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> UNIDAD_TIEMPO = <span class="stringliteral">&quot;ms&quot;</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">string</span> mensaje{};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classAccionNoEjecutadaExcepcion.html#a97ac361ee09d00940787948f586620cb">   21</a></span>&#160;    <a class="code" href="classAccionNoEjecutadaExcepcion.html#a97ac361ee09d00940787948f586620cb">AccionNoEjecutadaExcepcion</a>(<span class="keywordtype">int</span> duracion, <span class="keywordtype">int</span> intervalo) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        mensaje = string(PRINCIPIO_MENSAJE);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        mensaje.append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(duracion)).append(UNIDAD_TIEMPO);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        mensaje.append(INTERVALOR);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        mensaje.append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(intervalo)).append(UNIDAD_TIEMPO);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        mensaje.append(FINAL_MENSAJE);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6">   29</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6">obtenerMensaje</a>() {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> this-&gt;mensaje;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif //CHIL_ACCIONNOEJECUTADAEXCEPCION_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceliterales.html#a4e2e233a525ba787175f2969f57782f0">literales::formato</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classAccionNoEjecutadaExcepcion.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAccionNoEjecutadaExcepcion.html">AccionNoEjecutadaExcepcion</a> : <span class="keyword">public</span> exception {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO = <span class="stringliteral">&quot;La accion indicada no se corroboro en el periodo de %sms con un intervalo de %sms entre cada verificacion&quot;</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">string</span> mensaje{};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classAccionNoEjecutadaExcepcion.html#a97ac361ee09d00940787948f586620cb">   19</a></span>&#160;    <a class="code" href="classAccionNoEjecutadaExcepcion.html#a97ac361ee09d00940787948f586620cb">AccionNoEjecutadaExcepcion</a>(<span class="keywordtype">int</span> duracion, <span class="keywordtype">int</span> intervalo) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        mensaje = <a class="code" href="namespaceliterales.html#a4e2e233a525ba787175f2969f57782f0">formato</a>(TEXTO, <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(duracion).c_str(), <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(intervalo).c_str());</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6">   23</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6">obtenerMensaje</a>() {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> this-&gt;mensaje;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif //CHIL_ACCIONNOEJECUTADAEXCEPCION_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html_a97ac361ee09d00940787948f586620cb"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html#a97ac361ee09d00940787948f586620cb">AccionNoEjecutadaExcepcion::AccionNoEjecutadaExcepcion</a></div><div class="ttdeci">AccionNoEjecutadaExcepcion(int duracion, int intervalo)</div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:21</div></div>
-<div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html">AccionNoEjecutadaExcepcion</a></div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:12</div></div>
+<div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html_a97ac361ee09d00940787948f586620cb"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html#a97ac361ee09d00940787948f586620cb">AccionNoEjecutadaExcepcion::AccionNoEjecutadaExcepcion</a></div><div class="ttdeci">AccionNoEjecutadaExcepcion(int duracion, int intervalo)</div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:19</div></div>
+<div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html">AccionNoEjecutadaExcepcion</a></div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:13</div></div>
+<div class="ttc" id="anamespaceliterales_html_a4e2e233a525ba787175f2969f57782f0"><div class="ttname"><a href="namespaceliterales.html#a4e2e233a525ba787175f2969f57782f0">literales::formato</a></div><div class="ttdeci">std::string formato(const std::string &amp;textoPlantilla, Args &amp;&amp;...argumentos)</div><div class="ttdef"><b>Definition:</b> literales.h:39</div></div>
 <div class="ttc" id="aliterales_8h_html"><div class="ttname"><a href="literales_8h.html">literales.h</a></div></div>
 <div class="ttc" id="anamespaceliterales_html_a552342a967addb854f230fff46d3dada"><div class="ttname"><a href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a></div><div class="ttdeci">string aTexto(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> literales.h:31</div></div>
-<div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html_a9b745fde28f9bf8d0c6ebadd9045c1c6"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6">AccionNoEjecutadaExcepcion::obtenerMensaje</a></div><div class="ttdeci">string obtenerMensaje()</div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:29</div></div>
+<div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html_a9b745fde28f9bf8d0c6ebadd9045c1c6"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6">AccionNoEjecutadaExcepcion::obtenerMensaje</a></div><div class="ttdeci">string obtenerMensaje()</div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:23</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>
