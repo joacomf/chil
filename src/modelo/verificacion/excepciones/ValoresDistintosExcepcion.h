@@ -6,10 +6,12 @@
 
 template <typename T>
 class ValoresDistintosExcepcion: public ComparacionExcepcion<T> {
+private:
+    constexpr static const char *const ESPERADO_TEXTO = "igual";
 
 public:
     explicit ValoresDistintosExcepcion(T recibido, T esperado):
-             ComparacionExcepcion<T>(recibido, esperado, "igual"){}
+             ComparacionExcepcion<T>(recibido, esperado, ESPERADO_TEXTO){}
 
 };
 

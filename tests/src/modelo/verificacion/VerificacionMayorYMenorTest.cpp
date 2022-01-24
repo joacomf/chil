@@ -14,7 +14,7 @@ TEST(VerificacionTest, alNoSerMayorSeLanzaExepcionInformandoElProblema) {
     try {
         verificar<double>(2.2)->esMayorA(5123.4232);
     } catch (ValorEsMenorExcepcion<double>& excepcion) {
-        ASSERT_EQ(excepcion.obtenerMensaje(), "Se esperaba el valor: \n5123.42\nSea mayor a: \n2.2\nPero no lo es\n");
+        ASSERT_EQ(excepcion.obtenerMensaje(), "Se esperaba el valor: \n5123.42\nSea mayor a: \n2.2\nPero no lo fue\n");
     }
 }
 
@@ -32,6 +32,6 @@ TEST(VerificacionTest, alNoSerMenorSeLanzaExepcionInformandoElProblema) {
     try {
         verificar<double>(5123.2)->esMenorA(5123.4232);
     } catch (ValorEsMayorExcepcion<double>& excepcion) {
-        ASSERT_EQ(excepcion.obtenerMensaje(), "Se esperaba el valor: \n9922.2\nSea menor a: \n5123.42\nPero no lo es\n");
+        ASSERT_EQ(excepcion.obtenerMensaje(), "Se esperaba el valor: \n9922.2\nSea menor a: \n5123.42\nPero no lo fue\n");
     }
 }

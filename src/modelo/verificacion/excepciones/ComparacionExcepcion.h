@@ -13,7 +13,7 @@ using literales::aTexto;
 template <typename T>
 class ComparacionExcepcion : public exception {
 
-protected:
+private:
     constexpr static const char *const SALTO_DE_LINEA = "\n";
     constexpr static const char *const TEXTO_ESPERADO = "Se esperaba el valor: ";
     constexpr static const char *const TEXTO_SEA = "Sea ";
@@ -32,6 +32,10 @@ public:
 
     string obtenerMensaje() {
         return mensaje;
+    }
+
+    const char* what() const noexcept override {
+        return mensaje.c_str();
     }
 };
 
