@@ -105,21 +105,11 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* t);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; t);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ...Args&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespaceliterales.html#a4e2e233a525ba787175f2969f57782f0">   39</a></span>&#160;    std::string <a class="code" href="namespaceliterales.html#a4e2e233a525ba787175f2969f57782f0">formato</a>(<span class="keyword">const</span> std::string&amp; textoPlantilla, Args &amp;&amp; ...argumentos)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">int</span> espacio = std::snprintf(<span class="keyword">nullptr</span>, 0, textoPlantilla.c_str(), std::forward&lt;Args&gt;(argumentos)...);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        std::string salida(espacio, <span class="charliteral">&#39;\0&#39;</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::sprintf(&amp;salida[0], textoPlantilla.c_str(), std::forward&lt;Args&gt;(argumentos)...);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> salida;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif //CHIL_LITERALES_H</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif //CHIL_LITERALES_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacepatch_html_a8ec1460056d0f47b2177699ffdd32f58"><div class="ttname"><a href="namespacepatch.html#a8ec1460056d0f47b2177699ffdd32f58">patch::to_string</a></div><div class="ttdeci">string to_string(const T &amp;texto)</div><div class="ttdef"><b>Definition:</b> literales.h:22</div></div>
-<div class="ttc" id="anamespaceliterales_html_a4e2e233a525ba787175f2969f57782f0"><div class="ttname"><a href="namespaceliterales.html#a4e2e233a525ba787175f2969f57782f0">literales::formato</a></div><div class="ttdeci">std::string formato(const std::string &amp;textoPlantilla, Args &amp;&amp;...argumentos)</div><div class="ttdef"><b>Definition:</b> literales.h:39</div></div>
 <div class="ttc" id="anamespaceliterales_html_a552342a967addb854f230fff46d3dada"><div class="ttname"><a href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a></div><div class="ttdeci">string aTexto(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> literales.h:31</div></div>
 <div class="ttc" id="anamespaceliterales_html"><div class="ttname"><a href="namespaceliterales.html">literales</a></div><div class="ttdef"><b>Definition:</b> literales.h:29</div></div>
 <div class="ttc" id="anamespacepatch_html"><div class="ttname"><a href="namespacepatch.html">patch</a></div><div class="ttdef"><b>Definition:</b> literales.h:12</div></div>

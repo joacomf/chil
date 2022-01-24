@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['durante_153',['durante',['../classAccionVerificable.html#ab5606c0ec85703ee37bc695908d87ded',1,'AccionVerificable']]]
+  ['durante_152',['durante',['../classAccionVerificable.html#ab5606c0ec85703ee37bc695908d87ded',1,'AccionVerificable']]]
 ];

@@ -4,6 +4,5 @@ var searchData=
   ['fin_5fde_5fpruebas_34',['FIN_DE_PRUEBAS',['../Chil_8h.html#a02f2ad72f76058f28d80994921e4a6aa',1,'Chil.h']]],
   ['finalizar_35',['finalizar',['../classEscenario.html#af9a7005419209091e8a6529411006d1c',1,'Escenario']]],
   ['finalizarescenario_36',['finalizarEscenario',['../classChil.html#a991678d5f453e0a29e14f75379eede57',1,'Chil']]],
-  ['finalizarpruebas_37',['finalizarPruebas',['../classChil.html#a19944b2721a96835bc70f92e59f862f5',1,'Chil']]],
-  ['formato_38',['formato',['../namespaceliterales.html#a4e2e233a525ba787175f2969f57782f0',1,'literales']]]
+  ['finalizarpruebas_37',['finalizarPruebas',['../classChil.html#a19944b2721a96835bc70f92e59f862f5',1,'Chil']]]
 ];
