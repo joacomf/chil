@@ -7,25 +7,21 @@
 
 using namespace std;
 using literales::aTexto;
+using literales::formato;
 
 template <typename T>
 class ValorNoEstaEntreExcepcion : public exception {
 
 private:
-    constexpr static const char *const SALTO_DE_LINEA = "\n";
-    constexpr static const char *const TEXTO_ESPERADO = "Se esperaba el valor: ";
-    constexpr static const char *const TEXTO_ENTRE = "Este entre: ";
-    constexpr static const char *const TEXTO_Y = " y ";
-    constexpr static const char *const TEXTO_FINAL = "Pero no lo esta";
+    constexpr static const char *const TEXTO = "Se esperaba el valor: \n%s\nEste entre: \n%s y %s\nPero no lo esta\n";
 
     string mensaje{};
 public:
     ValorNoEstaEntreExcepcion(T recibido, T inferior, T superior) {
-        mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA)
-                .append(aTexto(recibido)).append(SALTO_DE_LINEA)
-                .append(TEXTO_ENTRE).append(SALTO_DE_LINEA)
-                .append(aTexto(inferior)).append(TEXTO_Y).append(aTexto(superior)).append(SALTO_DE_LINEA)
-                .append(TEXTO_FINAL).append(SALTO_DE_LINEA);
+        mensaje = formato(TEXTO,
+                          aTexto(recibido).c_str(),
+                          aTexto(inferior).c_str(),
+                          aTexto(superior).c_str());
     }
 
     string obtenerMensaje() {
