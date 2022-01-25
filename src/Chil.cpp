@@ -58,7 +58,7 @@ void Chil::escenario(const char *nombre) {
  *
  */
 void Chil::finalizarEscenario() {
-  this->_escenario->finalizar(plataforma);
+    this->_escenario->finalizar();
   this->resumen->registrarEscenarioConResultado(this->_escenario->esExitoso());
   this->_escenarios.push_back(*this->_escenario);
 }

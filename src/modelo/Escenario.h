@@ -11,7 +11,7 @@ using namespace std;
 class Escenario {
 
 public:
-    Escenario(const char *nombre);
+    explicit Escenario(const char *nombre);
     const char *nombre;
 
     string imprimirResultado();
@@ -20,9 +20,9 @@ public:
 
     int obtenerCantidadPasos();
 
-    void finalizar(Plataforma *framework);
+    void finalizar();
 
-    bool esExitoso();
+    bool esExitoso() const;
 
 private:
     list<Paso> _pasos;

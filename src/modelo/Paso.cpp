@@ -27,7 +27,7 @@ unsigned long Paso::tiempo() const {
  *
  * @param long microsegundos tiempo actual en microsegundos
  */
-void Paso::inicio(long microsegundos) {
+void Paso::inicio(unsigned long microsegundos) {
   this->tiempoInicio = microsegundos;
 }
 
@@ -36,7 +36,7 @@ void Paso::inicio(long microsegundos) {
  *
  * @param long microsegundos tiempo actual en microsegundos
  */
-void Paso::fin(long microsegundos) {
+void Paso::fin(unsigned long microsegundos) {
   this->tiempoFin = microsegundos;
 }
 
@@ -58,7 +58,7 @@ string Paso::mostrar() {
  * Ejecuta el metodo que contiene la logica del paso y establece el resultado como informacion del paso
  */
 void Paso::ejecutar() {
-  this->exitoso = this->_funcion();
+    this->exitoso = this->_funcion();
 }
 
 /**
@@ -71,6 +71,6 @@ string Paso::obtenerNombre() {
 /**
  * Devuelve si el paso fue exitoso o no
  */
-bool Paso::esExitoso() {
+bool Paso::esExitoso() const {
     return this->exitoso;
 }

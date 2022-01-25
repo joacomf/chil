@@ -1,4 +1,5 @@
 #include <modelo/Escenario.h>
+#include <macros.h>
 
 /**
  * Clase para definir un escenario nuevo
@@ -56,19 +57,19 @@ int Escenario::obtenerCantidadPasos() {
  *
  * @param Plataforma* framework - referencia a la plataforma para poder usar comandos propios de la misma
  */
-void Escenario::finalizar(Plataforma *framework) {
+void Escenario::finalizar() {
   list<Paso>::iterator paso;
 
   for (paso = this->_pasos.begin(); paso != this->_pasos.end(); ++paso) {
-    paso->inicio(framework->microsegundos());
+    paso->inicio(PLATAFORMA->microsegundos());
     paso->ejecutar();
-    paso->fin(framework->microsegundos());
+    paso->fin(PLATAFORMA->microsegundos());
 
     this->exitoso = this->exitoso && paso->esExitoso();
   }
 }
 
-bool Escenario::esExitoso() {
+bool Escenario::esExitoso() const {
     return this->exitoso;
 }
 

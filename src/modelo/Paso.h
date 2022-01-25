@@ -11,14 +11,14 @@ class Paso {
 public:
     Paso(const char *nombre, bool (*funcion)());
 
-    void inicio(long microsegundos);
-    void fin(long microsegundos);
+    void inicio(unsigned long microsegundos);
+    void fin(unsigned long microsegundos);
 
     string obtenerNombre();
     string mostrar();
     void ejecutar();
     unsigned long tiempo() const;
-    bool esExitoso();
+    bool esExitoso() const;
 
 private:
     constexpr static const char *const INDICADOR_PASO_EXITOSO = "[OK] ";
