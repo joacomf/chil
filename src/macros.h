@@ -34,6 +34,7 @@ class PasoEjecutable {
 public:
     bool haIniciado;
     PasoEjecutable(const char* nombre, bool (*funcion)());
+    PasoEjecutable(const char* nombre, void (*funcion)());
     ~PasoEjecutable() = default;
 };
 
