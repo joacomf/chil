@@ -1,7 +1,7 @@
 #include <Chil.h>
 #include "ExportadorJSON.h"
 
-string ExportadorJSON::exportarEscenarios() {
+string ExportadorJSON::generar() {
     string objetoJSON;
     objetoJSON.append(LLAVE_APERTURA);
 

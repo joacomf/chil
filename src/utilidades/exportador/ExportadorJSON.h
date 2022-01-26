@@ -13,7 +13,7 @@ using std::string;
 class ExportadorJSON {
 
 public:
-    static string exportarEscenarios();
+    static string generar();
 
 private:
     constexpr static const char *const COMILLAS = "\"";

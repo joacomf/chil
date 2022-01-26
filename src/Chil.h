@@ -5,6 +5,7 @@
 #include "modelo/Escenario.h"
 #include "modelo/Resumen.h"
 #include "macros.h"
+#include "utilidades/exportador/ExportadorJSON.h"
 
 #include <vector>
 #include <string>
@@ -13,6 +14,7 @@
 #define FIN_DE_PRUEBAS Chil::obtener()->finalizarPruebas()
 #define CHIL Chil::obtener()
 #define PLATAFORMA Chil::obtener()->plataforma
+#define EXPORTAR_JSON Chil::obtener()->exportarJSON()
 
 #define PRUEBAS void setup() {
 #define FIN } void loop() {}
@@ -47,6 +49,7 @@ public:
     const vector<Escenario *> &obtenerEscenarios();
 
     Resumen *obtenerResumen();
+    void exportarJSON();
 
 private:
     Escenario *_escenario{};

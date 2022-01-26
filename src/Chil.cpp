@@ -111,3 +111,7 @@ const vector<Escenario *> &Chil::obtenerEscenarios() {
 Resumen *Chil::obtenerResumen() {
     return this->resumen;
 }
+
+void Chil::exportarJSON() {
+    this->plataforma->consola(ExportadorJSON::generar().c_str());
+}
