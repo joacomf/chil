@@ -46,11 +46,7 @@ TEST(PasoTest, ejecutaMetodoVoidQueLanzaExcepcionPorMedioDeUnaVerificacion) {
     paso->ejecutar();
 
     ASSERT_EQ(paso->esExitoso(), false);
-    ASSERT_EQ(paso->detalleDeError(), "Se esperaba el valor: \n"
-                         "4\n"
-                         "Sea igual a: \n"
-                         "2\n"
-                         "Pero no lo fue\n");}
+    ASSERT_EQ(paso->detalleDeError(), "Se esperaba que el valor 4 sea igual a 2 pero no lo fue");}
 
 TEST(PasoTest, alEjecutarUnPasoConLaLibreriaDeVerificacionGuardaElErrorDelFallo) {
     auto* paso = new Paso("Recibe valor 4 en el pin", valorNoIgualAOtro);
@@ -62,15 +58,7 @@ TEST(PasoTest, alEjecutarUnPasoConLaLibreriaDeVerificacionGuardaElErrorDelFallo)
     string detalleError = paso->detalleDeError();
     string resultado = paso->mostrar();
 
-    ASSERT_EQ(detalleError, "Se esperaba el valor: \n"
-                         "4\n"
-                         "Sea igual a: \n"
-                         "2\n"
-                         "Pero no lo fue\n");
+    ASSERT_EQ(detalleError, "Se esperaba que el valor 4 sea igual a 2 pero no lo fue");
     ASSERT_EQ(resultado, "[FALLO] Recibe valor 4 en el pin - ejecuto en 40 useg\n"
-                         "\tDetalle: Se esperaba el valor: \n"
-                         "4\n"
-                         "Sea igual a: \n"
-                         "2\n"
-                         "Pero no lo fue\n");
+                         "\tDetalle: Se esperaba que el valor 4 sea igual a 2 pero no lo fue");
 }

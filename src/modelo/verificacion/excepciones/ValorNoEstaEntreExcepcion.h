@@ -12,20 +12,19 @@ template <typename T>
 class ValorNoEstaEntreExcepcion : public exception {
 
 private:
-    constexpr static const char *const SALTO_DE_LINEA = "\n";
-    constexpr static const char *const TEXTO_ESPERADO = "Se esperaba el valor: ";
-    constexpr static const char *const TEXTO_ENTRE = "Este entre: ";
+    constexpr static const char *const TEXTO_ESPERADO = "Se esperaba que el valor ";
+    constexpr static const char *const TEXTO_ENTRE = " este entre ";
     constexpr static const char *const TEXTO_Y = " y ";
-    constexpr static const char *const TEXTO_FINAL = "Pero no lo esta";
+    constexpr static const char *const TEXTO_FINAL = " pero no lo esta";
 
     string mensaje{};
 public:
     ValorNoEstaEntreExcepcion(T recibido, T inferior, T superior) {
-        mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA)
-                .append(aTexto(recibido)).append(SALTO_DE_LINEA)
-                .append(TEXTO_ENTRE).append(SALTO_DE_LINEA)
-                .append(aTexto(inferior)).append(TEXTO_Y).append(aTexto(superior)).append(SALTO_DE_LINEA)
-                .append(TEXTO_FINAL).append(SALTO_DE_LINEA);
+        mensaje.append(TEXTO_ESPERADO)
+                .append(aTexto(recibido))
+                .append(TEXTO_ENTRE)
+                .append(aTexto(inferior)).append(TEXTO_Y).append(aTexto(superior))
+                .append(TEXTO_FINAL);
     }
 
     string obtenerMensaje() {
