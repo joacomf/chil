@@ -33,7 +33,7 @@ TEST(EscenarioTest, alMostrarElReporteFinalSeListaEnUnaLineaCadaResultado) {
   escenario->nuevo(paso2);
   escenario->nuevo(paso3);
 
-  escenario->finalizar(framework);
+  escenario->finalizar();
 
   int cantidadDeResultados = escenario->obtenerCantidadPasos();
 
@@ -69,7 +69,7 @@ TEST(EscenarioTest, resaltaElIndicadorDeEscenarioFallidoSiFallaAlgunoDeLosPasos)
     escenario->nuevo(paso2);
     escenario->nuevo(paso3);
 
-    escenario->finalizar(framework);
+    escenario->finalizar();
 
     string reporteFinal = escenario->imprimirResultado();
 

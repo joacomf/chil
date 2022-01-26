@@ -83,7 +83,7 @@ TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosVal
     try {
         verificar<double>(2.23)->esIgualA(5.21);
     } catch (ValoresDistintosExcepcion<double>& e) {
-        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el valor: \n2.23\nSea igual a: \n5.21\nPero no lo fue\n");
+        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba que el valor 2.23 sea igual a 5.21 pero no lo fue");
     }
 }
 
@@ -91,6 +91,6 @@ TEST(VerificacionTest, recibeMensajeDescriptivoSilanzaExcepcionEnCasoDeQueLosLit
     try {
         verificar("valores")->esIgualA("muy distintos");
     } catch (ValoresDistintosExcepcion<const char*>& e) {
-        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba el valor: \nvalores\nSea igual a: \nmuy distintos\nPero no lo fue\n");
+        ASSERT_EQ(e.obtenerMensaje(), "Se esperaba que el valor valores sea igual a muy distintos pero no lo fue");
     }
 }

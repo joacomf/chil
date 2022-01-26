@@ -14,20 +14,19 @@ template <typename T>
 class ComparacionExcepcion : public exception {
 
 private:
-    constexpr static const char *const SALTO_DE_LINEA = "\n";
-    constexpr static const char *const TEXTO_ESPERADO = "Se esperaba el valor: ";
-    constexpr static const char *const TEXTO_SEA = "Sea ";
-    constexpr static const char *const TEXTO_A = " a: ";
-    constexpr static const char *const TEXTO_FINAL = "Pero no lo fue";
+    constexpr static const char *const TEXTO_ESPERADO = "Se esperaba que el valor ";
+    constexpr static const char *const TEXTO_SEA = " sea ";
+    constexpr static const char *const TEXTO_A = " a ";
+    constexpr static const char *const TEXTO_FINAL = " pero no lo fue";
 
     string mensaje{};
 public:
     ComparacionExcepcion(T recibido, T esperado, const char* textoEsperado) {
-        mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA)
-               .append(aTexto(recibido)).append(SALTO_DE_LINEA)
-               .append(TEXTO_SEA).append(textoEsperado).append(TEXTO_A).append(SALTO_DE_LINEA)
-               .append(aTexto(esperado)).append(SALTO_DE_LINEA)
-               .append(TEXTO_FINAL).append(SALTO_DE_LINEA);
+        mensaje.append(TEXTO_ESPERADO)
+               .append(aTexto(recibido))
+               .append(TEXTO_SEA).append(textoEsperado).append(TEXTO_A)
+               .append(aTexto(esperado))
+               .append(TEXTO_FINAL);
     }
 
     string obtenerMensaje() {

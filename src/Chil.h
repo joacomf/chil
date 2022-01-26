@@ -5,14 +5,16 @@
 #include "modelo/Escenario.h"
 #include "modelo/Resumen.h"
 #include "macros.h"
+#include "utilidades/exportador/ExportadorJSON.h"
 
-#include <list>
+#include <vector>
 #include <string>
 
 #define NUEVO_CHIL_CON(plataforma) Chil::crear(plataforma)
 #define FIN_DE_PRUEBAS Chil::obtener()->finalizarPruebas()
 #define CHIL Chil::obtener()
 #define PLATAFORMA Chil::obtener()->plataforma
+#define EXPORTAR_JSON Chil::obtener()->exportarJSON()
 
 #define PRUEBAS void setup() {
 #define FIN } void loop() {}
@@ -44,9 +46,14 @@ public:
 
     string imprimirResumen();
 
+    const vector<Escenario *> &obtenerEscenarios();
+
+    Resumen *obtenerResumen();
+    void exportarJSON();
+
 private:
     Escenario *_escenario{};
-    list<Escenario> _escenarios;
+    vector<Escenario*> _escenarios;
     const char *mensajeComienzo = "\nPruebas con CHIL:\n";
     const char *mensajeFinDePruebas = "Fin de pruebas con CHIL";
     Resumen *resumen;

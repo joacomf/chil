@@ -5,13 +5,14 @@
 #include <string>
 #include <modelo/Paso.h>
 #include <Plataforma.h>
+#include <vector>
 
 using namespace std;
 
 class Escenario {
 
 public:
-    Escenario(const char *nombre);
+    explicit Escenario(const char *nombre);
     const char *nombre;
 
     string imprimirResultado();
@@ -20,12 +21,14 @@ public:
 
     int obtenerCantidadPasos();
 
-    void finalizar(Plataforma *framework);
+    void finalizar();
 
-    bool esExitoso();
+    bool esExitoso() const;
+
+    vector<Paso *> pasos();
 
 private:
-    list<Paso> _pasos;
+    std::vector<Paso*> _pasos;
     bool exitoso = true;
 
     constexpr static const char *const INDICADOR_ESCENARIO_FALLIDO = "*** ESCENARIO FALLIDO ***\n";

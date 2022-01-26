@@ -33,3 +33,32 @@ TEST(PasoTest, alTenerMostrarUnResultadoOKSeExpresaElExitoNombreYTiempoTranscurr
 
   ASSERT_EQ(resultado, "[FALLO] Envia comando a pin 13 - ejecuto en 40 useg");
 }
+
+void valorNoIgualAOtro() {
+    verificar(4)->esIgualA(2);
+}
+
+TEST(PasoTest, ejecutaMetodoVoidQueLanzaExcepcionPorMedioDeUnaVerificacion) {
+    auto* paso = new Paso("Envia comando a pin 13", valorNoIgualAOtro);
+
+    paso->inicio(103540L);
+    paso->fin(103580L);
+    paso->ejecutar();
+
+    ASSERT_EQ(paso->esExitoso(), false);
+    ASSERT_EQ(paso->detalleDeError(), "Se esperaba que el valor 4 sea igual a 2 pero no lo fue");}
+
+TEST(PasoTest, alEjecutarUnPasoConLaLibreriaDeVerificacionGuardaElErrorDelFallo) {
+    auto* paso = new Paso("Recibe valor 4 en el pin", valorNoIgualAOtro);
+
+    paso->inicio(103540L);
+    paso->ejecutar();
+    paso->fin(103580L);
+
+    string detalleError = paso->detalleDeError();
+    string resultado = paso->mostrar();
+
+    ASSERT_EQ(detalleError, "Se esperaba que el valor 4 sea igual a 2 pero no lo fue");
+    ASSERT_EQ(resultado, "[FALLO] Recibe valor 4 en el pin - ejecuto en 40 useg\n"
+                         "\tDetalle: Se esperaba que el valor 4 sea igual a 2 pero no lo fue");
+}

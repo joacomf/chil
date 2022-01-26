@@ -1,4 +1,5 @@
 #include <modelo/Escenario.h>
+#include <macros.h>
 
 /**
  * Clase para definir un escenario nuevo
@@ -8,7 +9,7 @@
  * @param const char* nombre - Nombre a otorgar al escenario
  */
 Escenario::Escenario(const char *nombre) {
-  this->nombre = nombre;
+    this->nombre = nombre;
 }
 
 /**
@@ -17,7 +18,7 @@ Escenario::Escenario(const char *nombre) {
  * @param Paso* paso - referencia del paso a registrar en el escenario actual
  */
 void Escenario::nuevo(Paso *paso) {
-  this->_pasos.push_back(*paso);
+    this->_pasos.push_back(paso);
 }
 
 /**
@@ -26,20 +27,19 @@ void Escenario::nuevo(Paso *paso) {
  * @return [out][string] resultado final formateado para mostrar por consola.
  */
 string Escenario::imprimirResultado() {
-  list<Paso>::iterator paso;
-  string reporteDeEscenario = string(COMIENZO_DE_ESCENARIO + string(this->nombre));
-  reporteDeEscenario.append(SALTO_DE_LINEA_DOBLE);
+    string reporteDeEscenario = string(COMIENZO_DE_ESCENARIO + string(this->nombre));
+    reporteDeEscenario.append(SALTO_DE_LINEA_DOBLE);
 
-  for (paso = this->_pasos.begin(); paso != this->_pasos.end(); ++paso) {
-    reporteDeEscenario.append(paso->mostrar());
-    reporteDeEscenario.append(SALTO_DE_LINEA);
-  }
+    for (Paso *paso : this->_pasos) {
+        reporteDeEscenario.append(paso->mostrar());
+        reporteDeEscenario.append(SALTO_DE_LINEA);
+    }
 
-  if (!this->exitoso) {
-    reporteDeEscenario.append(INDICADOR_ESCENARIO_FALLIDO);
-  }
+    if (!this->exitoso) {
+        reporteDeEscenario.append(INDICADOR_ESCENARIO_FALLIDO);
+    }
 
-  return reporteDeEscenario;
+    return reporteDeEscenario;
 }
 
 /**
@@ -48,7 +48,7 @@ string Escenario::imprimirResultado() {
  * @return [out][int] cantidad de pasos del escenario.
  */
 int Escenario::obtenerCantidadPasos() {
-  return this->_pasos.size();
+    return this->_pasos.size();
 }
 
 /**
@@ -56,19 +56,23 @@ int Escenario::obtenerCantidadPasos() {
  *
  * @param Plataforma* framework - referencia a la plataforma para poder usar comandos propios de la misma
  */
-void Escenario::finalizar(Plataforma *framework) {
-  list<Paso>::iterator paso;
+void Escenario::finalizar() {
+    for (Paso *paso : this->_pasos) {
+        paso->inicio(PLATAFORMA->microsegundos());
+        paso->ejecutar();
+        paso->fin(PLATAFORMA->microsegundos());
 
-  for (paso = this->_pasos.begin(); paso != this->_pasos.end(); ++paso) {
-    paso->inicio(framework->microsegundos());
-    paso->ejecutar();
-    paso->fin(framework->microsegundos());
+        bool resultadoDelPaso = paso->esExitoso();
 
-    this->exitoso = this->exitoso && paso->esExitoso();
-  }
+        this->exitoso = this->exitoso && resultadoDelPaso;
+    }
 }
 
-bool Escenario::esExitoso() {
+bool Escenario::esExitoso() const {
     return this->exitoso;
+}
+
+vector<Paso *> Escenario::pasos() {
+    return this->_pasos;
 }
 

@@ -107,14 +107,12 @@ TEST_F(PruebasDeChil, deberiaMostrarElResultadoDeTodosLosPasosUtilizandoLambdasC
   ASSERT_EQ(reporte, "Escenario: Primer escenario con dos pasos\n\n[OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg\n[OK] Imprime por consola el saludo de despedida - ejecuto en 100 useg\n\n");
 }
 
-bool saludoDeComienzo() {
+void saludoDeComienzo() {
     PLATAFORMA->consola("Hola mundo!");
-    return true;
 }
 
-bool saludoDeDespedida() {
+void saludoDeDespedida() {
     PLATAFORMA->consola("Hola mundo!");
-    return true;
 }
 
 bool pasoFallidoPorConfiguracion() {
@@ -145,7 +143,7 @@ TEST_F(PruebasDeChil, deberiaMostrarElResumenDeLaEjecucion) {
     }
 
     ESCENARIO(Segundo escenario con dos pasos){
-        PASO(FallaElPasoPorConfiguracion, pasoFallidoPorConfiguracion);
+        PASO(Falla el paso por configuracion, pasoFallidoPorConfiguracion);
         PASO(Imprime por consola el saludo de despedida, saludoDeDespedida);
     }
 

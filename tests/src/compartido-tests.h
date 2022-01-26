@@ -9,6 +9,7 @@
 
 #include "Chil.h"
 #include "modelo/verificacion/Verificacion.h"
+#include <utilidades/exportador/ExportadorJSON.h>
 
 using ::testing::AtLeast;
 using ::testing::Exactly;
@@ -17,5 +18,6 @@ using ::testing::_; // NOLINT(bugprone-reserved-identifier)
 using ::testing::StrEq;
 using ::testing::Return;
 using ::testing::Test;
+
 
 #endif //CHIL_COMPARTIDO_TESTS_H
