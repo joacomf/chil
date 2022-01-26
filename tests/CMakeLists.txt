@@ -18,7 +18,7 @@ add_executable(
         src/modelo/verificacion/VerificacionEnBucleTest.cpp
         src/modelo/verificacion/VerificacionMayorYMenorTest.cpp
         src/modelo/verificacion/VerificacionEntreTest.cpp
-        src/modelo/exportador/ExportadorJSON.cpp
+        src/modelo/exportador/ExportadorJSONTest.cpp
 
         plataformas/modelo/PuntoDeEntradaTest.cpp
 

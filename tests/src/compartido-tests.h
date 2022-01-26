@@ -9,6 +9,7 @@
 
 #include "Chil.h"
 #include "modelo/verificacion/Verificacion.h"
+#include <utilidades/exportador/ExportadorJSON.h>
 
 using ::testing::AtLeast;
 using ::testing::Exactly;
