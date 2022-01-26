@@ -1,6 +1,6 @@
 #include "compartido-tests.h"
 
-TEST(VerificacionTest, verificaUnValorEsteEntreDosValoresCorrectamente) {
+TEST(VerificacionEntreValoresTest, verificaUnValorEsteEntreDosValoresCorrectamente) {
     ASSERT_NO_THROW(verificar<int>(5)->entre(4, 6));
     ASSERT_NO_THROW(verificar<int>(5)->entre(5, 5));
     ASSERT_NO_THROW(verificar<long>(123123)->entre(1, 123123));
@@ -12,7 +12,7 @@ TEST(VerificacionTest, verificaUnValorEsteEntreDosValoresCorrectamente) {
     ASSERT_THROW(verificar<double>(2.2)->entre(5123.42, 5123.42), ValorNoEstaEntreExcepcion<double>);
 }
 
-TEST(VerificacionTest, alNoEstarEntre2ValoresSeLanzaExepcionInformandoElProblema) {
+TEST(VerificacionEntreValoresTest, alNoEstarEntre2ValoresSeLanzaExepcionInformandoElProblema) {
     try {
         verificar<double>(2.2)->entre(3.3, 4.4);
     } catch (ValorNoEstaEntreExcepcion<double>& excepcion) {

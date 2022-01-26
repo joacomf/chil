@@ -25,6 +25,8 @@ public:
 
     bool esExitoso() const;
 
+    vector<Paso *> pasos();
+
 private:
     std::vector<Paso*> _pasos;
     bool exitoso = true;

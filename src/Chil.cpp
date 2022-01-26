@@ -59,8 +59,8 @@ void Chil::escenario(const char *nombre) {
  */
 void Chil::finalizarEscenario() {
     this->_escenario->finalizar();
-  this->resumen->registrarEscenarioConResultado(this->_escenario->esExitoso());
-  this->_escenarios.push_back(*this->_escenario);
+    this->resumen->registrarEscenarioConResultado(this->_escenario->esExitoso());
+    this->_escenarios.push_back(this->_escenario);
 }
 
 /**
@@ -71,10 +71,10 @@ void Chil::finalizarEscenario() {
 string Chil::imprimirReporte() {
   string reporteFinal = string();
 
-  list<Escenario>::iterator escenario;
+  vector<Escenario*>::const_iterator escenarioIterado;
 
-  for (escenario = this->_escenarios.begin(); escenario != this->_escenarios.end(); ++escenario) {
-    reporteFinal.append(escenario->imprimirResultado());
+  for (escenarioIterado = this->_escenarios.begin(); escenarioIterado != this->_escenarios.end(); ++escenarioIterado) {
+    reporteFinal.append((*escenarioIterado)->imprimirResultado());
     reporteFinal.append("\n");
   }
 
@@ -102,4 +102,8 @@ void Chil::finalizarPruebas() {
 
 string Chil::imprimirResumen() {
     return resumen->imprimible();
+}
+
+const vector<Escenario *> &Chil::obtenerEscenarios() {
+    return this->_escenarios;
 }

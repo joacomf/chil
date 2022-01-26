@@ -18,4 +18,5 @@ using ::testing::StrEq;
 using ::testing::Return;
 using ::testing::Test;
 
+
 #endif //CHIL_COMPARTIDO_TESTS_H

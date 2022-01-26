@@ -18,6 +18,7 @@ add_executable(
         src/modelo/verificacion/VerificacionEnBucleTest.cpp
         src/modelo/verificacion/VerificacionMayorYMenorTest.cpp
         src/modelo/verificacion/VerificacionEntreTest.cpp
+        src/modelo/exportador/ExportadorJSON.cpp
 
         plataformas/modelo/PuntoDeEntradaTest.cpp
 
@@ -49,7 +50,11 @@ add_executable(
         ../src/modelo/ejecutores/EjecutorSimple.cpp
         ../src/modelo/ejecutores/EjecutorSimple.h
         ../src/modelo/ejecutores/EjecutorConManejoDeErrores.cpp
-        ../src/modelo/ejecutores/EjecutorConManejoDeErrores.h)
+        ../src/modelo/ejecutores/EjecutorConManejoDeErrores.h
+
+        ../src/utilidades/exportador/ExportadorJSON.cpp
+        ../src/utilidades/exportador/ExportadorJSON.h
+        )
 
 add_test(NAME check COMMAND tests)
 

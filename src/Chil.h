@@ -6,7 +6,7 @@
 #include "modelo/Resumen.h"
 #include "macros.h"
 
-#include <list>
+#include <vector>
 #include <string>
 
 #define NUEVO_CHIL_CON(plataforma) Chil::crear(plataforma)
@@ -44,9 +44,11 @@ public:
 
     string imprimirResumen();
 
+    const vector<Escenario *> &obtenerEscenarios();
+
 private:
     Escenario *_escenario{};
-    list<Escenario> _escenarios;
+    vector<Escenario*> _escenarios;
     const char *mensajeComienzo = "\nPruebas con CHIL:\n";
     const char *mensajeFinDePruebas = "Fin de pruebas con CHIL";
     Resumen *resumen;
