@@ -46,6 +46,8 @@ public:
 
     const vector<Escenario *> &obtenerEscenarios();
 
+    Resumen *obtenerResumen();
+
 private:
     Escenario *_escenario{};
     vector<Escenario*> _escenarios;

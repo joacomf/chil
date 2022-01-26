@@ -21,7 +21,7 @@ TEST(ExportadorJSON, exportaUnEscenarioConElUnicoPasoExitoso) {
 
     string escenariosJSON = ExportadorJSON::exportarEscenarios();
 
-    ASSERT_EQ(escenariosJSON, "{\"escenarios\":[{\"nombre\":\"Deja de recibir comando en pin 1 para pasar comando al pin 12\",\"exitoso\":true,\"pasos\":[{\"nombre\":\"Recibe comando en el pin 1\",\"exitoso\":true,\"tiempo\":100,\"detalleDeError\":\"\"}]}]}");
+    ASSERT_EQ(escenariosJSON, "{\"resumen\":{\"completados\":1,\"exitosos\":1,\"fallidos\":0},\"escenarios\":[{\"nombre\":\"Deja de recibir comando en pin 1 para pasar comando al pin 12\",\"exitoso\":true,\"pasos\":[{\"nombre\":\"Recibe comando en el pin 1\",\"exitoso\":true,\"tiempo\":100,\"detalleDeError\":\"\"}]}]}");
 
     delete laPlataforma;
 }

@@ -107,3 +107,7 @@ string Chil::imprimirResumen() {
 const vector<Escenario *> &Chil::obtenerEscenarios() {
     return this->_escenarios;
 }
+
+Resumen *Chil::obtenerResumen() {
+    return this->resumen;
+}

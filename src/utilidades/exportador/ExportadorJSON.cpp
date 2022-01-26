@@ -5,11 +5,26 @@ string ExportadorJSON::exportarEscenarios() {
     string objetoJSON;
     objetoJSON.append(LLAVE_APERTURA);
 
+    resumen(CHIL->obtener()->obtenerResumen(), objetoJSON);
+    objetoJSON.append(COMA);
     escenarios(CHIL->obtener()->obtenerEscenarios(), objetoJSON);
 
     objetoJSON.append(LLAVE_CIERRE);
 
     return objetoJSON;
+}
+
+void ExportadorJSON::resumen(const Resumen* resumen, string &objetoJSON) {
+    objetoJSON.append(COMILLAS).append("resumen").append(COMILLAS)
+            .append(DOS_PUNTOS)
+            .append(LLAVE_APERTURA);
+
+    objetoJSON.append(dato("completados", resumen->escenarioCompletados())).append(COMA);
+    objetoJSON.append(dato("exitosos", resumen->escenariosExitosos())).append(COMA);
+    objetoJSON.append(dato("fallidos", resumen->escenarioFallidos()));
+
+    objetoJSON.append(LLAVE_CIERRE);
+
 }
 
 void ExportadorJSON::escenarios(const vector<Escenario*> &escenarios, string &objetoJSON) {
@@ -64,13 +79,6 @@ string ExportadorJSON::transformar(Paso *paso) {
             .append(dato("tiempo", paso->tiempo())).append(COMA)
             .append(dato("detalleDeError", paso->detalleDeError()))
             .append(LLAVE_CIERRE);
-}
-
-string ExportadorJSON::dato(const char *clave, unsigned long valor){
-    string dato;
-    dato.append(COMILLAS).append(literales::aTexto(clave)).append(COMILLAS).append(DOS_PUNTOS);
-    dato.append(literales::aTexto(valor));
-    return dato;
 }
 
 string ExportadorJSON::dato(const char *clave, bool valor) {

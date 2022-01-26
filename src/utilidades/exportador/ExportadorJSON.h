@@ -5,6 +5,7 @@
 #include <string>
 
 #include <modelo/Escenario.h>
+#include <modelo/Resumen.h>
 
 using std::vector;
 using std::string;
@@ -31,11 +32,19 @@ private:
     static string dato(const char *clave, bool valor);
     static string dato(const char *clave, const string& valor);
     static string dato(const char *clave, const char *valor);
-    static string dato(const char *clave, unsigned long valor);
+
+    template<typename T>
+    static string dato(const char *clave, T valor){
+        string dato;
+        dato.append(COMILLAS).append(literales::aTexto(clave)).append(COMILLAS).append(DOS_PUNTOS);
+        dato.append(literales::aTexto(valor));
+        return dato;
+    }
 
     static void transformarPasos(string &objetoEscenario, const vector<Paso *> &pasos);
 
     static void escenarios(const vector<Escenario *> &escenarios, string &objetoJSON);
+    static void resumen(const Resumen* resumen, string &objetoJSON);
 };
 
 
