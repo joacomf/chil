@@ -95,40 +95,39 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classComparacionExcepcion.html">ComparacionExcepcion</a> : <span class="keyword">public</span> exception {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> SALTO_DE_LINEA = <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_ESPERADO = <span class="stringliteral">&quot;Se esperaba el valor: &quot;</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_SEA = <span class="stringliteral">&quot;Sea &quot;</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_A = <span class="stringliteral">&quot; a: &quot;</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_FINAL = <span class="stringliteral">&quot;Pero no lo fue&quot;</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">string</span> mensaje{};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html#a4a8742c20e10c54ee8772ea175cce28a">   25</a></span>&#160;    <a class="code" href="classComparacionExcepcion.html#a4a8742c20e10c54ee8772ea175cce28a">ComparacionExcepcion</a>(T recibido, T esperado, <span class="keyword">const</span> <span class="keywordtype">char</span>* textoEsperado) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        mensaje.append(TEXTO_ESPERADO).append(SALTO_DE_LINEA)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;               .append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(recibido)).append(SALTO_DE_LINEA)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;               .append(TEXTO_SEA).append(textoEsperado).append(TEXTO_A).append(SALTO_DE_LINEA)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;               .append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(esperado)).append(SALTO_DE_LINEA)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;               .append(TEXTO_FINAL).append(SALTO_DE_LINEA);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08">   33</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08">obtenerMensaje</a>() {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> mensaje;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a">   37</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a">what</a>() const noexcept<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> mensaje.c_str();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_ESPERADO = <span class="stringliteral">&quot;Se esperaba que el valor &quot;</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_SEA = <span class="stringliteral">&quot; sea &quot;</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_A = <span class="stringliteral">&quot; a &quot;</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> TEXTO_FINAL = <span class="stringliteral">&quot; pero no lo fue&quot;</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">string</span> mensaje{};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html#a4a8742c20e10c54ee8772ea175cce28a">   24</a></span>&#160;    <a class="code" href="classComparacionExcepcion.html#a4a8742c20e10c54ee8772ea175cce28a">ComparacionExcepcion</a>(T recibido, T esperado, <span class="keyword">const</span> <span class="keywordtype">char</span>* textoEsperado) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        mensaje.append(TEXTO_ESPERADO)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;               .append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(recibido))</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;               .append(TEXTO_SEA).append(textoEsperado).append(TEXTO_A)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;               .append(<a class="code" href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">aTexto</a>(esperado))</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;               .append(TEXTO_FINAL);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08">   32</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08">obtenerMensaje</a>() {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> mensaje;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a">   36</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a">what</a>() const noexcept<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> mensaje.c_str();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif //CHIL_COMPARACIONEXCEPCION_H</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif //CHIL_COMPARACIONEXCEPCION_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassComparacionExcepcion_html"><div class="ttname"><a href="classComparacionExcepcion.html">ComparacionExcepcion</a></div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:14</div></div>
 <div class="ttc" id="aliterales_8h_html"><div class="ttname"><a href="literales_8h.html">literales.h</a></div></div>
 <div class="ttc" id="anamespaceliterales_html_a552342a967addb854f230fff46d3dada"><div class="ttname"><a href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a></div><div class="ttdeci">string aTexto(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> literales.h:38</div></div>
-<div class="ttc" id="aclassComparacionExcepcion_html_ac811976bf2b7ca9245f0a6e26bca1a08"><div class="ttname"><a href="classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08">ComparacionExcepcion::obtenerMensaje</a></div><div class="ttdeci">string obtenerMensaje()</div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:33</div></div>
-<div class="ttc" id="aclassComparacionExcepcion_html_a4a8742c20e10c54ee8772ea175cce28a"><div class="ttname"><a href="classComparacionExcepcion.html#a4a8742c20e10c54ee8772ea175cce28a">ComparacionExcepcion::ComparacionExcepcion</a></div><div class="ttdeci">ComparacionExcepcion(T recibido, T esperado, const char *textoEsperado)</div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:25</div></div>
-<div class="ttc" id="aclassComparacionExcepcion_html_ad6a8c1956aca27d0dc54f6a800af5c4a"><div class="ttname"><a href="classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a">ComparacionExcepcion::what</a></div><div class="ttdeci">const char * what() const noexcept override</div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:37</div></div>
+<div class="ttc" id="aclassComparacionExcepcion_html_ac811976bf2b7ca9245f0a6e26bca1a08"><div class="ttname"><a href="classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08">ComparacionExcepcion::obtenerMensaje</a></div><div class="ttdeci">string obtenerMensaje()</div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:32</div></div>
+<div class="ttc" id="aclassComparacionExcepcion_html_a4a8742c20e10c54ee8772ea175cce28a"><div class="ttname"><a href="classComparacionExcepcion.html#a4a8742c20e10c54ee8772ea175cce28a">ComparacionExcepcion::ComparacionExcepcion</a></div><div class="ttdeci">ComparacionExcepcion(T recibido, T esperado, const char *textoEsperado)</div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:24</div></div>
+<div class="ttc" id="aclassComparacionExcepcion_html_ad6a8c1956aca27d0dc54f6a800af5c4a"><div class="ttname"><a href="classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a">ComparacionExcepcion::what</a></div><div class="ttdeci">const char * what() const noexcept override</div><div class="ttdef"><b>Definition:</b> ComparacionExcepcion.h:36</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

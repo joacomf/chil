@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['paso_185',['Paso',['../classPaso.html#a1747a91be2a5302077d9ab873192434a',1,'Paso::Paso()'],['../classChil.html#aad9d33663436091f7e4aafbd42fe4e93',1,'Chil::paso()']]],
-  ['pasoejecutable_186',['PasoEjecutable',['../classPasoEjecutable.html#a82331d62a1280d0e5ef8de2ed18cd4ce',1,'PasoEjecutable']]]
+  ['nuevo_216',['nuevo',['../classEscenario.html#a55027d28b6cb85c23e40dd9b934a3f35',1,'Escenario']]]
 ];

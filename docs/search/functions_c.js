@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tiempo_189',['tiempo',['../classPaso.html#aca539a1ace28b9ee29d0ab8e51b0c1b8',1,'Paso']]],
-  ['to_5fstring_190',['to_string',['../namespacepatch.html#a8ec1460056d0f47b2177699ffdd32f58',1,'patch']]]
+  ['registrarescenarioconresultado_227',['registrarEscenarioConResultado',['../classResumen.html#aa658af67d90ed057969de6bb1881d8c2',1,'Resumen']]]
 ];

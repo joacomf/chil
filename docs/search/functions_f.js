@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['_7echil_200',['~Chil',['../classChil.html#a449ea90ab4220f5a623a8114af3d7c27',1,'Chil']]],
-  ['_7eescenarioejecutable_201',['~EscenarioEjecutable',['../classEscenarioEjecutable.html#aca3a4582b48b0c37749872b331737ef3',1,'EscenarioEjecutable']]],
-  ['_7epasoejecutable_202',['~PasoEjecutable',['../classPasoEjecutable.html#a97eb2b52db4c11e82ba6a75776dffb9b',1,'PasoEjecutable']]]
+  ['valoresdistintosexcepcion_231',['ValoresDistintosExcepcion',['../classValoresDistintosExcepcion.html#a0eab50e91bf509730d921c8b12c6b25e',1,'ValoresDistintosExcepcion']]],
+  ['valornoesmayorexcepcion_232',['ValorNoEsMayorExcepcion',['../classValorNoEsMayorExcepcion.html#a086a625d699a54318b2e7ba273dd875e',1,'ValorNoEsMayorExcepcion']]],
+  ['valornoesmayoroigualexcepcion_233',['ValorNoEsMayorOIgualExcepcion',['../classValorNoEsMayorOIgualExcepcion.html#a4d03a7e40600da747432170f3a965e8c',1,'ValorNoEsMayorOIgualExcepcion']]],
+  ['valornoesmenorexcepcion_234',['ValorNoEsMenorExcepcion',['../classValorNoEsMenorExcepcion.html#af871612e610c0c1cc2828fa89e171410',1,'ValorNoEsMenorExcepcion']]],
+  ['valornoesmenoroigualexcepcion_235',['ValorNoEsMenorOIgualExcepcion',['../classValorNoEsMenorOIgualExcepcion.html#a325b15c43651e5a782423529e74d1fec',1,'ValorNoEsMenorOIgualExcepcion']]],
+  ['valornoestaentreexcepcion_236',['ValorNoEstaEntreExcepcion',['../classValorNoEstaEntreExcepcion.html#ab739512af5695379785dd7dcdc74598b',1,'ValorNoEstaEntreExcepcion']]],
+  ['valorverificable_237',['ValorVerificable',['../classValorVerificable.html#aa60d4107021dbb3bd481e128c0217f77',1,'ValorVerificable::ValorVerificable()=default'],['../classValorVerificable.html#a182d7ea288cde9e30f01c564834c7cad',1,'ValorVerificable::ValorVerificable(Tipo elValorAVerificar)']]],
+  ['verificar_238',['verificar',['../Verificacion_8h.html#af0943eb848d44030dec7b19a004743fc',1,'Verificacion.h']]]
 ];

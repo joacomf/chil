@@ -78,30 +78,59 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Clase para definir un paso nuevo a partir de una método booleano.  
+ <a href="classPaso.html#details">Más...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Paso_8h_source.html">Paso.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
 <tr class="memitem:a1747a91be2a5302077d9ab873192434a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#a1747a91be2a5302077d9ab873192434a">Paso</a> (const char *nombre, bool(*funcion)())</td></tr>
 <tr class="separator:a1747a91be2a5302077d9ab873192434a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2ef4a4b8ddc727d0779ed768ac279e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#aa2ef4a4b8ddc727d0779ed768ac279e9">inicio</a> (long microsegundos)</td></tr>
-<tr class="separator:aa2ef4a4b8ddc727d0779ed768ac279e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af382cbc8dec9db920876265c009cbe90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#af382cbc8dec9db920876265c009cbe90">fin</a> (long microsegundos)</td></tr>
-<tr class="separator:af382cbc8dec9db920876265c009cbe90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d374c01ae71b98d0294e4b67c34fef0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#a9d374c01ae71b98d0294e4b67c34fef0">Paso</a> (const char *nombre, void(*funcion)())</td></tr>
+<tr class="separator:a9d374c01ae71b98d0294e4b67c34fef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac98be6d7ee30b76caf8109b0961207"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#a7ac98be6d7ee30b76caf8109b0961207">inicio</a> (unsigned long microsegundos)</td></tr>
+<tr class="memdesc:a7ac98be6d7ee30b76caf8109b0961207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra el tiempo de inicio de ejecucion del paso en microsegundos.  <a href="classPaso.html#a7ac98be6d7ee30b76caf8109b0961207">Más...</a><br /></td></tr>
+<tr class="separator:a7ac98be6d7ee30b76caf8109b0961207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c369c8a94662602b190d4e9149a3dd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#a3c369c8a94662602b190d4e9149a3dd2">fin</a> (unsigned long microsegundos)</td></tr>
+<tr class="memdesc:a3c369c8a94662602b190d4e9149a3dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra el tiempo de fin de ejecucion del paso en microsegundos.  <a href="classPaso.html#a3c369c8a94662602b190d4e9149a3dd2">Más...</a><br /></td></tr>
+<tr class="separator:a3c369c8a94662602b190d4e9149a3dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f19e6899e8059f3c49f4ed89ea2e040"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#a9f19e6899e8059f3c49f4ed89ea2e040">obtenerNombre</a> ()</td></tr>
+<tr class="memdesc:a9f19e6899e8059f3c49f4ed89ea2e040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el nombre del paso.  <a href="classPaso.html#a9f19e6899e8059f3c49f4ed89ea2e040">Más...</a><br /></td></tr>
 <tr class="separator:a9f19e6899e8059f3c49f4ed89ea2e040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7cb9d5c9ee99c6e6f268b72751e6d1e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#ad7cb9d5c9ee99c6e6f268b72751e6d1e">mostrar</a> ()</td></tr>
+<tr class="memdesc:ad7cb9d5c9ee99c6e6f268b72751e6d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elabora el resultado de un paso.  <a href="classPaso.html#ad7cb9d5c9ee99c6e6f268b72751e6d1e">Más...</a><br /></td></tr>
 <tr class="separator:ad7cb9d5c9ee99c6e6f268b72751e6d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41e120992daa45f2513dc4f8e2af3c3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#a41e120992daa45f2513dc4f8e2af3c3b">ejecutar</a> ()</td></tr>
+<tr class="memdesc:a41e120992daa45f2513dc4f8e2af3c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ejecuta el metodo que contiene la logica del paso y establece el resultado como informacion del paso.  <a href="classPaso.html#a41e120992daa45f2513dc4f8e2af3c3b">Más...</a><br /></td></tr>
 <tr class="separator:a41e120992daa45f2513dc4f8e2af3c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca539a1ace28b9ee29d0ab8e51b0c1b8"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#aca539a1ace28b9ee29d0ab8e51b0c1b8">tiempo</a> () const</td></tr>
+<tr class="memdesc:aca539a1ace28b9ee29d0ab8e51b0c1b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo para saber el tiempo que tomo en ejecutar el paso.  <a href="classPaso.html#aca539a1ace28b9ee29d0ab8e51b0c1b8">Más...</a><br /></td></tr>
 <tr class="separator:aca539a1ace28b9ee29d0ab8e51b0c1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8af616d9b16b058f75d4ba4e30fb878e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#a8af616d9b16b058f75d4ba4e30fb878e">esExitoso</a> ()</td></tr>
+<tr class="memdesc:a8af616d9b16b058f75d4ba4e30fb878e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve si el paso fue exitoso o no.  <a href="classPaso.html#a8af616d9b16b058f75d4ba4e30fb878e">Más...</a><br /></td></tr>
 <tr class="separator:a8af616d9b16b058f75d4ba4e30fb878e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20d28a381c132965fd5396f0575d1b1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#a20d28a381c132965fd5396f0575d1b1b">esExitoso</a> (bool resultado)</td></tr>
+<tr class="memdesc:a20d28a381c132965fd5396f0575d1b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda si el paso fue exitoso o no.  <a href="classPaso.html#a20d28a381c132965fd5396f0575d1b1b">Más...</a><br /></td></tr>
+<tr class="separator:a20d28a381c132965fd5396f0575d1b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54ddc89fa76e1d19a726e66035d6c866"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#a54ddc89fa76e1d19a726e66035d6c866">detalleDeError</a> ()</td></tr>
+<tr class="separator:a54ddc89fa76e1d19a726e66035d6c866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5d3da6170ab48ea3c022fdcf94620b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaso.html#af5d3da6170ab48ea3c022fdcf94620b5">huboError</a> (const char *string)</td></tr>
+<tr class="separator:af5d3da6170ab48ea3c022fdcf94620b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentación del constructor y destructor</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Clase para definir un paso nuevo a partir de una método booleano. </p>
+<p>Clase para definir un paso nuevo a partir de un metodo que retorna void pero que lanza excepción.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">const</td><td>char* nombre - Nombre a otorgar al paso </td></tr>
+    <tr><td class="paramname">bool</td><td>(*void) funcion - Referencia al metodo que contiene la logica del paso a ser ejecutada </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Documentación del constructor y destructor</h2>
 <a id="a1747a91be2a5302077d9ab873192434a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1747a91be2a5302077d9ab873192434a">&#9670;&nbsp;</a></span>Paso()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1747a91be2a5302077d9ab873192434a">&#9670;&nbsp;</a></span>Paso() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,7 +157,52 @@ Métodos públicos</h2></td></tr>
 
 </div>
 </div>
+<a id="a9d374c01ae71b98d0294e4b67c34fef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d374c01ae71b98d0294e4b67c34fef0">&#9670;&nbsp;</a></span>Paso() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Paso::Paso </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>nombre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)()&#160;</td>
+          <td class="paramname"><em>funcion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Documentación de las funciones miembro</h2>
+<a id="a54ddc89fa76e1d19a726e66035d6c866"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54ddc89fa76e1d19a726e66035d6c866">&#9670;&nbsp;</a></span>detalleDeError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Paso::detalleDeError </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a41e120992daa45f2513dc4f8e2af3c3b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a41e120992daa45f2513dc4f8e2af3c3b">&#9670;&nbsp;</a></span>ejecutar()</h2>
 
@@ -143,12 +217,13 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Ejecuta el metodo que contiene la logica del paso y establece el resultado como informacion del paso </p>
+
+<p>Ejecuta el metodo que contiene la logica del paso y establece el resultado como informacion del paso. </p>
 
 </div>
 </div>
 <a id="a8af616d9b16b058f75d4ba4e30fb878e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8af616d9b16b058f75d4ba4e30fb878e">&#9670;&nbsp;</a></span>esExitoso()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8af616d9b16b058f75d4ba4e30fb878e">&#9670;&nbsp;</a></span>esExitoso() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,12 +236,33 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Devuelve si el paso fue exitoso o no </p>
+
+<p>Devuelve si el paso fue exitoso o no. </p>
 
 </div>
 </div>
-<a id="af382cbc8dec9db920876265c009cbe90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af382cbc8dec9db920876265c009cbe90">&#9670;&nbsp;</a></span>fin()</h2>
+<a id="a20d28a381c132965fd5396f0575d1b1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20d28a381c132965fd5396f0575d1b1b">&#9670;&nbsp;</a></span>esExitoso() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Paso::esExitoso </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resultado</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda si el paso fue exitoso o no. </p>
+
+</div>
+</div>
+<a id="a3c369c8a94662602b190d4e9149a3dd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c369c8a94662602b190d4e9149a3dd2">&#9670;&nbsp;</a></span>fin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,13 +270,14 @@ Métodos públicos</h2></td></tr>
         <tr>
           <td class="memname">void Paso::fin </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">unsigned long&#160;</td>
           <td class="paramname"><em>microsegundos</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Registra el tiempo de fin de ejecucion del paso en microsegundos</p>
+
+<p>Registra el tiempo de fin de ejecucion del paso en microsegundos. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">long</td><td>microsegundos tiempo actual en microsegundos </td></tr>
@@ -190,8 +287,26 @@ Métodos públicos</h2></td></tr>
 
 </div>
 </div>
-<a id="aa2ef4a4b8ddc727d0779ed768ac279e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2ef4a4b8ddc727d0779ed768ac279e9">&#9670;&nbsp;</a></span>inicio()</h2>
+<a id="af5d3da6170ab48ea3c022fdcf94620b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5d3da6170ab48ea3c022fdcf94620b5">&#9670;&nbsp;</a></span>huboError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Paso::huboError </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ac98be6d7ee30b76caf8109b0961207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac98be6d7ee30b76caf8109b0961207">&#9670;&nbsp;</a></span>inicio()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,13 +314,14 @@ Métodos públicos</h2></td></tr>
         <tr>
           <td class="memname">void Paso::inicio </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">unsigned long&#160;</td>
           <td class="paramname"><em>microsegundos</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Registra el tiempo de inicio de ejecucion del paso en microsegundos</p>
+
+<p>Registra el tiempo de inicio de ejecucion del paso en microsegundos. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">long</td><td>microsegundos tiempo actual en microsegundos </td></tr>
@@ -229,7 +345,8 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Elabora el resultado de un paso</p>
+
+<p>Elabora el resultado de un paso. </p>
 <dl class="section return"><dt>Devuelve</dt><dd>[out][string] Reporte del paso con el tiempo y el resultado del mismo. </dd></dl>
 
 </div>
@@ -248,7 +365,8 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Obtiene el nombre del paso </p>
+
+<p>Obtiene el nombre del paso. </p>
 
 </div>
 </div>
@@ -266,7 +384,8 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Metodo para saber el tiempo que tomo en ejecutar el paso</p>
+
+<p>Metodo para saber el tiempo que tomo en ejecutar el paso. </p>
 <dl class="section return"><dt>Devuelve</dt><dd>[out][unsigned long] tiempo total de la ejecucion del paso en microsegundos. </dd></dl>
 
 </div>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['what_199',['what',['../classComparacionExcepcion.html#ad6a8c1956aca27d0dc54f6a800af5c4a',1,'ComparacionExcepcion::what()'],['../classValorNoEstaEntreExcepcion.html#a4b47a7340f4377bd63cb507f96012c2e',1,'ValorNoEstaEntreExcepcion::what()']]]
+  ['tiempo_229',['tiempo',['../classPaso.html#aca539a1ace28b9ee29d0ab8e51b0c1b8',1,'Paso']]],
+  ['to_5fstring_230',['to_string',['../namespacepatch.html#a8ec1460056d0f47b2177699ffdd32f58',1,'patch']]]
 ];

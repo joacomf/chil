@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['durante_15',['durante',['../classAccionVerificable.html#ab5606c0ec85703ee37bc695908d87ded',1,'AccionVerificable']]]
+  ['detalledeerror_15',['detalleDeError',['../classPaso.html#a54ddc89fa76e1d19a726e66035d6c866',1,'Paso']]],
+  ['durante_16',['durante',['../classAccionVerificable.html#ab5606c0ec85703ee37bc695908d87ded',1,'AccionVerificable']]]
 ];

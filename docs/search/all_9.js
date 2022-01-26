@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['nombre_53',['nombre',['../classEscenario.html#aa0af8ed51b0acc78d8c1f25d4f7ac964',1,'Escenario']]],
-  ['nuevo_54',['nuevo',['../classEscenario.html#a55027d28b6cb85c23e40dd9b934a3f35',1,'Escenario']]],
-  ['nuevo_5fchil_5fcon_55',['NUEVO_CHIL_CON',['../Chil_8h.html#a754d763e2a341b12e07a1d783bbd42a7',1,'Chil.h']]]
+  ['macros_2ecpp_64',['macros.cpp',['../macros_8cpp.html',1,'']]],
+  ['macros_2eh_65',['macros.h',['../macros_8h.html',1,'']]],
+  ['main_66',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
+  ['main_2ecpp_67',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['mostrar_68',['mostrar',['../classPaso.html#ad7cb9d5c9ee99c6e6f268b72751e6d1e',1,'Paso']]]
 ];

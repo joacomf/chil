@@ -91,10 +91,12 @@ Métodos públicos</h2></td></tr>
 <tr class="separator:a55027d28b6cb85c23e40dd9b934a3f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29b3a57ff1921cabb274efa0b29a0504"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEscenario.html#a29b3a57ff1921cabb274efa0b29a0504">obtenerCantidadPasos</a> ()</td></tr>
 <tr class="separator:a29b3a57ff1921cabb274efa0b29a0504"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9a7005419209091e8a6529411006d1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEscenario.html#af9a7005419209091e8a6529411006d1c">finalizar</a> (Plataforma *framework)</td></tr>
-<tr class="separator:af9a7005419209091e8a6529411006d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7a4744a8d959b6d313b3bae61512bd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEscenario.html#ac7a4744a8d959b6d313b3bae61512bd6">esExitoso</a> ()</td></tr>
-<tr class="separator:ac7a4744a8d959b6d313b3bae61512bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a181448c0995eb4d1215483e2b6424f63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEscenario.html#a181448c0995eb4d1215483e2b6424f63">finalizar</a> ()</td></tr>
+<tr class="separator:a181448c0995eb4d1215483e2b6424f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a461fe80e32351077b0fdb2651aca187a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEscenario.html#a461fe80e32351077b0fdb2651aca187a">esExitoso</a> () const</td></tr>
+<tr class="separator:a461fe80e32351077b0fdb2651aca187a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a329e2667e4ea49842bf8666c8a917861"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classPaso.html">Paso</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEscenario.html#a329e2667e4ea49842bf8666c8a917861">pasos</a> ()</td></tr>
+<tr class="separator:a329e2667e4ea49842bf8666c8a917861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Campos de datos</h2></td></tr>
@@ -105,15 +107,7 @@ Campos de datos</h2></td></tr>
 <div class="textblock"><p>Clase para definir un escenario nuevo</p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>char* nombre - Nombre a otorgar al escenario</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Clase para definir un paso nuevo</p>
-<dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">const</td><td>char* nombre - Nombre a otorgar al paso </td></tr>
-    <tr><td class="paramname">bool</td><td>(*void) funcion - Referencia al metodo que contiene la logica del paso a ser ejecutada </td></tr>
+    <tr><td class="paramname">const</td><td>char* nombre - Nombre a otorgar al escenario </td></tr>
   </table>
   </dd>
 </dl>
@@ -123,6 +117,9 @@ Campos de datos</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Escenario::Escenario </td>
@@ -132,13 +129,18 @@ Campos de datos</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Documentación de las funciones miembro</h2>
-<a id="ac7a4744a8d959b6d313b3bae61512bd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7a4744a8d959b6d313b3bae61512bd6">&#9670;&nbsp;</a></span>esExitoso()</h2>
+<a id="a461fe80e32351077b0fdb2651aca187a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a461fe80e32351077b0fdb2651aca187a">&#9670;&nbsp;</a></span>esExitoso()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,15 +149,15 @@ Campos de datos</h2></td></tr>
           <td class="memname">bool Escenario::esExitoso </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="af9a7005419209091e8a6529411006d1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9a7005419209091e8a6529411006d1c">&#9670;&nbsp;</a></span>finalizar()</h2>
+<a id="a181448c0995eb4d1215483e2b6424f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a181448c0995eb4d1215483e2b6424f63">&#9670;&nbsp;</a></span>finalizar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,8 +165,7 @@ Campos de datos</h2></td></tr>
         <tr>
           <td class="memname">void Escenario::finalizar </td>
           <td>(</td>
-          <td class="paramtype">Plataforma *&#160;</td>
-          <td class="paramname"><em>framework</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -239,6 +240,23 @@ Campos de datos</h2></td></tr>
 </div><div class="memdoc">
 <p>Metodo para obtener la cantidad de pasos contenidos en el escenario</p>
 <dl class="section return"><dt>Devuelve</dt><dd>[out][int] cantidad de pasos del escenario. </dd></dl>
+
+</div>
+</div>
+<a id="a329e2667e4ea49842bf8666c8a917861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a329e2667e4ea49842bf8666c8a917861">&#9670;&nbsp;</a></span>pasos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="classPaso.html">Paso</a> * &gt; Escenario::pasos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

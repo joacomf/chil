@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['paso_61',['Paso',['../classPaso.html',1,'Paso'],['../classPaso.html#a1747a91be2a5302077d9ab873192434a',1,'Paso::Paso()'],['../classChil.html#aad9d33663436091f7e4aafbd42fe4e93',1,'Chil::paso()'],['../macros_8h.html#a99d43b4b18b3de10da3d0e54890e4dd3',1,'PASO():&#160;macros.h']]],
-  ['paso_2ecpp_62',['Paso.cpp',['../Paso_8cpp.html',1,'']]],
-  ['paso_2eh_63',['Paso.h',['../Paso_8h.html',1,'']]],
-  ['pasoejecutable_64',['PasoEjecutable',['../classPasoEjecutable.html',1,'PasoEjecutable'],['../classPasoEjecutable.html#a82331d62a1280d0e5ef8de2ed18cd4ce',1,'PasoEjecutable::PasoEjecutable()']]],
-  ['patch_65',['patch',['../namespacepatch.html',1,'']]],
-  ['plataforma_66',['plataforma',['../classChil.html#ae4e19f2729732b5751ccfce9d17e0d4e',1,'Chil::plataforma()'],['../Chil_8h.html#ab9f6f71438cf0c4df876af177b25e582',1,'PLATAFORMA():&#160;Chil.h']]],
-  ['pruebas_67',['PRUEBAS',['../Chil_8h.html#a493d5b6eea3ed4dc483d83856d5afbbc',1,'Chil.h']]]
+  ['obtener_72',['obtener',['../classChil.html#a90734a43436f88d2e3fa1f242c2530ef',1,'Chil']]],
+  ['obtenercantidadpasos_73',['obtenerCantidadPasos',['../classEscenario.html#a29b3a57ff1921cabb274efa0b29a0504',1,'Escenario']]],
+  ['obtenerescenarios_74',['obtenerEscenarios',['../classChil.html#ab1bef7f80e7268cdef045244c6ec7531',1,'Chil']]],
+  ['obtenermensaje_75',['obtenerMensaje',['../classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6',1,'AccionNoEjecutadaExcepcion::obtenerMensaje()'],['../classComparacionExcepcion.html#ac811976bf2b7ca9245f0a6e26bca1a08',1,'ComparacionExcepcion::obtenerMensaje()'],['../classValorNoEstaEntreExcepcion.html#a5c1036f291ad039607012373d6abd5ae',1,'ValorNoEstaEntreExcepcion::obtenerMensaje()']]],
+  ['obtenernombre_76',['obtenerNombre',['../classPaso.html#a9f19e6899e8059f3c49f4ed89ea2e040',1,'Paso']]],
+  ['obtenerresumen_77',['obtenerResumen',['../classChil.html#af9637766294a00d397f16fafecfad50e',1,'Chil']]],
+  ['operator_3d_78',['operator=',['../classChil.html#ae21b1db2330b50f62ea9c1ff2964fbbb',1,'Chil']]]
 ];
