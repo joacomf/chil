@@ -5,6 +5,7 @@
 #include <string>
 #include <modelo/Paso.h>
 #include <Plataforma.h>
+#include <vector>
 
 using namespace std;
 
@@ -25,7 +26,7 @@ public:
     bool esExitoso() const;
 
 private:
-    list<Paso> _pasos;
+    std::vector<Paso*> _pasos;
     bool exitoso = true;
 
     constexpr static const char *const INDICADOR_ESCENARIO_FALLIDO = "*** ESCENARIO FALLIDO ***\n";

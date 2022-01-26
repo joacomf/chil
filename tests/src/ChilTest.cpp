@@ -145,7 +145,7 @@ TEST_F(PruebasDeChil, deberiaMostrarElResumenDeLaEjecucion) {
     }
 
     ESCENARIO(Segundo escenario con dos pasos){
-        PASO(FallaElPasoPorConfiguracion, pasoFallidoPorConfiguracion);
+        PASO(Falla el paso por configuracion, pasoFallidoPorConfiguracion);
         PASO(Imprime por consola el saludo de despedida, saludoDeDespedida);
     }
 

@@ -16,6 +16,8 @@ add_executable(
         src/modelo/ResumenTest.cpp
         src/modelo/verificacion/VerificacionIgualesTest.cpp
         src/modelo/verificacion/VerificacionEnBucleTest.cpp
+        src/modelo/verificacion/VerificacionMayorYMenorTest.cpp
+        src/modelo/verificacion/VerificacionEntreTest.cpp
 
         plataformas/modelo/PuntoDeEntradaTest.cpp
 
@@ -39,7 +41,15 @@ add_executable(
         ../src/modelo/verificacion/valores/AccionVerificable.h
         ../src/modelo/verificacion/valores/AccionVerificable.cpp
         ../src/modelo/verificacion/valores/ValorVerificable.h
-        ../src/modelo/verificacion/valores/ValorVerificable.cpp src/modelo/verificacion/VerificacionMayorYMenorTest.cpp ../src/modelo/verificacion/excepciones/ValorNoEsMenorExcepcion.h ../src/modelo/verificacion/excepciones/ValorNoEsMayorExcepcion.h src/modelo/verificacion/VerificacionEntreTest.cpp)
+        ../src/modelo/verificacion/valores/ValorVerificable.cpp
+        ../src/modelo/verificacion/excepciones/ValorNoEsMenorExcepcion.h
+        ../src/modelo/verificacion/excepciones/ValorNoEsMayorExcepcion.h
+
+        ../src/modelo/ejecutores/Ejecutor.h
+        ../src/modelo/ejecutores/EjecutorSimple.cpp
+        ../src/modelo/ejecutores/EjecutorSimple.h
+        ../src/modelo/ejecutores/EjecutorConManejoDeErrores.cpp
+        ../src/modelo/ejecutores/EjecutorConManejoDeErrores.h)
 
 add_test(NAME check COMMAND tests)
 

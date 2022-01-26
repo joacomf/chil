@@ -18,7 +18,7 @@ Escenario::Escenario(const char *nombre) {
  * @param Paso* paso - referencia del paso a registrar en el escenario actual
  */
 void Escenario::nuevo(Paso *paso) {
-  this->_pasos.push_back(*paso);
+  this->_pasos.push_back(paso);
 }
 
 /**
@@ -27,11 +27,10 @@ void Escenario::nuevo(Paso *paso) {
  * @return [out][string] resultado final formateado para mostrar por consola.
  */
 string Escenario::imprimirResultado() {
-  list<Paso>::iterator paso;
   string reporteDeEscenario = string(COMIENZO_DE_ESCENARIO + string(this->nombre));
   reporteDeEscenario.append(SALTO_DE_LINEA_DOBLE);
 
-  for (paso = this->_pasos.begin(); paso != this->_pasos.end(); ++paso) {
+  for (Paso *paso : this->_pasos) {
     reporteDeEscenario.append(paso->mostrar());
     reporteDeEscenario.append(SALTO_DE_LINEA);
   }
@@ -58,14 +57,14 @@ int Escenario::obtenerCantidadPasos() {
  * @param Plataforma* framework - referencia a la plataforma para poder usar comandos propios de la misma
  */
 void Escenario::finalizar() {
-  list<Paso>::iterator paso;
-
-  for (paso = this->_pasos.begin(); paso != this->_pasos.end(); ++paso) {
+  for (Paso *paso : this->_pasos) {
     paso->inicio(PLATAFORMA->microsegundos());
     paso->ejecutar();
     paso->fin(PLATAFORMA->microsegundos());
 
-    this->exitoso = this->exitoso && paso->esExitoso();
+    bool resultadoDelPaso = paso->esExitoso();
+
+    this->exitoso = this->exitoso && resultadoDelPaso;
   }
 }
 
