@@ -38,6 +38,20 @@ void valorNoIgualAOtro() {
     verificar(4)->esIgualA(2);
 }
 
+TEST(PasoTest, ejecutaMetodoVoidQueLanzaExcepcionPorMedioDeUnaVerificacion) {
+    auto* paso = new Paso("Envia comando a pin 13", valorNoIgualAOtro);
+
+    paso->inicio(103540L);
+    paso->fin(103580L);
+    paso->ejecutar();
+
+    ASSERT_EQ(paso->esExitoso(), false);
+    ASSERT_EQ(paso->detalleDeError(), "Se esperaba el valor: \n"
+                         "4\n"
+                         "Sea igual a: \n"
+                         "2\n"
+                         "Pero no lo fue\n");}
+
 TEST(PasoTest, alEjecutarUnPasoConLaLibreriaDeVerificacionGuardaElErrorDelFallo) {
     auto* paso = new Paso("Recibe valor 4 en el pin", valorNoIgualAOtro);
 
