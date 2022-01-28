@@ -23,8 +23,7 @@
         .p-50 {
             width: 50%;
         }
-
-        .p-50 {
+        .p-33 {
             width: 33.3%;
         }
 
@@ -49,16 +48,29 @@
         }
 
         .resumen {
-            padding: 5px 15px;
             margin: 15px auto;
             display: flex;
         }
 
         .resumen .dato {
-            padding: 20px 0 0 0;
+            padding: 20px;
             text-align: center;
             background-color: #fff;
             flex: 1;
+        }
+
+        .resumen .dato:not(:last-child){
+            margin-right: 10px;
+        }
+
+        .resumen .dato .titulo-indicador {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .resumen .dato .valor {
+            font-size: 35px;
+            padding: 12px 0;
         }
 
         .resumen .dato-ok {
@@ -224,30 +236,47 @@
     <strong>CHIL</strong> - Reporte
 </div>
 
-<div class="contenedor p-80" id="escenarios">
-    <div class="escenario">
-        <div class="titulo">
-            <div class="numeracion">#{id}</div>
-            <div class="nombre">
-                <p>{nombre}</p>
-                <div class="resultado {resultado}">{resultado}</div>
-                <div class="flecha"><i></i></div>
-            </div>
+<div class="contenedor p-80">
+    <div class="resumen">
+        <div class="dato">
+            <div class="titulo-indicador">Completados</div>
+            <div class="valor">2</div>
         </div>
-        <div class="pasos">
-            <div class="paso">
-                <div class="descripcion">
-                    {archivo}
+        <div class="dato dato-ok">
+            <div class="titulo-indicador">Exitosos</div>
+            <div class="valor">1</div>
+        </div>
+        <div class="dato dato-error">
+            <div class="titulo-indicador">Fallidos</div>
+            <div class="valor">0</div>
+        </div>
+    </div>
+    <div id="escenarios">
+        <div class="escenario">
+            <div class="titulo">
+                <div class="numeracion">#{id}</div>
+                <div class="nombre">
+                    <p>{nombre}</p>
+                    <div class="resultado {resultado}">{resultado}</div>
+                    <div class="flecha"><i></i></div>
                 </div>
-                <div class="tiempo">
-                    {linea}
-                </div>
-                <div class="resultado">
-                    {linea}
+            </div>
+            <div class="pasos">
+                <div class="paso">
+                    <div class="descripcion">
+                        {archivo}
+                    </div>
+                    <div class="tiempo">
+                        {linea}
+                    </div>
+                    <div class="resultado">
+                        {linea}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 </body>
