@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMANDO='tail -fn 200 ejemplo-salida'
+COMANDO='tail -fn 200 tail -fn 200 reporte/ejemplo-salida'
 JSON=''
 
 function extraerJSONDeTerminal() {
