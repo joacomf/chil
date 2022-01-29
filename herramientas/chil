@@ -1,10 +1,24 @@
 #!/bin/bash
 
 # Comando que ejecuta las pruebas
-COMANDO='tail -fn 200 reporte/ejemplo-salida'
 ARCHIVO_HTML='reporte/resultado.html'
+ARCHIVO_COMANDO="$PWD/.chil"
 
-function elJSONDeLaTerminal() {
+function crearArchivoDeComandos() {
+    if [ ! -f "$ARCHIVO_COMANDO" ]; then
+        echo -e "[comando]\n# Aca va el comando que sube y ejecuta el programa" > "$ARCHIVO_COMANDO"
+    else
+        echo -e "El archivo \e[33m.chil\e[39m ya existe"
+    fi
+}
+
+function extraerComando() {
+    awk '/[comando]/{getline; print}' "$PWD"/.chil
+}
+
+function elJSONDelComando() {
+    COMANDO="$(extraerComando)"
+
     SALIDA=$(awk '$0 == "COMIENZO_JSON" {n = 1} n == 1; $0 == "FIN_JSON" {exit}' \
         <(eval "$COMANDO") && kill -9 $!)
 
@@ -63,8 +77,11 @@ crearAutocompletado() {
 ARGUMENTO=$1
 
 case $ARGUMENTO in
+iniciar)
+    crearArchivoDeComandos
+    ;;
 correr)
-    crearHTMLCon "$(elJSONDeLaTerminal)"
+    crearHTMLCon "$(elJSONDelComando)"
     abrirReporte
     ;;
 instalar)
@@ -73,11 +90,10 @@ instalar)
     echo -e "\e[93mCreando autocompletado\e[39m"
     crearAutocompletado
     echo -e "\e[93m¡Instalado!\e[39m"
-    echo ""
     ;;
 listadecomandos)
     echo -e "\n"
-    echo correr instalar listadecomandos
+    echo iniciar correr instalar listadecomandos
     ;;
 *)
     echo -e "\e[33mComandos:\e[39m"
