@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# Comando que ejecuta las pruebas
+COMANDO='tail -fn 200 reporte/ejemplo-salida'
+ARCHIVO_HTML='reporte/resultado.html'
+
+function elJSONDeLaTerminal() {
+    SALIDA=$(awk '$0 == "COMIENZO_JSON" {n = 1} n == 1; $0 == "FIN_JSON" {exit}' \
+        <(eval "$COMANDO") && kill -9 $!)
+
+    mkdir -p reporte
+
+    echo "$SALIDA" | sed "/COMIENZO_JSON\|FIN_JSON/d"
+}
+
+function crearHTMLCon() {
+    HTML="<html lang=\"es\"><head> <title>Resultado de pruebas</title> <link href=\"https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap\" rel=\"stylesheet\"> <style>html, body{margin: 0; padding: 0;}body{background-color: #f5eaea; font-family: \"Lato\", sans-serif;}*, ::after, ::before{box-sizing: border-box;}.p-100{width: 100%;}.p-80{width: 80%;}.fondo-ok{color: #FFFFFF; background-color: #7fcd91;}.fondo-error{color: #FFFFFF; background-color: #f96d80;}.cabecera{padding: 15px; background-color: #4d4646; color: white;}.contenedor{padding: 15px; margin: 0 auto;}.resumen{margin: 15px auto; display: flex;}.resumen .dato{padding: 20px; text-align: center; background-color: #fff; flex: 1;}.resumen .dato:not(:last-child){margin-right: 10px;}.resumen .dato .titulo-indicador{font-size: 20px; text-align: center;}.resumen .dato .valor{font-size: 35px; padding: 12px 0;}.resumen .dato-ok{color: #7fcd91;}.resumen .dato-error{color: #f96d80;}.escenario{background-color: #fff; margin-bottom: 15px;}.titulo{display: flex;}.nombre{padding: 15px; display: flex; flex: 1;}.numeracion{color: #fff; background-color: #5b5656; padding: 20px;}.nombre .flecha{margin: 0 10px; cursor: pointer;}.nombre .flecha i{margin-top: 8px;}.nombre p{margin: 0; padding: 5px; flex: 1;}.nombre .resultado{vertical-align: middle; padding: 5px 15px 5px 5px; margin-right: 10px; line-height: 17px;}.nombre .resultado span{display: inline-block; vertical-align: text-bottom;}.escenario.abierto .pasos{display: block;}.pasos{display: none; border-bottom: 1px solid #4d4646;}.paso{font-weight: lighter; border-bottom: 1px solid #5b5656; padding: 0 0 0 15px; display: flex;}.paso .descripcion, .paso .tiempo, .paso .resultado{padding: 12px 0;}.paso .descripcion{flex: 1; margin-left: 20px;}.paso .tiempo{margin: 0; padding-right: 15px; padding-left: 15px; width: 120px; text-align: right;}.paso .resultado{padding-right: 15px; padding-left: 15px; width: 130px; text-align: left;}.paso .resultado.ok{color: #52CC99;}.paso .resultado.error{color: #f96d80;}.color-error{color: #f96d80;}.escenario .nombre .flecha i{border: solid #4d4646; border-width: 0 3px 3px 0; display: inline-block; padding: 3px;}.escenario .nombre .flecha i{transform: rotate(45deg); -webkit-transform: rotate(45deg);}.escenario.abierto .nombre .flecha i{transform: rotate(-135deg); -webkit-transform: rotate(-135deg);}.icono{margin-left: 5px; margin-right: 5px; display: inline-block; vertical-align: middle;}.icono-reloj{content: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ4OCA0ODgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ4OCA0ODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTU0MC4zNikiPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGQ9Ik0zNTEuMSw4NDYuOTZsLTk3LjEtNjcuOXYtMTE2LjdjMC01LjUtNC41LTEwLTEwLTEwcy0xMCw0LjUtMTAsMTB2MTIyYzAsMy4zLDEuNiw2LjMsNC4zLDguMmwxMDEuNCw3MC45DQoJCQkJYzEuNywxLjIsMy43LDEuOCw1LjcsMS44djBjMy4xLDAsNi4yLTEuNSw4LjItNC40QzM1Ni43LDg1Ni4zNiwzNTUuNiw4NTAuMTYsMzUxLjEsODQ2Ljk2eiIvPg0KCQkJPHBhdGggZD0iTTQxNi40LDYxMS45Nkw0MTYuNCw2MTEuOTZjLTQ2LjItNDYuMi0xMDcuNC03MS42LTE3Mi40LTcxLjZzLTEyNi4yLDI1LjQtMTcyLjQsNzEuNkMyNS40LDY1OC4xNiwwLDcxOS4zNiwwLDc4NC4zNg0KCQkJCXMyNS40LDEyNi4yLDcxLjYsMTcyLjRjNDYuMiw0Ni4yLDEwNy40LDcxLjYsMTcyLjQsNzEuNnMxMjYuMi0yNS40LDE3Mi40LTcxLjZzNzEuNi0xMDcuNCw3MS42LTE3Mi40UzQ2Mi42LDY1OC4xNiw0MTYuNCw2MTEuOTYNCgkJCQl6IE0yNTQsMTAwOC4xNkwyNTQsMTAwOC4xNnYtNDAuOGMwLTUuNS00LjUtMTAtMTAtMTBzLTEwLDQuNS0xMCwxMHY0MC44Yy0xMTUuNi01LjEtMjA4LjctOTguMi0yMTMuOC0yMTMuOEg2MQ0KCQkJCWM1LjUsMCwxMC00LjUsMTAtMTBzLTQuNS0xMC0xMC0xMEgyMC4yYzUuMS0xMTUuNiw5OC4yLTIwOC43LDIxMy44LTIxMy44djQwLjhjMCw1LjUsNC41LDEwLDEwLDEwczEwLTQuNSwxMC0xMHYtNDAuOA0KCQkJCWMxMTUuNiw1LjEsMjA4LjcsOTguMiwyMTMuOCwyMTMuOEg0MjdjLTUuNSwwLTEwLDQuNS0xMCwxMHM0LjUsMTAsMTAsMTBoNDAuOEM0NjIuNyw5MDkuOTYsMzY5LjYsMTAwMy4wNiwyNTQsMTAwOC4xNnoiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K');}.icono-check{content: url('data:image/svg+xml;base64,PHN2ZyBpZD0iU3ZnanNTdmcxMDAxIiB3aWR0aD0iMjg4IiBoZWlnaHQ9IjI4OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpzdmdqcz0iaHR0cDovL3N2Z2pzLmNvbS9zdmdqcyI+PGRlZnMgaWQ9IlN2Z2pzRGVmczEwMDIiPjwvZGVmcz48ZyBpZD0iU3ZnanNHMTAwOCIgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsMSwwLDApIj48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzMwIDMzMCIgdmlld0JveD0iMCAwIDMzMCAzMzAiIHdpZHRoPSIyODgiIGhlaWdodD0iMjg4Ij48cGF0aCBkPSJNMTY1LDBDNzQuMDE5LDAsMCw3NC4wMTksMCwxNjVzNzQuMDE5LDE2NSwxNjUsMTY1czE2NS03NC4wMTksMTY1LTE2NVMyNTUuOTgxLDAsMTY1LDB6IE0xNjUsMzAwCgkJYy03NC40NCwwLTEzNS02MC41NjEtMTM1LTEzNVM5MC41NiwzMCwxNjUsMzBzMTM1LDYwLjU2MSwxMzUsMTM1UzIzOS40MzksMzAwLDE2NSwzMDB6IiBmaWxsPSIjNTJjYzk5IiBjbGFzcz0iY29sb3IwMDAgc3ZnU2hhcGUiPjwvcGF0aD48cGF0aCBkPSJNMjI2Ljg3MiwxMDYuNjY0bC04NC44NTQsODQuODUzbC0zOC44OS0zOC44OTFjLTUuODU3LTUuODU3LTE1LjM1NS01Ljg1OC0yMS4yMTMtMC4wMDEKCQljLTUuODU4LDUuODU4LTUuODU4LDE1LjM1NSwwLDIxLjIxM2w0OS40OTYsNDkuNDk4YzIuODEzLDIuODEzLDYuNjI4LDQuMzk0LDEwLjYwNiw0LjM5NGMwLjAwMSwwLDAsMCwwLjAwMSwwCgkJYzMuOTc4LDAsNy43OTMtMS41ODEsMTAuNjA2LTQuMzkzbDk1LjQ2MS05NS40NTljNS44NTgtNS44NTgsNS44NTgtMTUuMzU1LDAtMjEuMjEzCgkJQzI0Mi4yMjcsMTAwLjgwNywyMzIuNzMsMTAwLjgwNiwyMjYuODcyLDEwNi42NjR6IiBmaWxsPSIjNTJjYzk5IiBjbGFzcz0iY29sb3IwMDAgc3ZnU2hhcGUiPjwvcGF0aD48L3N2Zz48L2c+PC9zdmc+');}.icono-check.blanco{content: url('data:image/svg+xml;base64,PHN2ZyBpZD0iU3ZnanNTdmcxMDAxIiB3aWR0aD0iMjg4IiBoZWlnaHQ9IjI4OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpzdmdqcz0iaHR0cDovL3N2Z2pzLmNvbS9zdmdqcyI+PGRlZnMgaWQ9IlN2Z2pzRGVmczEwMDIiPjwvZGVmcz48ZyBpZD0iU3ZnanNHMTAwOCIgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsMSwwLDApIj48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzMwIDMzMCIgdmlld0JveD0iMCAwIDMzMCAzMzAiIHdpZHRoPSIyODgiIGhlaWdodD0iMjg4Ij48cGF0aCBkPSJNMTY1LDBDNzQuMDE5LDAsMCw3NC4wMTksMCwxNjVzNzQuMDE5LDE2NSwxNjUsMTY1czE2NS03NC4wMTksMTY1LTE2NVMyNTUuOTgxLDAsMTY1LDB6IE0xNjUsMzAwCgkJYy03NC40NCwwLTEzNS02MC41NjEtMTM1LTEzNVM5MC41NiwzMCwxNjUsMzBzMTM1LDYwLjU2MSwxMzUsMTM1UzIzOS40MzksMzAwLDE2NSwzMDB6IiBmaWxsPSIjZmZmZmZmIiBjbGFzcz0iY29sb3IwMDAgc3ZnU2hhcGUiPjwvcGF0aD48cGF0aCBkPSJNMjI2Ljg3MiwxMDYuNjY0bC04NC44NTQsODQuODUzbC0zOC44OS0zOC44OTFjLTUuODU3LTUuODU3LTE1LjM1NS01Ljg1OC0yMS4yMTMtMC4wMDEKCQljLTUuODU4LDUuODU4LTUuODU4LDE1LjM1NSwwLDIxLjIxM2w0OS40OTYsNDkuNDk4YzIuODEzLDIuODEzLDYuNjI4LDQuMzk0LDEwLjYwNiw0LjM5NGMwLjAwMSwwLDAsMCwwLjAwMSwwCgkJYzMuOTc4LDAsNy43OTMtMS41ODEsMTAuNjA2LTQuMzkzbDk1LjQ2MS05NS40NTljNS44NTgtNS44NTgsNS44NTgtMTUuMzU1LDAtMjEuMjEzCgkJQzI0Mi4yMjcsMTAwLjgwNywyMzIuNzMsMTAwLjgwNiwyMjYuODcyLDEwNi42NjR6IiBmaWxsPSIjZmZmZmZmIiBjbGFzcz0iY29sb3IwMDAgc3ZnU2hhcGUiPjwvcGF0aD48L3N2Zz48L2c+PC9zdmc+')}.icono-cruz{content: url('data:image/svg+xml;base64,PHN2ZyBpZD0iU3ZnanNTdmcxMDAxIiB3aWR0aD0iMjg4IiBoZWlnaHQ9IjI4OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpzdmdqcz0iaHR0cDovL3N2Z2pzLmNvbS9zdmdqcyI+PGRlZnMgaWQ9IlN2Z2pzRGVmczEwMDIiPjwvZGVmcz48ZyBpZD0iU3ZnanNHMTAwOCIgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsMSwwLDApIj48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI4OCIgaGVpZ2h0PSIyODgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjU2IDhDMTE5IDggOCAxMTkgOCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzOTMgOCAyNTYgOHptMCA0NDhjLTExMC41IDAtMjAwLTg5LjUtMjAwLTIwMFMxNDUuNSA1NiAyNTYgNTZzMjAwIDg5LjUgMjAwIDIwMC04OS41IDIwMC0yMDAgMjAwem0xMDEuOC0yNjIuMkwyOTUuNiAyNTZsNjIuMiA2Mi4yYzQuNyA0LjcgNC43IDEyLjMgMCAxN2wtMjIuNiAyMi42Yy00LjcgNC43LTEyLjMgNC43LTE3IDBMMjU2IDI5NS42bC02Mi4yIDYyLjJjLTQuNyA0LjctMTIuMyA0LjctMTcgMGwtMjIuNi0yMi42Yy00LjctNC43LTQuNy0xMi4zIDAtMTdsNjIuMi02Mi4yLTYyLjItNjIuMmMtNC43LTQuNy00LjctMTIuMyAwLTE3bDIyLjYtMjIuNmM0LjctNC43IDEyLjMtNC43IDE3IDBsNjIuMiA2Mi4yIDYyLjItNjIuMmM0LjctNC43IDEyLjMtNC43IDE3IDBsMjIuNiAyMi42YzQuNyA0LjcgNC43IDEyLjMgMCAxN3oiIGZpbGw9IiNmZjgwNjYiIGNsYXNzPSJjb2xvcjAwMCBzdmdTaGFwZSI+PC9wYXRoPjwvc3ZnPjwvZz48L3N2Zz4=')}.icono-cruz.blanco{content: url('data:image/svg+xml;base64,PHN2ZyBpZD0iU3ZnanNTdmcxMDExIiB3aWR0aD0iMjg4IiBoZWlnaHQ9IjI4OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpzdmdqcz0iaHR0cDovL3N2Z2pzLmNvbS9zdmdqcyI+PGRlZnMgaWQ9IlN2Z2pzRGVmczEwMTIiPjwvZGVmcz48ZyBpZD0iU3ZnanNHMTAxMyI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyODgiIGhlaWdodD0iMjg4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZD0iTTI1NiA4QzExOSA4IDggMTE5IDggMjU2czExMSAyNDggMjQ4IDI0OCAyNDgtMTExIDI0OC0yNDhTMzkzIDggMjU2IDh6bTAgNDQ4Yy0xMTAuNSAwLTIwMC04OS41LTIwMC0yMDBTMTQ1LjUgNTYgMjU2IDU2czIwMCA4OS41IDIwMCAyMDAtODkuNSAyMDAtMjAwIDIwMHptMTAxLjgtMjYyLjJMMjk1LjYgMjU2bDYyLjIgNjIuMmM0LjcgNC43IDQuNyAxMi4zIDAgMTdsLTIyLjYgMjIuNmMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDI1NiAyOTUuNmwtNjIuMiA2Mi4yYy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTIyLjYtMjIuNmMtNC43LTQuNy00LjctMTIuMyAwLTE3bDYyLjItNjIuMi02Mi4yLTYyLjJjLTQuNy00LjctNC43LTEyLjMgMC0xN2wyMi42LTIyLjZjNC43LTQuNyAxMi4zLTQuNyAxNyAwbDYyLjIgNjIuMiA2Mi4yLTYyLjJjNC43LTQuNyAxMi4zLTQuNyAxNyAwbDIyLjYgMjIuNmM0LjcgNC43IDQuNyAxMi4zIDAgMTd6IiBmaWxsPSIjZmZmZmZmIiBjbGFzcz0iY29sb3IwMDAgc3ZnU2hhcGUiPjwvcGF0aD48L3N2Zz48L2c+PC9zdmc+')}.i-sm{width: 20px; height: 20px;}</style></head><body><div class=\"cabecera p-100\"> <strong>CHIL</strong> - Reporte de pruebas</div><div class=\"contenedor p-80\"> <div class=\"resumen\"> <div class=\"dato\"> <div class=\"titulo-indicador\">Completados</div><div class=\"valor\" id=\"indicador_completados\"></div></div><div class=\"dato dato-ok\"> <div class=\"titulo-indicador\">Exitosos</div><div class=\"valor\" id=\"indicador_exitosos\"></div></div><div class=\"dato dato-error\"> <div class=\"titulo-indicador\">Fallidos</div><div class=\"valor\" id=\"indicador_fallidos\"></div></div></div><div id=\"escenarios\"> </div></div></body>
+         <script type=\"application/javascript\">
+             function claseDeResultado(e){return e?\"ok\":\"error\"}function textoDeResultado(e){return e?\"OK\":\"FALLIDO\"}function icono(e){return e?\"icono-check\":\"icono-cruz\"}function extraerEscenarios(e){let n=\"\";for(let o=0;o<e.length;o++){const s=e[o],t=o+1,i=s.exitoso;n+='<div class=\"escenario\">',n+=\`<div class=\"titulo\">                        <div class=\"numeracion\">#\${t}</div>\                        <div class=\"nombre\">                            <p>\${s.nombre}</p>                            <div class=\"resultado fondo-\${claseDeResultado(i)}\">                                <div class=\"icono \${icono(i)} blanco i-sm\"></div>                                <span>\${textoDeResultado(i)}</span>                            </div>                            <div class=\"flecha\"><i></i></div>                        </div>                    </div>\`,n+=extraerPasos(s.pasos),n+=\"</div>\"}document.getElementById(\"escenarios\").innerHTML=n}function extraerResumen(e){document.getElementById(\"indicador_completados\").innerHTML=e.completados,document.getElementById(\"indicador_exitosos\").innerHTML=e.exitosos,document.getElementById(\"indicador_fallidos\").innerHTML=e.fallidos}function extraerInformacion(e){extraerResumen(e.resumen),extraerEscenarios(e.escenarios)}function extraerPasos(e){let n='<div class=\"pasos\">';for(let o=0;o<e.length;o++){let s=e[o];const t=s.exitoso;let i=\"\";t||(i=\`<p style=\"margin-bottom: 10px\">Descripcion:<br><span class=\"color-error\"><strong>\${s.detalleDeError}</strong></span></p>\`),n+=\`    <div class=\"paso\">                            <div class=\"resultado \${claseDeResultado(s.exitoso)}\">                                <div class=\"icono \${icono(t)} i-sm\"></div>                                <strong>\${textoDeResultado(t)}</strong>                            </div>                            <div class=\"descripcion\">                                \${s.nombre}                                \${i}                            </div>                            <div class=\"tiempo\">                                \${s.tiempo}ms                                <div class=\"icono icono-reloj i-sm\"></div>                            </div>                        </div>\`}return n+=\"</div>\",n}function funcionalidadEscenarios(){var e=document.querySelectorAll(\".titulo\");Array.prototype.forEach.call(e,(function(e){e.addEventListener(\"click\",(function(){e.parentNode.classList.toggle(\"abierto\")}))}))}function cargarInformacion(){const a=JSON.parse('$1');extraerInformacion(a);funcionalidadEscenarios()}cargarInformacion();
+         </script>
+         </html>"
+
+    mkdir -p reporte
+    echo "$HTML" > $ARCHIVO_HTML
+}
+
+function abrirReporte() {
+    if [ -n "$BROWSER" ]; then
+        $BROWSER $ARCHIVO_HTML
+    elif which xdg-open >/dev/null; then
+        xdg-open $ARCHIVO_HTML
+    elif which gnome-open >/dev/null; then
+        gnome-open $ARCHIVO_HTML
+    elif which gnome-open >/dev/null; then
+        /usr/bin/x-www-browser $ARCHIVO_HTML
+    else
+        echo "No se pudo abrir $ARCHIVO_HTML en un navegador. Puede abrirlo manualmente"
+    fi
+}
+
+copiarProgramaEnBin() {
+    sudo cp chil /usr/local/bin && sudo chmod +x /usr/local/bin/chil
+    echo "..."
+}
+
+crearAutocompletado() {
+    echo "..."
+    echo "
+    #!/bin/bash
+    _chil() {
+      _script_commands=\$(chil listadecomandos)
+
+      local cur
+      COMPREPLY=()
+      cur=\"\${COMP_WORDS[COMP_CWORD]}\"
+      COMPREPLY=( \$(compgen -W \"\${_script_commands}\" -- \${cur}) )
+
+      return 0
+    }
+    complete -o nospace -F _chil chil" | sudo tee /etc/bash_completion.d/chil >/dev/null
+}
+
+ARGUMENTO=$1
+
+case $ARGUMENTO in
+correr)
+    crearHTMLCon "$(elJSONDeLaTerminal)"
+    abrirReporte
+    ;;
+instalar)
+    echo -e "\e[93mInstalando global (requiere root)\e[39m"
+    copiarProgramaEnBin
+    echo -e "\e[93mCreando autocompletado\e[39m"
+    crearAutocompletado
+    echo -e "\e[93m¡Instalado!\e[39m"
+    echo ""
+    ;;
+listadecomandos)
+    echo -e "\n"
+    echo correr instalar listadecomandos
+    ;;
+*)
+    echo -e "\e[33mComandos:\e[39m"
+    echo ""
+    echo -e "\e[1minstalar\e[0m"
+    echo "Crea una copia del script /usr/local/bin y le da permisos de ejecución. A partir de esto se puede usar chil como comando"
+    echo ""
+    echo -e "\e[1mcorrer\e[0m"
+    echo "Ejecuta el comando para correr los tests y al terminar abre el reporte de las pruebas"
+    exit 0
+    ;;
+esac
+
+exit 0
