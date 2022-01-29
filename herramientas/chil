@@ -1,6 +1,7 @@
 #!/bin/bash
 
-COMANDO='tail -f reporte/ejemplo-salida'
+# Comando que ejecuta las pruebas
+COMANDO='tail -fn 200 reporte/ejemplo-salida'
 ARCHIVO_HTML='resultado.html'
 
 function elJSONDeLaTerminal() {
@@ -38,8 +39,8 @@ function abrirReporte() {
 }
 
 copiarProgramaEnBin() {
-    echo "..."
     sudo cp chil /usr/local/bin && sudo chmod +x /usr/local/bin/chil
+    echo "..."
 }
 
 crearAutocompletado() {
