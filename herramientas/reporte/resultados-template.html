@@ -253,18 +253,6 @@
 </body>
 <script type="application/javascript">
 
-    function cargarJSON(callback) {
-        const pedido = new XMLHttpRequest();
-        pedido.overrideMimeType("application/json");
-        pedido.open('GET', 'resultado.json', true);
-        pedido.onreadystatechange = function () {
-            if (pedido.readyState === 4 && pedido.status === 200) {
-                callback(pedido.responseText);
-            }
-        };
-        pedido.send(null);
-    }
-
     function claseDeResultado(resultado) {
         return resultado ? 'ok' : 'error';
     }
