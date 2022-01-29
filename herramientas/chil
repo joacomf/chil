@@ -2,7 +2,7 @@
 
 # Comando que ejecuta las pruebas
 COMANDO='tail -fn 200 reporte/ejemplo-salida'
-ARCHIVO_HTML='resultado.html'
+ARCHIVO_HTML='reporte/resultado.html'
 
 function elJSONDeLaTerminal() {
     SALIDA=$(awk '$0 == "COMIENZO_JSON" {n = 1} n == 1; $0 == "FIN_JSON" {exit}' \
@@ -21,7 +21,7 @@ function crearHTMLCon() {
          </html>"
 
     mkdir -p reporte
-    echo "$HTML" >$ARCHIVO_HTML
+    echo "$HTML" > $ARCHIVO_HTML
 }
 
 function abrirReporte() {
