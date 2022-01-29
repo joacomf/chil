@@ -1,9 +1,9 @@
 #!/bin/bash
 
-ARCHIVO_HTML='reporte/resultado.html'
+ARCHIVO_HTML="$PWD/reporte/resultado.html"
 ARCHIVO_COMANDO="$PWD/.chil"
 ARCHIVO_SALIDA="/tmp/chil_salida"
-ARCHIVO_JSON="/tmp/chil_json"
+ARCHIVO_JSON="$PWD/reporte/resultado.json"
 
 crearArchivoDeComandos() {
     if [ ! -f "$ARCHIVO_COMANDO" ]; then
