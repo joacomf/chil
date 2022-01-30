@@ -17,6 +17,30 @@ Varios usos pueden ser interpretados de esta herramienta. Algunos ejemplos:
 4. Un uso menos común pero igual de válido es para explorar un producto a partir de lo que uno piensa que debería hacer, un ejemplo de este caso es la aplicación de ingeniería inversa si es que no se tiene el código del dispositivo aún o si el mismo es difícil de entender.
 5. Cualquier otro propósito que ayude al procesos de construir algún producto
 
+## Modo de uso
+
+Al momento de escribir pruebas tenemos disponible la macro `ESCENARIO` y la macro `PASO` para que las pruebas queden
+definidas de manera más clara. Por lo tanto podremos escribir:
+
+```c++
+Plataforma arduino = new PlataformaArduino();
+NUEVO_CHIL_CON(arduino)
+
+ESCENARIO(Primer escenario con un paso){
+    PASO(Imprime por consola el saludo de bienvenida, []() {
+        arduino->consola("Hola mundo!");
+        return true;
+    });
+};
+```
+
+Al ejecutarse los test saldrá por consola un reporte como el siguiente:
+
+```
+Escenario: Primer escenario con un paso
+  [OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg
+```
+
 ## Entorno
 
 ### IDE
@@ -49,28 +73,3 @@ Para correr los tests es necesario ejecutar el script
 ```sh
 ./scripts/test.sh
 ```
-
-## Modo de uso
-
-Al momento de escribir pruebas tenemos disponible la macro `ESCENARIO` y la macro `PASO` para que las pruebas queden
-definidas de manera más clara. Por lo tanto podremos escribir:
-
-```c++
-Plataforma arduino = new PlataformaArduino();
-NUEVO_CHIL_CON(arduino)
-
-ESCENARIO(Primer escenario con un paso){
-    PASO(Imprime por consola el saludo de bienvenida, []() {
-        arduino->consola("Hola mundo!");
-        return true;
-    });
-};
-```
-
-Al ejecutarse los test saldrá por consola un reporte como el siguiente:
-
-```
-Escenario: Primer escenario con un paso
-  [OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg
-```
-
