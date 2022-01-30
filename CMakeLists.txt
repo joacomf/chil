@@ -1,6 +1,9 @@
 cmake_minimum_required (VERSION 3.10)
 project(Chil)
 
+file (STRINGS "version" NUMERO_VERSION)
+message("Chil v${NUMERO_VERSION}")
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
@@ -13,7 +16,6 @@ target_include_directories(Chil PRIVATE src)
 target_include_directories(Chil PRIVATE plataformas/modelos)
 
 set_target_properties(Chil PROPERTIES PUBLIC_HEADER src/Chil.h)
-
 
 if(BUILD_TESTING)
     include(CTest)
