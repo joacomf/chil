@@ -89,26 +89,6 @@ Usos</h1>
 <li>Cualquier otro propósito que ayude al procesos de construir algún producto</li>
 </ol>
 <h1><a class="anchor" id="autotoc_md2"></a>
-Entorno</h1>
-<h2><a class="anchor" id="autotoc_md3"></a>
-IDE</h2>
-<p>Un IDE recomendado para el desarollo es <a href="https://code.visualstudio.com/">VSCode</a>. También puede utilizarse <a href="https://www.jetbrains.com/es-es/clion/">CLion</a> (No libre).</p>
-<p>Al importarlo utilizando la herramienta de <a href="https://platformio.org/">PlatformIO</a>, la misma se encargará de descargar las líbrerias necesarias.</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Herramientas</h2>
-<p>El proyecto fue desarrollado en un ambiente con sistema operativo con base linux. Para compilar y ejecutar las pruebas del proyecto, se necesita tener las siguientes librerías:</p><ul>
-<li>cmake</li>
-<li>build-essentials</li>
-</ul>
-<p>Para ello en un entorno con base Debian (Ubuntu, LinuxMint, etc): </p><div class="fragment"><div class="line">$ sudo apt install cmake build-essentials</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
-Construcción</h2>
-<p>Para construir el proyecto, se podrá ejecutar el script </p><div class="fragment"><div class="line">./scripts/build.sh</div>
-</div><!-- fragment --><p>El mismo se encarga de limpiar el entorno y ejecutar los pasos necesarios para que la construcción sea exitosa. Este script se encargará de instalar las librerías necesarias para ejecutar las pruebas de:</p><ul>
-<li><a href="https://github.com/google/googletest">GTEST</a> - GoogleTest, librería de pruebas para C++ de Google</li>
-</ul>
-<p>Para correr los tests es necesario ejecutar el script </p><div class="fragment"><div class="line">./scripts/test.sh</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Modo de uso</h1>
 <p>Al momento de escribir pruebas tenemos disponible la macro <code>ESCENARIO</code> y la macro <code>PASO</code> para que las pruebas queden definidas de manera más clara. Por lo tanto podremos escribir:</p>
 <div class="fragment"><div class="line"> {c++}</div>
@@ -124,6 +104,26 @@ Modo de uso</h1>
 </div><!-- fragment --><p>Al ejecutarse los test saldrá por consola un reporte como el siguiente:</p>
 <div class="fragment"><div class="line">Escenario: Primer escenario con un paso</div>
 <div class="line">  [OK] Imprime por consola el saludo de bienvenida - ejecuto en 49 useg</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+Entorno</h1>
+<h2><a class="anchor" id="autotoc_md4"></a>
+IDE</h2>
+<p>Un IDE recomendado para el desarollo es <a href="https://code.visualstudio.com/">VSCode</a>. También puede utilizarse <a href="https://www.jetbrains.com/es-es/clion/">CLion</a> (No libre).</p>
+<p>Al importarlo utilizando la herramienta de <a href="https://platformio.org/">PlatformIO</a>, la misma se encargará de descargar las líbrerias necesarias.</p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Herramientas</h2>
+<p>El proyecto fue desarrollado en un ambiente con sistema operativo con base linux. Para compilar y ejecutar las pruebas del proyecto, se necesita tener las siguientes librerías:</p><ul>
+<li>cmake</li>
+<li>build-essentials</li>
+</ul>
+<p>Para ello en un entorno con base Debian (Ubuntu, LinuxMint, etc): </p><div class="fragment"><div class="line">$ sudo apt install cmake build-essentials</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+Construcción</h2>
+<p>Para construir el proyecto, se podrá ejecutar el script </p><div class="fragment"><div class="line">./scripts/build.sh</div>
+</div><!-- fragment --><p>El mismo se encarga de limpiar el entorno y ejecutar los pasos necesarios para que la construcción sea exitosa. Este script se encargará de instalar las librerías necesarias para ejecutar las pruebas de:</p><ul>
+<li><a href="https://github.com/google/googletest">GTEST</a> - GoogleTest, librería de pruebas para C++ de Google</li>
+</ul>
+<p>Para correr los tests es necesario ejecutar el script </p><div class="fragment"><div class="line">./scripts/test.sh</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
