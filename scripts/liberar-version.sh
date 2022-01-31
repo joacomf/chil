@@ -1,8 +1,20 @@
 BASEDIR=$(dirname "$0")
-TIPO_VERSION="$1"
+MENSAJE_COMMIT=$1
+
+obtenerTipoVersion() {
+    TIPO_VERSION='patch'
+    if [[ $1 =~ ^\[MAYOR\].* ]]; then
+        TIPO_VERSION='mayor'
+    elif [[ $1 =~ ^\[MINOR\].* ]]; then
+        TIPO_VERSION='minor'
+    fi
+
+    echo "$TIPO_VERSION"
+}
 
 echo -e "\e[33mAumentando versión...\e[39m"
-"$BASEDIR"/versionar.sh "$TIPO_VERSION"
+TIPO="$(obtenerTipoVersion "$MENSAJE_COMMIT")"
+"$BASEDIR"/versionar.sh "$TIPO"
 echo -e "\xE2\x9C\x94 Listo"
 
 VERSION=$(cat "$BASEDIR/../version")
