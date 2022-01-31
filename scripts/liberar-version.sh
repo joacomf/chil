@@ -28,7 +28,7 @@ git config user.email "<>"
 echo -e "\xE2\x9C\x94 Listo"
 
 echo -e "\e[33mGenerando tag con version ${VERSION}\e[39m"
-git add version
+git add version library.json
 git commit -m "[VERSION] Genera version ${VERSION}"
 git tag -m "${VERSION}" "${VERSION}"
 git push

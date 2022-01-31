@@ -1,15 +1,13 @@
 {
   "name": "Chil",
-  "version": "1.0.0",
+  "version": "0.1.4",
   "description": "Libreria para escribir pruebas de aceptacion al estilo Gherkin",
   "keywords": "test, pruebas, bdd, tdd, acceptance, gherkin",
-  "repository":
-  {
+  "repository": {
     "type": "git",
     "url": "https://github.com/joacomf/chil.git"
   },
-  "authors":
-  [
+  "authors": [
     {
       "name": "Joaquin Moreno",
       "email": "joaquinamf@gmail.com",
