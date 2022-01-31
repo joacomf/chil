@@ -28,10 +28,13 @@ aumentarVersion() {
 
     if [[ $1 == "mayor" ]] || [[ $1 == "M" ]]; then
         MAYOR="$(("$MAYOR" + 1))"
+        MINOR=0
+        PATCH=0
     fi
 
     if [[ $1 == "minor" ]] || [[ $1 == "m" ]]; then
         MINOR="$(("$MINOR" + 1))"
+        PATCH=0
     fi
 
     if [[ $1 == "patch" ]] || [[ $1 == "p" ]]; then
