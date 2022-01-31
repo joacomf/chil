@@ -2,6 +2,11 @@
 
 BASEDIR=$(dirname "$0")
 ARCHIVO_VERSION="$BASEDIR/../version"
+ARCHIVO_LIBRARY="$BASEDIR/../library.json"
+
+obtenerVersion() {
+    cat "$ARCHIVO_VERSION"
+}
 
 verificarCorrectitudDeComando() {
     if [ -z "$1" ]; then
@@ -16,7 +21,7 @@ verificarCorrectitudDeComando() {
 }
 
 aumentarVersion() {
-    VERSION_ACTUAL=$(cat "$ARCHIVO_VERSION")
+    VERSION_ACTUAL=$(obtenerVersion)
 
     IFS='.' read -r -a numerosVersion <<< "$VERSION_ACTUAL"
 
@@ -47,7 +52,13 @@ aumentarVersion() {
     echo "$NUEVA_VERSION" > "$ARCHIVO_VERSION"
 }
 
-verificarCorrectitudDeComando "$1";
-aumentarVersion "$1"
+cambiarVersionEnLibraryJSON() {
+    VERSION=$(obtenerVersion)
+    jq '.version = $version' --arg version "$VERSION" "$ARCHIVO_LIBRARY" > tmp.$$.json && mv tmp.$$.json "$ARCHIVO_LIBRARY"
+}
 
+
+verificarCorrectitudDeComando "$1"
+aumentarVersion "$1"
+cambiarVersionEnLibraryJSON
 
