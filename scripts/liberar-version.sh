@@ -20,4 +20,5 @@ git add version
 git commit -m "Generando version ${VERSION}"
 git tag -m "${VERSION}" "${VERSION}"
 git push
+git push --tags
 echo -e "\xE2\x9C\x94 Subido"
