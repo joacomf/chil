@@ -71,21 +71,26 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
+
       - name: Cache PlatformIO
         uses: actions/cache@v2
         with:
           path: ~/.platformio
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-      - name: Instalar platformio
+
+      - name: Configurar python
         uses: actions/setup-python@v2
-      - name: Install PlatformIO
-        run: |
-          chmod +x ./scripts/instalar-platformio.sh && ./scripts/instalar-platformio.sh
 
       - name: Cambia a master
         uses: actions/checkout@v2
         with:
           ref: 'master'
+
+      - name: Install PlatformIO
+        run: |
+          chmod +x ./scripts/instalar-platformio.sh
+          ./scripts/instalar-platformio.sh
+
       - name: Genera comprimido para platformio
         env:
           PLATFORMIO_TOKEN: ${{ secrets.PLATFORMIO_TOKEN }}
