@@ -65,6 +65,8 @@ jobs:
     needs: versionado
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: 'master'
       - name: Cache pip
         uses: actions/cache@v2
         with:
@@ -85,6 +87,8 @@ jobs:
 
       - name: Genera comprimido para platformio
         uses: actions/checkout@v2
+        with:
+          ref: 'master'
         env:
           PLATFORMIO_TOKEN: ${{ secrets.PLATFORMIO_TOKEN }}
         run: |
