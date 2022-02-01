@@ -93,15 +93,17 @@ jobs:
 
       - name: Genera comprimido para platformio
         env:
-          PLATFORMIO_TOKEN: ${{ secrets.PLATFORMIO_TOKEN }}
+          token: ${{ secrets.PLATFORMIO_TOKEN }}
+          version: ${{ needs.versionado.outputs.version }}
         run: |
-          chmod +x ./scripts/generar-paquete-platformio.sh && ./scripts/generar-paquete-platformio.sh
+          echo "version $version"
+          chmod +x ./scripts/generar-paquete-platformio.sh && ./scripts/generar-paquete-platformio.sh "$token"
 
       - name: Crea borrador de publicación
-        id: crear_publicacion
-        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: crear_publicacion
+        uses: actions/create-release@v1
         with:
           tag_name: ${{ needs.versionado.outputs.version }}
           release_name: v${{ needs.versionado.outputs.version }}
