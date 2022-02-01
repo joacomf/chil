@@ -46,11 +46,76 @@ jobs:
     env:
       MENSAJE_COMMIT: ${{ github.event.head_commit.message }}
     if: "!startsWith(github.event.head_commit.message, '[VERSION]')"
+    outputs:
+      version: ${{ steps.genera_version.outputs.test }}
     steps:
       - uses: actions/checkout@v2
       - name: Generar version
+        id: genera_version
         working-directory: ${{github.workspace}}
         shell: bash
         run: |
           chmod +x ./scripts/versionar.sh ./scripts/liberar-version.sh
           ./scripts/liberar-version.sh "${MENSAJE_COMMIT}"
+          echo "::set-output name=version::$(cat version)"
+
+
+  publicacion:
+    runs-on: ubuntu-latest
+    needs: versionado
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'master'
+      - name: Cache pip
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Cache PlatformIO
+        uses: actions/cache@v2
+        with:
+          path: ~/.platformio
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      - name: Instalar platformio
+        uses: actions/setup-python@v2
+      - name: Install PlatformIO
+        run: |
+          chmod +x ./scripts/instalar-platformio.sh && ./scripts/instalar-platformio.sh
+
+      - name: Genera comprimido para platformio
+        uses: actions/checkout@v2
+        with:
+          ref: 'master'
+        env:
+          PLATFORMIO_TOKEN: ${{ secrets.PLATFORMIO_TOKEN }}
+        run: |
+          chmod +x ./scripts/generar-paquete-platformio.sh && ./scripts/generar-paquete-platformio.sh
+
+      - name: Crea borrador de publicación
+        id: crear_publicacion
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ needs.versionado.outputs.version }}
+          release_name: v${{ needs.versionado.outputs.version }}
+          draft: true
+          prerelease: false
+
+      - uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.crear_publicacion.outputs.upload_url }}
+          asset_path: ./Chil-${{ needs.versionado.outputs.version }}.tar.gz
+          asset_name: Chil-${{ needs.versionado.outputs.version }}.tar.gz
+          asset_content_type: application/gzip
+
+      - uses: eregon/publish-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_id: ${{ steps.crear_publicacion.outputs.id }}

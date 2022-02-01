@@ -18,5 +18,22 @@
   "homepage": "https://joacomf.github.io/chil/",
   "dependencies": {},
   "frameworks": "*",
-  "platforms": "*"
+  "platforms": "*",
+  "export": {
+    "include": [
+      "src/*",
+      "plataformas/modelo/*",
+      "CMakeLists.txt",
+      "README.md",
+      "version"
+    ],
+    "exclude": [
+      ".github",
+      "documentacion",
+      "ejemplos",
+      "herramientas",
+      "scripts",
+      "tests"
+    ]
+  }
 }
