@@ -46,8 +46,6 @@ jobs:
     env:
       MENSAJE_COMMIT: ${{ github.event.head_commit.message }}
     if: "!startsWith(github.event.head_commit.message, '[VERSION]')"
-    outputs:
-      version: ${{ steps.genera_version.outputs.test }}
     steps:
       - uses: actions/checkout@v2
       - name: Generar version
@@ -58,7 +56,8 @@ jobs:
           chmod +x ./scripts/versionar.sh ./scripts/liberar-version.sh
           ./scripts/liberar-version.sh "${MENSAJE_COMMIT}"
           echo "::set-output name=version::$(cat version)"
-
+    outputs:
+      version: ${{ steps.genera_version.outputs.version }}
 
   publicacion:
     runs-on: ubuntu-latest
@@ -106,7 +105,7 @@ jobs:
         uses: actions/create-release@v1
         with:
           tag_name: ${{ needs.versionado.outputs.version }}
-          release_name: v${{ needs.versionado.outputs.version }}
+          release_name: ${{ needs.versionado.outputs.version }}
           draft: true
           prerelease: false
 
