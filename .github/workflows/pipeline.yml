@@ -92,11 +92,11 @@ jobs:
 
       - name: Genera comprimido para platformio
         env:
-          token: ${{ secrets.PLATFORMIO_TOKEN }}
+          PLATFORMIO_AUTH_TOKEN: ${{ secrets.PLATFORMIO_AUTH_TOKEN }}
           version: ${{ needs.versionado.outputs.version }}
         run: |
           echo "version $version"
-          chmod +x ./scripts/generar-paquete-platformio.sh && ./scripts/generar-paquete-platformio.sh "$token"
+          chmod +x ./scripts/generar-paquete-platformio.sh && ./scripts/generar-paquete-platformio.sh
 
       - name: Crea borrador de publicación
         env:
