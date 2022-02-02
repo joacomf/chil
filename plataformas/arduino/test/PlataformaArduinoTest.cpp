@@ -1,5 +1,5 @@
 #include "../src/PlataformaArduino.cpp"
-#include "../../modelos/PuntoDeEntrada.cpp"
+#include "../../interfaces/PuntoDeEntrada.cpp"
 #include <AUnit.h>
 #include <utility>
 
