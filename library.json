@@ -19,6 +19,7 @@
   "dependencies": {},
   "frameworks": "*",
   "platforms": "*",
+  "architectures": "*",
   "export": {
     "include": [
       "src/*",
