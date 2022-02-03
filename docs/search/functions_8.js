@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main_214',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
-  ['mostrar_215',['mostrar',['../classPaso.html#ad7cb9d5c9ee99c6e6f268b72751e6d1e',1,'Paso']]]
+  ['leer_263',['leer',['../classPlataforma.html#a9596ac8f40f11f00532c38de4f454d59',1,'Plataforma']]]
 ];

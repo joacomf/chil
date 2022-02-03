@@ -5,5 +5,6 @@ var searchData=
   ['accionverificable_2',['AccionVerificable',['../classAccionVerificable.html',1,'AccionVerificable'],['../classAccionVerificable.html#a423584af7b765db887c98b93a7eda422',1,'AccionVerificable::AccionVerificable()']]],
   ['accionverificable_2ecpp_3',['AccionVerificable.cpp',['../AccionVerificable_8cpp.html',1,'']]],
   ['accionverificable_2eh_4',['AccionVerificable.h',['../AccionVerificable_8h.html',1,'']]],
-  ['atexto_5',['aTexto',['../namespaceliterales.html#a552342a967addb854f230fff46d3dada',1,'literales::aTexto(const T &amp;t)'],['../namespaceliterales.html#adbbbe34823398ce120d563e6519e1a82',1,'literales::aTexto(const char *t)'],['../namespaceliterales.html#aa1df8b975a5212eaa6c93cab26c9d8a9',1,'literales::aTexto(const string &amp;t)']]]
+  ['apagarwifi_5',['apagarWiFi',['../classPlataforma.html#a3d484b50f3b3cc2bd436c2cd3fab6900',1,'Plataforma']]],
+  ['atexto_6',['aTexto',['../namespaceliterales.html#a552342a967addb854f230fff46d3dada',1,'literales::aTexto(const T &amp;t)'],['../namespaceliterales.html#adbbbe34823398ce120d563e6519e1a82',1,'literales::aTexto(const char *t)'],['../namespaceliterales.html#aa1df8b975a5212eaa6c93cab26c9d8a9',1,'literales::aTexto(const string &amp;t)']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sehayaejecutado_228',['seHayaEjecutado',['../classAccionVerificable.html#a0426d7429c1c30374ee7cb9487149322',1,'AccionVerificable']]]
+  ['registrarescenarioconresultado_287',['registrarEscenarioConResultado',['../classResumen.html#aa658af67d90ed057969de6bb1881d8c2',1,'Resumen']]]
 ];
