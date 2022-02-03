@@ -20,12 +20,16 @@ add_executable(
         src/modelo/verificacion/VerificacionEntreTest.cpp
         src/modelo/exportador/ExportadorJSONTest.cpp
 
-        plataformas/interfaces/PuntoDeEntradaTest.cpp
+        src/interfaces/PuntoDeEntradaTest.cpp
 
         ../src/Chil.h
         ../src/Chil.cpp
         ../src/macros.h
         ../src/macros.cpp
+
+        ../src/interfaces/Plataforma.h
+        ../src/interfaces/PuntoDeEntrada.h
+        ../src/interfaces/PuntoDeEntrada.cpp
 
         ../src/modelo/Paso.h
         ../src/modelo/Paso.cpp
@@ -64,7 +68,6 @@ target_include_directories (
         ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_SOURCE_DIR}/../include
         ${CMAKE_CURRENT_SOURCE_DIR}/../src
-        ${CMAKE_CURRENT_SOURCE_DIR}/../plataformas/interfaces
 )
 
 # Link Libreria Google Test

@@ -1,7 +1,7 @@
 #ifndef CHIL_PLATAFORMAMOCK_HPP
 #define CHIL_PLATAFORMAMOCK_HPP
 
-#include "Plataforma.h"
+#include <interfaces/Plataforma.h>
 #include "gmock/gmock.h"
 
 class PlataformaMock : public Plataforma{

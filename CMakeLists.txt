@@ -13,7 +13,6 @@ add_library(Chil ${Chil_FILES})
 
 target_include_directories(Chil PRIVATE include)
 target_include_directories(Chil PRIVATE src)
-target_include_directories(Chil PRIVATE plataformas/interfaces)
 
 set_target_properties(Chil PROPERTIES PUBLIC_HEADER src/Chil.h)
 
