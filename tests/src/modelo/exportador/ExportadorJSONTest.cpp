@@ -54,7 +54,10 @@ TEST(ExportadorJSON, exportaUnEscenarioDosEscenariosUnoFallidoYOtroExitoso) {
 TEST(ExportadorJSON, exportaUnEscenarioDosEscenariosUnoFallidoYOtroExitosoUtilizandoElMacro) {
     dadoQueSePuedeEjecutar4PasosConChil();
 
+    EXPECT_CALL(*laPlataforma, consola(StrEq("COMIENZO_JSON"))).Times(1);
     EXPECT_CALL(*laPlataforma, consola(StrEq("{\"resumen\":{\"completados\":2,\"exitosos\":1,\"fallidos\":1},\"escenarios\":[{\"nombre\":\"Recibe comando en pin 1 para pasar comando al pin 333\",\"exitoso\":true,\"pasos\":[{\"nombre\":\"Recibe comando en el pin 1\",\"exitoso\":true,\"tiempo\":100,\"detalleDeError\":\"\"}]},{\"nombre\":\"Deja de recibir comando en pin 1 para pasar comando al pin 12\",\"exitoso\":false,\"pasos\":[{\"nombre\":\"No recibe comando en el pin 1\",\"exitoso\":false,\"tiempo\":39,\"detalleDeError\":\"Se esperaba que el valor 0 sea igual a 1 pero no lo fue\"}]}]}"))).Times(1);
+    EXPECT_CALL(*laPlataforma, consola(StrEq("FIN_JSON"))).Times(1);
+
 
     ESCENARIO(Recibe comando en pin 1 para pasar comando al pin 333) {
         PASO(Recibe comando en el pin 1, []() {});
