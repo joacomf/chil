@@ -92,7 +92,7 @@ jobs:
 
       - name: Genera comprimido para platformio
         env:
-          PLATFORMIO_AUTH_TOKEN: ${{ secrets.PLATFORMIO_AUTH_TOKEN }}
+          PLATFORMIO_AUTH_TOKEN: ${{ secrets.PLATFORMIO_TOKEN }}
           version: ${{ needs.versionado.outputs.version }}
         run: |
           echo "version $version"
