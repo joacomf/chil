@@ -1,10 +1,10 @@
-#include <Plataforma.h>
-#include <PlataformaArduino.h>
+#include <PlataformaESP.h>
 #include <Chil.h>
 #include <pasos.h>
 
-void setup() {
-    NUEVO_CHIL_CON(PLATAFORMA_ARDUINO);
+PRUEBAS;
+
+NUEVO_CHIL_CON(PLATAFORMA_ESP);
     PLATAFORMA->demorar(1000);
 
     configurarIO();
@@ -25,6 +25,5 @@ void setup() {
     };
 
     FIN_DE_PRUEBAS;
-}
 
-void loop() {}
+FIN;
