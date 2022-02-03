@@ -1,30 +1,25 @@
 #include "pasos.h"
+#include "modelo/verificacion/Verificacion.h"
 
-bool presionoElBoton() {
+
+void presionoElBoton() {
     PLATAFORMA->escribir(BOTON_ROJO, 1);
-    return true;
 }
 
-bool sueltoElBoton() {
+void sueltoElBoton() {
     PLATAFORMA->escribir(BOTON_ROJO, 0);
-    return true;
 }
 
-bool elLedEstaEncendido() {
-    int estadoLed = PLATAFORMA->leer(LED_AZUL);
-
-    return estadoLed == 1;
+void elLedEstaEncendido() {
+    verificar(PLATAFORMA->leer(LED_AZUL))->esIgualA(1);
 }
 
-bool elLedEstaApagado() {
-    int estadoLed = PLATAFORMA->leer(LED_AZUL);
-
-    return estadoLed == 0;
+void elLedEstaApagado() {
+    verificar(PLATAFORMA->leer(LED_AZUL))->esIgualA(0);
 }
 
-bool espero25Milis() {
+void espero25Milis() {
     PLATAFORMA->demorar(25);
-    return true;
 }
 
 void configurarIO() {
