@@ -1,0 +1,3 @@
+[submodule "plataformas/esp"]
+	path = plataformas/esp
+	url = git@github.com:joacomf/chil-plataforma-esp.git
