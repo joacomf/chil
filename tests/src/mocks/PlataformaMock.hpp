@@ -4,7 +4,7 @@
 #include <interfaces/Plataforma.h>
 #include "gmock/gmock.h"
 
-class PlataformaMock : public Plataforma{
+class PlataformaMock : public Plataforma {
 
   public:
     MOCK_METHOD(void, consola, (const char *nombre), (override));

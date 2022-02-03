@@ -52,6 +52,9 @@ public:
     void exportarJSON();
 
 private:
+    constexpr static const char *const ETIQUETA_COMIENZO_JSON = "COMIENZO_JSON";
+    constexpr static const char *const ETIQUETA_FIN_JSON = "FIN_JSON";
+
     Escenario *_escenario{};
     vector<Escenario*> _escenarios;
     const char *mensajeComienzo = "\nPruebas con CHIL:\n";

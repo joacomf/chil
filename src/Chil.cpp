@@ -98,6 +98,8 @@ void Chil::finalizarPruebas() {
     this->plataforma->consola(this->imprimirReporte().c_str());
     this->plataforma->consola(this->imprimirResumen().c_str());
     this->plataforma->consola(this->mensajeFinDePruebas);
+    this->plataforma->consola("\n");
+    this->exportarJSON();
 }
 
 string Chil::imprimirResumen() {
@@ -113,5 +115,7 @@ Resumen *Chil::obtenerResumen() {
 }
 
 void Chil::exportarJSON() {
+    this->plataforma->consola(ETIQUETA_COMIENZO_JSON);
     this->plataforma->consola(ExportadorJSON::generar().c_str());
+    this->plataforma->consola(ETIQUETA_FIN_JSON);
 }
