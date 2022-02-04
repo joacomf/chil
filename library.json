@@ -40,7 +40,6 @@
     "exclude": [
       ".github",
       "documentacion",
-      "ejemplos",
       "herramientas",
       "scripts",
       "tests"
