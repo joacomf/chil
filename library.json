@@ -34,7 +34,8 @@
       "plataformas/modelo/*",
       "CMakeLists.txt",
       "README.md",
-      "version"
+      "version",
+      "ejemplos"
     ],
     "exclude": [
       ".github",
