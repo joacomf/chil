@@ -51,6 +51,7 @@
       "documentacion",
       "herramientas",
       "scripts",
+      "ejemplos/leds/imagenes",
       "tests"
     ]
   }
