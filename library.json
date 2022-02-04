@@ -19,7 +19,15 @@
   "dependencies": {},
   "frameworks": "*",
   "platforms": "*",
-  "architectures": "*",
+  "examples": [
+    {
+      "name": "LEDs",
+      "base": "ejemplos/leds",
+      "files": [
+        "*"
+      ]
+    }
+  ],
   "export": {
     "include": [
       "src/*",

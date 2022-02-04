@@ -1,6 +1,2 @@
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../src")
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../plataformas/modelos")
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../plataformas/arduino/src")
-
 file(GLOB Pruebas_ARCHIVOS src/main.cpp)
 add_library(Pruebas ${Pruebas_ARCHIVOS})
