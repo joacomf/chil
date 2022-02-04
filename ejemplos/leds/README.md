@@ -185,4 +185,5 @@ chil correr
 
 Y ver el reporte de las pruebas en una web como el siguiente:
 
+![Reporte final](./imagenes/reporte-final.png "Reporte final")
 
