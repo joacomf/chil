@@ -35,7 +35,7 @@
       "CMakeLists.txt",
       "README.md",
       "version",
-      "ejemplos"
+      "ejemplos/*"
     ],
     "exclude": [
       ".github",
