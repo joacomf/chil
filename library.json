@@ -24,7 +24,19 @@
       "name": "LEDs",
       "base": "ejemplos/leds",
       "files": [
-        "*"
+        "pruebas/.gitignore",
+        "pruebas/platformio.ini",
+        "pruebas/src/pasos.h",
+        "pruebas/src/main.cpp",
+        "pruebas/src/pasos.cpp",
+        "pruebas/.chil",
+        "fuente/platformio.ini",
+        "fuente/.gitignore",
+        "fuente/src/main.cpp",
+        "imagenes/diagrama-conexion-sut.png",
+        "imagenes/diagrama-conexion-leds.png",
+        "imagenes/reporte-final.png",
+        "README.md"
       ]
     }
   ],
