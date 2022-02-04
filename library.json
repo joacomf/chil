@@ -33,9 +33,6 @@
         "fuente/platformio.ini",
         "fuente/.gitignore",
         "fuente/src/main.cpp",
-        "imagenes/diagrama-conexion-sut.png",
-        "imagenes/diagrama-conexion-leds.png",
-        "imagenes/reporte-final.png",
         "README.md"
       ]
     }
