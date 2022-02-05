@@ -2,6 +2,7 @@
 #define PRUEBAS_PASOS_H
 
 #include <Chil.h>
+#include <modelo/verificacion/Verificacion.h>
 #include "respuestas.h"
 
 #define PRUEBAS void setup() {
@@ -21,13 +22,14 @@ void configurarIO();
 bool conectarseARedWifi();
 void esperoALaConexion();
 void elPipelineEstaEnEstadoExitoso();
-bool indicadorDeExitoEncendido();
+bool queElIndicadorDeExitoEncendido();
+void indicadorDeExitoEncendido();
 void reiniciarSUT();
 void elPipelineEstaEnEstadoFallido();
-bool indicadorDeFalloEncendido();
+void indicadorDeFalloEncendido();
 void laRedWifiNoExiste();
 void esperoElMaximoDeIntentosDeConexion();
-bool indicadorDeDesconexionEncendido();
+void indicadorDeDesconexionEncendido();
 void hayProblemasDeComunicacionConElServicio();
 
 #endif //PRUEBAS_PASOS_H

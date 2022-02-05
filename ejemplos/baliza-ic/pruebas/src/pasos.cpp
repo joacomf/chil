@@ -26,17 +26,15 @@ void elPipelineEstaEnEstadoExitoso() {
     PLATAFORMA->configurarPuntoDeEntrada(estadoDePipeline);
 }
 
-bool indicadorDeExitoEncendido() {
-    unsigned long tiempoInicial = PLATAFORMA->milisegundos();
+bool queElIndicadorDeExitoEncendido() {
+    return PLATAFORMA->leer(PIN_LED_EXITO) == ESTA_ENCENDIDO;
+}
 
-    while(PLATAFORMA->milisegundos() - tiempoInicial < TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS){
-        if (PLATAFORMA->leer(PIN_LED_EXITO) == ESTA_ENCENDIDO) {
-            return true;
-        }
-        PLATAFORMA->demorar(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR);
-    }
-
-    return false;
+void indicadorDeExitoEncendido() {
+    comprobar(queElIndicadorDeExitoEncendido)
+                        ->durante(TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS)
+                        ->conIntervaloDe(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR)
+                        ->seHayaEjecutado();
 }
 
 void reiniciarSUT() {
@@ -52,17 +50,13 @@ void elPipelineEstaEnEstadoFallido() {
     PLATAFORMA->configurarPuntoDeEntrada(estadoDePipeline);
 }
 
-bool indicadorDeFalloEncendido() {
-    unsigned long tiempoInicial = PLATAFORMA->milisegundos();
-
-    while(PLATAFORMA->milisegundos() - tiempoInicial < TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS){
-        if (PLATAFORMA->leer(PIN_LED_FALLO) == ESTA_ENCENDIDO) {
-            return true;
-        }
-        PLATAFORMA->demorar(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR);
-    }
-
-    return false;
+void indicadorDeFalloEncendido() {
+    comprobar([](){ 
+            return PLATAFORMA->leer(PIN_LED_FALLO) == ESTA_ENCENDIDO;
+        })
+        ->durante(TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS)
+        ->conIntervaloDe(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR)
+        ->seHayaEjecutado();
 }
 
 void laRedWifiNoExiste() {}
@@ -71,17 +65,13 @@ void esperoElMaximoDeIntentosDeConexion() {
     PLATAFORMA->demorar(4000);
 }
 
-bool indicadorDeDesconexionEncendido() {
-    unsigned long tiempoInicial = PLATAFORMA->milisegundos();
-
-    while(PLATAFORMA->milisegundos() - tiempoInicial < TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS){
-        if (PLATAFORMA->leer(PIN_LED_DESCONEXION) == ESTA_ENCENDIDO) {
-            return true;
-        }
-        PLATAFORMA->demorar(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR);
-    }
-
-    return false;
+void indicadorDeDesconexionEncendido() {
+    comprobar([](){ 
+        return PLATAFORMA->leer(PIN_LED_DESCONEXION) == ESTA_ENCENDIDO;
+    })
+    ->durante(TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS)
+    ->conIntervaloDe(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR)
+    ->seHayaEjecutado();
 }
 
 void hayProblemasDeComunicacionConElServicio() {
