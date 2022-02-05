@@ -12,12 +12,11 @@ bool conectarseARedWifi() {
     return PLATAFORMA->crearRedWiFi("aceptacion", "clave1234");
 }
 
-bool esperoALaConexion() {
+void esperoALaConexion() {
     PLATAFORMA->demorar(2000);
-    return true;
 }
 
-bool elPipelineEstaEnEstadoExitoso() {
+void elPipelineEstaEnEstadoExitoso() {
     PLATAFORMA->crearServidorWeb();
     PLATAFORMA->configurarMockUrls();
 
@@ -25,8 +24,6 @@ bool elPipelineEstaEnEstadoExitoso() {
     estadoDePipeline->configurarRespuesta(RESPUESTA_EXITOSA, "application/json", 200);
 
     PLATAFORMA->configurarPuntoDeEntrada(estadoDePipeline);
-
-    return true;
 }
 
 bool indicadorDeExitoEncendido() {
@@ -42,20 +39,17 @@ bool indicadorDeExitoEncendido() {
     return false;
 }
 
-bool reiniciarSUT() {
+void reiniciarSUT() {
     PLATAFORMA->escribir(PIN_DE_REINICIO, 0);
     PLATAFORMA->demorar(2);
     PLATAFORMA->escribir(PIN_DE_REINICIO, 1);
-    return true;
 }
 
-bool elPipelineEstaEnEstadoFallido() {
+void elPipelineEstaEnEstadoFallido() {
     auto* estadoDePipeline = new PuntoDeEntrada(RUTA_ESTADO_PIPELINE);
     estadoDePipeline->configurarRespuesta(RESPUESTA_FALLIDA, "application/json", 200);
 
     PLATAFORMA->configurarPuntoDeEntrada(estadoDePipeline);
-
-    return true;
 }
 
 bool indicadorDeFalloEncendido() {
@@ -71,13 +65,10 @@ bool indicadorDeFalloEncendido() {
     return false;
 }
 
-bool laRedWifiNoExiste() {
-    return true;
-}
+void laRedWifiNoExiste() {}
 
-bool esperoElMaximoDeIntentosDeConexion() {
+void esperoElMaximoDeIntentosDeConexion() {
     PLATAFORMA->demorar(4000);
-    return true;
 }
 
 bool indicadorDeDesconexionEncendido() {
@@ -93,11 +84,9 @@ bool indicadorDeDesconexionEncendido() {
     return false;
 }
 
-bool hayProblemasDeComunicacionConElServicio() {
+void hayProblemasDeComunicacionConElServicio() {
     auto* estadoDePipeline = new PuntoDeEntrada(RUTA_ESTADO_PIPELINE);
     estadoDePipeline->configurarRespuesta(RESPUESTA_VACIA, "application/json", 500);
 
     PLATAFORMA->configurarPuntoDeEntrada(estadoDePipeline);
-
-    return true;
 }

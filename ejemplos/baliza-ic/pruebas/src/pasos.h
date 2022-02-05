@@ -19,15 +19,15 @@
 
 void configurarIO();
 bool conectarseARedWifi();
-bool esperoALaConexion();
-bool elPipelineEstaEnEstadoExitoso();
+void esperoALaConexion();
+void elPipelineEstaEnEstadoExitoso();
 bool indicadorDeExitoEncendido();
-bool reiniciarSUT();
-bool elPipelineEstaEnEstadoFallido();
+void reiniciarSUT();
+void elPipelineEstaEnEstadoFallido();
 bool indicadorDeFalloEncendido();
-bool laRedWifiNoExiste();
-bool esperoElMaximoDeIntentosDeConexion();
+void laRedWifiNoExiste();
+void esperoElMaximoDeIntentosDeConexion();
 bool indicadorDeDesconexionEncendido();
-bool hayProblemasDeComunicacionConElServicio();
+void hayProblemasDeComunicacionConElServicio();
 
 #endif //PRUEBAS_PASOS_H
