@@ -29,6 +29,10 @@ public:
     string obtenerMensaje() {
         return this->mensaje;
     }
+
+    const char* what() const noexcept override {
+        return mensaje.c_str();
+    }
 };
 
 #endif //CHIL_ACCIONNOEJECUTADAEXCEPCION_H
