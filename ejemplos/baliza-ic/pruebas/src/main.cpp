@@ -1,10 +1,9 @@
-#include <Plataforma.h>
-#include <PlataformaArduino.h>
+#include <PlataformaESP.h>
 #include <Chil.h>
 #include <pasos.h>
 
 PRUEBAS
-NUEVO_CHIL_CON(PLATAFORMA_ARDUINO);
+NUEVO_CHIL_CON(PLATAFORMA_ESP);
 PLATAFORMA->demorar(2000);
 configurarIO();
 
