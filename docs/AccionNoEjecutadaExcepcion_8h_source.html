@@ -110,14 +110,19 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6">   29</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6">obtenerMensaje</a>() {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> this-&gt;mensaje;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif //CHIL_ACCIONNOEJECUTADAEXCEPCION_H</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classAccionNoEjecutadaExcepcion.html#a25b3cf6b3af51dd2257748d49a679537">   33</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classAccionNoEjecutadaExcepcion.html#a25b3cf6b3af51dd2257748d49a679537">what</a>() const noexcept<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> mensaje.c_str();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif //CHIL_ACCIONNOEJECUTADAEXCEPCION_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html_a97ac361ee09d00940787948f586620cb"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html#a97ac361ee09d00940787948f586620cb">AccionNoEjecutadaExcepcion::AccionNoEjecutadaExcepcion</a></div><div class="ttdeci">AccionNoEjecutadaExcepcion(int duracion, int intervalo)</div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:21</div></div>
 <div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html">AccionNoEjecutadaExcepcion</a></div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:12</div></div>
 <div class="ttc" id="aliterales_8h_html"><div class="ttname"><a href="literales_8h.html">literales.h</a></div></div>
 <div class="ttc" id="anamespaceliterales_html_a552342a967addb854f230fff46d3dada"><div class="ttname"><a href="namespaceliterales.html#a552342a967addb854f230fff46d3dada">literales::aTexto</a></div><div class="ttdeci">string aTexto(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> literales.h:38</div></div>
+<div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html_a25b3cf6b3af51dd2257748d49a679537"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html#a25b3cf6b3af51dd2257748d49a679537">AccionNoEjecutadaExcepcion::what</a></div><div class="ttdeci">const char * what() const noexcept override</div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:33</div></div>
 <div class="ttc" id="aclassAccionNoEjecutadaExcepcion_html_a9b745fde28f9bf8d0c6ebadd9045c1c6"><div class="ttname"><a href="classAccionNoEjecutadaExcepcion.html#a9b745fde28f9bf8d0c6ebadd9045c1c6">AccionNoEjecutadaExcepcion::obtenerMensaje</a></div><div class="ttdeci">string obtenerMensaje()</div><div class="ttdef"><b>Definition:</b> AccionNoEjecutadaExcepcion.h:29</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
