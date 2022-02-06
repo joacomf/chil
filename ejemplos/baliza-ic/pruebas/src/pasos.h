@@ -1,6 +1,10 @@
 #ifndef PRUEBAS_PASOS_H
 #define PRUEBAS_PASOS_H
 
+#include <stdexcept>
+
+using namespace std;
+
 #include <Chil.h>
 #include <modelo/verificacion/Verificacion.h>
 #include "respuestas.h"
@@ -18,6 +22,7 @@
 #define TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS 4000
 #define TIEMPO_ENTRE_VERIFICACIONES_INDICADOR 20
 
+void sinDefinir();
 void configurarIO();
 bool conectarseARedWifi();
 void esperoALaConexion();

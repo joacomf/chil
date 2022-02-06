@@ -4,8 +4,8 @@ void configurarIO() {
     PLATAFORMA->pinSalida(PIN_DE_REINICIO);
 }
 
-bool sinDefinir() {
-    return false;
+void sinDefinir() {
+    throw invalid_argument("Paso sin definir");
 }
 
 bool conectarseARedWifi() {
