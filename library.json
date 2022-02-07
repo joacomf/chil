@@ -1,6 +1,6 @@
 {
   "name": "Chil",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "description": "Libreria para escribir pruebas de aceptacion al estilo Gherkin",
   "keywords": "test, pruebas, bdd, tdd, acceptance, gherkin",
   "repository": {
