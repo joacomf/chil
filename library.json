@@ -45,6 +45,7 @@
         "pruebas/src/pasos.h",
         "pruebas/src/main.cpp",
         "pruebas/src/pasos.cpp",
+        "pruebas/src/respuestas.h",
         "pruebas/.chil",
         "README.md"
       ]
@@ -53,7 +54,6 @@
   "export": {
     "include": [
       "src/*",
-      "plataformas/modelo/*",
       "CMakeLists.txt",
       "README.md",
       "version",
@@ -64,6 +64,8 @@
       "documentacion",
       "herramientas",
       "scripts",
+      "ejemplos/baliza-ic/imagenes",
+      "ejemplos/baliza-ic/fuente",
       "ejemplos/leds/imagenes",
       "tests"
     ]
