@@ -4,20 +4,19 @@ void configurarIO() {
     PLATAFORMA->pinSalida(PIN_DE_REINICIO);
 }
 
-bool sinDefinir() {
-    return false;
+void sinDefinir() {
+    throw invalid_argument("Paso sin definir");
 }
 
 bool conectarseARedWifi() {
     return PLATAFORMA->crearRedWiFi("aceptacion", "clave1234");
 }
 
-bool esperoALaConexion() {
+void esperoALaConexion() {
     PLATAFORMA->demorar(2000);
-    return true;
 }
 
-bool elPipelineEstaEnEstadoExitoso() {
+void elPipelineEstaEnEstadoExitoso() {
     PLATAFORMA->crearServidorWeb();
     PLATAFORMA->configurarMockUrls();
 
@@ -25,79 +24,59 @@ bool elPipelineEstaEnEstadoExitoso() {
     estadoDePipeline->configurarRespuesta(RESPUESTA_EXITOSA, "application/json", 200);
 
     PLATAFORMA->configurarPuntoDeEntrada(estadoDePipeline);
-
-    return true;
 }
 
-bool indicadorDeExitoEncendido() {
-    unsigned long tiempoInicial = PLATAFORMA->milisegundos();
-
-    while(PLATAFORMA->milisegundos() - tiempoInicial < TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS){
-        if (PLATAFORMA->leer(PIN_LED_EXITO) == ESTA_ENCENDIDO) {
-            return true;
-        }
-        PLATAFORMA->demorar(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR);
-    }
-
-    return false;
+bool queElIndicadorDeExitoEncendido() {
+    return PLATAFORMA->leer(PIN_LED_EXITO) == ESTA_ENCENDIDO;
 }
 
-bool reiniciarSUT() {
+void indicadorDeExitoEncendido() {
+    comprobar(queElIndicadorDeExitoEncendido)
+                        ->durante(TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS)
+                        ->conIntervaloDe(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR)
+                        ->seHayaEjecutado();
+}
+
+void reiniciarSUT() {
     PLATAFORMA->escribir(PIN_DE_REINICIO, 0);
     PLATAFORMA->demorar(2);
     PLATAFORMA->escribir(PIN_DE_REINICIO, 1);
-    return true;
 }
 
-bool elPipelineEstaEnEstadoFallido() {
+void elPipelineEstaEnEstadoFallido() {
     auto* estadoDePipeline = new PuntoDeEntrada(RUTA_ESTADO_PIPELINE);
     estadoDePipeline->configurarRespuesta(RESPUESTA_FALLIDA, "application/json", 200);
 
     PLATAFORMA->configurarPuntoDeEntrada(estadoDePipeline);
-
-    return true;
 }
 
-bool indicadorDeFalloEncendido() {
-    unsigned long tiempoInicial = PLATAFORMA->milisegundos();
-
-    while(PLATAFORMA->milisegundos() - tiempoInicial < TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS){
-        if (PLATAFORMA->leer(PIN_LED_FALLO) == ESTA_ENCENDIDO) {
-            return true;
-        }
-        PLATAFORMA->demorar(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR);
-    }
-
-    return false;
+void indicadorDeFalloEncendido() {
+    comprobar([](){ 
+            return PLATAFORMA->leer(PIN_LED_FALLO) == ESTA_ENCENDIDO;
+        })
+        ->durante(TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS)
+        ->conIntervaloDe(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR)
+        ->seHayaEjecutado();
 }
 
-bool laRedWifiNoExiste() {
-    return true;
-}
+void laRedWifiNoExiste() {}
 
-bool esperoElMaximoDeIntentosDeConexion() {
+void esperoElMaximoDeIntentosDeConexion() {
     PLATAFORMA->demorar(4000);
-    return true;
 }
 
-bool indicadorDeDesconexionEncendido() {
-    unsigned long tiempoInicial = PLATAFORMA->milisegundos();
-
-    while(PLATAFORMA->milisegundos() - tiempoInicial < TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS){
-        if (PLATAFORMA->leer(PIN_LED_DESCONEXION) == ESTA_ENCENDIDO) {
-            return true;
-        }
-        PLATAFORMA->demorar(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR);
-    }
-
-    return false;
+void indicadorDeDesconexionEncendido() {
+    comprobar([](){ 
+        return PLATAFORMA->leer(PIN_LED_DESCONEXION) == ESTA_ENCENDIDO;
+    })
+    ->durante(TIEMPO_LIMITE_VERIFICAR_INDICADOR_MS)
+    ->conIntervaloDe(TIEMPO_ENTRE_VERIFICACIONES_INDICADOR)
+    ->seHayaEjecutado();
 }
 
-bool hayProblemasDeComunicacionConElServicio() {
+void hayProblemasDeComunicacionConElServicio() {
     auto* estadoDePipeline = new PuntoDeEntrada(RUTA_ESTADO_PIPELINE);
     estadoDePipeline->configurarRespuesta(RESPUESTA_VACIA, "application/json", 500);
 
     PLATAFORMA->configurarPuntoDeEntrada(estadoDePipeline);
-
-    return true;
 }

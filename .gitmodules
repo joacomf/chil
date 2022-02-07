@@ -1,3 +1,7 @@
 [submodule "plataformas/esp"]
 	path = plataformas/esp
 	url = git@github.com:joacomf/chil-plataforma-esp.git
+[submodule "ejemplos/baliza-ic/fuente"]
+	path = ejemplos/baliza-ic/fuente
+	url = git@github.com:guidorombola/dyasc-baliza-build.git
+	branch = wifi-directo

@@ -1,0 +1,2 @@
+[comando]
+platformio run --target upload --target monitor --environment esp32dev
