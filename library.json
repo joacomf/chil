@@ -35,6 +35,19 @@
         "fuente/src/main.cpp",
         "README.md"
       ]
+    },
+    {
+      "name": "Baliza IC",
+      "base": "ejemplos/baliza-ic",
+      "files": [
+        "pruebas/.gitignore",
+        "pruebas/platformio.ini",
+        "pruebas/src/pasos.h",
+        "pruebas/src/main.cpp",
+        "pruebas/src/pasos.cpp",
+        "pruebas/.chil",
+        "README.md"
+      ]
     }
   ],
   "export": {
