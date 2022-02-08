@@ -35,7 +35,7 @@ jobs:
         with:
           args: unzip -qq build-wrapper-linux-x86.zip -d wrapper
       - name: Ejecuta wrapper
-        run: ls -l wrapper/build-wrapper-linux-x86 && chmod +x ./wrapper/build-wrapper-linux-x86/build-wrapper-linux-x86-64 && ./wrapper/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output make clean all && ./scripts/test.sh
+        run: ls -l wrapper/build-wrapper-linux-x86 && ./wrapper/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output make clean all && ./scripts/test.sh
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
