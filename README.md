@@ -4,19 +4,16 @@
 Framework para escribir pruebas utilizando un dispositivo físico como ejecutor.
 
 ## Tabla de contenido
-- [Chil](#chil---c-hardware-in-the-loop-testing)
-    - [Tabla de contenidos](#tabla-de-contenido)
-    - [Motivación](#motivacin)
-    - [Usos](#usos)
-    - [Modo de uso](#modo-de-uso)
-      - [Creación del proyecto](#creacin-del-proyecto)
-      - [Creación del contexto de pruebas](#creacin-del-contexto-de-pruebas)
-      - [Definición de escenarios](#definicin-de-escenarios)
-    - [Contribución](#contribucin)
-      - [Entorno](#entorno)
-        - [IDE](#ide)
-        - [Herramientas](#herramientas)
-      - [Constucción](#construccin)
+- [Motivación](#motivacin)
+- [Usos](#usos)
+- [Modo de uso](#modo-de-uso)
+  - [Creación del proyecto](#creacin-del-proyecto)
+  - [Creación del contexto de pruebas](#creacin-del-contexto-de-pruebas)
+  - [Definición de escenarios](#definicin-de-escenarios)
+  - [Ejecución](#ejecucin)
+- [Contribución](#contribucin)
+  - [Entorno](#entorno)
+  - [Constucción](#construccin)
 
 ## Motivación
 La motivación original detrás de todo el proyecto fue la necesidad de crear una herramienta que sea habilitante para realizar prácticas con pruebas automatizadas (TDD, BDD, Integración Continua) al mundo de microcontroladores que está creciendo. 
@@ -164,7 +161,7 @@ Otra manera de definir los escenarios puede ser referenciando a una función, es
 
 Como se puede observar en los ejemplos anteriores se hace uso de el método `verificar()` el cual pertenece una librería de verificaciones ofrecida por `Chil` se explicará con detalle en la sección [librería de verificación](#librera-de-verificacin).
 
-## Librería de verificación
+### Librería de verificación
 Para facilitar la verificación de valores obtenidos, se propuso una librería (inspirada en [AssertJ](https://assertj.github.io/doc/)), la cual tiene una nómina limitada de métodos para comparar.
 
 Tiene dos modos de comparación:
@@ -203,6 +200,18 @@ Ejemplo:
     ->conIntervaloDe(5)
     ->seHayaEjecutado();
 ```
+### Ejecución
+Para ejecutar las pruebas sólo basta con compilar el proyecto, empaquetar el binario, grabarlo en el dispositivo y por último observar el monitor serial para ver el resultado de las pruebas.
+
+Para facilitar este trabajo puede utilizarse herramientas como:
+- Plaformio
+- Herramienta CLI de Chil
+
+#### Herramientas
+Para compilar y subir el código al dispositivo ejecutor de pruebas se utilizará la herramienta de [PlatformIO](https://platformio.org/) por lo que es necesario tener instalada la [CLI (herramienta de línea de comando)](https://docs.platformio.org/en/latest/core/index.html) como lo explica su documentación.
+
+#### CLI de Chil
+Ver la documentación de la  [herramienta CLI de Chil](./herramientas/README.md)
 
 ## Contribución
 ### Entorno
