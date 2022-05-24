@@ -19,7 +19,6 @@ Framework para escribir pruebas utilizando un dispositivo físico como ejecutor.
       - [Constucción](#construccin)
 
 ## Motivación
-
 La motivación original detrás de todo el proyecto fue la necesidad de crear una herramienta que sea habilitante para realizar prácticas con pruebas automatizadas (TDD, BDD, Integración Continua) al mundo de microcontroladores que está creciendo. 
 
 Desde hace varios años, el mercado de microcontroladores fue mutando y por ende emergieron nuevas generaciones de procesadores con mayor espacio y mayor capacidad de cómputo que permite poner software de tamaño considerable (hasta MBs) lo que genera un crecimiento en la complejidad del mismo. 
@@ -39,6 +38,45 @@ Varios usos pueden ser interpretados de esta herramienta. Algunos ejemplos:
 Se pueden encontrar algunos ejemplos de uso completos con proyectos de muestra en la [carpeta de ejemplos](./ejemplos)
 
 ### Creación del proyecto
+A la hora de crear un proyecto nuevo se debe crear para la plataforma que será encargada de ejecutar las pruebas. Para ello se pueden utilizar cualquier tipo de herramienta para realizar la construcción del código, la instalación en el dispositivo y el monitoreo a través de Serial. Herramientas de este tipo puede ser [Platformio](https://platformio.org/) que permite realizar un setup rápido.
+
+Lo importante es que se pueda observar el output enviado al puerto `Serial`, ya que es el lugar por el cual se muestra el avance y resultado de las pruebas.
+
+#### Importar la librería
+(A modo de referencia se utilizarán ejemplos para plataforma ESP)
+
+Hay dos maneras de hacer esto:
+1. **[Recomendada] Importación utiliazando el gestor de dependencias de [Platformio](https://platformio.org/)**: se debe agregar al `platformio.ini`. 
+```ini
+lib_deps =
+    joacomf/Chil
+    joacomf/Chil-plataforma-ESP
+```
+2. **Import manual**: Descargando el último empaquetado de codigo fuente de la herramienta desde la sección [releases del repositorio](https://github.com/joacomf/chil/releases) e importandolo con CMake u otra herramienta utilizada para gestión de dependencias proyectos C++. \
+Lo mismo pero para la plataforma a utilizar, como la de ESP desde la sección [releases del repositorio de ESP](https://github.com/joacomf/chil-plataforma-esp/releases) 
+
+#### Estructura de archivos mínima
+Utilzando import platformIO debería ser
+```text
+proyecto/
+├─ .pio/
+├─ src/
+│  ├─ main.cpp
+├─ CMakeLists.txt
+├─ CMakeListsPrivate.txt
+├─ platformio.ini
+├─ README.md
+```
+
+Utilizando import manual
+```text
+proyecto/
+├─ src/
+│  ├─ main.cpp
+├─ .gitignore
+├─ CMakeLists.txt
+├─ README.md
+```
 
 ### Creación del contexto de pruebas
 Para poder comenzar a escribir casos de prueba/ejemplos/escenarios de comportamiento,
@@ -127,10 +165,10 @@ Otra manera de definir los escenarios puede ser referenciando a una función, es
 Como se puede observar en los ejemplos anteriores se hace uso de el método `verificar()` el cual pertenece una librería de verificaciones ofrecida por `Chil` se explicará con detalle en la sección [librería de verificación](#librera-de-verificacin).
 
 ## Librería de verificación
-Para facilitar la verificación de valores obtenidos, se propuso una librería al estilo de AssertJ, la cual tiene una nómina limitada de métodos para comparar.
+Para facilitar la verificación de valores obtenidos, se propuso una librería (inspirada en [AssertJ](https://assertj.github.io/doc/)), la cual tiene una nómina limitada de métodos para comparar.
 
-Tiene dos modos de comparación. Una es sobre un valor existente
-
+Tiene dos modos de comparación:
+1. El primero es sobre un valor existente y el otro es realizando.
 Para su utilización se invoca el método `verificar(valor)` siendo `valor` el dato en cuestión y luego se puede llamar a cualquiera de los métodos de la siguiente lista:
 
 - `esVerdadero()`: Corrobora si el valor es verdadero
@@ -141,7 +179,30 @@ Para su utilización se invoca el método `verificar(valor)` siendo `valor` el d
 - `esMayorOIgualA(Tipo valorConElCualComparar)`: Corrobora si el valor es mayor o igual al indicado
 - `esMenorOIgualA(Tipo valorConElCualComparar)`: Corrobora si el valor es menor o igual al indicado
 - `entre(Tipo valorInferior, Tipo valorSuperior)`: Corrobora si el valor a verificar esta entre dos valores dados [incluidos]
+Ejemplo:
+```c++
+verificar<int>(5)->esIgualA(5);
+```
 
+2. El segundo modo es realizando un sondeo repetitivo con cierta acción, un ejemplo donde puede ser útil sondear el valor de una entrada digital.
+
+Para su utilización se debe llamar al método `comprobar(metodo)` siendo `método` el método a ejecutar cada cierto tiempo. La firma de este método debe devolver un valor booleano indicando si la verificación fue exitosa o no.
+
+Para definir las propiedades del sondeo, se pueden usar los métodos:
+- `durante(int milisegundos)`: Configura el tiempo límite en milisegundos durante el cual se hará sondeo. Valor por defecto `1000`
+- `conIntervaloDe(int milisegundos)`: Configura el tiempo de espera entre un sondeo y el siguiente en milisegundos. Valor por defecto `1`
+
+Al final se debe cerrar con el método `seHayaEjecutado()`.
+
+Ejemplo: 
+```c++
+    comprobar([]() {
+        return PLATAFORMA->leer(PIN_BOTON) == 1;
+    })
+    ->durante(201)
+    ->conIntervaloDe(5)
+    ->seHayaEjecutado();
+```
 
 ## Contribución
 ### Entorno
