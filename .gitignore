@@ -67,3 +67,7 @@ documentacion/docs/
 _deps
 
 reporte/
+
+gcoverage/
+tests/lcoverage
+tests/coverage.info
