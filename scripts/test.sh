@@ -4,8 +4,8 @@ set -e
 BASEDIR=$(dirname "$0")
 
 if [[ $1 == "-nb" ]]; then
-  $BASEDIR/../tests/tests --gtest_output=xml:reporte/xunit.xml
+  "$BASEDIR"/../tests/tests
 else
-  $BASEDIR/build.sh
-  $BASEDIR/../tests/tests --gtest_output=xml:reporte/xunit.xml
+  "$BASEDIR"/build.sh
+  "$BASEDIR"/../tests/tests
 fi
