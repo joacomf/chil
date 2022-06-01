@@ -14,6 +14,7 @@ add_executable(
 
         src/tests.cpp
         src/ChilTest.cpp
+        src/modelo/utilidades/literalesTest.cpp
         src/modelo/EscenarioTest.cpp
         src/modelo/PasoTest.cpp
         src/modelo/ResumenTest.cpp

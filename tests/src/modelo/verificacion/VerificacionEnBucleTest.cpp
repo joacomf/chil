@@ -82,6 +82,7 @@ TEST(VerificacionEnBucleTest, elMensajeDeLaExcepcionLanzadaIndicaLasCaracteristi
 
     } catch (AccionNoEjecutadaExcepcion& excepcion) {
         ASSERT_EQ(excepcion.obtenerMensaje(), "La accion indicada no se corroboro en el periodo de 201ms con un intervalo de 5ms entre cada verificacion");
+        ASSERT_STREQ(excepcion.what(), "La accion indicada no se corroboro en el periodo de 201ms con un intervalo de 5ms entre cada verificacion");
     }
 
     delete plataformaMock;

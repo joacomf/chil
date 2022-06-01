@@ -17,5 +17,6 @@ TEST(VerificacionEntreValoresTest, alNoEstarEntre2ValoresSeLanzaExepcionInforman
         verificar<double>(2.2)->entre(3.3, 4.4);
     } catch (ValorNoEstaEntreExcepcion<double>& excepcion) {
         ASSERT_EQ(excepcion.obtenerMensaje(),"Se esperaba que el valor 2.2 este entre 3.3 y 4.4 pero no lo esta");
+        ASSERT_STREQ(excepcion.what(),"Se esperaba que el valor 2.2 este entre 3.3 y 4.4 pero no lo esta");
     }
 }
