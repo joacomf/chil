@@ -1,10 +1,13 @@
 cmake_minimum_required (VERSION 3.10)
+project(tests)
+
+add_definitions(-fprofile-arcs -ftest-coverage)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fprofile-arcs -ftest-coverage")
 
-# Construir la libreria de GoogleTest
-add_subdirectory(vendor)
+set(OBJECT_DIR ${CMAKE_BINARY_DIR}/tests/CMakeFiles/tests.dir/src)
+message("-- Los archivos de objeto serán enviados a: ${OBJECT_DIR}")
 
 add_executable(
         tests
@@ -60,15 +63,65 @@ add_executable(
         ../src/utilidades/exportador/ExportadorJSON.h
         )
 
-add_test(NAME check COMMAND tests)
-
 target_include_directories (
         tests
         PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${CMAKE_CURRENT_SOURCE_DIR}/../include
         ${CMAKE_CURRENT_SOURCE_DIR}/../src
 )
 
-# Link Libreria Google Test
-target_link_libraries(tests gmock_main)
+# Construir la libreria de GoogleTest
+add_subdirectory(vendor)
+
+add_custom_target(init
+        COMMAND ${CMAKE_MAKE_PROGRAM} clean
+        COMMAND rm -f ${OBJECT_DIR}/*.gcno
+        COMMAND rm -f ${OBJECT_DIR}/*.gcda
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+        )
+
+add_custom_target(gcov
+        COMMAND mkdir -p gcoverage
+        COMMAND tests check
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+        )
+
+add_custom_command(TARGET gcov
+        COMMAND echo "=================== GCOV ===================="
+        COMMAND echo "Directorio objetos ${OBJECT_DIR}"
+        COMMAND gcov -b ${CMAKE_SOURCE_DIR}/src/ -o ${OBJECT_DIR}/*
+        COMMAND echo "-- Directorio fuente: ${CMAKE_SOURCE_DIR}/src/"
+        COMMAND echo "-- Los archivos de cobertura estan en ${CMAKE_BINARY_DIR}/gcoverage"
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/gcoverage
+        )
+add_dependencies(gcov tests)
+
+add_custom_target(lcov
+        COMMAND rm -r lcoverage
+        COMMAND mkdir -p lcoverage
+        )
+add_custom_command(TARGET lcov
+        COMMAND echo "=================== LCOV ===================="
+        COMMAND echo "-- Ejecutando lcov sobre los archivos de cobertura"
+        COMMAND lcov --capture --directory . --output-file coverage.info
+        COMMAND lcov --remove coverage.info "*/include/*" --remove coverage.info "*/_deps/*" --remove coverage.info "*/tests/*" --output-file coverage.info
+        COMMAND lcov --list coverage.info
+        )
+
+add_custom_target(reporte
+        COMMAND echo "-- Generando archivo HTML"
+        COMMAND genhtml coverage.info --output-directory lcoverage
+        )
+
+add_test(output_test ${CMAKE_CURRENT_BINARY_DIR}/tests)
+
+# Make sure to clean up the coverage folder
+set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES gcoverage)
+
+enable_testing()
+
+add_test(NAME check COMMAND tests)
+
+target_link_libraries(tests gtest)
+target_link_libraries(tests gmock)
+target_link_libraries(tests -fprofile-arcs)

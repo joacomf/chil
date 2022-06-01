@@ -19,7 +19,11 @@ jobs:
     - name: Pruebas
       working-directory: ${{github.workspace}}
       shell: bash
-      run: ./scripts/test.sh -nb
+      run: ./scripts/test.sh -no-build -cobertura
+
+    - uses: codecov/codecov-action@v2
+      with:
+        files: ./tests/coverage.info
 
   publicar-documentacion:
     runs-on: ubuntu-latest
