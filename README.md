@@ -1,5 +1,6 @@
 # CHIL - C++ hardware-in-the-loop testing 
-[![Pipeline](https://github.com/joacomf/chil/actions/workflows/pipeline.yml/badge.svg?branch=master)](https://github.com/joacomf/chil/actions/workflows/pipeline.yml) [![PlatformIO Registry](https://badges.registry.platformio.org/packages/joacomf/library/Chil.svg)](https://registry.platformio.org/libraries/joacomf/Chil)
+[![Pipeline](https://github.com/joacomf/chil/actions/workflows/pipeline.yml/badge.svg?branch=master)](https://github.com/joacomf/chil/actions/workflows/pipeline.yml) [![codecov](https://codecov.io/gh/joacomf/chil/branch/master/graph/badge.svg?token=LNUE0ZBNP4)](https://codecov.io/gh/joacomf/chil) [![PlatformIO Registry](https://badges.registry.platformio.org/packages/joacomf/library/Chil.svg)](https://registry.platformio.org/libraries/joacomf/Chil)
+
 
 Framework para escribir pruebas utilizando un dispositivo físico como ejecutor.
 
