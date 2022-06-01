@@ -97,7 +97,6 @@ add_custom_command(TARGET gcov
 add_dependencies(gcov tests)
 
 add_custom_target(lcov
-        COMMAND rm -r lcoverage
         COMMAND mkdir -p lcoverage
         )
 add_custom_command(TARGET lcov
