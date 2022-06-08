@@ -13,6 +13,5 @@ var searchData=
   ['consola_17',['consola',['../classPlataforma.html#ab194e1bcb7f197d41f47279603f47058',1,'Plataforma']]],
   ['crear_18',['crear',['../classChil.html#acec621fc7b10de9177c81e0f5e06fb47',1,'Chil']]],
   ['crearredwifi_19',['crearRedWiFi',['../classPlataforma.html#aca288646c973beaefa07599f754b2b44',1,'Plataforma']]],
-  ['crearservidorweb_20',['crearServidorWeb',['../classPlataforma.html#a578753e1743529cf79b4d1911d735a75',1,'Plataforma']]],
-  ['chil_20_2d_20c_2b_2b_20hardware_2din_2dthe_2dloop_20testing_21',['CHIL - C++ hardware-in-the-loop testing',['../index.html',1,'']]]
+  ['crearservidorweb_20',['crearServidorWeb',['../classPlataforma.html#a578753e1743529cf79b4d1911d735a75',1,'Plataforma']]]
 ];

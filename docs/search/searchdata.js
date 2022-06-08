@@ -8,8 +8,7 @@ var indexSectionsWithContent =
   5: "hinp",
   6: "m",
   7: "gp",
-  8: "cefnp",
-  9: "c"
+  8: "cefnp"
 };
 
 var indexSectionNames =
@@ -22,8 +21,7 @@ var indexSectionNames =
   5: "variables",
   6: "enums",
   7: "enumvalues",
-  8: "defines",
-  9: "pages"
+  8: "defines"
 };
 
 var indexSectionLabels =
@@ -36,7 +34,6 @@ var indexSectionLabels =
   5: "Variables",
   6: "Enumeraciones",
   7: "Valores de enumeraciones",
-  8: "defines",
-  9: "Páginas"
+  8: "defines"
 };
 

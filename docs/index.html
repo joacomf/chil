@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.17"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>Chil: CHIL - C++ hardware-in-the-loop testing</title>
+        <title>Chil: Página principal</title>
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -72,13 +72,13 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">CHIL - C++ hardware-in-the-loop testing </div>  </div>
+<div class="title">Chil Documentación</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a href="https://github.com/joacomf/chil/actions/workflows/pipeline.yml"><object type="image/svg+xml" data="https://github.com/joacomf/chil/actions/workflows/pipeline.yml/badge.svg?branch=master" style="pointer-events: none;">Pipeline</object></a> <a href="https://codecov.io/gh/joacomf/chil"><object type="image/svg+xml" data="https://codecov.io/gh/joacomf/chil/branch/master/graph/badge.svg?token=LNUE0ZBNP4" style="pointer-events: none;">codecov</object></a> <a href="https://registry.platformio.org/libraries/joacomf/Chil"><object type="image/svg+xml" data="https://badges.registry.platformio.org/packages/joacomf/library/Chil.svg" style="pointer-events: none;">PlatformIO Registry</object></a></p>
+<div class="textblock"><p><img src="ejemplos/baliza-ic/imagenes/chil-banner.png" alt="Logo" class="inline"/> <a href="https://github.com/joacomf/chil/actions/workflows/pipeline.yml"><object type="image/svg+xml" data="https://github.com/joacomf/chil/actions/workflows/pipeline.yml/badge.svg?branch=master" style="pointer-events: none;">Pipeline</object></a> <a href="https://codecov.io/gh/joacomf/chil"><object type="image/svg+xml" data="https://codecov.io/gh/joacomf/chil/branch/master/graph/badge.svg?token=LNUE0ZBNP4" style="pointer-events: none;">codecov</object></a> <a href="https://registry.platformio.org/libraries/joacomf/Chil"><object type="image/svg+xml" data="https://badges.registry.platformio.org/packages/joacomf/library/Chil.svg" style="pointer-events: none;">PlatformIO Registry</object></a></p>
 <p>Framework para escribir pruebas utilizando un dispositivo físico como ejecutor.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Tabla de contenido</h1>
+<h2><a class="anchor" id="autotoc_md0"></a>
+Tabla de contenido</h2>
 <ul>
 <li><a href="#motivacin">Motivación</a></li>
 <li><a href="#usos">Usos</a></li>
@@ -95,13 +95,13 @@ Tabla de contenido</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md2"></a>
-Motivación</h1>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Motivación</h2>
 <p>La motivación original detrás de todo el proyecto fue la necesidad de crear una herramienta que sea habilitante para realizar prácticas con pruebas automatizadas (TDD, BDD, Integración Continua) al mundo de microcontroladores que está creciendo.</p>
 <p>Desde hace varios años, el mercado de microcontroladores fue mutando y por ende emergieron nuevas generaciones de procesadores con mayor espacio y mayor capacidad de cómputo que permite poner software de tamaño considerable (hasta MBs) lo que genera un crecimiento en la complejidad del mismo.</p>
 <p>Antes se programaban dispositivos con una cantidad limitada de condiciones lo que permitía verificar rápidamente de manera manual si cumplía con el funcionamiento adecuado.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
-Usos</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Usos</h2>
 <p>Varios usos pueden ser interpretados de esta herramienta. Algunos ejemplos:</p><ol type="1">
 <li>Usarlo como herramienta para guiar el desarrollo. Se puede usar en la práctica de BDD/ATDD para definir el comportamiento del producto y a partir realizar el desarrollo para que cumpla con esas especificaciones/comportamiento.</li>
 <li>Se puede utilizar como herramienta para probar el desarrollo luego de haberlo realizado, de manera de dejar un arnés de seguridad para el código escrito</li>
@@ -109,15 +109,18 @@ Usos</h1>
 <li>Un uso menos común pero igual de válido es para explorar un producto a partir de lo que uno piensa que debería hacer, un ejemplo de este caso es la aplicación de ingeniería inversa si es que no se tiene el código del dispositivo aún o si el mismo es difícil de entender.</li>
 <li>Cualquier otro propósito que ayude al procesos de construir algún producto</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md4"></a>
-Modo de uso</h1>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Modo de uso</h2>
 <p>Se pueden encontrar algunos ejemplos de uso completos con proyectos de muestra en la <a href="./ejemplos">carpeta de ejemplos</a></p>
-<h2><a class="anchor" id="autotoc_md5"></a>
-Creación del proyecto</h2>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Video ejemplo de baliza de IC</h2>
+<p><a href="https://www.youtube.com/watch?v=wOamUPrTUvg"><img src="https://img.youtube.com/vi/wOamUPrTUvg/0.jpg" alt="Video ejemplo baliza IC" class="inline"/></a></p>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Creación del proyecto</h3>
 <p>A la hora de crear un proyecto nuevo se debe crear para la plataforma que será encargada de ejecutar las pruebas. Para ello se pueden utilizar cualquier tipo de herramienta para realizar la construcción del código, la instalación en el dispositivo y el monitoreo a través de Serial. Herramientas de este tipo puede ser <a href="https://platformio.org/">Platformio</a> que permite realizar un setup rápido.</p>
 <p>Lo importante es que se pueda observar el output enviado al puerto <code>Serial</code>, ya que es el lugar por el cual se muestra el avance y resultado de las pruebas.</p>
-<h3><a class="anchor" id="autotoc_md6"></a>
-Importar la librería</h3>
+<h4><a class="anchor" id="autotoc_md6"></a>
+Importar la librería</h4>
 <p>(A modo de referencia se utilizarán ejemplos para plataforma ESP)</p>
 <p>Hay dos maneras de hacer esto:</p><ol type="1">
 <li><b>[Recomendada] Importación utiliazando el gestor de dependencias de <a href="https://platformio.org/">Platformio</a></b>: se debe agregar al <code>platformio.ini</code>. <div class="fragment"><div class="line">lib_deps =</div>
@@ -126,8 +129,8 @@ Importar la librería</h3>
 </div><!-- fragment --></li>
 <li><b>Import manual</b>: Descargando el último empaquetado de codigo fuente de la herramienta desde la sección <a href="https://github.com/joacomf/chil/releases">releases del repositorio</a> e importandolo con CMake u otra herramienta utilizada para gestión de dependencias proyectos C++. \ Lo mismo pero para la plataforma a utilizar, como la de ESP desde la sección <a href="https://github.com/joacomf/chil-plataforma-esp/releases">releases del repositorio de ESP</a></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md7"></a>
-Estructura de archivos mínima</h3>
+<h4><a class="anchor" id="autotoc_md7"></a>
+Estructura de archivos mínima</h4>
 <p>Utilzando import platformIO debería ser </p><div class="fragment"><div class="line">proyecto/</div>
 <div class="line">├─ .pio/</div>
 <div class="line">├─ src/</div>
@@ -142,8 +145,8 @@ Estructura de archivos mínima</h3>
 <div class="line">├─ .gitignore</div>
 <div class="line">├─ CMakeLists.txt</div>
 <div class="line">├─ README.md</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
-Creación del contexto de pruebas</h2>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
+Creación del contexto de pruebas</h3>
 <p>Para poder comenzar a escribir casos de prueba/ejemplos/escenarios de comportamiento, primero se debe configurar la herramienta para tener el contexto de ejecución listo</p>
 <p>Para ello en el archivo <code><a class="el" href="main_8cpp.html">main.cpp</a></code> del proyecto de pruebas </p><div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;PlataformaESP.h&gt;</div>
@@ -160,8 +163,8 @@ Creación del contexto de pruebas</h2>
 <div class="line">    FIN_DE_PRUEBAS;</div>
 <div class="line"> </div>
 <div class="line">FIN;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
-Definición de escenarios</h2>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md9"></a>
+Definición de escenarios</h3>
 <p>Para definir los casos de pruebas existen dos macros que ayudan a definir los mismos.</p>
 <p>La primer macro <code>ESCENARIO</code> permite definir el ejemplo concreto/comportamiento de uso del dispositivo.</p>
 <p>Luego cada <a class="el" href="classEscenario.html">Escenario</a> contiene multiples <code>PASO</code> en donde se define una acción concreta para llevar una parte de la representación de ese ejemplo.</p>
@@ -211,36 +214,36 @@ Definición de escenarios</h2>
 <div class="line">   -&gt;durante(201)</div>
 <div class="line">   -&gt;conIntervaloDe(5)</div>
 <div class="line">   -&gt;seHayaEjecutado();</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
-Ejecución</h2>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md10"></a>
+Ejecución</h3>
 <p>Para ejecutar las pruebas sólo basta con compilar el proyecto, empaquetar el binario, grabarlo en el dispositivo y por último observar el monitor serial para ver el resultado de las pruebas.</p>
 <p>Para facilitar este trabajo puede utilizarse herramientas como:</p><ul>
 <li>Plaformio</li>
 <li>Herramienta CLI de <a class="el" href="classChil.html">Chil</a></li>
 </ul>
-<h3><a class="anchor" id="autotoc_md11"></a>
-Herramientas</h3>
+<h4><a class="anchor" id="autotoc_md11"></a>
+Herramientas</h4>
 <p>Para compilar y subir el código al dispositivo ejecutor de pruebas se utilizará la herramienta de <a href="https://platformio.org/">PlatformIO</a> por lo que es necesario tener instalada la <a href="https://docs.platformio.org/en/latest/core/index.html">CLI (herramienta de línea de comando)</a> como lo explica su documentación.</p>
-<h3><a class="anchor" id="autotoc_md12"></a>
-CLI de Chil</h3>
+<h4><a class="anchor" id="autotoc_md12"></a>
+CLI de Chil</h4>
 <p>Ver la documentación de la herramienta CLI de Chil</p>
-<h1><a class="anchor" id="autotoc_md13"></a>
-Contribución</h1>
-<h2><a class="anchor" id="autotoc_md14"></a>
-Entorno</h2>
-<h3><a class="anchor" id="autotoc_md15"></a>
-IDE</h3>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Contribución</h2>
+<h3><a class="anchor" id="autotoc_md14"></a>
+Entorno</h3>
+<h4><a class="anchor" id="autotoc_md15"></a>
+IDE</h4>
 <p>Un IDE recomendado para el desarollo es <a href="https://code.visualstudio.com/">VSCode</a>. También puede utilizarse <a href="https://www.jetbrains.com/es-es/clion/">CLion</a> (No libre).</p>
 <p>Al importarlo utilizando la herramienta de <a href="https://platformio.org/">PlatformIO</a>, la misma se encargará de descargar las líbrerias necesarias.</p>
-<h3><a class="anchor" id="autotoc_md16"></a>
-Herramientas</h3>
+<h4><a class="anchor" id="autotoc_md16"></a>
+Herramientas</h4>
 <p>El proyecto fue desarrollado en un ambiente con sistema operativo con base linux. Para compilar y ejecutar las pruebas del proyecto, se necesita tener las siguientes librerías:</p><ul>
 <li>cmake</li>
 <li>build-essentials</li>
 </ul>
 <p>Para ello en un entorno con base Debian (Ubuntu, LinuxMint, etc): </p><div class="fragment"><div class="line">$ sudo apt install cmake build-essentials</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
-Construcción</h2>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md17"></a>
+Construcción</h3>
 <p>Para construir el proyecto, se podrá ejecutar el script </p><div class="fragment"><div class="line">./scripts/build.sh</div>
 </div><!-- fragment --><p>El mismo se encarga de limpiar el entorno y ejecutar los pasos necesarios para que la construcción sea exitosa. Este script se encargará de instalar las librerías necesarias para ejecutar las pruebas de:</p><ul>
 <li><a href="https://github.com/google/googletest">GTEST</a> - GoogleTest, librería de pruebas para C++ de Google</li>
