@@ -1,4 +1,4 @@
-# CHIL - C++ hardware-in-the-loop testing 
+![Logo](ejemplos/baliza-ic/imagenes/chil-banner.png)
 [![Pipeline](https://github.com/joacomf/chil/actions/workflows/pipeline.yml/badge.svg?branch=master)](https://github.com/joacomf/chil/actions/workflows/pipeline.yml) [![codecov](https://codecov.io/gh/joacomf/chil/branch/master/graph/badge.svg?token=LNUE0ZBNP4)](https://codecov.io/gh/joacomf/chil) [![PlatformIO Registry](https://badges.registry.platformio.org/packages/joacomf/library/Chil.svg)](https://registry.platformio.org/libraries/joacomf/Chil)
 
 
@@ -34,6 +34,9 @@ Varios usos pueden ser interpretados de esta herramienta. Algunos ejemplos:
 
 ## Modo de uso
 Se pueden encontrar algunos ejemplos de uso completos con proyectos de muestra en la [carpeta de ejemplos](./ejemplos)
+
+## Video ejemplo de baliza de IC
+[![Video ejemplo baliza IC](https://img.youtube.com/vi/wOamUPrTUvg/0.jpg)](https://www.youtube.com/watch?v=wOamUPrTUvg)
 
 ### Creación del proyecto
 A la hora de crear un proyecto nuevo se debe crear para la plataforma que será encargada de ejecutar las pruebas. Para ello se pueden utilizar cualquier tipo de herramienta para realizar la construcción del código, la instalación en el dispositivo y el monitoreo a través de Serial. Herramientas de este tipo puede ser [Platformio](https://platformio.org/) que permite realizar un setup rápido.
